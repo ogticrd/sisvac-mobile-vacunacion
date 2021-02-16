@@ -27,6 +27,7 @@
     <Folder Include="Pages\CheckIn\Views\Questions\" />
     <Folder Include="Pages\Report\" />
     <Folder Include="Pages\Vaccine\" />
+    <Folder Include="Resources\Images\" />
     <Folder Include="ViewModels\CheckIn\" />
     <Folder Include="ViewModels\Report\" />
     <Folder Include="ViewModels\Vaccine\" />
