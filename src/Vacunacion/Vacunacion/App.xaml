@@ -1,10 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <prism:PrismApplication
-        xmlns="http://xamarin.com/schemas/2014/forms"
-        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-        xmlns:prism="http://prismlibrary.com"
-             x:Class="Vacunacion.App">
+    x:Class="Vacunacion.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.Resources;assembly=XF.Material"
+    xmlns:prism="http://prismlibrary.com">
     <Application.Resources>
+
+        <mtrl:MaterialColorConfiguration
+            x:Key="Material.Color"
+            Background="#F1F4F7"
+            Error="#B00020"
+            OnBackground="#000000"
+            OnError="#FFFFFF"
+            OnPrimary="#FFFFFF"
+            OnSecondary="#FFFFFF"
+            OnSurface="#000000"
+            Primary="#003876"
+            PrimaryVariant="#144070"
+            Secondary="#022A57"
+            SecondaryVariant="#012041"
+            Surface="#FFFFFF" />
+
+        <mtrl:MaterialConfiguration x:Key="Material.Configuration" ColorConfiguration="{StaticResource Material.Color}" />
 
     </Application.Resources>
 </prism:PrismApplication>
