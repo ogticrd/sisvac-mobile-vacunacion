@@ -22,11 +22,18 @@ namespace Vacunacion.Droid
 
             LoadApplication(new App(new AndroidInitializer()));
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        public override void OnBackPressed()
+        {
+            XF.Material.Droid.Material.HandleBackButton(base.OnBackPressed);
+            //No need to call  Rg.Plugins.Popup.Popup.SendBackPressed();
         }
     }
 }
