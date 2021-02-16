@@ -18,17 +18,16 @@
     <PackageReference Include="Prism.DryIoc.Forms" Version="8.0.0.1909" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.1.0" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.1.0" />
+    <PackageReference Include="XF.Material" Version="1.7.7" />
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Framework\" />
     <Folder Include="Pages\Base\Views\" />
     <Folder Include="Pages\CheckIn\Views\Questions\" />
-    <Folder Include="Pages\Login\" />
     <Folder Include="Pages\Report\" />
     <Folder Include="Pages\Vaccine\" />
     <Folder Include="ViewModels\CheckIn\" />
-    <Folder Include="ViewModels\Login\" />
     <Folder Include="ViewModels\Report\" />
     <Folder Include="ViewModels\Vaccine\" />
   </ItemGroup>
@@ -36,5 +35,10 @@
     <Compile Update="Pages\Base\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\Login\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
