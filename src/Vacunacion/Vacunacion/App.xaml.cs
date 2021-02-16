@@ -37,6 +37,7 @@ namespace Vacunacion
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomePage>();
             containerRegistry.RegisterForNavigation<LoginPage>();
+            containerRegistry.RegisterForNavigation<ConfirmSignIn>();
         }
     }
 }

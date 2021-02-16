@@ -3,17 +3,81 @@
     x:Class="Vacunacion.Pages.Login.LoginPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:hlps="clr-namespace:Vacunacion.Helpers;assembly=Vacunacion"
+    xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     prism:ViewModelLocator.AutowireViewModel="True"
-    NavigationPage.HasNavigationBar="False" >
+    BackgroundColor="{StaticResource Material.Color.Background}"
+    NavigationPage.HasNavigationBar="False">
 
-    <StackLayout>
+    <StackLayout
+        Padding="16"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
 
-        <Image Source="icon" />
+        <Image
+            HeightRequest="38"
+            HorizontalOptions="End"
+            Source="{hlps:ImageResource logo_cupula.png}"
+            WidthRequest="38" />
 
-        <Label Text="Inicia sesión para comenzar tu dia" />
+        <StackLayout Spacing="16" VerticalOptions="CenterAndExpand">
 
-        <material:MaterialTextField Placeholder="Placeholder" HelperText="Helper Text" ErrorText="Error Text" Text="Input Text" InputType="Default" />
+            <Image
+                HeightRequest="132"
+                Source="{hlps:ImageResource logo.png}"
+                WidthRequest="132" />
+
+            <Label
+                Margin="0,0,0,32"
+                FontSize="{StaticResource Material.FontSize.Body1}"
+                HorizontalOptions="Center"
+                Text="Inicia sesión para comenzar tu dia"
+                TextColor="{StaticResource Material.Color.Secondary}" />
+
+
+            <Grid RowDefinitions="*,16">
+
+                <Frame
+                    BackgroundColor="White"
+                    CornerRadius="8"
+                    HeightRequest="28" />
+
+                <material:MaterialTextField
+                    Grid.RowSpan="2"
+                    Padding="4,6,4,6"
+                    AlwaysShowUnderline="False"
+                    CardBackgroundColor="Transparent"
+                    ErrorText="Error Text"
+                    HelperText="Helper Text"
+                    HelperTextColor="{StaticResource Material.Color.OnSurface}"
+                    InputType="Default"
+                    Placeholder="Número de Cedula"
+                    ShouldAnimateUnderline="False"
+                    Text="000-0000000-0"
+                    TextFontSize="18"
+                    UnderlineColor="Transparent" />
+            </Grid>
+
+
+            <material:MaterialButton
+                Command="{prism:NavigateTo 'ConfirmSignIn'}"
+                CornerRadius="50"
+                HeightRequest="65"
+                HorizontalOptions="FillAndExpand"
+                Text="Iniciar Sesión"
+                TextColor="White"
+                VerticalOptions="Center" />
+
+            <material:MaterialButton
+                ButtonType="Outlined"
+                CornerRadius="50"
+                HeightRequest="65"
+                HorizontalOptions="FillAndExpand"
+                Text="Escanear QR Cedula"
+                VerticalOptions="Center" />
+
+        </StackLayout>
 
     </StackLayout>
 

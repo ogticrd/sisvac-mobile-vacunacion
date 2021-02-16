@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Vacunacion.Pages.Login.ConfirmSignIn"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:hlps="clr-namespace:Vacunacion.Helpers;assembly=Vacunacion"
+    xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:prism="http://prismlibrary.com"
+    Title="Confirmando Ingreso"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <StackLayout
+        Padding="16"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+
+        <StackLayout Spacing="8" VerticalOptions="CenterAndExpand">
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="{StaticResource Material.FontSize.H6}"
+                HorizontalOptions="Center"
+                Text="¡Bievenid@ de vuelta!"
+                TextColor="{StaticResource Material.Color.Secondary}" />
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="{StaticResource Material.FontSize.H6}"
+                HorizontalOptions="Center"
+                Text="Isbel C. Bautista"
+                TextColor="{StaticResource Material.Color.Secondary}"
+                TranslationY="-8" />
+
+            <Label
+                Margin="0,0,0,32"
+                FontSize="{StaticResource Material.FontSize.Body1}"
+                HorizontalOptions="Center"
+                Text="Por favor confirma tu locacion para el día de hoy!"
+                TextColor="{StaticResource Material.Color.Secondary}" />
+
+
+            <Grid RowDefinitions="*,16">
+
+                <Frame
+                    BackgroundColor="White"
+                    CornerRadius="8"
+                    HeightRequest="28" />
+
+                <material:MaterialTextField
+                    Grid.RowSpan="2"
+                    Padding="4,6,4,6"
+                    AlwaysShowUnderline="False"
+                    CardBackgroundColor="Transparent"
+                    ErrorText="Error Text"
+                    HelperText="Helper Text"
+                    HelperTextColor="{StaticResource Material.Color.OnSurface}"
+                    InputType="Choice"
+                    Placeholder="Centro Vacunación"
+                    ShouldAnimateUnderline="False"
+                    TextFontSize="18"
+                    UnderlineColor="Transparent">
+                    <material:MaterialTextField.Choices>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Centro 1</x:String>
+                            <x:String>Centro 2</x:String>
+                        </x:Array>
+                    </material:MaterialTextField.Choices>
+                </material:MaterialTextField>
+            </Grid>
+
+            <Grid RowDefinitions="*,16">
+
+                <Frame
+                    BackgroundColor="White"
+                    CornerRadius="8"
+                    HeightRequest="28" />
+
+                <material:MaterialTextField
+                    Grid.RowSpan="2"
+                    Padding="4,6,4,6"
+                    AlwaysShowUnderline="False"
+                    CardBackgroundColor="Transparent"
+                    ErrorText="Error Text"
+                    HelperText="Helper Text"
+                    HelperTextColor="{StaticResource Material.Color.OnSurface}"
+                    InputType="Choice"
+                    Placeholder="¿Que Funcion realizaras hoy?"
+                    ShouldAnimateUnderline="False"
+                    TextFontSize="18"
+                    UnderlineColor="Transparent">
+                    <material:MaterialTextField.Choices>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Edecan</x:String>
+                            <x:String>Vacunador</x:String>
+                        </x:Array>
+                    </material:MaterialTextField.Choices>
+                </material:MaterialTextField>
+            </Grid>
+
+
+            <material:MaterialButton
+                Margin="0,8,0,0"
+                CornerRadius="50"
+                HeightRequest="65"
+                HorizontalOptions="FillAndExpand"
+                Text="Confirmar"
+                TextColor="White"
+                VerticalOptions="Center" />
+
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>
