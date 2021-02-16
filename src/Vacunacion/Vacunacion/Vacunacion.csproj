@@ -22,7 +22,19 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Framework\" />
-    <Folder Include="Pages\" />
-    <Folder Include="ViewModels\" />
+    <Folder Include="Pages\Base\Views\" />
+    <Folder Include="Pages\CheckIn\Views\Questions\" />
+    <Folder Include="Pages\Login\" />
+    <Folder Include="Pages\Report\" />
+    <Folder Include="Pages\Vaccine\" />
+    <Folder Include="ViewModels\CheckIn\" />
+    <Folder Include="ViewModels\Login\" />
+    <Folder Include="ViewModels\Report\" />
+    <Folder Include="ViewModels\Vaccine\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Pages\Base\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
