@@ -4,25 +4,55 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mtrl="clr-namespace:XF.Material.Forms.Resources;assembly=XF.Material"
+    xmlns:mtrlUI="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com">
     <Application.Resources>
 
+        <!--#region Colors-->
+        <Color x:Key="PrimaryColor">#003876</Color>
+        <Color x:Key="SecondaryColor">#022A57</Color>
+
+        <Color x:Key="BackgroundColor">#F1F4F7</Color>
+        <Color x:Key="OnBackgroundColor">#000000</Color>
+
+        <Color x:Key="SurfaceColor">#FFFFFF</Color>
+        <Color x:Key="OnSurfaceColor">#9D9CA6</Color>
+
+        <Color x:Key="ErrorColor">#B00020</Color>
+        <Color x:Key="LinkColor">#4285F4</Color>
+        <!--#endregion-->
+
+
         <mtrl:MaterialColorConfiguration
             x:Key="Material.Color"
-            Background="#F1F4F7"
-            Error="#B00020"
-            OnBackground="#000000"
+            Background="{StaticResource BackgroundColor}"
+            Error="{StaticResource ErrorColor}"
+            OnBackground="{StaticResource OnBackgroundColor}"
             OnError="#FFFFFF"
             OnPrimary="#FFFFFF"
             OnSecondary="#FFFFFF"
-            OnSurface="#9D9CA6"
-            Primary="#003876"
+            OnSurface="{StaticResource OnSurfaceColor}"
+            Primary="{StaticResource PrimaryColor}"
             PrimaryVariant="#144070"
-            Secondary="#022A57"
+            Secondary="{StaticResource SecondaryColor}"
             SecondaryVariant="#012041"
-            Surface="#FFFFFF" />
+            Surface="{StaticResource SurfaceColor}" />
 
         <mtrl:MaterialConfiguration x:Key="Material.Configuration" ColorConfiguration="{StaticResource Material.Color}" />
+
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="{StaticResource PrimaryColor}" />
+        </Style>
+
+        <Style TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}" />
+            <Setter Property="Padding" Value="{OnPlatform Android='0', iOS='0,20,0,0'}" />
+            <Setter Property="mtrlUI:MaterialNavigationPage.StatusBarColor" Value="{StaticResource SecondaryColor}" />
+        </Style>
+
+        <Style TargetType="Frame">
+            <Setter Property="HasShadow" Value="{OnPlatform True, iOS=False}" />
+        </Style>
 
     </Application.Resources>
 </prism:PrismApplication>

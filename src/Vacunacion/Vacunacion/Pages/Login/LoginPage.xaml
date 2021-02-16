@@ -61,6 +61,7 @@
 
 
             <material:MaterialButton
+                AllCaps="False"
                 Command="{prism:NavigateTo 'ConfirmSignIn'}"
                 CornerRadius="50"
                 HeightRequest="65"
@@ -70,6 +71,7 @@
                 VerticalOptions="Center" />
 
             <material:MaterialButton
+                AllCaps="False"
                 ButtonType="Outlined"
                 CornerRadius="50"
                 HeightRequest="65"
