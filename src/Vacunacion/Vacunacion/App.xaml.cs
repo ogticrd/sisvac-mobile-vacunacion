@@ -6,6 +6,7 @@ using Prism;
 using Prism.Ioc;
 using Prism.Navigation;
 using Vacunacion.Pages.Login;
+using Vacunacion.ViewModels.Login;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -35,8 +36,7 @@ namespace Vacunacion
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<HomePage>();
-            containerRegistry.RegisterForNavigation<LoginPage>();
+            containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<ConfirmSignIn>();
         }
     }

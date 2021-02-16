@@ -6,7 +6,6 @@
     xmlns:hlps="clr-namespace:Vacunacion.Helpers;assembly=Vacunacion"
     xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
-    prism:ViewModelLocator.AutowireViewModel="True"
     BackgroundColor="{StaticResource Material.Color.Background}"
     NavigationPage.HasNavigationBar="False">
 
@@ -52,9 +51,10 @@
                     HelperText="Helper Text"
                     HelperTextColor="{StaticResource Material.Color.OnSurface}"
                     InputType="Default"
-                    Placeholder="Número de Cedula"
+                    Placeholder="Número de Cédula"
                     ShouldAnimateUnderline="False"
-                    Text="000-0000000-0"
+                    Text="{Binding DocumentNumber}"
+                    MaxLength="14"
                     TextFontSize="18"
                     UnderlineColor="Transparent" />
             </Grid>
@@ -76,7 +76,8 @@
                 CornerRadius="50"
                 HeightRequest="65"
                 HorizontalOptions="FillAndExpand"
-                Text="Escanear QR Cedula"
+                Text="Escanear Cédula"
+                Command="{Binding ScanDocumentCommand}"
                 VerticalOptions="Center" />
 
         </StackLayout>
