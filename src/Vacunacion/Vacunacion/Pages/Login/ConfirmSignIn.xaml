@@ -69,6 +69,7 @@
 
             <mtrl:MaterialButton
                 Margin="0,8,0,0"
+                Command="{prism:NavigateTo '/NavigationPage/HomePage'}"
                 Style="{StaticResource ButtonPrimary}"
                 Text="Confirmar" />
 
