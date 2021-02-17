@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Vacunacion.Pages.Vaccine.TrackingVaccinePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="http://prismlibrary.com"
+    Title="Vacunar"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <StackLayout
+        Padding="0,32,0,0"
+        HorizontalOptions="FillAndExpand"
+        Spacing="16"
+        VerticalOptions="FillAndExpand">
+
+        <Label
+            x:Name="stepLabel"
+            FontAttributes="Bold"
+            FontSize="13"
+            Text="1 de 3"
+            TextColor="{StaticResource SecondaryColor}"
+            TranslationX="16" />
+
+        <ProgressBar
+            x:Name="progressBar"
+            Margin="16,0,16,0"
+            Progress="0.5"
+            ProgressColor="{StaticResource SecondaryColor}" />
+
+        <RefreshView IsEnabled="{Binding IsBusy}" IsRefreshing="{Binding IsBusy}">
+
+            <Grid>
+
+                <!--<views:VerificationNumberView IsVisible="False">
+                    <views:VerificationNumberView.Triggers>
+                        <DataTrigger
+                            Binding="{Binding PositionView}"
+                            TargetType="ContentView"
+                            Value="0">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </views:VerificationNumberView.Triggers>
+                </views:VerificationNumberView>-->
+
+
+            </Grid>
+        </RefreshView>
+
+    </StackLayout>
+
+
+</ContentPage>

@@ -34,8 +34,6 @@
     <Folder Include="Framework\" />
     <Folder Include="Pages\Base\Views\" />
     <Folder Include="Pages\CheckIn\Views\Questions\" />
-    <Folder Include="Pages\Report\" />
-    <Folder Include="Pages\Vaccine\" />
     <Folder Include="ViewModels\CheckIn\" />
     <Folder Include="ViewModels\Report\" />
     <Folder Include="ViewModels\Vaccine\" />
@@ -50,6 +48,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Base\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\CheckIn\CheckInPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Report\ReportEffectsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Vaccine\TrackingVaccinePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Login\ConfirmSignIn.xaml">

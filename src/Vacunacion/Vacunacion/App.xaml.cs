@@ -6,7 +6,10 @@ using Prism;
 using Prism.Ioc;
 using Prism.Navigation;
 using Vacunacion.Pages.Base;
+using Vacunacion.Pages.CheckIn;
 using Vacunacion.Pages.Login;
+using Vacunacion.Pages.Report;
+using Vacunacion.Pages.Vaccine;
 using Vacunacion.ViewModels.Login;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -39,6 +42,9 @@ namespace Vacunacion
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<ConfirmSignIn>();
             containerRegistry.RegisterForNavigation<HomePage>();
+            containerRegistry.RegisterForNavigation<CheckInPage>();
+            containerRegistry.RegisterForNavigation<ReportEffectsPage>();
+            containerRegistry.RegisterForNavigation<TrackingVaccinePage>();
         }
     }
 }
