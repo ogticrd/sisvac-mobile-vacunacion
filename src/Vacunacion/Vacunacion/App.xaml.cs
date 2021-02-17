@@ -5,6 +5,7 @@ using Microsoft.AppCenter.Crashes;
 using Prism;
 using Prism.Ioc;
 using Prism.Navigation;
+using Vacunacion.Pages.Base;
 using Vacunacion.Pages.Login;
 using Vacunacion.ViewModels.Login;
 using Xamarin.Forms;
@@ -37,6 +38,7 @@ namespace Vacunacion
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<ConfirmSignIn>();
+            containerRegistry.RegisterForNavigation<HomePage>();
         }
     }
 }

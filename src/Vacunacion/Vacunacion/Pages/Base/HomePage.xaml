@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Vacunacion.Pages.Base.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:prism="http://prismlibrary.com"
+    Title="VacunateRD"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary" Text="Ayuda" />
+        <ToolbarItem
+            Command="{prism:NavigateTo '/NavigationPage/LoginPage'}"
+            Order="Secondary"
+            Text="Desloguearse" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Padding="16,32,16,16">
+
+        <Label
+            FontAttributes="Bold"
+            FontSize="24"
+            HorizontalOptions="Center"
+            Text="¡Bienvenid@!"
+            TextColor="{StaticResource PrimaryColor}" />
+
+        <Label
+            Margin="0,0,0,32"
+            FontSize="24"
+            HorizontalOptions="Center"
+            Text="Isbel C. Bautista"
+            TextColor="{StaticResource PrimaryColor}" />
+
+        <Label
+            FontAttributes="Bold"
+            FontSize="14"
+            HorizontalOptions="Center"
+            Text="Localización"
+            TextColor="{StaticResource PrimaryColor}"
+            TextTransform="Uppercase" />
+
+        <Label
+            Margin="0,0,0,32"
+            FontSize="16"
+            HorizontalOptions="Center"
+            Text="Centro Sanitario Santo Domingo"
+            TextColor="{StaticResource PrimaryColor}" />
+
+        <mtrl:MaterialButton
+            Command="{Binding ScanDocumentCommand}"
+            Style="{StaticResource ButtonPrimary}"
+            Text="Verificar CUPON" />
+
+        <mtrl:MaterialButton
+            Command="{Binding ScanDocumentCommand}"
+            Style="{StaticResource ButtonPrimary}"
+            Text="Vacunar" />
+
+        <mtrl:MaterialButton
+            Command="{Binding ScanDocumentCommand}"
+            Style="{StaticResource ButtonPrimary}"
+            Text="Reportar Efectos" />
+
+        <mtrl:MaterialButton
+            Command="{Binding ScanDocumentCommand}"
+            Style="{StaticResource ButtonOutlined}"
+            Text="Ver Estado Vacunacion" />
+
+        <mtrl:MaterialButton
+            Command="{Binding ScanDocumentCommand}"
+            Style="{StaticResource ButtonOutlined}"
+            Text="Cambiar Vacunador" />
+
+    </StackLayout>
+
+</ContentPage>
