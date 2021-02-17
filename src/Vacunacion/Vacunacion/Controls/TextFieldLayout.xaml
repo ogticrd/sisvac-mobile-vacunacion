@@ -8,7 +8,7 @@
 
     <Grid.Resources>
 
-        <Style TargetType="mtrl:MaterialTextField">
+        <Style x:Key="materialTextFieldStyle" TargetType="mtrl:MaterialTextField">
             <Setter Property="CardBackgroundColor" Value="Transparent" />
             <Setter Property="Padding" Value="4,6,4,6" />
             <Setter Property="HelperTextColor" Value="{StaticResource OnSurfaceColor}" />
@@ -22,22 +22,16 @@
 
         </Style>
 
-        <Style x:Key="TextFieldChoiceStyle" TargetType="mtrl:MaterialTextField">
+        <Style BasedOn="{StaticResource materialTextFieldStyle}" TargetType="mtrl:MaterialTextField" />
+
+        <Style
+            x:Key="TextFieldChoiceStyle"
+            BasedOn="{StaticResource materialTextFieldStyle}"
+            TargetType="mtrl:MaterialTextField">
 
             <Setter Property="InputType" Value="Choice" />
             <Setter Property="LeadingIcon" Value="xf_arrow_dropdown" />
             <Setter Property="LeadingIconTintColor" Value="#9D9CA6" />
-
-            <Setter Property="CardBackgroundColor" Value="Transparent" />
-            <Setter Property="Padding" Value="4,6,4,6" />
-            <Setter Property="HelperTextColor" Value="{StaticResource OnSurfaceColor}" />
-            <Setter Property="ShouldAnimateUnderline" Value="False" />
-            <Setter Property="UnderlineColor" Value="Transparent" />
-            <Setter Property="TextFontSize" Value="18" />
-
-            <!--<Setter Property="VerticalOptions" Value="FillAndExpand" />-->
-            <Setter Property="HeightRequest" Value="64" />
-            <Setter Property="Grid.RowSpan" Value="2" />
 
         </Style>
 
