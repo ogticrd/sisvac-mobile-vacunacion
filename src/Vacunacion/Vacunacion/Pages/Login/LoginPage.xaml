@@ -33,7 +33,7 @@
                 FontSize="{StaticResource Material.FontSize.Body1}"
                 HorizontalOptions="Center"
                 Text="Inicia sesión para comenzar tu dia"
-                TextColor="{StaticResource SurfaceColor}" />
+                TextColor="{StaticResource PrimaryColor}" />
 
             <ctrls:TextFieldLayout>
                 <mtrl:MaterialTextField
@@ -44,26 +44,16 @@
                     Text="{Binding DocumentNumber}" />
             </ctrls:TextFieldLayout>
 
-
             <mtrl:MaterialButton
-                AllCaps="False"
-                Command="{prism:NavigateTo 'ConfirmSignIn'}"
-                CornerRadius="50"
-                HeightRequest="65"
-                HorizontalOptions="FillAndExpand"
-                Text="Iniciar Sesión"
-                TextColor="White"
-                VerticalOptions="Center" />
-
-            <mtrl:MaterialButton
-                AllCaps="False"
-                ButtonType="Outlined"
                 Command="{Binding ScanDocumentCommand}"
-                CornerRadius="50"
-                HeightRequest="65"
-                HorizontalOptions="FillAndExpand"
-                Text="Escanear Cédula"
-                VerticalOptions="Center" />
+                Style="{StaticResource ButtonOutlined}"
+                Text="Escanear Cédula" />
+
+            <mtrl:MaterialButton
+                Command="{prism:NavigateTo 'ConfirmSignIn'}"
+                Style="{StaticResource ButtonPrimary}"
+                Text="Iniciar Sesión" />
+
 
         </StackLayout>
 

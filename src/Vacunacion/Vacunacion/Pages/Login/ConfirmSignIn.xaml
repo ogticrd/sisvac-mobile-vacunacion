@@ -3,8 +3,8 @@
     x:Class="Vacunacion.Pages.Login.ConfirmSignIn"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:hlps="clr-namespace:Vacunacion.Helpers;assembly=Vacunacion"
-    xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:ctrls="clr-namespace:Vacunacion.Controls"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     Title="Confirmando Ingreso"
     prism:ViewModelLocator.AutowireViewModel="True">
@@ -21,14 +21,14 @@
                 FontSize="{StaticResource Material.FontSize.H6}"
                 HorizontalOptions="Center"
                 Text="¡Bievenid@ de vuelta!"
-                TextColor="{StaticResource Material.Color.Secondary}" />
+                TextColor="{StaticResource SecondaryColor}" />
 
             <Label
                 FontAttributes="Bold"
                 FontSize="{StaticResource Material.FontSize.H6}"
                 HorizontalOptions="Center"
                 Text="Isbel C. Bautista"
-                TextColor="{StaticResource Material.Color.Secondary}"
+                TextColor="{StaticResource SecondaryColor}"
                 TranslationY="-8" />
 
             <Label
@@ -36,76 +36,41 @@
                 FontSize="{StaticResource Material.FontSize.Body1}"
                 HorizontalOptions="Center"
                 Text="Por favor confirma tu locacion para el día de hoy!"
-                TextColor="{StaticResource Material.Color.Secondary}" />
+                TextColor="{StaticResource SecondaryColor}" />
 
-
-            <Grid RowDefinitions="*,16">
-
-                <Frame
-                    BackgroundColor="White"
-                    CornerRadius="8"
-                    HeightRequest="28" />
-
-                <material:MaterialTextField
-                    Grid.RowSpan="2"
-                    Padding="4,6,4,6"
-                    AlwaysShowUnderline="False"
-                    CardBackgroundColor="Transparent"
+            <ctrls:TextFieldLayout>
+                <mtrl:MaterialTextField
                     ErrorText="Error Text"
                     HelperText="Helper Text"
-                    HelperTextColor="{StaticResource Material.Color.OnSurface}"
-                    InputType="Choice"
                     Placeholder="Centro Vacunación"
-                    ShouldAnimateUnderline="False"
-                    TextFontSize="18"
-                    UnderlineColor="Transparent">
-                    <material:MaterialTextField.Choices>
+                    Style="{StaticResource TextFieldChoiceStyle}">
+                    <mtrl:MaterialTextField.Choices>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Centro 1</x:String>
                             <x:String>Centro 2</x:String>
                         </x:Array>
-                    </material:MaterialTextField.Choices>
-                </material:MaterialTextField>
-            </Grid>
+                    </mtrl:MaterialTextField.Choices>
+                </mtrl:MaterialTextField>
+            </ctrls:TextFieldLayout>
 
-            <Grid RowDefinitions="*,16">
-
-                <Frame
-                    BackgroundColor="White"
-                    CornerRadius="8"
-                    HeightRequest="28" />
-
-                <material:MaterialTextField
-                    Grid.RowSpan="2"
-                    Padding="4,6,4,6"
-                    AlwaysShowUnderline="False"
-                    CardBackgroundColor="Transparent"
+            <ctrls:TextFieldLayout>
+                <mtrl:MaterialTextField
                     ErrorText="Error Text"
                     HelperText="Helper Text"
-                    HelperTextColor="{StaticResource Material.Color.OnSurface}"
-                    InputType="Choice"
-                    Placeholder="¿Que Funcion realizaras hoy?"
-                    ShouldAnimateUnderline="False"
-                    TextFontSize="18"
-                    UnderlineColor="Transparent">
-                    <material:MaterialTextField.Choices>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Edecan</x:String>
-                            <x:String>Vacunador</x:String>
-                        </x:Array>
-                    </material:MaterialTextField.Choices>
-                </material:MaterialTextField>
-            </Grid>
+                    MaxLength="14"
+                    Placeholder="Número de Cédula"
+                    Text="{Binding DocumentNumber}" />
+            </ctrls:TextFieldLayout>
 
+            <mtrl:MaterialButton
+                Command="{Binding ScanDocumentCommand}"
+                Style="{StaticResource ButtonOutlined}"
+                Text="Escanear Cédula" />
 
-            <material:MaterialButton
+            <mtrl:MaterialButton
                 Margin="0,8,0,0"
-                CornerRadius="50"
-                HeightRequest="65"
-                HorizontalOptions="FillAndExpand"
-                Text="Confirmar"
-                TextColor="White"
-                VerticalOptions="Center" />
+                Style="{StaticResource ButtonPrimary}"
+                Text="Confirmar" />
 
         </StackLayout>
 
