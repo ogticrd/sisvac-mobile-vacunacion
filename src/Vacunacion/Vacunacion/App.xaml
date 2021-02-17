@@ -23,6 +23,7 @@
         <!--#endregion-->
 
 
+        <!--#region XF-Material Library Configuration-->
         <mtrl:MaterialColorConfiguration
             x:Key="Material.Color"
             Background="{StaticResource BackgroundColor}"
@@ -39,7 +40,9 @@
             Surface="{StaticResource SurfaceColor}" />
 
         <mtrl:MaterialConfiguration x:Key="Material.Configuration" ColorConfiguration="{StaticResource Material.Color}" />
+        <!--#endregion-->
 
+        <!--#region Styles-->
         <Style TargetType="NavigationPage">
             <Setter Property="BarBackgroundColor" Value="{StaticResource PrimaryColor}" />
         </Style>
@@ -47,12 +50,42 @@
         <Style TargetType="ContentPage">
             <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}" />
             <Setter Property="Padding" Value="{OnPlatform Android='0', iOS='0,20,0,0'}" />
-            <Setter Property="mtrlUI:MaterialNavigationPage.StatusBarColor" Value="{StaticResource SecondaryColor}" />
+            <!--<Setter Property="mtrlUI:MaterialNavigationPage.StatusBarColor" Value="{StaticResource SecondaryColor}" />-->
         </Style>
 
         <Style TargetType="Frame">
             <Setter Property="HasShadow" Value="{OnPlatform True, iOS=False}" />
         </Style>
+
+        <Style x:Key="ButtonBase" TargetType="mtrlUI:MaterialButton">
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+        <Style
+            x:Key="ButtonPrimary"
+            BasedOn="{StaticResource ButtonBase}"
+            TargetType="mtrlUI:MaterialButton">
+
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="HeightRequest" Value="65" />
+            <Setter Property="AllCaps" Value="False" />
+            <Setter Property="CornerRadius" Value="50" />
+
+        </Style>
+
+        <Style
+            x:Key="ButtonOutlined"
+            BasedOn="{StaticResource ButtonBase}"
+            TargetType="mtrlUI:MaterialButton">
+
+            <Setter Property="ButtonType" Value="Outlined" />
+            <Setter Property="HeightRequest" Value="65" />
+            <Setter Property="AllCaps" Value="False" />
+            <Setter Property="CornerRadius" Value="50" />
+
+        </Style>
+        <!--#endregion-->
 
     </Application.Resources>
 </prism:PrismApplication>
