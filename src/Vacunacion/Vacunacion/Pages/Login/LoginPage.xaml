@@ -3,8 +3,9 @@
     x:Class="Vacunacion.Pages.Login.LoginPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrls="clr-namespace:Vacunacion.Controls"
     xmlns:hlps="clr-namespace:Vacunacion.Helpers;assembly=Vacunacion"
-    xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     BackgroundColor="{StaticResource Material.Color.Background}"
     NavigationPage.HasNavigationBar="False">
@@ -32,35 +33,19 @@
                 FontSize="{StaticResource Material.FontSize.Body1}"
                 HorizontalOptions="Center"
                 Text="Inicia sesión para comenzar tu dia"
-                TextColor="{StaticResource Material.Color.Secondary}" />
+                TextColor="{StaticResource SurfaceColor}" />
 
-
-            <Grid RowDefinitions="*,16">
-
-                <Frame
-                    BackgroundColor="White"
-                    CornerRadius="8"
-                    HeightRequest="28" />
-
-                <material:MaterialTextField
-                    Grid.RowSpan="2"
-                    Padding="4,6,4,6"
-                    AlwaysShowUnderline="False"
-                    CardBackgroundColor="Transparent"
+            <ctrls:TextFieldLayout>
+                <mtrl:MaterialTextField
                     ErrorText="Error Text"
                     HelperText="Helper Text"
-                    HelperTextColor="{StaticResource Material.Color.OnSurface}"
-                    InputType="Default"
-                    Placeholder="Número de Cédula"
-                    ShouldAnimateUnderline="False"
-                    Text="{Binding DocumentNumber}"
                     MaxLength="14"
-                    TextFontSize="18"
-                    UnderlineColor="Transparent" />
-            </Grid>
+                    Placeholder="Número de Cédula"
+                    Text="{Binding DocumentNumber}" />
+            </ctrls:TextFieldLayout>
 
 
-            <material:MaterialButton
+            <mtrl:MaterialButton
                 AllCaps="False"
                 Command="{prism:NavigateTo 'ConfirmSignIn'}"
                 CornerRadius="50"
@@ -70,14 +55,14 @@
                 TextColor="White"
                 VerticalOptions="Center" />
 
-            <material:MaterialButton
+            <mtrl:MaterialButton
                 AllCaps="False"
                 ButtonType="Outlined"
+                Command="{Binding ScanDocumentCommand}"
                 CornerRadius="50"
                 HeightRequest="65"
                 HorizontalOptions="FillAndExpand"
                 Text="Escanear Cédula"
-                Command="{Binding ScanDocumentCommand}"
                 VerticalOptions="Center" />
 
         </StackLayout>
