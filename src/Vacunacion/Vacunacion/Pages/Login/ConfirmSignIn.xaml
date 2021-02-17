@@ -17,23 +17,19 @@
         <StackLayout Spacing="8" VerticalOptions="CenterAndExpand">
 
             <Label
-                FontAttributes="Bold"
-                FontSize="{StaticResource Material.FontSize.H6}"
                 HorizontalOptions="Center"
-                Text="¡Bievenid@ de vuelta!"
-                TextColor="{StaticResource SecondaryColor}" />
+                Style="{StaticResource H1}"
+                Text="¡Bievenid@ de vuelta!" />
 
             <Label
-                FontAttributes="Bold"
-                FontSize="{StaticResource Material.FontSize.H6}"
                 HorizontalOptions="Center"
+                Style="{StaticResource Subtitle1}"
                 Text="Isbel C. Bautista"
-                TextColor="{StaticResource SecondaryColor}"
                 TranslationY="-8" />
 
             <Label
                 Margin="0,0,0,32"
-                FontSize="{StaticResource Material.FontSize.Body1}"
+                FontSize="16"
                 HorizontalOptions="Center"
                 Text="Por favor confirma tu locacion para el día de hoy!"
                 TextColor="{StaticResource SecondaryColor}" />

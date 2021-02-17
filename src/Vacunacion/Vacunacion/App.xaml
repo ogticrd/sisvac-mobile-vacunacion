@@ -22,6 +22,19 @@
         <Color x:Key="LinkColor">#4285F4</Color>
         <!--#endregion-->
 
+        <!--#region FONT SIZES-->
+        <x:Double x:Key="FontSize.H1">24</x:Double>
+        <x:Double x:Key="FontSize.H2">20</x:Double>
+        <x:Double x:Key="FontSize.H3">14</x:Double>
+        <x:Double x:Key="FontSize.Subtitle1">24</x:Double>
+        <x:Double x:Key="FontSize.Subtitle2">20</x:Double>
+        <x:Double x:Key="FontSize.Body1">16</x:Double>
+        <x:Double x:Key="FontSize.Body2">14</x:Double>
+        <!--<x:Double x:Key="FontSize.Button">14</x:Double>-->
+        <x:Double x:Key="FontSize.Caption">12</x:Double>
+        <x:Double x:Key="FontSize.Overline">10</x:Double>
+        <!--#endregion-->
+
 
         <!--#region XF-Material Library Configuration-->
         <mtrl:MaterialColorConfiguration
@@ -43,6 +56,8 @@
         <!--#endregion-->
 
         <!--#region Styles-->
+
+        <!--#region GENERAL-->
         <Style TargetType="NavigationPage">
             <Setter Property="BarBackgroundColor" Value="{StaticResource PrimaryColor}" />
         </Style>
@@ -56,7 +71,53 @@
         <Style TargetType="Frame">
             <Setter Property="HasShadow" Value="{OnPlatform True, iOS=False}" />
         </Style>
+        <!--#endregion-->
 
+        <!--#region LABELS-->
+        <Style x:Key="labelBaseStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
+        </Style>
+
+        <Style
+            x:Key="H1"
+            BasedOn="{StaticResource labelBaseStyle}"
+            TargetType="Label">
+            <Setter Property="FontSize" Value="{StaticResource FontSize.H1}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+
+        <Style
+            x:Key="H2"
+            BasedOn="{StaticResource labelBaseStyle}"
+            TargetType="Label">
+            <Setter Property="FontSize" Value="{StaticResource FontSize.H2}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+
+        <Style
+            x:Key="H3"
+            BasedOn="{StaticResource labelBaseStyle}"
+            TargetType="Label">
+            <Setter Property="FontSize" Value="{StaticResource FontSize.H3}" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+
+        <Style
+            x:Key="Subtitle1"
+            BasedOn="{StaticResource labelBaseStyle}"
+            TargetType="Label">
+            <Setter Property="FontSize" Value="{StaticResource FontSize.Subtitle1}" />
+        </Style>
+
+        <Style
+            x:Key="Subtitle2"
+            BasedOn="{StaticResource labelBaseStyle}"
+            TargetType="Label">
+            <Setter Property="FontSize" Value="{StaticResource FontSize.Subtitle2}" />
+        </Style>
+        <!--#endregion-->
+
+        <!--#region BUTTONS-->
         <Style x:Key="ButtonBase" TargetType="mtrlUI:MaterialButton">
             <Setter Property="HorizontalOptions" Value="FillAndExpand" />
             <Setter Property="VerticalOptions" Value="Center" />
@@ -83,8 +144,11 @@
             <Setter Property="HeightRequest" Value="65" />
             <Setter Property="AllCaps" Value="False" />
             <Setter Property="CornerRadius" Value="50" />
+            <Setter Property="BorderColor" Value="{StaticResource PrimaryColor}" />
 
         </Style>
+        <!--#endregion-->
+
         <!--#endregion-->
 
     </Application.Resources>

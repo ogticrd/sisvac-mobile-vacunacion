@@ -19,25 +19,20 @@
     <StackLayout Padding="16,32,16,16">
 
         <Label
-            FontAttributes="Bold"
-            FontSize="24"
             HorizontalOptions="Center"
-            Text="¡Bienvenid@!"
-            TextColor="{StaticResource PrimaryColor}" />
+            Style="{StaticResource H1}"
+            Text="¡Bienvenid@!" />
 
         <Label
             Margin="0,0,0,32"
-            FontSize="24"
             HorizontalOptions="Center"
-            Text="Isbel C. Bautista"
-            TextColor="{StaticResource PrimaryColor}" />
+            Style="{StaticResource Subtitle1}"
+            Text="Isbel C. Bautista" />
 
         <Label
-            FontAttributes="Bold"
-            FontSize="14"
             HorizontalOptions="Center"
+            Style="{StaticResource H3}"
             Text="Localización"
-            TextColor="{StaticResource PrimaryColor}"
             TextTransform="Uppercase" />
 
         <Label

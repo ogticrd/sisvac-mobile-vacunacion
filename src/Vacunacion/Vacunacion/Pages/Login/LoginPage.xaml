@@ -30,10 +30,9 @@
 
             <Label
                 Margin="0,0,0,32"
-                FontSize="{StaticResource Material.FontSize.Body1}"
                 HorizontalOptions="Center"
-                Text="Inicia sesión para comenzar tu dia"
-                TextColor="{StaticResource PrimaryColor}" />
+                Style="{StaticResource H3}"
+                Text="Inicia sesión para comenzar tu dia" />
 
             <ctrls:TextFieldLayout>
                 <mtrl:MaterialTextField
