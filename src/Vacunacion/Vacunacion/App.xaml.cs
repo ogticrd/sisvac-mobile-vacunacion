@@ -20,9 +20,8 @@ namespace Vacunacion
 
         protected override async void OnInitialized()
         {
-            InitializeComponent();
-
             XF.Material.Forms.Material.Init(this);
+            InitializeComponent();
             XF.Material.Forms.Material.Use("Material.Configuration");
 
             AppCenter.Start("android=89389cb2-d03e-4a44-a48c-d1e4ce35f9f1;" +
