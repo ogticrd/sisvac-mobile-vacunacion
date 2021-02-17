@@ -47,30 +47,25 @@
             Text="Centro Sanitario Santo Domingo"
             TextColor="{StaticResource PrimaryColor}" />
 
+
         <mtrl:MaterialButton
-            Command="{Binding ScanDocumentCommand}"
+            Command="{prism:NavigateTo 'CheckInPage'}"
             Style="{StaticResource ButtonPrimary}"
             Text="Verificar CUPON" />
 
         <mtrl:MaterialButton
-            Command="{Binding ScanDocumentCommand}"
+            Command="{prism:NavigateTo 'TrackingVaccinePage'}"
             Style="{StaticResource ButtonPrimary}"
             Text="Vacunar" />
 
         <mtrl:MaterialButton
-            Command="{Binding ScanDocumentCommand}"
+            Command="{prism:NavigateTo 'ReportEffectsPage'}"
             Style="{StaticResource ButtonPrimary}"
             Text="Reportar Efectos" />
 
-        <mtrl:MaterialButton
-            Command="{Binding ScanDocumentCommand}"
-            Style="{StaticResource ButtonOutlined}"
-            Text="Ver Estado Vacunacion" />
+        <mtrl:MaterialButton Style="{StaticResource ButtonOutlined}" Text="Ver Estado Vacunacion" />
 
-        <mtrl:MaterialButton
-            Command="{Binding ScanDocumentCommand}"
-            Style="{StaticResource ButtonOutlined}"
-            Text="Cambiar Vacunador" />
+        <mtrl:MaterialButton Style="{StaticResource ButtonOutlined}" Text="Cambiar Vacunador" />
 
     </StackLayout>
 
