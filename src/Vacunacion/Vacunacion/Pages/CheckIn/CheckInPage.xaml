@@ -3,6 +3,92 @@
     x:Class="Vacunacion.Pages.CheckIn.CheckInPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrls="clr-namespace:Vacunacion.Controls"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
+    xmlns:views="clr-namespace:Vacunacion.Pages.CheckIn.Views"
     Title="Verificar"
-    prism:ViewModelLocator.AutowireViewModel="True" />
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <StackLayout
+        Padding="0,32,0,0"
+        HorizontalOptions="FillAndExpand"
+        Spacing="16"
+        VerticalOptions="FillAndExpand">
+
+        <Label
+            x:Name="stepLabel"
+            FontAttributes="Bold"
+            FontSize="13"
+            Text="1 de 3"
+            TextColor="{StaticResource SecondaryColor}"
+            TranslationX="16" />
+
+        <ProgressBar
+            x:Name="progressBar"
+            Margin="16,-12,16,0"
+            Progress="0.5"
+            ProgressColor="{StaticResource SecondaryColor}" />
+
+        <RefreshView IsEnabled="{Binding IsBusy}" IsRefreshing="{Binding IsBusy}">
+
+            <Grid>
+
+                <views:StatusView IsVisible="False">
+                    <views:StatusView.Triggers>
+                        <DataTrigger
+                            Binding="{Binding PositionView}"
+                            TargetType="ContentView"
+                            Value="0">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </views:StatusView.Triggers>
+                </views:StatusView>
+
+                <views:TermView IsVisible="False">
+                    <views:TermView.Triggers>
+                        <DataTrigger
+                            Binding="{Binding PositionView}"
+                            TargetType="ContentView"
+                            Value="0">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </views:TermView.Triggers>
+                </views:TermView>
+
+                <views:QuestionsView IsVisible="False">
+                    <views:QuestionsView.Triggers>
+                        <DataTrigger
+                            Binding="{Binding PositionView}"
+                            TargetType="ContentView"
+                            Value="0">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </views:QuestionsView.Triggers>
+                </views:QuestionsView>
+
+                <views:FirmView IsVisible="False">
+                    <views:FirmView.Triggers>
+                        <DataTrigger
+                            Binding="{Binding PositionView}"
+                            TargetType="ContentView"
+                            Value="0">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </views:FirmView.Triggers>
+                </views:FirmView>
+
+
+            </Grid>
+        </RefreshView>
+
+        <Frame Style="{StaticResource ButtonLayout}">
+            <StackLayout Orientation="Horizontal">
+                <mtrl:MaterialButton Style="{StaticResource ButtonOutlined}" Text="Atras" />
+                <mtrl:MaterialButton Style="{StaticResource ButtonPrimary}" Text="Siguiente" />
+            </StackLayout>
+        </Frame>
+
+    </StackLayout>
+
+</ContentPage>
