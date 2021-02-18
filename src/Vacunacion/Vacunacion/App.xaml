@@ -147,6 +147,17 @@
             <Setter Property="BorderColor" Value="{StaticResource PrimaryColor}" />
 
         </Style>
+
+        <Style x:Key="ButtonLayout" TargetType="Frame">
+
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="VerticalOptions" Value="EndAndExpand" />
+            <Setter Property="Margin" Value="0,1,0,0" />
+            <Setter Property="Padding" Value="16,8,16,8" />
+            <Setter Property="BackgroundColor" Value="White" />
+
+        </Style>
         <!--#endregion-->
 
         <!--#endregion-->
