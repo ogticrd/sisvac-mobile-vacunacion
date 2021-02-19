@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="SisVac.Controls.TextFieldLayout"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    x:Name="this">
+
+    <Grid.Resources>
+
+        <Style x:Key="materialTextFieldStyle" TargetType="mtrl:MaterialTextField">
+            <Setter Property="CardBackgroundColor" Value="Transparent" />
+            <Setter Property="Padding" Value="4,6,4,6" />
+            <Setter Property="HelperTextColor" Value="{StaticResource OnSurfaceColor}" />
+            <Setter Property="ShouldAnimateUnderline" Value="False" />
+            <Setter Property="UnderlineColor" Value="Transparent" />
+            <Setter Property="TextFontSize" Value="18" />
+
+            <!--<Setter Property="VerticalOptions" Value="FillAndExpand" />-->
+            <Setter Property="HeightRequest" Value="64" />
+            <Setter Property="Grid.RowSpan" Value="2" />
+
+        </Style>
+
+        <Style BasedOn="{StaticResource materialTextFieldStyle}" TargetType="mtrl:MaterialTextField" />
+
+        <Style
+            x:Key="TextFieldChoiceStyle"
+            BasedOn="{StaticResource materialTextFieldStyle}"
+            TargetType="mtrl:MaterialTextField">
+
+            <Setter Property="InputType" Value="Choice" />
+            <Setter Property="LeadingIcon" Value="xf_arrow_dropdown" />
+            <Setter Property="LeadingIconTintColor" Value="#9D9CA6" />
+
+        </Style>
+
+        <Style TargetType="ContentView">
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+    </Grid.Resources>
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="64" />
+        <RowDefinition Height="26" />
+    </Grid.RowDefinitions>
+
+    <Frame
+        BackgroundColor="White"
+        BorderColor="#E6E5EA"
+        CornerRadius="8"
+        VerticalOptions="FillAndExpand" />
+
+    <ContentView
+        Grid.Row="0"
+        Grid.RowSpan="2"
+        Content="{Binding Source={x:Reference this}, Path=Content}"
+        VerticalOptions="CenterAndExpand" />
+
+    <!--<BoxView BackgroundColor="Black" Grid.Row="1" />-->
+
+</Grid>

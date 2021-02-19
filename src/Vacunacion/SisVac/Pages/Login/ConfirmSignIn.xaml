@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SisVac.Pages.Login.ConfirmSignIn"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrls="clr-namespace:SisVac.Controls"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:prism="http://prismlibrary.com"
+    Title="Confirmando Ingreso"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <StackLayout
+        Padding="16"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+
+        <StackLayout Spacing="8" VerticalOptions="CenterAndExpand">
+
+            <Label
+                HorizontalOptions="Center"
+                Style="{StaticResource H1}"
+                Text="¡Bievenid@ de vuelta!" />
+
+            <Label
+                HorizontalOptions="Center"
+                Style="{StaticResource Subtitle1}"
+                Text="Isbel C. Bautista"
+                TranslationY="-8" />
+
+            <Label
+                Margin="0,0,0,32"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="Por favor confirma tu locacion para el día de hoy!"
+                TextColor="{StaticResource SecondaryColor}" />
+
+            <ctrls:TextFieldLayout>
+                <mtrl:MaterialTextField
+                    ErrorText="Error Text"
+                    HelperText="Helper Text"
+                    Placeholder="Centro Vacunación"
+                    Style="{StaticResource TextFieldChoiceStyle}">
+                    <mtrl:MaterialTextField.Choices>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Centro 1</x:String>
+                            <x:String>Centro 2</x:String>
+                        </x:Array>
+                    </mtrl:MaterialTextField.Choices>
+                </mtrl:MaterialTextField>
+            </ctrls:TextFieldLayout>
+
+            <ctrls:TextFieldLayout>
+                <mtrl:MaterialTextField
+                    ErrorText="Error Text"
+                    HelperText="Helper Text"
+                    MaxLength="14"
+                    Placeholder="Número de Cédula"
+                    Text="{Binding DocumentNumber}" />
+            </ctrls:TextFieldLayout>
+
+            <mtrl:MaterialButton
+                Command="{Binding ScanDocumentCommand}"
+                Style="{StaticResource ButtonOutlined}"
+                Text="Escanear Cédula" />
+
+            <mtrl:MaterialButton
+                Margin="0,8,0,0"
+                Command="{prism:NavigateTo '/NavigationPage/HomePage'}"
+                Style="{StaticResource ButtonPrimary}"
+                Text="Confirmar" />
+
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>
