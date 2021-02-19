@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace SisVac.Pages.CheckIn.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ScanIDPage : ContentView
+    public partial class ScanCuponView : ContentView
     {
-        public ScanIDPage()
+        public ScanCuponView()
         {
             InitializeComponent();
         }

@@ -40,6 +40,9 @@
     <Compile Update="Controls\TextFieldLayout.xaml.cs">
       <DependentUpon>TextFieldLayout.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\CheckIn\Views\ScanCuponView.xaml.cs">
+      <DependentUpon>ScanCuponView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Controls\TextFieldLayout.xaml">
@@ -57,7 +60,7 @@
     <EmbeddedResource Update="Pages\CheckIn\Views\QuestionsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\CheckIn\Views\ScanIDPage.xaml">
+    <EmbeddedResource Update="Pages\CheckIn\Views\ScanCuponView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\CheckIn\Views\Shared\DateDetailView.xaml">
