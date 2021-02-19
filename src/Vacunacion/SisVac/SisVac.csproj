@@ -43,6 +43,9 @@
     <Compile Update="Pages\CheckIn\Views\ScanCuponView.xaml.cs">
       <DependentUpon>ScanCuponView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\Vaccine\Views\ScanIdView.xaml.cs">
+      <DependentUpon>ScanIdView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Controls\TextFieldLayout.xaml">
