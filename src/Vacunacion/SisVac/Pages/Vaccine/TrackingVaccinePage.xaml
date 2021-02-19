@@ -6,6 +6,8 @@
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     xmlns:views="clr-namespace:SisVac.Pages.Vaccine.Views"
+    xmlns:vws="clr-namespace:SisVac.Pages.CheckIn.Views"
+    xmlns:vwsS="clr-namespace:SisVac.Pages.CheckIn.Views.Shared"
     Title="Vacunar"
     prism:ViewModelLocator.AutowireViewModel="True">
 
@@ -33,44 +35,55 @@
 
             <Grid>
 
-                <views:StatusQRView IsVisible="False">
-                    <views:StatusQRView.Triggers>
+                <views:ScanIdView IsVisible="False">
+                    <views:ScanIdView.Triggers>
                         <DataTrigger
                             Binding="{Binding PositionView}"
                             TargetType="ContentView"
                             Value="0">
                             <Setter Property="IsVisible" Value="True" />
                         </DataTrigger>
+                    </views:ScanIdView.Triggers>
+                </views:ScanIdView>
+
+                <vws:StatusView IsVisible="False">
+                    <vws:StatusView.Triggers>
                         <DataTrigger
                             Binding="{Binding PositionView}"
                             TargetType="ContentView"
-                            Value="3">
+                            Value="1">
                             <Setter Property="IsVisible" Value="True" />
                         </DataTrigger>
-                    </views:StatusQRView.Triggers>
-                </views:StatusQRView>
+                        <DataTrigger
+                            Binding="{Binding PositionView}"
+                            TargetType="ContentView"
+                            Value="4">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </vws:StatusView.Triggers>
+                </vws:StatusView>
 
                 <views:QuestionsReportView IsVisible="False">
                     <views:QuestionsReportView.Triggers>
                         <DataTrigger
                             Binding="{Binding PositionView}"
                             TargetType="ContentView"
-                            Value="0">
+                            Value="2">
                             <Setter Property="IsVisible" Value="True" />
                         </DataTrigger>
                     </views:QuestionsReportView.Triggers>
                 </views:QuestionsReportView>
 
-                <views:VaccineView IsVisible="False">
-                    <views:VaccineView.Triggers>
+                <vwsS:VaccineDetailView IsVisible="False">
+                    <vwsS:VaccineDetailView.Triggers>
                         <DataTrigger
                             Binding="{Binding PositionView}"
                             TargetType="ContentView"
-                            Value="0">
+                            Value="3">
                             <Setter Property="IsVisible" Value="True" />
                         </DataTrigger>
-                    </views:VaccineView.Triggers>
-                </views:VaccineView>
+                    </vwsS:VaccineDetailView.Triggers>
+                </vwsS:VaccineDetailView>
 
 
             </Grid>
@@ -78,8 +91,14 @@
 
         <Frame Style="{StaticResource ButtonLayout}">
             <StackLayout Orientation="Horizontal">
-                <mtrl:MaterialButton Style="{StaticResource ButtonOutlined}" Text="Atras" />
-                <mtrl:MaterialButton Style="{StaticResource ButtonPrimary}" Text="Siguiente" />
+                <mtrl:MaterialButton
+                    Command="{Binding BackCommand}"
+                    Style="{StaticResource ButtonOutlined}"
+                    Text="Atras" />
+                <mtrl:MaterialButton
+                    Command="{Binding NextCommand}"
+                    Style="{StaticResource ButtonPrimary}"
+                    Text="Siguiente" />
             </StackLayout>
         </Frame>
 

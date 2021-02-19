@@ -34,7 +34,6 @@
     <Folder Include="Framework\" />
     <Folder Include="Pages\Base\Views\" />
     <Folder Include="ViewModels\Report\" />
-    <Folder Include="ViewModels\Vaccine\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Controls\TextFieldLayout.xaml.cs">
