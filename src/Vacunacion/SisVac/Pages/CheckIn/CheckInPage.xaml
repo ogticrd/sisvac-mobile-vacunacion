@@ -13,7 +13,7 @@
     <StackLayout
         Padding="0,32,0,0"
         HorizontalOptions="FillAndExpand"
-        Spacing="16"
+        Spacing="0"
         VerticalOptions="FillAndExpand">
 
         <Label
@@ -26,7 +26,7 @@
 
         <ProgressBar
             x:Name="progressBar"
-            Margin="16,-12,16,0"
+            Margin="16,-12,16,16"
             Progress="0.5"
             ProgressColor="{StaticResource SecondaryColor}" />
 
@@ -34,12 +34,23 @@
 
             <Grid>
 
+                <views:ScanIDPage IsVisible="False">
+                    <views:ScanIDPage.Triggers>
+                        <DataTrigger
+                            Binding="{Binding PositionView}"
+                            TargetType="ContentView"
+                            Value="0">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </views:ScanIDPage.Triggers>
+                </views:ScanIDPage>
+
                 <views:StatusView IsVisible="False">
                     <views:StatusView.Triggers>
                         <DataTrigger
                             Binding="{Binding PositionView}"
                             TargetType="ContentView"
-                            Value="0">
+                            Value="1">
                             <Setter Property="IsVisible" Value="True" />
                         </DataTrigger>
                     </views:StatusView.Triggers>
@@ -50,7 +61,7 @@
                         <DataTrigger
                             Binding="{Binding PositionView}"
                             TargetType="ContentView"
-                            Value="0">
+                            Value="2">
                             <Setter Property="IsVisible" Value="True" />
                         </DataTrigger>
                     </views:TermView.Triggers>
@@ -61,7 +72,7 @@
                         <DataTrigger
                             Binding="{Binding PositionView}"
                             TargetType="ContentView"
-                            Value="0">
+                            Value="3">
                             <Setter Property="IsVisible" Value="True" />
                         </DataTrigger>
                     </views:QuestionsView.Triggers>
@@ -72,7 +83,7 @@
                         <DataTrigger
                             Binding="{Binding PositionView}"
                             TargetType="ContentView"
-                            Value="0">
+                            Value="4">
                             <Setter Property="IsVisible" Value="True" />
                         </DataTrigger>
                     </views:FirmView.Triggers>
@@ -84,8 +95,14 @@
 
         <Frame Style="{StaticResource ButtonLayout}">
             <StackLayout Orientation="Horizontal">
-                <mtrl:MaterialButton Style="{StaticResource ButtonOutlined}" Text="Atras" />
-                <mtrl:MaterialButton Style="{StaticResource ButtonPrimary}" Text="Siguiente" />
+                <mtrl:MaterialButton
+                    Command="{Binding BackCommand}"
+                    Style="{StaticResource ButtonOutlined}"
+                    Text="Atras" />
+                <mtrl:MaterialButton
+                    Command="{Binding NextCommand}"
+                    Style="{StaticResource ButtonPrimary}"
+                    Text="Siguiente" />
             </StackLayout>
         </Frame>
 
