@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="SisVac.Pages.CheckIn.Views.Shared.PersonDetailView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Content>
+        <Frame>
+            <Grid ColumnDefinitions="*,3*" RowDefinitions="16">
+                <Image Grid.RowSpan="4" Source="logo" />
+                <Label Grid.Column="1" Text="Jose Martinez" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="Cedula: 234-1234112-4" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Text="Edad: 72 Años" />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Text="HABILITADA PARA VACUNA"
+                    TextColor="#2BB042" />
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

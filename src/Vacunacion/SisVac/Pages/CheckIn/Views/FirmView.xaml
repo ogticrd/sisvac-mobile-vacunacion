@@ -2,10 +2,11 @@
 <ContentView
     x:Class="SisVac.Pages.CheckIn.Views.FirmView"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vws="clr-namespace:SisVac.Pages.CheckIn.Views.Shared">
     <ContentView.Content>
         <StackLayout>
-            <Label Text="Firm!" />
+            <vws:PersonDetailView />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="SisVac.Pages.CheckIn.Views.Shared.VaccineDetailView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Content>
+        <Frame>
+            <Grid ColumnDefinitions="*,*" RowDefinitions="16">
+
+                <Frame
+                    Grid.RowSpan="6"
+                    Margin="8"
+                    BorderColor="{StaticResource PrimaryColor}"
+                    CornerRadius="12">
+                    <Image Source="logo" />
+                </Frame>
+
+                <Label Grid.Column="1" Text="Laboratorio:" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    Text="AstraZeneca" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Text="Lote:" />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    Text="z4adOX1" />
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Text="ID Vacuna:" />
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    Text="ChadOX1 nCov19" />
+
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

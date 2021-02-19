@@ -33,7 +33,6 @@
   <ItemGroup>
     <Folder Include="Framework\" />
     <Folder Include="Pages\Base\Views\" />
-    <Folder Include="Pages\CheckIn\Views\Shared\" />
     <Folder Include="ViewModels\Report\" />
     <Folder Include="ViewModels\Vaccine\" />
   </ItemGroup>
@@ -59,6 +58,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\CheckIn\Views\ScanIDPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\CheckIn\Views\Shared\DateDetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\CheckIn\Views\Shared\PersonDetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\CheckIn\Views\Shared\VaccineDetailView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\CheckIn\Views\StatusView.xaml">
