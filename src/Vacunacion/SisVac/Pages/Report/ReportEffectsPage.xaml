@@ -3,6 +3,53 @@
     x:Class="SisVac.Pages.Report.ReportEffectsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrls="clr-namespace:SisVac.Controls"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     Title="Reportar Efectos"
-    prism:ViewModelLocator.AutowireViewModel="True" />
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+
+    <StackLayout>
+
+        <ScrollView Padding="0,16,0,16">
+            <Frame>
+                <StackLayout>
+                    <Label Text="¿Cuales sintomas tiene el paciente?" />
+                    <mtrl:MaterialCheckboxGroup x:Name="checkBoxGroup">
+                        <mtrl:MaterialCheckboxGroup.Choices>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Mareos</x:String>
+                                <x:String>Dolor de cabeza</x:String>
+                                <x:String>Dolor muscular</x:String>
+                                <x:String>Nauseas</x:String>
+                                <x:String>Malestar Estomacal</x:String>
+                                <x:String>Fiebre</x:String>
+                                <x:String>Dificultad para respirar</x:String>
+                                <x:String>Tos</x:String>
+                            </x:Array>
+                        </mtrl:MaterialCheckboxGroup.Choices>
+                    </mtrl:MaterialCheckboxGroup>
+
+                    <ctrls:TextFieldLayout>
+                        <mtrl:MaterialTextField
+                            ErrorText="Error Text"
+                            HelperText="Helper Text"
+                            MaxLength="14"
+                            Placeholder="Observaciones" />
+                    </ctrls:TextFieldLayout>
+                </StackLayout>
+            </Frame>
+
+        </ScrollView>
+
+        <Frame Style="{StaticResource ButtonLayout}">
+            <mtrl:MaterialButton
+                Command="{Binding NextCommand}"
+                Style="{StaticResource ButtonPrimary}"
+                Text="Confirmar" />
+        </Frame>
+
+    </StackLayout>
+
+</ContentPage>

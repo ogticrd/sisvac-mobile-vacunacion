@@ -58,9 +58,15 @@
             Style="{StaticResource ButtonPrimary}"
             Text="Reportar Efectos" />
 
-        <mtrl:MaterialButton Style="{StaticResource ButtonOutlined}" Text="Ver Estado Vacunación" />
+        <mtrl:MaterialButton
+            Command="{prism:NavigateTo 'VaccineStatusPage'}"
+            Style="{StaticResource ButtonOutlined}"
+            Text="Ver Estado Vacunación" />
 
-        <mtrl:MaterialButton Style="{StaticResource ButtonOutlined}" Text="Cambiar Vacunador" />
+        <mtrl:MaterialButton
+            Command="{prism:NavigateTo 'ChangeVaccinatorPage'}"
+            Style="{StaticResource ButtonOutlined}"
+            Text="Cambiar Vacunador" />
 
     </StackLayout>
 

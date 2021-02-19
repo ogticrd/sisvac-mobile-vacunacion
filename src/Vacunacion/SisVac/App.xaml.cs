@@ -47,6 +47,8 @@ namespace SisVac
             containerRegistry.RegisterForNavigation<CheckInPage, CheckInPageViewModel>();
             containerRegistry.RegisterForNavigation<ReportEffectsPage>();
             containerRegistry.RegisterForNavigation<TrackingVaccinePage, TrackingVaccinePageViewModel>();
+            containerRegistry.RegisterForNavigation<ChangeVaccinatorPage>();
+            containerRegistry.RegisterForNavigation<VaccineStatusPage>();
         }
     }
 }
