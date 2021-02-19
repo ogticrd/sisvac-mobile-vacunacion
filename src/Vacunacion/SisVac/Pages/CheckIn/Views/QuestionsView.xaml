@@ -1,10 +1,153 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SisVac.Pages.CheckIn.Views.QuestionsView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Questions!" />
-      </StackLayout>
-  </ContentView.Content>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="SisVac.Pages.CheckIn.Views.QuestionsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrls="clr-namespace:SisVac.Controls"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material">
+
+    <ContentView.Content>
+        <ScrollView>
+            <StackLayout Padding="0,0,0,16" Spacing="16">
+                <Frame>
+                    <StackLayout>
+
+                        <Label Text="¿Si es mujer, está embarazada?" />
+                        <StackLayout Orientation="Horizontal">
+                            <RadioButton Content="Si" GroupName="n1" />
+                            <RadioButton Content="No" GroupName="n1" />
+                            <RadioButton Content="N/A" GroupName="n1" />
+                        </StackLayout>
+
+                        <ctrls:TextFieldLayout Margin="0,16,0,0">
+                            <mtrl:MaterialTextField
+                                ErrorText="Error Text"
+                                HeightRequest="80"
+                                HelperText="Helper Text"
+                                InputType="Plain"
+                                Placeholder="Observaciones"
+                                Text="{Binding DocumentNumber}" />
+                        </ctrls:TextFieldLayout>
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame>
+                    <StackLayout>
+
+                        <Label Text="¿Ha estado enfermo o ha tenido fiebre superior a 38.5C° en las últimas 72 horas?" />
+                        <StackLayout Orientation="Horizontal">
+                            <RadioButton Content="Si" GroupName="n2" />
+                            <RadioButton Content="No" GroupName="n2" />
+                            <RadioButton Content="N/A" GroupName="n2" />
+                        </StackLayout>
+
+                        <ctrls:TextFieldLayout>
+                            <mtrl:MaterialTextField
+                                ErrorText="Error Text"
+                                HeightRequest="80"
+                                HelperText="Helper Text"
+                                InputType="Plain"
+                                Placeholder="Observaciones"
+                                Text="{Binding DocumentNumber}" />
+                        </ctrls:TextFieldLayout>
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame>
+                    <StackLayout>
+
+                        <Label Text="¿Ha recibido alguna vacuna en los ultimos 30 dias?" />
+                        <StackLayout Orientation="Horizontal">
+                            <RadioButton Content="Si" GroupName="n3" />
+                            <RadioButton Content="No" GroupName="n3" />
+                            <RadioButton Content="N/A" GroupName="n3" />
+                        </StackLayout>
+
+                        <ctrls:TextFieldLayout>
+                            <mtrl:MaterialTextField
+                                ErrorText="Error Text"
+                                HeightRequest="80"
+                                HelperText="Helper Text"
+                                InputType="Plain"
+                                Placeholder="Observaciones"
+                                Text="{Binding DocumentNumber}" />
+                        </ctrls:TextFieldLayout>
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame>
+                    <StackLayout>
+
+                        <Label Text="¿Ha presentado alguna reacción grave a alguna vacuna administrada anteriormente?" />
+                        <StackLayout Orientation="Horizontal">
+                            <RadioButton Content="Si" GroupName="n4" />
+                            <RadioButton Content="No" GroupName="n4" />
+                            <RadioButton Content="N/A" GroupName="n4" />
+                        </StackLayout>
+
+                        <ctrls:TextFieldLayout>
+                            <mtrl:MaterialTextField
+                                ErrorText="Error Text"
+                                HeightRequest="80"
+                                HelperText="Helper Text"
+                                InputType="Plain"
+                                Placeholder="Observaciones"
+                                Text="{Binding DocumentNumber}" />
+                        </ctrls:TextFieldLayout>
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame>
+                    <StackLayout>
+
+                        <Label Text="¿Es alérgico a algún medicamento alimento u otro?" />
+                        <StackLayout Orientation="Horizontal">
+                            <RadioButton Content="Si" GroupName="n5" />
+                            <RadioButton Content="No" GroupName="n5" />
+                            <RadioButton Content="N/A" GroupName="n5" />
+                        </StackLayout>
+
+                        <ctrls:TextFieldLayout>
+                            <mtrl:MaterialTextField
+                                ErrorText="Error Text"
+                                HeightRequest="80"
+                                HelperText="Helper Text"
+                                InputType="Plain"
+                                Placeholder="Observaciones"
+                                Text="{Binding DocumentNumber}" />
+                        </ctrls:TextFieldLayout>
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame>
+                    <StackLayout>
+
+                        <Label Text="¿Padece usted alguna enfermedad actualmente tales como cáncer, leucemia, alguna enfermedad del sistema inmunitario?" />
+                        <StackLayout Orientation="Horizontal">
+                            <RadioButton Content="Si" GroupName="n6" />
+                            <RadioButton Content="No" GroupName="n6" />
+                            <RadioButton Content="N/A" GroupName="n6" />
+                        </StackLayout>
+
+                        <ctrls:TextFieldLayout>
+                            <mtrl:MaterialTextField
+                                ErrorText="Error Text"
+                                HeightRequest="80"
+                                HelperText="Helper Text"
+                                InputType="Plain"
+                                Placeholder="Observaciones"
+                                Text="{Binding DocumentNumber}" />
+                        </ctrls:TextFieldLayout>
+
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentView.Content>
 </ContentView>
