@@ -33,7 +33,7 @@
   <ItemGroup>
     <Folder Include="Framework\" />
     <Folder Include="Pages\Base\Views\" />
-    <Folder Include="Pages\CheckIn\Views\Questions\" />
+    <Folder Include="Pages\CheckIn\Views\Shared\" />
     <Folder Include="ViewModels\Report\" />
     <Folder Include="ViewModels\Vaccine\" />
   </ItemGroup>
