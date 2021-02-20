@@ -11,5 +11,10 @@ namespace SisVac.ViewModels.Login
         {
         }
 
+        async void ConfirmLoginCommandExecute()
+        {
+            await _navigationService.NavigateAsync("HomePage");
+//            { prism: NavigateTo '/NavigationPage/HomePage'}
+        }
     }
 }

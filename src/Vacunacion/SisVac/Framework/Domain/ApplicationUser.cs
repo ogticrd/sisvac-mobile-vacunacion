@@ -6,5 +6,7 @@ namespace SisVac.Framework.Domain
         public string Document { get; set; }
         public string FullName { get; set; }
         public int Age { get; set; }
+        public string LocationId { get; set; }
+        public string LocationName { get; set; }
     }
 }

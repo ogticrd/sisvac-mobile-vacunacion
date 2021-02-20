@@ -15,15 +15,15 @@
                         ErrorText="Error Text"
                         HelperText="Helper Text"
                         MaxLength="14"
-                        Placeholder="Cupon"
-                        Text="My cupon" />
+                        Placeholder="Cupón"
+                        Text="Mi cupón" />
                 </ctrls:TextFieldLayout>
             </Frame>
 
             <mtrl:MaterialButton
                 Command="{Binding ScanDocumentCommand}"
                 Style="{StaticResource ButtonOutlined}"
-                Text="Escanear Cupon" />
+                Text="Escanear Cupón" />
 
         </StackLayout>
     </ContentView.Content>

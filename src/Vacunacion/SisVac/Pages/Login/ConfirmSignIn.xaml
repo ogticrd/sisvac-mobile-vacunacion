@@ -25,7 +25,7 @@
             <Label
                 HorizontalOptions="Center"
                 Style="{StaticResource Subtitle1}"
-                Text="Isbel C. Bautista"
+                Text="{Binding User.Name}"
                 TranslationY="-8" />
 
             <Label
@@ -49,24 +49,10 @@
                     </mtrl:MaterialTextField.Choices>
                 </mtrl:MaterialTextField>
             </ctrls:TextFieldLayout>
-
-            <ctrls:TextFieldLayout>
-                <mtrl:MaterialTextField
-                    ErrorText="Error Text"
-                    HelperText="Helper Text"
-                    MaxLength="14"
-                    Placeholder="Número de Cédula"
-                    Text="{Binding DocumentNumber}" />
-            </ctrls:TextFieldLayout>
-
-            <mtrl:MaterialButton
-                Command="{Binding ScanDocumentCommand}"
-                Style="{StaticResource ButtonOutlined}"
-                Text="Escanear Cédula" />
-
+            
             <mtrl:MaterialButton
                 Margin="0,8,0,0"
-                Command="{prism:NavigateTo '/NavigationPage/HomePage'}"
+                Command="{Binding ConfirmLoginCommand}"
                 Style="{StaticResource ButtonPrimary}"
                 Text="Confirmar" />
 
