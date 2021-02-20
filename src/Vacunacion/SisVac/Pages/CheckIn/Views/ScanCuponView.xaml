@@ -23,7 +23,7 @@
             <mtrl:MaterialButton
                 Command="{Binding ScanDocumentCommand}"
                 Style="{StaticResource ButtonOutlined}"
-                Text="Escanear Cédula" />
+                Text="Escanear Cupon" />
 
         </StackLayout>
     </ContentView.Content>
