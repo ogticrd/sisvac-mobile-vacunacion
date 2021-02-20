@@ -6,8 +6,15 @@
     <ContentView.Content>
         <Frame>
             <Grid ColumnDefinitions="*,3*" RowDefinitions="16">
+
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <Style BasedOn="{StaticResource Body2}" TargetType="Label" />
+                    </ResourceDictionary>
+                </Grid.Resources>
+
                 <Image Grid.RowSpan="4" Source="logo" />
-                <Label Grid.Column="1" Text="Jose Martinez" />
+                <Label Grid.Column="1" Text="Jose Martinez" FontAttributes="Bold" />
                 <Label
                     Grid.Row="1"
                     Grid.Column="1"
