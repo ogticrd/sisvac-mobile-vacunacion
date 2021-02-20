@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
-    Title="VacunateRD"
+    Title="SisVacRD"
     prism:ViewModelLocator.AutowireViewModel="True">
 
     <ContentPage.ToolbarItems>
