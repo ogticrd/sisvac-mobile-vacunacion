@@ -7,6 +7,12 @@
         <Frame>
             <Grid ColumnDefinitions="*,*" RowDefinitions="16">
 
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <Style BasedOn="{StaticResource Body2}" TargetType="Label" />
+                    </ResourceDictionary>
+                </Grid.Resources>
+
                 <Frame
                     Grid.RowSpan="6"
                     Margin="8"

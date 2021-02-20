@@ -8,6 +8,12 @@
         <Frame>
             <Grid ColumnDefinitions="*,*" RowDefinitions="32,16">
 
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <Style BasedOn="{StaticResource Body2}" TargetType="Label" />
+                    </ResourceDictionary>
+                </Grid.Resources>
+
                 <mtrl:MaterialChip
                     BackgroundColor="#F2F2F2"
                     Text="1RA DOSIS"

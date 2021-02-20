@@ -1,10 +1,115 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SisVac.Pages.Vaccine.Views.QuestionsReportView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="SisVac.Pages.Vaccine.Views.QuestionsReportView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material">
+    <ContentView.Content>
+        <ScrollView>
+            <StackLayout Spacing="16">
+
+                <StackLayout.Resources>
+                    <ResourceDictionary>
+                        <Style TargetType="mtrl:MaterialChip">
+                            <Setter Property="BackgroundColor" Value="#27AE60" />
+                            <Setter Property="TextColor" Value="White" />
+                        </Style>
+                    </ResourceDictionary>
+                </StackLayout.Resources>
+
+                <Frame>
+                    <Grid ColumnDefinitions="Auto,*" RowSpacing="0">
+                        <Label
+                            Grid.ColumnSpan="2"
+                            Style="{StaticResource H3}"
+                            Text="¿Si es mujer, está embarazada?" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="Si" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="Sin observaciones"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+
+                <Frame>
+                    <Grid ColumnDefinitions="Auto,*" RowSpacing="0">
+                        <Label
+                            Grid.ColumnSpan="2"
+                            Style="{StaticResource H3}"
+                            Text="¿Ha estado enfermo o ha tenido fiebre superior a 38.5C° en las últimas 72 horas?" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="Si" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="Sin observaciones"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+
+                <Frame>
+                    <Grid ColumnDefinitions="Auto,*" RowSpacing="0">
+                        <Label
+                            Grid.ColumnSpan="2"
+                            Style="{StaticResource H3}"
+                            Text="¿Ha recibido alguna vacuna en los ultimos 30 dias?" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="Si" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="Sin observaciones"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+
+                <Frame>
+                    <Grid ColumnDefinitions="Auto,*" RowSpacing="0">
+                        <Label
+                            Grid.ColumnSpan="2"
+                            Style="{StaticResource H3}"
+                            Text="¿Ha presentado alguna reacción grave a alguna vacuna administrada anteriormente?" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="Si" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="Sin observaciones"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+
+                <Frame>
+                    <Grid ColumnDefinitions="Auto,*" RowSpacing="0">
+                        <Label
+                            Grid.ColumnSpan="2"
+                            Style="{StaticResource H3}"
+                            Text="¿Es alérgico a algún medicamento alimento u otro?" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="Si" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="Sin observaciones"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+
+                <Frame>
+                    <Grid
+                        ColumnDefinitions="Auto,*"
+                        RowDefinitions="Auto"
+                        RowSpacing="0">
+                        <Label
+                            Grid.ColumnSpan="2"
+                            Style="{StaticResource H3}"
+                            Text="¿Padece usted alguna enfermedad actualmente tales como cáncer, leucemia, alguna enfermedad del sistema inmunitario?" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="Si" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="Sin observaciones"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentView.Content>
 </ContentView>

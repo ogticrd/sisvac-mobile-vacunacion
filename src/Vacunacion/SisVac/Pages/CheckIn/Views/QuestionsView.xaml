@@ -9,6 +9,16 @@
     <ContentView.Content>
         <ScrollView>
             <StackLayout Padding="0,0,0,16" Spacing="16">
+                <StackLayout.Resources>
+                    <ResourceDictionary>
+                        <Style BasedOn="{StaticResource H3}" TargetType="Label" />
+                        <Style TargetType="RadioButton">
+                            <Setter Property="FontSize" Value="{StaticResource FontSize.Body2}" />
+                            <Setter Property="TextColor" Value="{StaticResource OnSurfaceColor}" />
+                        </Style>
+                    </ResourceDictionary>
+                </StackLayout.Resources>
+
                 <Frame>
                     <StackLayout>
 
