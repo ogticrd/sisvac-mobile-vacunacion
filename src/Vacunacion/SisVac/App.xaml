@@ -115,6 +115,20 @@
             TargetType="Label">
             <Setter Property="FontSize" Value="{StaticResource FontSize.Subtitle2}" />
         </Style>
+
+        <Style
+            x:Key="Body1"
+            BasedOn="{StaticResource labelBaseStyle}"
+            TargetType="Label">
+            <Setter Property="FontSize" Value="{StaticResource FontSize.Body1}" />
+        </Style>
+
+        <Style
+            x:Key="Body2"
+            BasedOn="{StaticResource labelBaseStyle}"
+            TargetType="Label">
+            <Setter Property="FontSize" Value="{StaticResource FontSize.Body2}" />
+        </Style>
         <!--#endregion-->
 
         <!--#region BUTTONS-->
