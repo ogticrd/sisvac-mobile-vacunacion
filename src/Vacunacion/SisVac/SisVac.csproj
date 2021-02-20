@@ -29,6 +29,7 @@
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.1.0" />
     <PackageReference Include="XF.Material" Version="1.7.7" />
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+    <PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.1.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Framework\" />

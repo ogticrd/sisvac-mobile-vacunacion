@@ -74,6 +74,9 @@
     <PackageReference Include="ZXing.Net.Mobile">
       <Version>2.4.1</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Distribute">
+      <Version>4.1.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />

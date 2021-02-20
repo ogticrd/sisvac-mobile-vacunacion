@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Microsoft.AppCenter.Distribute;
 using UIKit;
 
 namespace SisVac.iOS
@@ -25,6 +26,7 @@ namespace SisVac.iOS
             global::Xamarin.Forms.Forms.Init();
             XF.Material.iOS.Material.Init();
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
+            Distribute.DontCheckForUpdatesInDebug();
 
             LoadApplication(new App(new IOSInitializer()));
 
