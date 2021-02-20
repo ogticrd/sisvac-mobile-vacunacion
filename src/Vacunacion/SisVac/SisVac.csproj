@@ -30,11 +30,16 @@
     <PackageReference Include="XF.Material" Version="1.7.7" />
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
     <PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.1.0" />
+    <PackageReference Include="Plugin.ValidationRules" Version="1.2.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Framework\" />
-    <Folder Include="Pages\Base\Views\" />
     <Folder Include="ViewModels\Report\" />
+    <Folder Include="Framework\Domain\" />
+    <Folder Include="Framework\Http\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Pages\HomePage.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Controls\TextFieldLayout.xaml.cs">
@@ -49,9 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Controls\TextFieldLayout.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Base\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\CheckIn\CheckInPage.xaml">

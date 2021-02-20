@@ -8,7 +8,7 @@
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     BackgroundColor="{StaticResource Material.Color.Background}"
-    NavigationPage.HasNavigationBar="False">
+    NavigationPage.HasNavigationBar="{Binding HasNavigationBar}">
 
     <StackLayout
         Padding="16"
@@ -40,7 +40,7 @@
                     HelperText="Helper Text"
                     MaxLength="14"
                     Placeholder="Número de Cédula"
-                    Text="{Binding DocumentNumber}" />
+                    Text="{Binding Document}" />
             </ctrls:TextFieldLayout>
 
             <mtrl:MaterialButton
@@ -49,10 +49,9 @@
                 Text="Escanear Cédula" />
 
             <mtrl:MaterialButton
-                Command="{prism:NavigateTo 'ConfirmSignIn'}"
+                Command="{Binding LoginCommand}"
                 Style="{StaticResource ButtonPrimary}"
                 Text="Iniciar Sesión" />
-
 
         </StackLayout>
 

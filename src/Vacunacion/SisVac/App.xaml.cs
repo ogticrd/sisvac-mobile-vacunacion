@@ -6,6 +6,7 @@ using Microsoft.AppCenter.Distribute;
 using Prism;
 using Prism.Ioc;
 using Prism.Navigation;
+using SisVac.Framework.Domain;
 using SisVac.Pages.Base;
 using SisVac.Pages.CheckIn;
 using SisVac.Pages.Login;
@@ -21,6 +22,8 @@ namespace SisVac
 {
     public partial class App
     {
+        public static ApplicationUser User { get; set; }
+
         public App() : this(null) { }
 
         public App(IPlatformInitializer initializer) : base(initializer) { }
