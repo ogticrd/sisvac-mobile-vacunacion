@@ -5,10 +5,11 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using ZXing.Mobile;
+using AndroidX.AppCompat.App;
 
 namespace SisVac.Droid
 {
-    [Activity(Label = "VacunateRD", Icon = "@mipmap/icon", Theme = "@style/MainTheme")]
+    [Activity(Label = "SisVacRD", Icon = "@mipmap/icon", Theme = "@style/MainTheme")]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -21,7 +22,7 @@ namespace SisVac.Droid
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             XF.Material.Droid.Material.Init(this, savedInstanceState);
-
+            ((AppCompatActivity)this).Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightNo);
             LoadApplication(new App(new AndroidInitializer()));
         }
 

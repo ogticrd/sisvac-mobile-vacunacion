@@ -30,6 +30,7 @@ namespace SisVac
             XF.Material.Forms.Material.Init(this);
             InitializeComponent();
             XF.Material.Forms.Material.Use("Material.Configuration");
+            Application.Current.UserAppTheme = OSAppTheme.Light;
 
             AppCenter.Start("android=89389cb2-d03e-4a44-a48c-d1e4ce35f9f1;" +
                             "ios=7af5f42f-0ac9-423c-a1af-d61192e0e45e;",
