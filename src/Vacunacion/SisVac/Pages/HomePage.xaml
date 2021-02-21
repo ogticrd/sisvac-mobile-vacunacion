@@ -44,14 +44,14 @@
                 Text="{Binding Vaccinator.LocationName}"
                 TextColor="{StaticResource PrimaryColor}" />
 
-            <!--
+
             <Label
                 Margin="0,0,0,32"
                 FontSize="16"
                 HorizontalOptions="Center"
-                Text="Vacunador: Toribio"
+                Text="{Binding Vaccinator, StringFormat='Vacunador: {0}'}"
                 TextColor="{StaticResource PrimaryColor}" />
-            -->
+
 
             <mtrl:MaterialButton
                 Command="{prism:NavigateTo 'CheckInPage'}"
