@@ -1,10 +1,40 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SisVac.Pages.Vaccine.Views.VaccineView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="SisVac.Pages.Vaccine.Views.VaccineView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrls="clr-namespace:SisVac.Controls"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:views="clr-namespace:SisVac.Pages.CheckIn.Views.Shared">
+
+    <ContentView.Content>
+
+        <StackLayout Spacing="16">
+            <Frame>
+
+                <ctrls:TextFieldLayout>
+                    <mtrl:MaterialTextField
+                        ChoiceSelectedCommand="{Binding LocationSelectedCommand}"
+                        ErrorText="El campo es requerido"
+                        HasError="{Binding ShowErrorMessage}"
+                        HelperText=""
+                        Placeholder="Lote de vacuna"
+                        Style="{StaticResource TextFieldChoiceStyle}">
+                        <mtrl:MaterialTextField.Choices>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Lote 1</x:String>
+                                <x:String>Lote 2</x:String>
+                            </x:Array>
+                        </mtrl:MaterialTextField.Choices>
+                    </mtrl:MaterialTextField>
+                </ctrls:TextFieldLayout>
+            </Frame>
+
+            <views:VaccineDetailView />
+
+
+        </StackLayout>
+
+    </ContentView.Content>
+
 </ContentView>

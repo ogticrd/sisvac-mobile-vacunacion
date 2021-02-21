@@ -74,16 +74,16 @@
                     </views:QuestionsReportView.Triggers>
                 </views:QuestionsReportView>
 
-                <vwsS:VaccineDetailView IsVisible="False">
-                    <vwsS:VaccineDetailView.Triggers>
+                <views:VaccineView IsVisible="False">
+                    <views:VaccineView.Triggers>
                         <DataTrigger
                             Binding="{Binding PositionView}"
                             TargetType="ContentView"
                             Value="3">
                             <Setter Property="IsVisible" Value="True" />
                         </DataTrigger>
-                    </vwsS:VaccineDetailView.Triggers>
-                </vwsS:VaccineDetailView>
+                    </views:VaccineView.Triggers>
+                </views:VaccineView>
 
 
             </Grid>
