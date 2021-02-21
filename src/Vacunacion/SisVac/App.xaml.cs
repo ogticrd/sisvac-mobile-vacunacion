@@ -28,7 +28,7 @@ namespace SisVac
     {
         public static ApplicationUser User { get; set; }
         public static ApplicationUser Vaccinator { get; set; }
-        public static string CitizenApiBaseUrl => "https://citizens-api.digital.gob.do/api";
+        public static string CitizenApiBaseUrl => AppSettingsManager.Settings["CitizenApiBaseUrl"];
 
         public App() : this(null) { }
 

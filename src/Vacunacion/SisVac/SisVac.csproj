@@ -13,11 +13,15 @@
   <ItemGroup>
     <None Remove="Resources\Images\logo.png" />
     <None Remove="Resources\Images\logo_cupula.png" />
+    <None Remove="appsettings.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Images\logo.png" />
     <EmbeddedResource Include="Resources\Images\logo_cupula.png" />
+    <EmbeddedResource Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -35,7 +39,7 @@
     <PackageReference Include="Plugin.ValidationRules" Version="1.2.2" />
     <PackageReference Include="Xamarin.Controls.SignaturePad.Forms" Version="3.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Refit" Version="6.0.15" />
+    <PackageReference Include="Refit" Version="6.0.1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\Report\" />
@@ -115,5 +119,10 @@
     <EmbeddedResource Update="Pages\Vaccine\Views\VaccineView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

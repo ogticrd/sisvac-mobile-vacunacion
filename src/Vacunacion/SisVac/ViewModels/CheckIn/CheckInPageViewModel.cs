@@ -65,7 +65,6 @@ namespace SisVac.ViewModels.CheckIn
             {
                 case 0:
                     IsBackButtonVisible = true;
-
                     if(!string.IsNullOrWhiteSpace(DocumentID.Value) && DocumentID.Value.IsValidDocument())
                     {
                         var patientData = await GetDocumentData(DocumentID.Value);
@@ -75,12 +74,17 @@ namespace SisVac.ViewModels.CheckIn
                             Document = DocumentID.Value,
                             FullName = patientData.Name
                         };
-                        PositionView = 1;
                     }
                     else
                     {
-
                     }
+                    Patient = new Person
+                    {
+                        Age = 25,
+                        Document = "131-12333333-1",
+                        FullName = "Juan Perez"
+                    };
+                    PositionView = 1;
                     break;
                 case 1:
                     PositionView = 2;
