@@ -9,14 +9,23 @@ namespace SisVac.ViewModels.CheckIn
 {
     public class CheckInPageViewModel : BindableBase
     {
+        public string CouponCode { get; set; }
+
         public CheckInPageViewModel()
         {
-            NextCommand = new DelegateCommand(OnNextCommandExecute);
+            NextCommand = new DelegateCommand(OnNextCommandExecute, ()=> !string.IsNullOrWhiteSpace(CouponCode));
             BackCommand = new DelegateCommand(OnBackCommandExecute);
+            ScanCouponCommand = new DelegateCommand(OnScanDocumentCommandExecute);
         }
+
+        async void OnScanCouponCommandExecute()
+        {
+        }
+
         public int PositionView { get; set; }
 
         public ICommand NextCommand { get; }
+        public ICommand ScanCouponCommand { get; set; }
         public ICommand BackCommand { get; }
 
         private void OnNextCommandExecute()

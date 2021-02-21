@@ -38,6 +38,7 @@
     <Folder Include="Framework\Domain\" />
     <Folder Include="Framework\Http\" />
     <Folder Include="Framework\Extensions\" />
+    <Folder Include="Framework\Services\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Controls\TextFieldLayout.xaml.cs">

@@ -23,18 +23,18 @@ namespace SisVac.ViewModels.Login
         public LoginPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             Document = "";
-            ScanDocumentCommand = new DelegateCommand(ScanDocumentCommandExecute);
-            LoginCommand = new DelegateCommand(LoginCommandExecute);
+            ScanDocumentCommand = new DelegateCommand(OnScanDocumentCommandExecute);
+            LoginCommand = new DelegateCommand(OnLoginCommandExecute);
         }
 
-        async void ScanDocumentCommandExecute()
+        async void OnScanDocumentCommandExecute()
         {
             var scanner = new ZXing.Mobile.MobileBarcodeScanner();
             var result = await scanner.Scan();
             if(result != null)
                 Document = result.Text;
         }
-        async void LoginCommandExecute()
+        async void OnLoginCommandExecute()
         {
             if (!string.IsNullOrWhiteSpace(Document) && Document.IsValidDocument())
             {

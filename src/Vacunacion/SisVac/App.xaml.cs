@@ -7,6 +7,7 @@ using Prism;
 using Prism.Ioc;
 using Prism.Navigation;
 using SisVac.Framework.Domain;
+using SisVac.Framework.Services;
 using SisVac.Pages.Base;
 using SisVac.Pages.CheckIn;
 using SisVac.Pages.Login;
@@ -44,6 +45,7 @@ namespace SisVac
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            //Pages
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<ConfirmLoginPage, ConfirmLoginPageViewModel>();
@@ -53,6 +55,9 @@ namespace SisVac
             containerRegistry.RegisterForNavigation<TrackingVaccinePage, TrackingVaccinePageViewModel>();
             containerRegistry.RegisterForNavigation<ChangeVaccinatorPage>();
             containerRegistry.RegisterForNavigation<VaccineStatusPage>();
+
+            //Services
+            containerRegistry.Register<IScannerService, ScannerService>();
         }
     }
 }

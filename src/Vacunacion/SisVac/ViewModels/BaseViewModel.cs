@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Input;
 using Prism.Navigation;
 using PropertyChanged;
 using SisVac.Framework.Domain;
@@ -34,4 +35,5 @@ namespace SisVac.ViewModels
         {
         }
     }
+
 }

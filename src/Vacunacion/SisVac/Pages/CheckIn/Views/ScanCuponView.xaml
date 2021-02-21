@@ -14,16 +14,16 @@
                     <mtrl:MaterialTextField
                         ErrorText="Error Text"
                         HelperText="Helper Text"
-                        MaxLength="14"
+                        MaxLength="11"
                         Placeholder="Cupón"
-                        Text="Mi cupón" />
+                        Text="{Binding Document}" />
                 </ctrls:TextFieldLayout>
             </Frame>
 
             <mtrl:MaterialButton
                 Command="{Binding ScanDocumentCommand}"
                 Style="{StaticResource ButtonOutlined}"
-                Text="Escanear Cupón" />
+                Text="Escanear Cédula" />
 
         </StackLayout>
     </ContentView.Content>
