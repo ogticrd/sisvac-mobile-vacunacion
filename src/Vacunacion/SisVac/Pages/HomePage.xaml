@@ -16,58 +16,66 @@
             Text="Desloguearse" />
     </ContentPage.ToolbarItems>
 
-    <StackLayout Padding="16,32,16,16">
+    <ScrollView>
+        <StackLayout Padding="16,32,16,16">
 
-        <Label
-            HorizontalOptions="Center"
-            Style="{StaticResource H1}"
-            Text="¡Bienvenid@!" />
+            <Label
+                HorizontalOptions="Center"
+                Style="{StaticResource H1}"
+                Text="¡Bienvenid@!" />
 
-        <Label
-            Margin="0,0,0,32"
-            HorizontalOptions="Center"
-            Style="{StaticResource Subtitle1}"
-            Text="{Binding User.FullName}" />
+            <Label
+                Margin="0,0,0,32"
+                HorizontalOptions="Center"
+                Style="{StaticResource Subtitle1}"
+                Text="{Binding User.FullName}" />
 
-        <Label
-            HorizontalOptions="Center"
-            Style="{StaticResource H3}"
-            Text="Localización"
-            TextTransform="Uppercase" />
+            <Label
+                HorizontalOptions="Center" 
+                Style="{StaticResource H3}"
+                Text="Localización"
+                TextTransform="Uppercase" />
 
-        <Label
-            Margin="0,0,0,32"
-            FontSize="16"
-            HorizontalOptions="Center"
-            Text="Centro Sanitario Santo Domingo"
-            TextColor="{StaticResource PrimaryColor}" />
+            <Label
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="Centro Sanitario Santo Domingo"
+                TextColor="{StaticResource PrimaryColor}" />
+
+            <Label
+                Margin="0,0,0,32"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="Vacunador: Toribio"
+                TextColor="{StaticResource PrimaryColor}" />
 
 
-        <mtrl:MaterialButton
-            Command="{prism:NavigateTo 'CheckInPage'}"
-            Style="{StaticResource ButtonPrimary}"
-            Text="Verificar" />
+            <mtrl:MaterialButton
+                Command="{prism:NavigateTo 'CheckInPage'}"
+                Style="{StaticResource ButtonPrimary}"
+                Text="Verificar" />
 
-        <mtrl:MaterialButton
-            Command="{prism:NavigateTo 'TrackingVaccinePage'}"
-            Style="{StaticResource ButtonPrimary}"
-            Text="Vacunar" />
+            <mtrl:MaterialButton
+                Command="{prism:NavigateTo 'TrackingVaccinePage'}"
+                Style="{StaticResource ButtonPrimary}"
+                Text="Vacunar" />
 
-        <mtrl:MaterialButton
-            Command="{prism:NavigateTo 'ReportEffectsPage'}"
-            Style="{StaticResource ButtonPrimary}"
-            Text="Reportar Efectos" />
+            <mtrl:MaterialButton
+                Command="{prism:NavigateTo 'ReportEffectsPage'}"
+                Style="{StaticResource ButtonPrimary}"
+                Text="Reportar Efectos" />
 
-        <mtrl:MaterialButton
-            Command="{prism:NavigateTo 'VaccineStatusPage'}"
-            Style="{StaticResource ButtonOutlined}"
-            Text="Ver Estado Vacunación" />
+            <mtrl:MaterialButton
+                Command="{prism:NavigateTo 'VaccineStatusPage'}"
+                Style="{StaticResource ButtonOutlined}"
+                Text="Ver Estado Vacunación" />
 
-        <mtrl:MaterialButton
-            Command="{prism:NavigateTo 'ChangeVaccinatorPage'}"
-            Style="{StaticResource ButtonOutlined}"
-            Text="Cambiar Vacunador" />
+            <mtrl:MaterialButton
+                Command="{prism:NavigateTo 'ChangeVaccinatorPage'}"
+                Style="{StaticResource ButtonOutlined}"
+                Text="Cambiar Vacunador" />
 
-    </StackLayout>
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>
