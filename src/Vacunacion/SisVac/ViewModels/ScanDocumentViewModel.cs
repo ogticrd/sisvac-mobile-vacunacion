@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Plugin.ValidationRules;
 using Plugin.ValidationRules.Formatters;
 using Prism.Commands;
 using Prism.Navigation;
+using Prism.Services;
+using SisVac.Framework.Domain;
+using SisVac.Framework.Http;
 using SisVac.Framework.Services;
 using SisVac.Helpers.Rules;
 
@@ -12,10 +16,15 @@ namespace SisVac.ViewModels
     public class ScanDocumentViewModel : BaseViewModel
     {
         private IScannerService _scannerService;
-
-        public ScanDocumentViewModel(INavigationService navigationService, IScannerService scannerService) : base(navigationService)
+        protected ICitizensApiClient _citizensApiClient;
+        public ScanDocumentViewModel(
+            INavigationService navigationService,
+            IPageDialogService dialogService,
+            IScannerService scannerService,
+            ICitizensApiClient citizensApiClient) : base(navigationService, dialogService)
         {
             _scannerService = scannerService;
+            _citizensApiClient = citizensApiClient;
             ScanDocumentCommand = new DelegateCommand(OnScanDocumentCommandExecute);
 
             DocumentID = new Validatable<string>();
@@ -26,11 +35,6 @@ namespace SisVac.ViewModels
         public Validatable<string> DocumentID { get; set; }
         public ICommand ScanDocumentCommand { get; set; }
 
-        private void AssignDocumentValue(string value)
-        {
-            DocumentID.Value = value;
-        }
-
         private async void OnScanDocumentCommandExecute()
         {
             var result = await _scannerService.Scan(null);
@@ -40,6 +44,23 @@ namespace SisVac.ViewModels
                 result = result.Substring(0,11);
             }
             DocumentID.Value = result;
+        }
+
+        protected async Task<UserResponse> GetDocumentData(string document)
+        {
+            IsBusy = true;
+            UserResponse result = null;
+            try
+            { 
+                result = await _citizensApiClient.GetBasicData(document.Replace("-",""));
+                IsBusy = false;
+                return result;
+            }
+            catch(Exception ex)
+            {
+            }
+            IsBusy = false;
+            return result;
         }
     }
 }

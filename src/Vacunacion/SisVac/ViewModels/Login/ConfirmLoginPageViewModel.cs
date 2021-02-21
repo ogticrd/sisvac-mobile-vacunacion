@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows.Input;
 using Prism.Navigation;
+using Prism.Services;
 using SisVac.Framework.Domain;
+using SisVac.Framework.Http;
 using SisVac.Framework.Services;
 using Xamarin.Forms;
 
@@ -16,17 +18,22 @@ namespace SisVac.ViewModels.Login
         public ICommand LocationSelectedCommand { get; set; }
         public ICommand ConfirmLoginCommand { get; set; }
 
-        public ConfirmLoginPageViewModel(INavigationService navigationService, IScannerService scannerService) : base(navigationService, scannerService)
+        public ConfirmLoginPageViewModel(
+            INavigationService navigationService,
+            IPageDialogService dialogService,
+            IScannerService scannerService,
+            ICitizensApiClient citizensApiClient) : base(navigationService, dialogService, scannerService, citizensApiClient)
         {
-            LocationSelectedCommand = new Command<string>(LocationSelectedCommandExecute);
-            ConfirmLoginCommand = new Command(ConfirmLoginCommandExecute);
+            LocationSelectedCommand = new Command<string>(OnLocationSelectedCommandExecute);
+            ConfirmLoginCommand = new Command(OnConfirmLoginCommandExecute);
         }
-        async void LocationSelectedCommandExecute(string selectedOption)
+
+        void OnLocationSelectedCommandExecute(string selectedOption)
         {
             LocationName = selectedOption;
         }
 
-        async void ConfirmLoginCommandExecute()
+        async void OnConfirmLoginCommandExecute()
         {
             if(String.IsNullOrEmpty(LocationName) && !DocumentID.Validate())
             {
@@ -36,20 +43,26 @@ namespace SisVac.ViewModels.Login
             {
                 ShowLocationErrorMessage = false;
 
-                //TODO Get user info from web service
-                App.User = new ApplicationUser
+                var userData = await GetDocumentData(DocumentID.Value);
+                if (userData != null)
                 {
-                    Age = 30,
-                    Document = DocumentID.Value,
-                    FullName = "Isbel C. Bautista"
-                };
+                    App.Vaccinator = new ApplicationUser
+                    {
+                        Age = userData.Age,
+                        Document = DocumentID.Value,
+                        FullName = userData.Name,
+                        LocationName = LocationName
+                    };
+                    var parameters = new NavigationParameters();
+                    parameters.Add("user", User);
 
-                var parameters = new NavigationParameters();
-                parameters.Add("user", User);
-
-                await _navigationService.NavigateAsync("/NavigationPage/HomePage", parameters);
+                    await _navigationService.NavigateAsync("/NavigationPage/HomePage", parameters);
+                }
+                else
+                {
+                    await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
+                }
             }
-            //            { prism: NavigateTo '/NavigationPage/HomePage'}
         }
     }
 }

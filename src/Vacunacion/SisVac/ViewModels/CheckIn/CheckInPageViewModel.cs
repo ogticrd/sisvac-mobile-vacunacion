@@ -2,6 +2,7 @@
 using Prism.Navigation;
 using Prism.Services;
 using Prism.Services.Dialogs;
+using SisVac.Framework.Http;
 using SisVac.Framework.Services;
 using System.Windows.Input;
 using XF.Material.Forms.UI.Dialogs;
@@ -12,7 +13,9 @@ namespace SisVac.ViewModels.CheckIn
     {
         public CheckInPageViewModel(
             INavigationService navigationService,
-            IScannerService scannerService) : base(navigationService, scannerService)
+            IPageDialogService dialogService,
+            IScannerService scannerService,
+            ICitizensApiClient citizensApiClient) : base(navigationService, dialogService, scannerService, citizensApiClient)
         {
             NextCommand = new DelegateCommand(OnNextCommandExecute);
             BackCommand = new DelegateCommand(OnBackCommandExecute);

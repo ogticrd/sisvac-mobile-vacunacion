@@ -3,6 +3,17 @@ namespace SisVac.Framework.Extensions
 {
     public static class StringExtensions
     {
+        public static string ToSentenceCase(this string str)
+        {
+            var parts = str.ToLower().Split(' ');
+            var result = string.Empty;
+            foreach(var part in parts)
+            {
+                part.ToCharArray()[0] =  part.ToUpper()[0];
+                result+= part + " ";
+            }
+            return result.Trim();
+        }
         //https://gist.github.com/gregorypilar/1569baf02f011ff25f27697638435aad
         public static bool IsValidDocument(this string cedula)
         {

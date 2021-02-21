@@ -27,6 +27,7 @@
             <Label
                 Margin="0,0,0,32"
                 HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
                 Style="{StaticResource Subtitle1}"
                 Text="{Binding User.FullName}" />
 
@@ -39,16 +40,17 @@
             <Label
                 FontSize="16"
                 HorizontalOptions="Center"
-                Text="Centro Sanitario Santo Domingo"
+                Text="{Binding Vaccinator.LocationName}"
                 TextColor="{StaticResource PrimaryColor}" />
 
+            <!--
             <Label
                 Margin="0,0,0,32"
                 FontSize="16"
                 HorizontalOptions="Center"
                 Text="Vacunador: Toribio"
                 TextColor="{StaticResource PrimaryColor}" />
-
+            -->
 
             <mtrl:MaterialButton
                 Command="{prism:NavigateTo 'CheckInPage'}"

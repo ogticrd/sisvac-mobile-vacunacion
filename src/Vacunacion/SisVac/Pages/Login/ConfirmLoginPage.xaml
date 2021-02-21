@@ -30,6 +30,7 @@
 
             <Label
                 HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
                 Style="{StaticResource Subtitle1}"
                 Text="{Binding User.FullName}"
                 TranslationY="-8" />

@@ -2,6 +2,7 @@
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
+using SisVac.Framework.Http;
 using SisVac.Framework.Services;
 using System;
 using System.Collections.Generic;
@@ -13,12 +14,11 @@ namespace SisVac.ViewModels.Vaccine
 {
     public class TrackingVaccinePageViewModel : ScanDocumentViewModel
     {
-        IPageDialogService _dialogService;
-
         public TrackingVaccinePageViewModel(
             INavigationService navigationService,
+            IPageDialogService dialogService,
             IScannerService scannerService,
-            IPageDialogService dialogService) : base(navigationService, scannerService)
+            ICitizensApiClient citizensApiClient) : base(navigationService, dialogService, scannerService, citizensApiClient)
         {
             _dialogService = dialogService;
             NextCommand = new DelegateCommand(OnNextCommandExecute);

@@ -17,8 +17,7 @@ namespace SisVac.Framework.Services
 
             var result = await scanner.Scan(new ZXing.Mobile.MobileBarcodeScanningOptions
             {
-                DisableAutofocus = false,
-                PossibleFormats = { BarcodeFormat.CODE_39, BarcodeFormat.CODE_93, BarcodeFormat.CODE_128 }
+                DisableAutofocus = false
             });
             if (result != null)
             {

@@ -2,8 +2,10 @@
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
 using SisVac.Framework.Domain;
 using SisVac.Framework.Extensions;
+using SisVac.Framework.Http;
 using SisVac.Framework.Services;
 using SisVac.Helpers.Rules;
 using System;
@@ -21,7 +23,11 @@ namespace SisVac.ViewModels.Login
         public ICommand LoginCommand { get; set; }
 
 
-        public LoginPageViewModel(INavigationService navigationService, IScannerService scannerService) : base(navigationService, scannerService)
+        public LoginPageViewModel(
+            INavigationService navigationService,
+            IPageDialogService dialogService,
+            IScannerService scannerService,
+            ICitizensApiClient citizensApiClient) : base(navigationService, dialogService, scannerService, citizensApiClient)
         {
             LoginCommand = new DelegateCommand(OnLoginCommandExecute);
         }
@@ -30,19 +36,22 @@ namespace SisVac.ViewModels.Login
         {
             if (DocumentID.Validate())
             {
-                //{prism:NavigateTo 'ConfirmSignIn'}"
-                //TODO Get user info from web service
-                App.User = new ApplicationUser
+                var userData = await GetDocumentData(DocumentID.Value);
+                if (userData != null)
                 {
-                    Age = 30,
-                    Document = DocumentID.Value,
-                    FullName = "Isbel C. Bautista"
-                };
-
-                var parameters = new NavigationParameters();
-                parameters.Add("user", User);
-
-                await _navigationService.NavigateAsync("ConfirmLoginPage", parameters);
+                    App.User = new ApplicationUser
+                    {
+                        Age = userData.Age,
+                        Document = DocumentID.Value,
+                        FullName = userData.Name,
+                        LocationName = string.Empty
+                    };
+                    await _navigationService.NavigateAsync("ConfirmLoginPage");
+                }
+                else
+                {
+                    await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
+                }
             }
         }
     }

@@ -5,15 +5,15 @@ namespace SisVac.Framework.Domain
 {
     public class UserResponse : BaseEntity
     {
-        [JsonProperty("is_valid")]
+        [JsonProperty("valid")]
         public bool IsValid { get; set; }
         [JsonProperty("cedula")]
         public string Cedula { get; set; }
         [JsonProperty("name")]
         public string Name { get; set; }
         [JsonProperty("age")]
-        public string Age { get; set; }
+        public int Age { get; set; }
         [JsonProperty("is_enabled")]
-        public string IsEnabled { get; set; }
+        public bool IsEnabled { get; set; }
     }
 }

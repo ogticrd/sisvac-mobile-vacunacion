@@ -6,7 +6,9 @@ using Microsoft.AppCenter.Distribute;
 using Prism;
 using Prism.Ioc;
 using Prism.Navigation;
+using Refit;
 using SisVac.Framework.Domain;
+using SisVac.Framework.Http;
 using SisVac.Framework.Services;
 using SisVac.Pages.Base;
 using SisVac.Pages.CheckIn;
@@ -25,6 +27,8 @@ namespace SisVac
     public partial class App
     {
         public static ApplicationUser User { get; set; }
+        public static ApplicationUser Vaccinator { get; set; }
+        public static string CitizenApiBaseUrl => "https://citizens-api.digital.gob.do/api";
 
         public App() : this(null) { }
 
@@ -59,6 +63,8 @@ namespace SisVac
 
             //Services
             containerRegistry.Register<IScannerService, ScannerService>();
+            var citizensClient = RestService.For<ICitizensApiClient>(CitizenApiBaseUrl);
+            containerRegistry.RegisterInstance<ICitizensApiClient>(citizensClient);
         }
     }
 }
