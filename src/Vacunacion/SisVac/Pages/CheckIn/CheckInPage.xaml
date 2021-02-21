@@ -100,6 +100,7 @@
                     Style="{StaticResource ButtonOutlined}"
                     IsVisible="{Binding IsBackButtonVisible}"
                     Text="Atrás" />
+
                 <mtrl:MaterialButton
                     Command="{Binding NextCommand}"
                     Style="{StaticResource ButtonPrimary}"

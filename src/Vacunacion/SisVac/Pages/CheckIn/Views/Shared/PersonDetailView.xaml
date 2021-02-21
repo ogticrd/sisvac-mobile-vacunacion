@@ -14,11 +14,11 @@
                 </Grid.Resources>
 
                 <Image Grid.RowSpan="4" Source="logo" />
-                <Label Grid.Column="1" Text="Jose Martinez" FontAttributes="Bold" />
+                <Label Grid.Column="1" Text="{Binding Patient.FullName}" FontAttributes="Bold" />
                 <Label
                     Grid.Row="1"
                     Grid.Column="1"
-                    Text="Cedula: 234-1234112-4" />
+                    Text="{Binding DocumentLabel}" />
                 <Label
                     Grid.Row="2"
                     Grid.Column="1"

@@ -2,6 +2,8 @@
 using Prism.Navigation;
 using Prism.Services;
 using Prism.Services.Dialogs;
+using SisVac.Framework.Domain;
+using SisVac.Framework.Extensions;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
 using System.Windows.Input;
@@ -39,6 +41,15 @@ namespace SisVac.ViewModels.CheckIn
         public ICommand ConfirmCommand { get; set; }
         public ICommand BackCommand { get; }
 
+        public Person Patient { get; set; } = new Person();
+
+        public string DocumentLabel {
+            get
+            {
+                return $"Cedula: {Patient.Document}";
+            }
+        }
+
         private async void OnConfirmCommandExecute()
         {
             //TODO Send confirmation to the server
@@ -48,13 +59,28 @@ namespace SisVac.ViewModels.CheckIn
                                         msDuration: 8000);
         }
 
-        private void OnNextCommandExecute()
+        private async void OnNextCommandExecute()
         {
             switch (PositionView)
             {
                 case 0:
                     IsBackButtonVisible = true;
-                    PositionView = 1;
+
+                    if(!string.IsNullOrWhiteSpace(DocumentID.Value) && DocumentID.Value.IsValidDocument())
+                    {
+                        var patientData = await GetDocumentData(DocumentID.Value);
+                        Patient = new Person
+                        {
+                            Age = patientData.Age,
+                            Document = DocumentID.Value,
+                            FullName = patientData.Name
+                        };
+                        PositionView = 1;
+                    }
+                    else
+                    {
+
+                    }
                     break;
                 case 1:
                     PositionView = 2;

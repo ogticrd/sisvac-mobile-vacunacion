@@ -53,10 +53,8 @@ namespace SisVac.ViewModels.Login
                         FullName = userData.Name,
                         LocationName = LocationName
                     };
-                    var parameters = new NavigationParameters();
-                    parameters.Add("user", User);
 
-                    await _navigationService.NavigateAsync("/NavigationPage/HomePage", parameters);
+                    await _navigationService.NavigateAsync("/NavigationPage/HomePage");
                 }
                 else
                 {

@@ -11,7 +11,7 @@
 
             <Frame>
                 <ctrls:TextFieldLayout>
-                    <mtrl:MaterialTextField StyleClass="CedulaTextField" />
+                    <mtrl:MaterialTextField StyleClass="CedulaTextField" ReturnCommand="{Binding NextCommand}" />
                 </ctrls:TextFieldLayout>
             </Frame>
 
