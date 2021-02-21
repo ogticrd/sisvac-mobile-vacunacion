@@ -33,7 +33,7 @@ namespace SisVac.ViewModels.Login
             else
             {
                 ShowLocationErrorMessage = false;
-                await _navigationService.NavigateAsync("/HomePage");
+                await _navigationService.NavigateAsync("/NavigationPage/HomePage");
             }
             //            { prism: NavigateTo '/NavigationPage/HomePage'}
         }
