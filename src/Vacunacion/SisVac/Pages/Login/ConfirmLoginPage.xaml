@@ -8,7 +8,8 @@
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     Title="Confirmando Ingreso"
-    prism:ViewModelLocator.AutowireViewModel="True">
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource BackgroundColor}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -35,39 +36,33 @@
                 Text="{Binding User.FullName}"
                 TranslationY="-8" />
 
-            <Label
-                Margin="0,32,0,8"
-                FontSize="16"
-                HorizontalOptions="Center"
-                Text="Por favor confirma tu locación para el día de hoy!"
-                TextColor="{StaticResource SecondaryColor}" />
+            <Frame Margin="-16,16,-16,0" Padding="16,24,16,0">
+                <StackLayout Margin="0" Spacing="4">
+                    <ctrls:TextFieldLayout>
+                        <mtrl:MaterialTextField
+                            ChoiceSelectedCommand="{Binding LocationSelectedCommand}"
+                            ErrorText="El campo es requerido"
+                            HasError="{Binding ShowErrorMessage}"
+                            HelperText="Por favor, confirma tu locación para el día de hoy!"
+                            Placeholder="Centro Vacunación"
+                            Style="{StaticResource TextFieldChoiceStyle}">
+                            <mtrl:MaterialTextField.Choices>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Centro 1</x:String>
+                                    <x:String>Centro 2</x:String>
+                                </x:Array>
+                            </mtrl:MaterialTextField.Choices>
+                        </mtrl:MaterialTextField>
+                    </ctrls:TextFieldLayout>
 
-            <ctrls:TextFieldLayout>
-                <mtrl:MaterialTextField
-                    ChoiceSelectedCommand="{Binding LocationSelectedCommand}"
-                    ErrorText="El campo es requerido"
-                    HasError="{Binding ShowErrorMessage}"
-                    HelperText=""
-                    Placeholder="Centro Vacunación"
-                    Style="{StaticResource TextFieldChoiceStyle}">
-                    <mtrl:MaterialTextField.Choices>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Centro 1</x:String>
-                            <x:String>Centro 2</x:String>
-                        </x:Array>
-                    </mtrl:MaterialTextField.Choices>
-                </mtrl:MaterialTextField>
-            </ctrls:TextFieldLayout>
-
-            <Label
-                Margin="0,16,0,8"
-                FontSize="16"
-                HorizontalOptions="Center"
-                Text="Registra tu vacunador asignado"
-                TextColor="{StaticResource SecondaryColor}" />
-            <ctrls:TextFieldLayout>
-                <mtrl:MaterialTextField ReturnCommand="{Binding ConfirmLoginCommand}" StyleClass="CedulaTextField" />
-            </ctrls:TextFieldLayout>
+                    <ctrls:TextFieldLayout>
+                        <mtrl:MaterialTextField
+                            HelperText="Registra tu vacunador asignado"
+                            ReturnCommand="{Binding ConfirmLoginCommand}"
+                            StyleClass="CedulaTextField" />
+                    </ctrls:TextFieldLayout>
+                </StackLayout>
+            </Frame>
 
 
             <mtrl:MaterialButton
