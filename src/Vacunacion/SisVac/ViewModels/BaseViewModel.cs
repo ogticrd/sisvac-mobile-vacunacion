@@ -17,7 +17,6 @@ namespace SisVac.ViewModels
 
         public string Title { get; set; }
         public bool IsBusy { get; set; }
-        public bool HasNavigationBar { get; set; }
 
         protected INavigationService _navigationService;
 

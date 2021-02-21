@@ -49,22 +49,22 @@
             Text="Verificar" />
 
         <mtrl:MaterialButton
-            Command="{prism:NavigateTo 'TrackingVaccinePage'}"
+            Command="{prism:NavigateTo '/TrackingVaccinePage'}"
             Style="{StaticResource ButtonPrimary}"
             Text="Vacunar" />
 
         <mtrl:MaterialButton
-            Command="{prism:NavigateTo 'ReportEffectsPage'}"
+            Command="{prism:NavigateTo '/ReportEffectsPage'}"
             Style="{StaticResource ButtonPrimary}"
             Text="Reportar Efectos" />
 
         <mtrl:MaterialButton
-            Command="{prism:NavigateTo 'VaccineStatusPage'}"
+            Command="{prism:NavigateTo '/VaccineStatusPage'}"
             Style="{StaticResource ButtonOutlined}"
             Text="Ver Estado Vacunación" />
 
         <mtrl:MaterialButton
-            Command="{prism:NavigateTo 'ChangeVaccinatorPage'}"
+            Command="{prism:NavigateTo '/ChangeVaccinatorPage'}"
             Style="{StaticResource ButtonOutlined}"
             Text="Cambiar Vacunador" />
 
