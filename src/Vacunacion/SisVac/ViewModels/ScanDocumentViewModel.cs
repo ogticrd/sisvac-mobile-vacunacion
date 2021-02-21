@@ -10,6 +10,7 @@ using SisVac.Framework.Domain;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
 using SisVac.Helpers.Rules;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace SisVac.ViewModels
 {
@@ -48,17 +49,26 @@ namespace SisVac.ViewModels
 
         protected async Task<UserResponse> GetDocumentData(string document)
         {
+
+            if (IsBusy)
+                return null;
+
             IsBusy = true;
             UserResponse result = null;
-            try
-            { 
-                result = await _citizensApiClient.GetBasicData(document.Replace("-",""));
-                IsBusy = false;
-                return result;
-            }
-            catch(Exception ex)
+
+            using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
             {
+                try
+                { 
+                    result = await _citizensApiClient.GetBasicData(document.Replace("-",""));
+                    IsBusy = false;
+                    return result;
+                }
+                catch(Exception ex)
+                {
+                }
             }
+
             IsBusy = false;
             return result;
         }
