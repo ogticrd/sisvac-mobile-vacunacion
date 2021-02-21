@@ -42,6 +42,7 @@
                     InputType="Numeric"
                     MaxLength="11"
                     Placeholder="Número de Cédula"
+                    ReturnCommand="{Binding LoginCommand}"
                     Text="{Binding Document}" />
             </ctrls:TextFieldLayout>
 
