@@ -15,11 +15,18 @@ namespace SisVac.ViewModels.CheckIn
         {
             NextCommand = new DelegateCommand(OnNextCommandExecute, ()=> !string.IsNullOrWhiteSpace(CouponCode));
             BackCommand = new DelegateCommand(OnBackCommandExecute);
-            ScanCouponCommand = new DelegateCommand(OnScanDocumentCommandExecute);
+            ScanCouponCommand = new DelegateCommand(OnScanCouponCommandExecute);
         }
 
         async void OnScanCouponCommandExecute()
         {
+            var scanner = new ZXing.Mobile.MobileBarcodeScanner();
+            var result = await scanner.Scan(new ZXing.Mobile.MobileBarcodeScanningOptions{
+                    DisableAutofocus = false,
+                    TryHarder = true
+                });
+            if (result != null)
+                CouponCode = result.Text;
         }
 
         public int PositionView { get; set; }

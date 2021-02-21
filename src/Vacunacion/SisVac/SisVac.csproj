@@ -31,6 +31,7 @@
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
     <PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.1.0" />
     <PackageReference Include="Plugin.ValidationRules" Version="1.2.2" />
+    <PackageReference Include="Xamarin.Controls.SignaturePad.Forms" Version="3.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Framework\" />
