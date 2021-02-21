@@ -9,11 +9,8 @@
     <ContentView.Content>
         <ScrollView>
             <StackLayout Padding="0,0,0,16" Spacing="16">
-
                 <vws:PersonDetailView />
                 <vws:DateDetailView />
-               <!-- <vws:VaccineDetailView />
-                -->
             </StackLayout>
         </ScrollView>
     </ContentView.Content>
