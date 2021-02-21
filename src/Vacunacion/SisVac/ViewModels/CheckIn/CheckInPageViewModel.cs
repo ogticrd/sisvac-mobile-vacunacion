@@ -4,19 +4,16 @@ using Prism.Services;
 using Prism.Services.Dialogs;
 using SisVac.Framework.Services;
 using System.Windows.Input;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace SisVac.ViewModels.CheckIn
 {
     public class CheckInPageViewModel : ScanDocumentViewModel
     {
-        IPageDialogService _dialogService;
-
         public CheckInPageViewModel(
             INavigationService navigationService,
-            IScannerService scannerService,
-            IPageDialogService dialogService) : base(navigationService, scannerService)
+            IScannerService scannerService) : base(navigationService, scannerService)
         {
-            _dialogService = dialogService;
             NextCommand = new DelegateCommand(OnNextCommandExecute);
             BackCommand = new DelegateCommand(OnBackCommandExecute);
             ConfirmCommand = new DelegateCommand(OnConfirmCommandExecute);
@@ -41,13 +38,11 @@ namespace SisVac.ViewModels.CheckIn
 
         private async void OnConfirmCommandExecute()
         {
-            var result = await _dialogService.DisplayAlertAsync("Confirmación para la aplicación de dosis", "Primero aplica la dosis de la vacuna al paciente, después confirma la aplicación de la dosis.", "Confirmar", "Cancelar");
-
-            if (result)
-            {
-                //TODO Send confirmation to the server
-                _navigationService.NavigateAsync("/NavigationPage/HomePage");
-            }
+            //TODO Send confirmation to the server
+            await _navigationService.NavigateAsync("/NavigationPage/HomePage");
+            await MaterialDialog.Instance.SnackbarAsync(message: "Proceso terminado satisfactoriamente.",
+                                        actionButtonText: "OK",
+                                        msDuration: 8000);
         }
 
         private void OnNextCommandExecute()
