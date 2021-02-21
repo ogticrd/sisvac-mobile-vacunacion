@@ -11,12 +11,7 @@
 
             <Frame>
                 <ctrls:TextFieldLayout>
-                    <mtrl:MaterialTextField
-                        ErrorText="Error Text"
-                        HelperText=""
-                        MaxLength="14"
-                        Placeholder="Cedula"
-                        Text="Mi cedula" />
+                    <mtrl:MaterialTextField ReturnCommand="{Binding ScanDocumentCommand}" StyleClass="CedulaTextField" />
                 </ctrls:TextFieldLayout>
             </Frame>
 

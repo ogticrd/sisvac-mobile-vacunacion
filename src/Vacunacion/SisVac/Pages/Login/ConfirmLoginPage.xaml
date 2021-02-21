@@ -65,13 +65,7 @@
                 Text="Registra tu vacunador asignado"
                 TextColor="{StaticResource SecondaryColor}" />
             <ctrls:TextFieldLayout>
-                <mtrl:MaterialTextField
-                    ErrorText="{Binding DocumentID.Error}"
-                    HasError="{Binding DocumentID.IsValid, Converter={StaticResource NegateBoolean}}"
-                    InputType="Numeric"
-                    MaxLength="13"
-                    Placeholder="Número de Cédula"
-                    Text="{Binding DocumentID.Value}" />
+                <mtrl:MaterialTextField ReturnCommand="{Binding ConfirmLoginCommand}" StyleClass="CedulaTextField" />
             </ctrls:TextFieldLayout>
 
 
