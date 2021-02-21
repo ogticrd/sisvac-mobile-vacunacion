@@ -41,14 +41,7 @@
                 Text="Inicia sesión para comenzar tu día" />
 
             <ctrls:TextFieldLayout>
-                <mtrl:MaterialTextField
-                    ErrorText="{Binding DocumentID.Error}"
-                    HasError="{Binding DocumentID.IsValid, Converter={StaticResource NegateBoolean}}"
-                    InputType="Numeric"
-                    MaxLength="13"
-                    Placeholder="Número de Cédula"
-                    ReturnCommand="{Binding LoginCommand}"
-                    Text="{Binding DocumentID.Value}" />
+                <mtrl:MaterialTextField ReturnCommand="{Binding LoginCommand}" StyleClass="CedulaTextField" />
             </ctrls:TextFieldLayout>
 
             <mtrl:MaterialButton

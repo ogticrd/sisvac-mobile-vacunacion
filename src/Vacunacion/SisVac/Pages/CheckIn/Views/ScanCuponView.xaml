@@ -11,12 +11,7 @@
 
             <Frame>
                 <ctrls:TextFieldLayout>
-                    <mtrl:MaterialTextField
-                        ErrorText="Error Text"
-                        HelperText=""
-                        MaxLength="11"
-                        Placeholder="Cédula"
-                        Text="{Binding Document}" />
+                    <mtrl:MaterialTextField StyleClass="CedulaTextField" />
                 </ctrls:TextFieldLayout>
             </Frame>
 
