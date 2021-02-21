@@ -63,6 +63,7 @@ namespace SisVac
 
             //Services
             containerRegistry.Register<IScannerService, ScannerService>();
+            containerRegistry.Register<ICacheService, CacheService>();
             var citizensClient = RestService.For<ICitizensApiClient>(CitizenApiBaseUrl);
             containerRegistry.RegisterInstance<ICitizensApiClient>(citizensClient);
         }
