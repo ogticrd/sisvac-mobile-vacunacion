@@ -38,7 +38,7 @@
             <ctrls:TextFieldLayout>
                 <mtrl:MaterialTextField
                     ErrorText="Error Text"
-                    HelperText="Helper Text"
+                    HelperText=""
                     MaxLength="14"
                     Placeholder="Número de Cédula"
                     Text="{Binding DocumentNumber}" />

@@ -1,35 +1,53 @@
 ﻿using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
+using Prism.Services.Dialogs;
 using SisVac.Framework.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Input;
 
 namespace SisVac.ViewModels.CheckIn
 {
     public class CheckInPageViewModel : ScanDocumentViewModel
     {
-        public CheckInPageViewModel(INavigationService navigationService, IScannerService scannerService) : base(navigationService, scannerService)
+        IPageDialogService _dialogService;
+
+        public CheckInPageViewModel(
+            INavigationService navigationService,
+            IScannerService scannerService,
+            IPageDialogService dialogService) : base(navigationService, scannerService)
         {
+            _dialogService = dialogService;
             NextCommand = new DelegateCommand(OnNextCommandExecute);
             BackCommand = new DelegateCommand(OnBackCommandExecute);
             ConfirmCommand = new DelegateCommand(OnConfirmCommandExecute);
+            ProgressBarIndicator = 0.0f;
         }
 
         public int PositionView { get; set; }
         public bool IsBackButtonVisible { get; set; } = false;
         public bool IsNextButtonVisible { get; set; } = true;
         public bool IsConfirmButtonVisible { get; set; } = false;
-
+        public double ProgressBarIndicator { get; set; }
+        public string ProgressTextIndicator
+        {
+            get
+            {
+                return $"Paso {PositionView+1} de 5";
+            }
+        }
         public ICommand NextCommand { get; }
         public ICommand ConfirmCommand { get; set; }
         public ICommand BackCommand { get; }
 
-        private void OnConfirmCommandExecute()
+        private async void OnConfirmCommandExecute()
         {
+            var result = await _dialogService.DisplayAlertAsync("Confirmación para la aplicación de dosis", "Primero aplica la dosis de la vacuna al paciente, después confirma la aplicación de la dosis.", "Confirmar", "Cancelar");
 
+            if (result)
+            {
+                //TODO Send confirmation to the server
+                _navigationService.NavigateAsync("/NavigationPage/HomePage");
+            }
         }
 
         private void OnNextCommandExecute()
@@ -54,6 +72,7 @@ namespace SisVac.ViewModels.CheckIn
                 case 4:
                     break;
             }
+            ProgressBarIndicator = PositionView / 4.0f;
         }
 
         private void OnBackCommandExecute()
@@ -78,6 +97,7 @@ namespace SisVac.ViewModels.CheckIn
                     PositionView = 3;
                     break;
             }
+            ProgressBarIndicator = PositionView / 4.0f;
         }
     }
 }

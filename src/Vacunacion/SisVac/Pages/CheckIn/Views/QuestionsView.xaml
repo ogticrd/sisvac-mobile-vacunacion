@@ -28,17 +28,18 @@
                             <RadioButton Content="No" GroupName="n1" />
                             <RadioButton Content="N/A" GroupName="n1" />
                         </StackLayout>
-
+                        
+                        <!--
                         <ctrls:TextFieldLayout Margin="0,16,0,0">
                             <mtrl:MaterialTextField
                                 ErrorText="Error Text"
                                 HeightRequest="80"
-                                HelperText="Helper Text"
+                                HelperText=""
                                 InputType="Plain"
                                 Placeholder="Observaciones"
                                 Text="{Binding DocumentNumber}" />
                         </ctrls:TextFieldLayout>
-
+                        -->
                     </StackLayout>
                 </Frame>
 
@@ -51,17 +52,17 @@
                             <RadioButton Content="No" GroupName="n2" />
                             <RadioButton Content="N/A" GroupName="n2" />
                         </StackLayout>
-
+                        <!--
                         <ctrls:TextFieldLayout>
                             <mtrl:MaterialTextField
                                 ErrorText="Error Text"
                                 HeightRequest="80"
-                                HelperText="Helper Text"
+                                HelperText=""
                                 InputType="Plain"
                                 Placeholder="Observaciones"
                                 Text="{Binding DocumentNumber}" />
                         </ctrls:TextFieldLayout>
-
+                        -->
                     </StackLayout>
                 </Frame>
 
@@ -74,17 +75,18 @@
                             <RadioButton Content="No" GroupName="n3" />
                             <RadioButton Content="N/A" GroupName="n3" />
                         </StackLayout>
-
+                        
+                        <!--
                         <ctrls:TextFieldLayout>
                             <mtrl:MaterialTextField
                                 ErrorText="Error Text"
                                 HeightRequest="80"
-                                HelperText="Helper Text"
+                                HelperText=""
                                 InputType="Plain"
                                 Placeholder="Observaciones"
                                 Text="{Binding DocumentNumber}" />
                         </ctrls:TextFieldLayout>
-
+                        -->
                     </StackLayout>
                 </Frame>
 
@@ -97,16 +99,18 @@
                             <RadioButton Content="No" GroupName="n4" />
                             <RadioButton Content="N/A" GroupName="n4" />
                         </StackLayout>
-
+                        
+                        <!--
                         <ctrls:TextFieldLayout>
                             <mtrl:MaterialTextField
                                 ErrorText="Error Text"
                                 HeightRequest="80"
-                                HelperText="Helper Text"
+                                HelperText=""
                                 InputType="Plain"
                                 Placeholder="Observaciones"
                                 Text="{Binding DocumentNumber}" />
                         </ctrls:TextFieldLayout>
+                        -->
 
                     </StackLayout>
                 </Frame>
@@ -120,17 +124,18 @@
                             <RadioButton Content="No" GroupName="n5" />
                             <RadioButton Content="N/A" GroupName="n5" />
                         </StackLayout>
-
+                        
+                        <!--
                         <ctrls:TextFieldLayout>
                             <mtrl:MaterialTextField
                                 ErrorText="Error Text"
                                 HeightRequest="80"
-                                HelperText="Helper Text"
+                                HelperText=""
                                 InputType="Plain"
                                 Placeholder="Observaciones"
                                 Text="{Binding DocumentNumber}" />
                         </ctrls:TextFieldLayout>
-
+                        -->
                     </StackLayout>
                 </Frame>
 
@@ -143,17 +148,18 @@
                             <RadioButton Content="No" GroupName="n6" />
                             <RadioButton Content="N/A" GroupName="n6" />
                         </StackLayout>
-
+                        
+                        <!--
                         <ctrls:TextFieldLayout>
                             <mtrl:MaterialTextField
                                 ErrorText="Error Text"
                                 HeightRequest="80"
-                                HelperText="Helper Text"
+                                HelperText=""
                                 InputType="Plain"
                                 Placeholder="Observaciones"
                                 Text="{Binding DocumentNumber}" />
                         </ctrls:TextFieldLayout>
-
+                        -->
                     </StackLayout>
                 </Frame>
 

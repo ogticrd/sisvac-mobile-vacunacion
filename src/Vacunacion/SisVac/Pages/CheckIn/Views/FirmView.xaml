@@ -6,9 +6,10 @@
     xmlns:sp="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
     xmlns:vws="clr-namespace:SisVac.Pages.CheckIn.Views.Shared">
     <ContentView.Content>
-        <StackLayout>
+        <StackLayout Spacing="16">
             <vws:PersonDetailView />
-            
+
+            <Frame VerticalOptions="FillAndExpand">
             <sp:SignaturePadView
                 VerticalOptions="FillAndExpand"
 	            x:Name="signatureView"
@@ -17,6 +18,7 @@
                 CaptionText="Firma encima de la línea"
 	            StrokeColor="Black"
 	            BackgroundColor="White" />
+            </Frame>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

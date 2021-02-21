@@ -13,7 +13,7 @@
                 <ctrls:TextFieldLayout>
                     <mtrl:MaterialTextField
                         ErrorText="Error Text"
-                        HelperText="Helper Text"
+                        HelperText=""
                         MaxLength="14"
                         Placeholder="Cedula"
                         Text="Mi cedula" />

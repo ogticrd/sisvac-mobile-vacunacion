@@ -11,16 +11,17 @@
                         <Label Text="Consentimiento de Vacunación" FontAttributes="Bold" Style="{StaticResource Body1}" />
                         <Label>
                             <Label.Text>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Reconozco que la ciencia ha tenido que hacer grandes esfuerzos para poner las vacunas a disposición de todos los países del mundo a la mayor velocidad posible con la finalidad de detener la pandemia en el menor tiempo aceptable, reduciendo de manera considerable las pérdidas de vidas. Igualmente, que aunque no se ha alcanzado el 100% de efectividad y seguridad, y pueden existir riesgos aún no identificados, se han sobrepasado los niveles alcanzados para otras vacunas aplicadas por largos años, lo que ha permitido la aprobación para uso de emergencia de las vacunas que se están aplicando en República Dominicana.
+Entiendo que la solicitud de este consentimiento se le hace al amparo del literal FI), artículo 28 de la Ley General de Salud Pública, No. 42-01, lo que significa que reconozco que he recibido  esta información, he hecho las preguntas que he considerado pertinentes y he recibido respuestas a esas preguntas, y asimismo he contestado honestamente las preguntas hechas por el personal de salud.
 
-Why do we use it?
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+CON MI FIRMA EN ESTE FORMULARIO, DECLARO Y CONSIENTO LO SIGUIENTE:
 
+- Haber leído la información provista sobre la vacunación contra la COVID-19 y haber consultado cualquier duda con el personal de salud correspondiente.
+- Que la información que he provisto en este formulario es la correcta y que la misma podrá ser utilizada por el Ministerio de Salud Pública y Asistencia Social, el fabricante de la vacuna y/o terceros determinados por el MISPAS para fines de registro, estadística y análisis de información.
+- Que acepto de forma voluntaria recibir la vacuna contra este virus, conforme es suministrada por el Ministerio de Salud Pública de la República Dominicana, aceptando los riesgos, efectos y consecuencias potenciales de recibir las dosis de la vacuna contra el COVID-19, sobre los cuales he quedado informado.
+- Que acepto comparecer en el tiempo indicado por el personal de salud para recibir la segunda dosis de la vacuna, si aplica. 
+Adicionalmente, respecto al tratamiento de mis datos personales, indico que acepto que los datos que he provisto sean compartidos con el fabricante de la vacuna u otros terceros relacionados.
 
-Where does it come from?
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
                             </Label.Text>
                         </Label>
                     </StackLayout>
