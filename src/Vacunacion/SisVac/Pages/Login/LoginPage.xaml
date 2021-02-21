@@ -45,7 +45,7 @@
                     ErrorText="{Binding DocumentID.Error}"
                     HasError="{Binding DocumentID.IsValid, Converter={StaticResource NegateBoolean}}"
                     InputType="Numeric"
-                    MaxLength="11"
+                    MaxLength="13"
                     Placeholder="Número de Cédula"
                     ReturnCommand="{Binding LoginCommand}"
                     Text="{Binding DocumentID.Value}" />

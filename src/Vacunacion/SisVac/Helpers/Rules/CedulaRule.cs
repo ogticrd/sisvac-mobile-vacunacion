@@ -12,6 +12,10 @@ namespace SisVac.Helpers.Rules
         {
             var sumaPar = 0;
             var sumaImpar = 0;
+
+            if(value.Contains("-"))
+                value = value.Replace("-", "");
+
             var longitud = Convert.ToInt32(value.Length);
 
             /*Control de errores en el código*/
