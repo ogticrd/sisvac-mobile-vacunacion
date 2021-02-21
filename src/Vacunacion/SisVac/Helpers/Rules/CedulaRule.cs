@@ -6,10 +6,14 @@ namespace SisVac.Helpers.Rules
     // https://gist.github.com/gregorypilar/1569baf02f011ff25f27697638435aad
     public class CedulaRule : IValidationRule<string>
     {
-        public string ValidationMessage { get; set; } = "Cedula no valida";
+        public string ValidationMessage { get; set; } = "Cédula no es válida";
 
         public bool Check(string value)
         {
+            if(string.IsNullOrWhiteSpace(value))
+            {
+                return false;
+            }
             var sumaPar = 0;
             var sumaImpar = 0;
 

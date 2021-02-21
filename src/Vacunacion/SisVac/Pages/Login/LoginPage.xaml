@@ -38,7 +38,7 @@
                 Margin="0,0,0,32"
                 HorizontalOptions="Center"
                 Style="{StaticResource H3}"
-                Text="Inicia sesión para comenzar tu dia" />
+                Text="Inicia sesión para comenzar tu día" />
 
             <ctrls:TextFieldLayout>
                 <mtrl:MaterialTextField
