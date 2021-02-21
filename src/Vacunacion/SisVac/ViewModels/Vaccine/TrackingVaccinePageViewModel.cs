@@ -55,7 +55,6 @@ namespace SisVac.ViewModels.Vaccine
                                             actionButtonText: "OK",
                                             msDuration: 8000);
             }
-            await _navigationService.NavigateAsync("/NavigationPage/HomePage");
         }
 
         private void OnNextCommandExecute()
