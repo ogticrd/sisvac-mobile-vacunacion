@@ -2,9 +2,9 @@
 
 namespace SisVac.Pages.Login
 {
-    public partial class ConfirmSignIn : ContentPage
+    public partial class ConfirmLoginPage : ContentPage
     {
-        public ConfirmSignIn()
+        public ConfirmLoginPage()
         {
             InitializeComponent();
         }

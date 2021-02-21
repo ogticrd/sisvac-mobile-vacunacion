@@ -36,9 +36,11 @@
 
             <ctrls:TextFieldLayout>
                 <mtrl:MaterialTextField
-                    ErrorText="Error Text"
-                    HelperText="Helper Text"
-                    MaxLength="14"
+                    ErrorText="Introduce una cédula válida"
+                    HasError="{Binding DocumentHasError}"
+                    InputType="Numeric"
+                    HelperText=""
+                    MaxLength="11"
                     Placeholder="Número de Cédula"
                     Text="{Binding Document}" />
             </ctrls:TextFieldLayout>

@@ -37,6 +37,7 @@
     <Folder Include="ViewModels\Report\" />
     <Folder Include="Framework\Domain\" />
     <Folder Include="Framework\Http\" />
+    <Folder Include="Framework\Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Pages\HomePage.xaml.cs" />
