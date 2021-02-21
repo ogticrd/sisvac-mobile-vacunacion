@@ -26,9 +26,20 @@ namespace SisVac.ViewModels
         public Validatable<string> DocumentID { get; set; }
         public ICommand ScanDocumentCommand { get; set; }
 
+        private void AssignDocumentValue(string value)
+        {
+            DocumentID.Value = value;
+        }
+
         private async void OnScanDocumentCommandExecute()
         {
-            await _scannerService.Scan((x) => DocumentID.Value = x);
+            var result = await _scannerService.Scan(null);
+
+            if(result.Length > 11)
+            {
+                result = result.Substring(0,11);
+            }
+            DocumentID.Value = result;
         }
     }
 }

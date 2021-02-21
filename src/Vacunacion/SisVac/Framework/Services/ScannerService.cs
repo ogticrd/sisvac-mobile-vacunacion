@@ -16,15 +16,16 @@ namespace SisVac.Framework.Services
 
             var result = await scanner.Scan(new ZXing.Mobile.MobileBarcodeScanningOptions
             {
-                DisableAutofocus = false,
-                TryHarder = true
+                DisableAutofocus = false
             });
             if (result != null)
             {
-                callback(result.Text);
+                if(callback != null)
+                    callback(result.Text);
                 return result.Text;
             }
-            callback(string.Empty);
+            if (callback != null)
+                callback(string.Empty);
             return string.Empty;
         }
     }
