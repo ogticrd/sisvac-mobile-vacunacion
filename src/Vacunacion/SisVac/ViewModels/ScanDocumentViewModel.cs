@@ -21,7 +21,7 @@ namespace SisVac.ViewModels
         }
         private async void OnScanDocumentCommandExecute()
         {
-            await _scannerService.Scan((x) => Document = x);
+            await _scannerService.Scan((x) => Document = x, "Escaneando cédula", "Coloca la línea roja encima del código de barras detrás de la cédula");
         }
     }
 }

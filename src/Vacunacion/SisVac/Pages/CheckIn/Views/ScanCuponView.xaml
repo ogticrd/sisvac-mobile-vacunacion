@@ -13,9 +13,9 @@
                 <ctrls:TextFieldLayout>
                     <mtrl:MaterialTextField
                         ErrorText="Error Text"
-                        HelperText="Helper Text"
+                        HelperText=""
                         MaxLength="11"
-                        Placeholder="Cupón"
+                        Placeholder="Cédula"
                         Text="{Binding Document}" />
                 </ctrls:TextFieldLayout>
             </Frame>
