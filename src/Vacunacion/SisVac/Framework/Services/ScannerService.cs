@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using ZXing;
 
 namespace SisVac.Framework.Services
 {
@@ -11,12 +12,13 @@ namespace SisVac.Framework.Services
             {
                 BottomText = bottomText,
                 TopText = topText,
-                FlashButtonText = "Flash"
+                FlashButtonText = "Flash",
             };
 
             var result = await scanner.Scan(new ZXing.Mobile.MobileBarcodeScanningOptions
             {
-                DisableAutofocus = false
+                DisableAutofocus = false,
+                PossibleFormats = { BarcodeFormat.CODE_39, BarcodeFormat.CODE_93, BarcodeFormat.CODE_128 }
             });
             if (result != null)
             {
