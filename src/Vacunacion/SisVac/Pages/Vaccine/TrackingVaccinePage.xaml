@@ -21,14 +21,14 @@
             x:Name="stepLabel"
             FontAttributes="Bold"
             FontSize="13"
-            Text="1 de 3"
+            Text="{Binding ProgressTextIndicator}"
             TextColor="{StaticResource SecondaryColor}"
             TranslationX="16" />
 
         <ProgressBar
             x:Name="progressBar"
             Margin="16,0,16,0"
-            Progress="0.5"
+            Progress="{Binding ProgressBarIndicator}"
             ProgressColor="{StaticResource SecondaryColor}" />
 
         <RefreshView IsEnabled="{Binding IsBusy}" IsRefreshing="{Binding IsBusy}">
@@ -94,11 +94,18 @@
                 <mtrl:MaterialButton
                     Command="{Binding BackCommand}"
                     Style="{StaticResource ButtonOutlined}"
+                    IsVisible="{Binding IsBackButtonVisible}"
                     Text="Atras" />
                 <mtrl:MaterialButton
                     Command="{Binding NextCommand}"
                     Style="{StaticResource ButtonPrimary}"
+                    IsVisible="{Binding IsNextButtonVisible}"
                     Text="Siguiente" />
+                <mtrl:MaterialButton
+                    Command="{Binding ConfirmCommand}"
+                    Style="{StaticResource ButtonPrimary}"
+                    IsVisible="{Binding IsConfirmButtonVisible}"
+                    Text="Confirmar" />
             </StackLayout>
         </Frame>
 
