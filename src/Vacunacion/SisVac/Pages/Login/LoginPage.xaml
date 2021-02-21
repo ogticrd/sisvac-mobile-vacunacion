@@ -27,22 +27,25 @@
             Source="{hlps:ImageResource logo_cupula.png}"
             WidthRequest="38" />
 
-        <StackLayout Spacing="16" VerticalOptions="CenterAndExpand">
+        <StackLayout Spacing="8" VerticalOptions="CenterAndExpand">
 
             <Image
                 HeightRequest="132"
                 Source="{hlps:ImageResource logo.png}"
                 WidthRequest="132" />
 
-            <Label
-                Margin="0,0,0,32"
-                HorizontalOptions="Center"
-                Style="{StaticResource H3}"
-                Text="Inicia sesión para comenzar tu día" />
+            <Frame Margin="-16,0,-16,0" Padding="16,24,16,0">
+                <ctrls:TextFieldLayout>
+                    <mtrl:MaterialTextField
+                        HelperText="Inicia sesión para comenzar tu día"
+                        ReturnCommand="{Binding LoginCommand}"
+                        StyleClass="CedulaTextField" />
+                </ctrls:TextFieldLayout>
+            </Frame>
 
-            <ctrls:TextFieldLayout>
-                <mtrl:MaterialTextField ReturnCommand="{Binding LoginCommand}" StyleClass="CedulaTextField" />
-            </ctrls:TextFieldLayout>
+        </StackLayout>
+
+        <StackLayout Spacing="0" VerticalOptions="Center">
 
             <mtrl:MaterialButton
                 Command="{Binding ScanDocumentCommand}"
