@@ -160,6 +160,7 @@
             <Setter Property="AllCaps" Value="False" />
             <Setter Property="CornerRadius" Value="50" />
             <Setter Property="BorderColor" Value="{StaticResource PrimaryColor}" />
+            <Setter Property="BackgroundColor" Value="{StaticResource SurfaceColor}" />
 
         </Style>
 
