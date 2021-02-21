@@ -13,6 +13,7 @@ using SisVac.Pages.CheckIn;
 using SisVac.Pages.Login;
 using SisVac.Pages.Report;
 using SisVac.Pages.Vaccine;
+using SisVac.ViewModels;
 using SisVac.ViewModels.CheckIn;
 using SisVac.ViewModels.Login;
 using SisVac.ViewModels.Vaccine;
@@ -49,7 +50,7 @@ namespace SisVac
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<ConfirmLoginPage, ConfirmLoginPageViewModel>();
-            containerRegistry.RegisterForNavigation<HomePage>();
+            containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<CheckInPage, CheckInPageViewModel>();
             containerRegistry.RegisterForNavigation<ReportEffectsPage>();
             containerRegistry.RegisterForNavigation<TrackingVaccinePage, TrackingVaccinePageViewModel>();

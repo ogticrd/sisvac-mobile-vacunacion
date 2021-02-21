@@ -64,7 +64,7 @@
                 Command="{prism:NavigateTo 'ReportEffectsPage'}"
                 Style="{StaticResource ButtonPrimary}"
                 Text="Reportar Efectos" />
-
+<!--
             <mtrl:MaterialButton
                 Command="{prism:NavigateTo 'VaccineStatusPage'}"
                 Style="{StaticResource ButtonOutlined}"
@@ -74,7 +74,7 @@
                 Command="{prism:NavigateTo 'ChangeVaccinatorPage'}"
                 Style="{StaticResource ButtonOutlined}"
                 Text="Cambiar Vacunador" />
-
+            -->
         </StackLayout>
     </ScrollView>
 

@@ -30,8 +30,7 @@
                 </ctrls:TextFieldLayout>
             </Frame>
 
-            <views:VaccineDetailView />
-
+            <!--<views:VaccineDetailView />-->
 
         </StackLayout>
 
