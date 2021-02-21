@@ -6,7 +6,8 @@
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     Title="SisVacRD"
-    prism:ViewModelLocator.AutowireViewModel="True">
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource BackgroundColor}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Secondary" Text="Ayuda" />
@@ -32,7 +33,7 @@
                 Text="{Binding User.FullName}" />
 
             <Label
-                HorizontalOptions="Center" 
+                HorizontalOptions="Center"
                 Style="{StaticResource H3}"
                 Text="Localización"
                 TextTransform="Uppercase" />
@@ -66,7 +67,7 @@
                 Command="{prism:NavigateTo 'ReportEffectsPage'}"
                 Style="{StaticResource ButtonPrimary}"
                 Text="Reportar Efectos" />
-<!--
+            <!--
             <mtrl:MaterialButton
                 Command="{prism:NavigateTo 'VaccineStatusPage'}"
                 Style="{StaticResource ButtonOutlined}"

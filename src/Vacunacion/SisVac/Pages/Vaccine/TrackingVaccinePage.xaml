@@ -9,7 +9,8 @@
     xmlns:vws="clr-namespace:SisVac.Pages.CheckIn.Views"
     xmlns:vwsS="clr-namespace:SisVac.Pages.CheckIn.Views.Shared"
     Title="Vacunar"
-    prism:ViewModelLocator.AutowireViewModel="True">
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource BackgroundColor}">
 
     <StackLayout
         Padding="0,32,0,0"
@@ -93,18 +94,18 @@
             <StackLayout Orientation="Horizontal">
                 <mtrl:MaterialButton
                     Command="{Binding BackCommand}"
-                    Style="{StaticResource ButtonOutlined}"
                     IsVisible="{Binding IsBackButtonVisible}"
+                    Style="{StaticResource ButtonOutlined}"
                     Text="Atras" />
                 <mtrl:MaterialButton
                     Command="{Binding NextCommand}"
-                    Style="{StaticResource ButtonPrimary}"
                     IsVisible="{Binding IsNextButtonVisible}"
+                    Style="{StaticResource ButtonPrimary}"
                     Text="Siguiente" />
                 <mtrl:MaterialButton
                     Command="{Binding ConfirmCommand}"
-                    Style="{StaticResource ButtonPrimary}"
                     IsVisible="{Binding IsConfirmButtonVisible}"
+                    Style="{StaticResource ButtonPrimary}"
                     Text="Confirmar" />
             </StackLayout>
         </Frame>

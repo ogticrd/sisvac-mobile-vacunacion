@@ -6,7 +6,8 @@
     xmlns:prism="http://prismlibrary.com"
     xmlns:views="clr-namespace:SisVac.Pages.CheckIn.Views"
     Title="Estado de paciente"
-    prism:ViewModelLocator.AutowireViewModel="True">
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource BackgroundColor}">
 
     <views:StatusView />
 

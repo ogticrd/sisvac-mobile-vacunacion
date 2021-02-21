@@ -7,7 +7,7 @@
     xmlns:hlps="clr-namespace:SisVac.Helpers;assembly=SisVac"
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
-    BackgroundColor="{StaticResource Material.Color.Background}"
+    BackgroundColor="{StaticResource BackgroundColor}"
     NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Resources>
