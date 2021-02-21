@@ -99,7 +99,7 @@
                     Command="{Binding BackCommand}"
                     Style="{StaticResource ButtonOutlined}"
                     IsVisible="{Binding IsBackButtonVisible}"
-                    Text="Atras" />
+                    Text="Atrás" />
                 <mtrl:MaterialButton
                     Command="{Binding NextCommand}"
                     Style="{StaticResource ButtonPrimary}"

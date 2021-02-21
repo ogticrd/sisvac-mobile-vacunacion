@@ -9,7 +9,7 @@ using AndroidX.AppCompat.App;
 
 namespace SisVac.Droid
 {
-    [Activity(Label = "SisVacRD", Icon = "@mipmap/icon", Theme = "@style/MainTheme")]
+    [Activity(Label = "SisVacRD", Icon = "@mipmap/icon", Theme = "@style/MainTheme", ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
