@@ -10,6 +10,12 @@
     BackgroundColor="{StaticResource Material.Color.Background}"
     NavigationPage.HasNavigationBar="False">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <hlps:NegateBooleanConverter x:Key="NegateBoolean" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <StackLayout
         Padding="16"
         HorizontalOptions="FillAndExpand"
@@ -36,14 +42,13 @@
 
             <ctrls:TextFieldLayout>
                 <mtrl:MaterialTextField
-                    ErrorText="Introduce una cédula válida"
-                    HasError="{Binding DocumentHasError}"
-                    HelperText=""
+                    ErrorText="{Binding DocumentID.Error}"
+                    HasError="{Binding DocumentID.IsValid, Converter={StaticResource NegateBoolean}}"
                     InputType="Numeric"
                     MaxLength="11"
                     Placeholder="Número de Cédula"
                     ReturnCommand="{Binding LoginCommand}"
-                    Text="{Binding Document}" />
+                    Text="{Binding DocumentID.Value}" />
             </ctrls:TextFieldLayout>
 
             <mtrl:MaterialButton
