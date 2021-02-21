@@ -15,19 +15,29 @@ namespace SisVac.ViewModels.CheckIn
         {
             NextCommand = new DelegateCommand(OnNextCommandExecute);
             BackCommand = new DelegateCommand(OnBackCommandExecute);
+            ConfirmCommand = new DelegateCommand(OnConfirmCommandExecute);
         }
 
         public int PositionView { get; set; }
+        public bool IsBackButtonVisible { get; set; } = false;
+        public bool IsNextButtonVisible { get; set; } = true;
+        public bool IsConfirmButtonVisible { get; set; } = false;
 
         public ICommand NextCommand { get; }
-        public ICommand ScanCouponCommand { get; set; }
+        public ICommand ConfirmCommand { get; set; }
         public ICommand BackCommand { get; }
+
+        private void OnConfirmCommandExecute()
+        {
+
+        }
 
         private void OnNextCommandExecute()
         {
             switch (PositionView)
             {
                 case 0:
+                    IsBackButtonVisible = true;
                     PositionView = 1;
                     break;
                 case 1:
@@ -37,6 +47,8 @@ namespace SisVac.ViewModels.CheckIn
                     PositionView = 3;
                     break;
                 case 3:
+                    IsNextButtonVisible = false;
+                    IsConfirmButtonVisible = true;
                     PositionView = 4;
                     break;
                 case 4:
@@ -51,6 +63,7 @@ namespace SisVac.ViewModels.CheckIn
                 case 0:
                     break;
                 case 1:
+                    IsBackButtonVisible = false;
                     PositionView = 0;
                     break;
                 case 2:
@@ -60,6 +73,8 @@ namespace SisVac.ViewModels.CheckIn
                     PositionView = 2;
                     break;
                 case 4:
+                    IsNextButtonVisible = true;
+                    IsConfirmButtonVisible = false;
                     PositionView = 3;
                     break;
             }

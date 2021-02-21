@@ -98,11 +98,19 @@
                 <mtrl:MaterialButton
                     Command="{Binding BackCommand}"
                     Style="{StaticResource ButtonOutlined}"
+                    IsVisible="{Binding IsBackButtonVisible}"
                     Text="Atras" />
                 <mtrl:MaterialButton
                     Command="{Binding NextCommand}"
                     Style="{StaticResource ButtonPrimary}"
+                    IsVisible="{Binding IsNextButtonVisible}"
                     Text="Siguiente" />
+                
+                <mtrl:MaterialButton
+                    Command="{Binding ConfirmCommand}"
+                    Style="{StaticResource ButtonPrimary}"
+                    IsVisible="{Binding IsConfirmButtonVisible}"
+                    Text="Confirmar" />
             </StackLayout>
         </Frame>
 
