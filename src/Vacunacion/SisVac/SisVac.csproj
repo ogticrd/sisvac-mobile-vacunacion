@@ -40,9 +40,6 @@
     <Folder Include="Framework\Extensions\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Pages\HomePage.xaml.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Update="Controls\TextFieldLayout.xaml.cs">
       <DependentUpon>TextFieldLayout.xaml</DependentUpon>
     </Compile>
