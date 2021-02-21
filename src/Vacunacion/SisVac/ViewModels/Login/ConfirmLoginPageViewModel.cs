@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Windows.Input;
 using Prism.Navigation;
+using SisVac.Framework.Domain;
+using SisVac.Framework.Services;
 using Xamarin.Forms;
 
 namespace SisVac.ViewModels.Login
 {
-    public class ConfirmLoginPageViewModel : BaseViewModel
+    public class ConfirmLoginPageViewModel : ScanDocumentViewModel
     {
         public string LocationId { get; set; }
         public string LocationName { get; set; }
@@ -14,7 +16,7 @@ namespace SisVac.ViewModels.Login
         public ICommand LocationSelectedCommand { get; set; }
         public ICommand ConfirmLoginCommand { get; set; }
 
-        public ConfirmLoginPageViewModel(INavigationService navigationService) : base(navigationService)
+        public ConfirmLoginPageViewModel(INavigationService navigationService, IScannerService scannerService) : base(navigationService, scannerService)
         {
             LocationSelectedCommand = new Command<string>(LocationSelectedCommandExecute);
             ConfirmLoginCommand = new Command(ConfirmLoginCommandExecute);
@@ -26,14 +28,26 @@ namespace SisVac.ViewModels.Login
 
         async void ConfirmLoginCommandExecute()
         {
-            if(String.IsNullOrEmpty(LocationName))
+            if(String.IsNullOrEmpty(LocationName) && !DocumentID.Validate())
             {
                 ShowLocationErrorMessage = true;
             }
             else
             {
                 ShowLocationErrorMessage = false;
-                await _navigationService.NavigateAsync("/NavigationPage/HomePage");
+
+                //TODO Get user info from web service
+                App.User = new ApplicationUser
+                {
+                    Age = 30,
+                    Document = DocumentID.Value,
+                    FullName = "Isbel C. Bautista"
+                };
+
+                var parameters = new NavigationParameters();
+                parameters.Add("user", User);
+
+                await _navigationService.NavigateAsync("/NavigationPage/HomePage", parameters);
             }
             //            { prism: NavigateTo '/NavigationPage/HomePage'}
         }

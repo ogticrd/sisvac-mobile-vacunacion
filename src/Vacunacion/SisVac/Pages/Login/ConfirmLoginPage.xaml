@@ -4,10 +4,17 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ctrls="clr-namespace:SisVac.Controls"
+    xmlns:hlps="clr-namespace:SisVac.Helpers"
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     Title="Confirmando Ingreso"
     prism:ViewModelLocator.AutowireViewModel="True">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <hlps:NegateBooleanConverter x:Key="NegateBoolean" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <StackLayout
         Padding="16"
@@ -59,13 +66,12 @@
                 TextColor="{StaticResource SecondaryColor}" />
             <ctrls:TextFieldLayout>
                 <mtrl:MaterialTextField
-                    ErrorText="Introduce una cédula válida"
-                    HasError="{Binding DocumentHasError}"
-                    HelperText=""
+                    ErrorText="{Binding DocumentID.Error}"
+                    HasError="{Binding DocumentID.IsValid, Converter={StaticResource NegateBoolean}}"
                     InputType="Numeric"
-                    MaxLength="11"
+                    MaxLength="13"
                     Placeholder="Número de Cédula"
-                    Text="{Binding Document}" />
+                    Text="{Binding DocumentID.Value}" />
             </ctrls:TextFieldLayout>
 
 
