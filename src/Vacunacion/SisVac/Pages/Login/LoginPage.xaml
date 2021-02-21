@@ -7,7 +7,8 @@
     xmlns:hlps="clr-namespace:SisVac.Helpers;assembly=SisVac"
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
-    BackgroundColor="{StaticResource Material.Color.Background}">
+    BackgroundColor="{StaticResource Material.Color.Background}"
+    NavigationPage.HasNavigationBar="False">
 
     <StackLayout
         Padding="16"
@@ -37,8 +38,8 @@
                 <mtrl:MaterialTextField
                     ErrorText="Introduce una cédula válida"
                     HasError="{Binding DocumentHasError}"
-                    InputType="Numeric"
                     HelperText=""
+                    InputType="Numeric"
                     MaxLength="11"
                     Placeholder="Número de Cédula"
                     Text="{Binding Document}" />
