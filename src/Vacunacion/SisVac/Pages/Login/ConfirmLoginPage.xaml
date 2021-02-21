@@ -24,7 +24,7 @@
             <Label
                 HorizontalOptions="Center"
                 Style="{StaticResource Subtitle1}"
-                Text="{Binding User.Name}"
+                Text="{Binding User.FullName}"
                 TranslationY="-8" />
 
             <Label
@@ -50,6 +50,28 @@
                     </mtrl:MaterialTextField.Choices>
                 </mtrl:MaterialTextField>
             </ctrls:TextFieldLayout>
+            
+            <Label
+                Margin="0,0,0,32"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="Registra tu vacunador asignado"
+                TextColor="{StaticResource SecondaryColor}" />
+            <ctrls:TextFieldLayout>
+                <mtrl:MaterialTextField
+                    ErrorText="Introduce una cédula válida"
+                    HasError="{Binding DocumentHasError}"
+                    InputType="Numeric"
+                    HelperText=""
+                    MaxLength="11"
+                    Placeholder="Número de Cédula"
+                    Text="{Binding Document}" />
+            </ctrls:TextFieldLayout>
+
+            <mtrl:MaterialButton
+                Command="{Binding ScanDocumentCommand}"
+                Style="{StaticResource ButtonOutlined}"
+                Text="Escanear Cédula" />
             
             <mtrl:MaterialButton
                 Margin="0,8,0,0"
