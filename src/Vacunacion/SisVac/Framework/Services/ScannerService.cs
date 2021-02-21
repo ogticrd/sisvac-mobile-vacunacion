@@ -5,7 +5,7 @@ namespace SisVac.Framework.Services
 {
     public class ScannerService : IScannerService
     {
-        public async Task<string> Scan(Action<string> callback, string topText, string bottomText = "")
+        public async Task<string> Scan(Action<string> callback, string topText = "", string bottomText = "")
         {
             var scanner = new ZXing.Mobile.MobileBarcodeScanner
             {
@@ -27,6 +27,6 @@ namespace SisVac.Framework.Services
 
     public interface IScannerService
     {
-        Task<string> Scan(Action<string> callback, string topText, string bottomText="");
+        Task<string> Scan(Action<string> callback, string topText = "", string bottomText="");
     }
 }

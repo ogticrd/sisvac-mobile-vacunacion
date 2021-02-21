@@ -11,7 +11,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Secondary" Text="Ayuda" />
         <ToolbarItem
-            Command="{prism:NavigateTo '/NavigationPage/LoginPage'}"
+            Command="{prism:NavigateTo 'NavigationPage/LoginPage'}"
             Order="Secondary"
             Text="Desloguearse" />
     </ContentPage.ToolbarItems>
@@ -44,9 +44,9 @@
 
 
         <mtrl:MaterialButton
-            Command="{prism:NavigateTo 'CheckInPage'}"
+            Command="{prism:NavigateTo '/CheckInPage'}"
             Style="{StaticResource ButtonPrimary}"
-            Text="Verificar CUPÓN" />
+            Text="Verificar" />
 
         <mtrl:MaterialButton
             Command="{prism:NavigateTo 'TrackingVaccinePage'}"

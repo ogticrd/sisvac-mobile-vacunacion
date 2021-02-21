@@ -7,8 +7,7 @@
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     Title="Confirmando Ingreso"
-    prism:ViewModelLocator.AutowireViewModel="True"
-    NavigationPage.HasNavigationBar="False">
+    prism:ViewModelLocator.AutowireViewModel="True">
 
     <StackLayout
         Padding="16"

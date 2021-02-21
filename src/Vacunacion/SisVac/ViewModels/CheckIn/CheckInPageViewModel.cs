@@ -1,5 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Navigation;
+using SisVac.Framework.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,26 +9,12 @@ using System.Windows.Input;
 
 namespace SisVac.ViewModels.CheckIn
 {
-    public class CheckInPageViewModel : BindableBase
+    public class CheckInPageViewModel : ScanDocumentViewModel
     {
-        public string CouponCode { get; set; }
-
-        public CheckInPageViewModel()
+        public CheckInPageViewModel(INavigationService navigationService, IScannerService scannerService) : base(navigationService, scannerService)
         {
-            NextCommand = new DelegateCommand(OnNextCommandExecute, ()=> !string.IsNullOrWhiteSpace(CouponCode));
+            NextCommand = new DelegateCommand(OnNextCommandExecute);
             BackCommand = new DelegateCommand(OnBackCommandExecute);
-            ScanCouponCommand = new DelegateCommand(OnScanCouponCommandExecute);
-        }
-
-        async void OnScanCouponCommandExecute()
-        {
-            var scanner = new ZXing.Mobile.MobileBarcodeScanner();
-            var result = await scanner.Scan(new ZXing.Mobile.MobileBarcodeScanningOptions{
-                    DisableAutofocus = false,
-                    TryHarder = true
-                });
-            if (result != null)
-                CouponCode = result.Text;
         }
 
         public int PositionView { get; set; }
