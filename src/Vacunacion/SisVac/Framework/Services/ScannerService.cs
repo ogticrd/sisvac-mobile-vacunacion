@@ -20,7 +20,11 @@ namespace SisVac.Framework.Services
                 TryHarder = true
             });
             if (result != null)
+            {
+                callback(result.Text);
                 return result.Text;
+            }
+            callback(string.Empty);
             return string.Empty;
         }
     }
