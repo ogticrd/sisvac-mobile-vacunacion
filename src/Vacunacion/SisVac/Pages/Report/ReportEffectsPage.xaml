@@ -28,14 +28,12 @@
                         <mtrl:MaterialCheckboxGroup x:Name="checkBoxGroup">
                             <mtrl:MaterialCheckboxGroup.Choices>
                                 <x:Array Type="{x:Type x:String}">
-                                    <x:String>Mareos</x:String>
-                                    <x:String>Dolor de cabeza</x:String>
-                                    <x:String>Dolor muscular</x:String>
-                                    <x:String>Nauseas</x:String>
-                                    <x:String>Malestar Estomacal</x:String>
                                     <x:String>Fiebre</x:String>
-                                    <x:String>Dificultad para respirar</x:String>
-                                    <x:String>Tos</x:String>
+                                    <x:String>Escalofríos</x:String>
+                                    <x:String>Cansancio</x:String>
+                                    <x:String>Náuseas</x:String>
+                                    <x:String>Dolor de cabeza</x:String>
+                                    <x:String>Mareos</x:String>
                                     <x:String>Otros</x:String>
                                 </x:Array>
                             </mtrl:MaterialCheckboxGroup.Choices>

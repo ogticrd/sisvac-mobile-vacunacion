@@ -6,6 +6,8 @@ using SisVac.Framework.Domain;
 using SisVac.Framework.Extensions;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
+using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using XF.Material.Forms.UI.Dialogs;
 
@@ -25,6 +27,7 @@ namespace SisVac.ViewModels.CheckIn
             ProgressBarIndicator = 0.0f;
         }
 
+        public Func<Task<byte[]>> SignatureFromStream { get; set; }
         public int PositionView { get; set; }
         public bool IsBackButtonVisible { get; set; } = false;
         public bool IsNextButtonVisible { get; set; } = true;
@@ -42,6 +45,7 @@ namespace SisVac.ViewModels.CheckIn
         public ICommand BackCommand { get; }
 
         public Person Patient { get; set; } = new Person();
+        public Consent Consent { get; set; } = new Consent();
 
         public string DocumentLabel {
             get
@@ -59,6 +63,8 @@ namespace SisVac.ViewModels.CheckIn
 
             using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
             {
+
+                var signature = await SignatureFromStream();
                 // TODO: Call API Here
                 // TODO: Send confirmation to the server
             }
@@ -76,8 +82,7 @@ namespace SisVac.ViewModels.CheckIn
             switch (PositionView)
             {
                 case 0:
-                    IsBackButtonVisible = true;
-                    if(!string.IsNullOrWhiteSpace(DocumentID.Value) && DocumentID.Value.IsValidDocument())
+                    if(!string.IsNullOrWhiteSpace(DocumentID.Value) && DocumentID.Value.Replace("-","").IsValidDocument())
                     {
                         var patientData = await GetDocumentData(DocumentID.Value);
                         Patient = new Person
@@ -86,17 +91,19 @@ namespace SisVac.ViewModels.CheckIn
                             Document = DocumentID.Value,
                             FullName = patientData.Name
                         };
+                        IsBackButtonVisible = true;
+                        PositionView = 1;
                     }
                     else
                     {
                     }
+
                     Patient = new Person
                     {
                         Age = 25,
                         Document = "131-12333333-1",
                         FullName = "Juan Perez"
                     };
-                    PositionView = 1;
                     break;
                 case 1:
                     PositionView = 2;

@@ -15,10 +15,6 @@ namespace SisVac.ViewModels
             _cacheService = cacheService;
         }
 
-       
-        public new ApplicationUser User { get; set; }
-        public new ApplicationUser Vaccionator { get; set; }
-
         private async Task Init()
         {
 
@@ -29,10 +25,10 @@ namespace SisVac.ViewModels
 
         public override async void OnNavigatedTo(INavigationParameters parameters)
         {
-            //if (parameters.ContainsKey("user"))
-            //    User = parameters.GetValue<ApplicationUser>("user");
 
             await Init();
+            //if (parameters.ContainsKey("user"))
+            //    User = parameters.GetValue<ApplicationUser>("user");
         }
     }
 }

@@ -21,116 +21,51 @@
 
                 <Frame>
                     <StackLayout>
-
                         <Label Text="¿Si es mujer, está embarazada?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n1" />
-                            <RadioButton Content="No" GroupName="n1" />
+                            <RadioButton Content="Si" GroupName="n1" IsChecked="{Binding Consent.IsPregnant}"/>
+                            <RadioButton Content="No" GroupName="n1" IsChecked="True" />
                         </StackLayout>
-                        
-                        <!--
-                        <ctrls:TextFieldLayout Margin="0,16,0,0">
-                            <mtrl:MaterialTextField
-                                ErrorText="Error Text"
-                                HeightRequest="80"
-                                HelperText=""
-                                InputType="Plain"
-                                Placeholder="Observaciones"
-                                Text="{Binding DocumentNumber}" />
-                        </ctrls:TextFieldLayout>
-                        -->
                     </StackLayout>
                 </Frame>
 
                 <Frame>
                     <StackLayout>
-
                         <Label Text="¿Ha estado enfermo o ha tenido fiebre superior a 38.5C° en las últimas 72 horas?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n2" />
-                            <RadioButton Content="No" GroupName="n2" />
+                            <RadioButton Content="Si" GroupName="n2" IsChecked="{Binding Consent.HadFever}"/>
+                            <RadioButton Content="No" GroupName="n2" IsChecked="True"  />
                         </StackLayout>
-                        <!--
-                        <ctrls:TextFieldLayout>
-                            <mtrl:MaterialTextField
-                                ErrorText="Error Text"
-                                HeightRequest="80"
-                                HelperText=""
-                                InputType="Plain"
-                                Placeholder="Observaciones"
-                                Text="{Binding DocumentNumber}" />
-                        </ctrls:TextFieldLayout>
-                        -->
                     </StackLayout>
                 </Frame>
 
                 <Frame>
                     <StackLayout>
-
                         <Label Text="¿Ha recibido alguna vacuna en los ultimos 30 dias?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n3" />
-                            <RadioButton Content="No" GroupName="n3" />
+                            <RadioButton Content="Si" GroupName="n3" IsChecked="{Binding Consent.IsVaccinated}"/>
+                            <RadioButton Content="No" GroupName="n3" IsChecked="True"  />
                         </StackLayout>
-                        
-                        <!--
-                        <ctrls:TextFieldLayout>
-                            <mtrl:MaterialTextField
-                                ErrorText="Error Text"
-                                HeightRequest="80"
-                                HelperText=""
-                                InputType="Plain"
-                                Placeholder="Observaciones"
-                                Text="{Binding DocumentNumber}" />
-                        </ctrls:TextFieldLayout>
-                        -->
                     </StackLayout>
                 </Frame>
 
                 <Frame>
                     <StackLayout>
-
                         <Label Text="¿Ha presentado alguna reacción grave a alguna vacuna administrada anteriormente?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n4" />
-                            <RadioButton Content="No" GroupName="n4" />
+                            <RadioButton Content="Si" GroupName="n4" IsChecked="{Binding Consent.HadReactions}"/>
+                            <RadioButton Content="No" GroupName="n4" IsChecked="True"  />
                         </StackLayout>
-                        
-                        <!--
-                        <ctrls:TextFieldLayout>
-                            <mtrl:MaterialTextField
-                                ErrorText="Error Text"
-                                HeightRequest="80"
-                                HelperText=""
-                                InputType="Plain"
-                                Placeholder="Observaciones"
-                                Text="{Binding DocumentNumber}" />
-                        </ctrls:TextFieldLayout>
-                        -->
-
                     </StackLayout>
                 </Frame>
 
                 <Frame>
                     <StackLayout>
-
                         <Label Text="¿Es alérgico a algún medicamento alimento u otro?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n5" />
-                            <RadioButton Content="No" GroupName="n5" />
+                            <RadioButton Content="Si" GroupName="n5" IsChecked="{Binding Consent.IsAllergic}"/>
+                            <RadioButton Content="No" GroupName="n5" IsChecked="True"  />
                         </StackLayout>
-                        
-                        <!--
-                        <ctrls:TextFieldLayout>
-                            <mtrl:MaterialTextField
-                                ErrorText="Error Text"
-                                HeightRequest="80"
-                                HelperText=""
-                                InputType="Plain"
-                                Placeholder="Observaciones"
-                                Text="{Binding DocumentNumber}" />
-                        </ctrls:TextFieldLayout>
-                        -->
                     </StackLayout>
                 </Frame>
 
@@ -139,21 +74,31 @@
 
                         <Label Text="¿Padece usted alguna enfermedad actualmente tales como cáncer, leucemia, alguna enfermedad del sistema inmunitario?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n6" />
-                            <RadioButton Content="No" GroupName="n6" />
+                            <RadioButton Content="Si" GroupName="n6" IsChecked="{Binding Consent.IsInmunoDeficient}"/>
+                            <RadioButton Content="No" GroupName="n6" IsChecked="True"  />
                         </StackLayout>
-                        
-                        <!--
-                        <ctrls:TextFieldLayout>
-                            <mtrl:MaterialTextField
-                                ErrorText="Error Text"
-                                HeightRequest="80"
-                                HelperText=""
-                                InputType="Plain"
-                                Placeholder="Observaciones"
-                                Text="{Binding DocumentNumber}" />
-                        </ctrls:TextFieldLayout>
-                        -->
+                    </StackLayout>
+                </Frame>
+
+                <Frame>
+                    <StackLayout>
+
+                        <Label Text="¿Toma alguna medicación: cortisona, esteroides, tratamiento con radioterapia, tratamiento anticanceroso u otro medicamento?" />
+                        <StackLayout Orientation="Horizontal">
+                            <RadioButton Content="Si" GroupName="n6" IsChecked="{Binding Consent.IsMedicated}"/>
+                            <RadioButton Content="No" GroupName="n6" IsChecked="True"  />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <Frame>
+                    <StackLayout>
+
+                        <Label Text="¿Ha recibido transplantes de órganos?" />
+                        <StackLayout Orientation="Horizontal">
+                            <RadioButton Content="Si" GroupName="n6" IsChecked="{Binding Consent.HasTransplant}"/>
+                            <RadioButton Content="No" GroupName="n6" IsChecked="True"  />
+                        </StackLayout>
                     </StackLayout>
                 </Frame>
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -11,6 +12,7 @@ using Refit;
 using SisVac.Framework.Data;
 using SisVac.Framework.Domain;
 using SisVac.Framework.Http;
+using SisVac.Framework.Http.Loggin;
 using SisVac.Framework.Services;
 using SisVac.Pages.Base;
 using SisVac.Pages.CheckIn;
@@ -73,7 +75,9 @@ namespace SisVac
             //Services
             containerRegistry.Register<IScannerService, ScannerService>();
             containerRegistry.Register<ICacheService, CacheService>();
-            var citizensClient = RestService.For<ICitizensApiClient>(CitizenApiBaseUrl);
+
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(CitizenApiBaseUrl) };
+            var citizensClient = RestService.For<ICitizensApiClient>(httpClient);
             containerRegistry.RegisterInstance<ICitizensApiClient>(citizensClient);
         }
     }

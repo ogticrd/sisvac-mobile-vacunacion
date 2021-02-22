@@ -13,7 +13,5 @@ namespace SisVac.Framework.Domain
         public string Name { get; set; }
         [JsonProperty("age")]
         public int Age { get; set; }
-        [JsonProperty("is_enabled")]
-        public bool IsEnabled { get; set; }
     }
 }

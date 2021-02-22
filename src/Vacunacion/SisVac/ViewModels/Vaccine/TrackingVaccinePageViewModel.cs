@@ -43,6 +43,8 @@ namespace SisVac.ViewModels.Vaccine
         public ICommand ConfirmCommand { get; set; }
         public ICommand BackCommand { get; }
 
+        public string LotName { get; set; }
+
         private async void OnConfirmCommandExecute()
         {
             if (IsBusy)

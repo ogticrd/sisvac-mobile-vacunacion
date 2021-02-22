@@ -19,11 +19,12 @@
                         HasError="{Binding ShowErrorMessage}"
                         HelperText=""
                         Placeholder="Lote de vacuna"
+                        SelectedChoice="{Binding LotName}"
                         Style="{StaticResource TextFieldChoiceStyle}">
                         <mtrl:MaterialTextField.Choices>
                             <x:Array Type="{x:Type x:String}">
-                                <x:String>Lote 1</x:String>
-                                <x:String>Lote 2</x:String>
+                                <x:String>4120Z001</x:String>
+                                <x:String>4120Z023</x:String>
                             </x:Array>
                         </mtrl:MaterialTextField.Choices>
                     </mtrl:MaterialTextField>

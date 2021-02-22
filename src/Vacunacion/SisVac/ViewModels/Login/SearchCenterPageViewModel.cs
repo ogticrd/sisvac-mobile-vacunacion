@@ -41,7 +41,7 @@ namespace SisVac.ViewModels.Login
         {
             IsBusy = true;
             var lowerCaseText = newText.ToLower();
-            ClinicLocations = await App.Database.Connection.Table<ClinicLocation>().Where(x=>x.Name.ToLower().StartsWith(lowerCaseText)).OrderBy(x => x.Name).Take(10).ToListAsync();
+            ClinicLocations = await App.Database.Connection.Table<ClinicLocation>().Where(x=>x.Name.ToLower().Contains(lowerCaseText)).OrderBy(x => x.Name).Take(10).ToListAsync();
             Centers = ClinicLocations.Select(x => x.Name).ToList();
             IsBusy = false;
         }
