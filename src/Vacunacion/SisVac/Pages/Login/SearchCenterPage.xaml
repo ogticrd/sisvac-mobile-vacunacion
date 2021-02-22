@@ -21,7 +21,7 @@
                 <ctrls:TextFieldLayout>
                     <mtrl:MaterialTextField
                         HelperText="¿Cuál es el nombre de tu centro?"
-                        Placeholder="Centro"
+                        Placeholder="Nombre del Centro"
                         ReturnCommand="{Binding LoginCommand}"
                         StyleClass="CedulaTextField" />
                 </ctrls:TextFieldLayout>
@@ -31,14 +31,10 @@
             <Frame>
                 <StackLayout>
                     <Label Style="{StaticResource H3}" Text="Selecciona tu centro" />
-                    <mtrl:MaterialRadioButtonGroup x:Name="radioButtonGroup">
-                        <mtrl:MaterialRadioButtonGroup.Choices>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Centro 1</x:String>
-                                <x:String>Centro 2</x:String>
-                            </x:Array>
-                        </mtrl:MaterialRadioButtonGroup.Choices>
-                    </mtrl:MaterialRadioButtonGroup>
+                    <mtrl:MaterialRadioButtonGroup
+                        x:Name="radioButtonGroup"
+                        Choices="{Binding Centers}"
+                        SelectedIndex="{Binding CenterIndexSelected}" />
                 </StackLayout>
             </Frame>
         </StackLayout>
@@ -49,7 +45,7 @@
             Padding="16,8,16,8"
             VerticalOptions="End">
             <mtrl:MaterialButton
-                Command="{Binding SelectCommand}"
+                Command="{Binding SelectedItemCommand}"
                 Style="{StaticResource ButtonPrimary}"
                 Text="Seleccionar" />
         </Frame>

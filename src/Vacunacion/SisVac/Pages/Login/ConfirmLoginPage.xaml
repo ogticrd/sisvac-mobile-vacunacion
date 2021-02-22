@@ -38,28 +38,26 @@
 
             <Frame Margin="-16,16,-16,0" Padding="16,24,16,0">
 
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Command="{prism:NavigateTo 'SearchCenterPage'}" />
-                </Frame.GestureRecognizers>
-
                 <StackLayout Margin="0" Spacing="4">
-                    <ctrls:TextFieldLayout>
-                        <mtrl:MaterialTextField
-                            ChoiceSelectedCommand="{Binding LocationSelectedCommand}"
-                            ErrorText="El campo es requerido"
-                            HasError="{Binding ShowErrorMessage}"
-                            HelperText="Por favor, confirma tu locación para el día de hoy!"
-                            IsEnabled="False"
-                            Placeholder="Centro Vacunación"
-                            Style="{StaticResource TextFieldChoiceStyle}">
-                            <mtrl:MaterialTextField.Choices>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>Centro 1</x:String>
-                                    <x:String>Centro 2</x:String>
-                                </x:Array>
-                            </mtrl:MaterialTextField.Choices>
-                        </mtrl:MaterialTextField>
+                    <ctrls:TextFieldLayout VerticalOptions="Start">
+
+                        <ctrls:TextFieldLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{prism:NavigateTo 'SearchCenterPage'}" />
+                        </ctrls:TextFieldLayout.GestureRecognizers>
+                        
+                        <Label
+                            FontSize="18"
+                            Text="{Binding CenterName}"
+                            TextColor="Gray"
+                            TranslationX="16"
+                            VerticalOptions="Center" />
                     </ctrls:TextFieldLayout>
+                    <Label
+                        FontSize="12"
+                        Text="Por favor, confirma tu locación para el día de hoy"
+                        TextColor="Gray"
+                        TranslationX="16" TranslationY="-32"
+                        VerticalOptions="Start" />
 
                     <ctrls:TextFieldLayout>
                         <mtrl:MaterialTextField
