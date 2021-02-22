@@ -37,7 +37,7 @@ namespace SisVac.ViewModels.CheckIn
         {
             get
             {
-                return $"Paso {PositionView+1} de 5";
+                return $"Paso {PositionView + 1} de 6";
             }
         }
         public ICommand NextCommand { get; }
@@ -97,7 +97,7 @@ namespace SisVac.ViewModels.CheckIn
                     else
                     {
                     }
-
+                    // TODO: Remove this code later
                     Patient = new Person
                     {
                         Age = 25,
@@ -112,14 +112,17 @@ namespace SisVac.ViewModels.CheckIn
                     PositionView = 3;
                     break;
                 case 3:
-                    IsNextButtonVisible = false;
-                    IsConfirmButtonVisible = true;
                     PositionView = 4;
                     break;
                 case 4:
+                    IsNextButtonVisible = false;
+                    IsConfirmButtonVisible = true;
+                    PositionView = 5;
+                    break;
+                case 5:
                     break;
             }
-            ProgressBarIndicator = PositionView / 4.0f;
+            ProgressBarIndicator = PositionView / 5.0f;
         }
 
         private void OnBackCommandExecute()
@@ -139,12 +142,15 @@ namespace SisVac.ViewModels.CheckIn
                     PositionView = 2;
                     break;
                 case 4:
-                    IsNextButtonVisible = true;
-                    IsConfirmButtonVisible = false;
                     PositionView = 3;
                     break;
+                case 5:
+                    IsNextButtonVisible = true;
+                    IsConfirmButtonVisible = false;
+                    PositionView = 4;
+                    break;
             }
-            ProgressBarIndicator = PositionView / 4.0f;
+            ProgressBarIndicator = PositionView / 5.0f;
         }
     }
 }

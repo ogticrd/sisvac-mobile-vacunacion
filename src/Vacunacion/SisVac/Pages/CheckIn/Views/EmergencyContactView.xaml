@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="SisVac.Pages.CheckIn.Views.EmergencyContactView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrls="clr-namespace:SisVac.Controls"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material">
+
+    <ContentView.Content>
+        <StackLayout>
+
+            <Frame>
+                <StackLayout>
+                    <Label Text="En caso de EMERGENCIA, contactar a:" Style="{StaticResource H3}" Margin="0,0,0,8" />
+                    <ctrls:TextFieldLayout>
+                        <mtrl:MaterialTextField
+                            HelperText="Digite el nombre del contacto de emergencia"
+                            Placeholder="Nombre completo"
+                            ReturnType="Next" />
+                    </ctrls:TextFieldLayout>
+
+                    <ctrls:TextFieldLayout>
+                        <mtrl:MaterialTextField
+                            HelperText="¿Qué relacion tiene con el paciente?"
+                            Placeholder="Relación/Parentesco"
+                            ReturnType="Next" />
+                    </ctrls:TextFieldLayout>
+
+                    <ctrls:TextFieldLayout>
+                        <mtrl:MaterialTextField
+                            HelperText="¿Donde podemos contactarlo?"
+                            Placeholder="Número de Contacto"
+                            ReturnType="Done" />
+                    </ctrls:TextFieldLayout>
+                </StackLayout>
+
+            </Frame>
+
+        </StackLayout>
+    </ContentView.Content>
+
+</ContentView>
