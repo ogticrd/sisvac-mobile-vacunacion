@@ -96,10 +96,6 @@ namespace SisVac.ViewModels.CheckIn
                         IsBackButtonVisible = true;
                         PositionView = 1;
                     }
-                    else
-                    {
-
-                    }
                    
                     break;
                 case 1:
