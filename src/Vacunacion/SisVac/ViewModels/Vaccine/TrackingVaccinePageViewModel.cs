@@ -2,6 +2,7 @@
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
+using SisVac.Framework.Domain;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
 using System;
@@ -40,6 +41,7 @@ namespace SisVac.ViewModels.Vaccine
                 return $"Paso {PositionView + 1} de 4";
             }
         }
+        public Person Patient { get; set; } = new Person();
 
         public ICommand NextCommand { get; }
         public ICommand ConfirmCommand { get; set; }
@@ -73,13 +75,24 @@ namespace SisVac.ViewModels.Vaccine
             IsBusy = false;
         }
 
-        private void OnNextCommandExecute()
+        private async void OnNextCommandExecute()
         {
             switch (PositionView)
             {
                 case 0:
-                    IsBackButtonVisible = true;
-                    PositionView = 1;
+                    if (DocumentID.Validate())
+                    {
+                        var patientData = await GetDocumentData(DocumentID.Value);
+                        Patient = new Person
+                        {
+                            Age = patientData.Age,
+                            Document = DocumentID.Value,
+                            FullName = patientData.Name
+                        };
+
+                        IsBackButtonVisible = true;
+                        PositionView = 1;
+                    }
                     break;
                 case 1:
                     PositionView = 2;
