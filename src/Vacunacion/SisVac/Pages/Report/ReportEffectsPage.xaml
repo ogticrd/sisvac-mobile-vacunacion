@@ -7,6 +7,7 @@
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     xmlns:views="clr-namespace:SisVac.Pages.CheckIn.Views.Shared"
+    xmlns:views2="clr-namespace:SisVac.Pages.Vaccine.Views"
     Title="Reportar Efectos"
     prism:ViewModelLocator.AutowireViewModel="True"
     BackgroundColor="{StaticResource BackgroundColor}">
@@ -16,9 +17,12 @@
 
         <ScrollView Padding="0,16,0,16">
             <StackLayout Spacing="16">
-                <views:PersonDetailView />
 
-                <Frame>
+                <views2:ScanIdView />
+
+                <views:PersonDetailView IsVisible="{Binding IsUserValid}" />
+
+                <Frame IsVisible="{Binding IsUserValid}">
                     <StackLayout>
                         <Label Text="¿Cuales sintomas tiene el paciente?" />
                         <mtrl:MaterialCheckboxGroup x:Name="checkBoxGroup">
