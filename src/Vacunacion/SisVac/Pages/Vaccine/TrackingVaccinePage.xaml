@@ -34,16 +34,16 @@
 
         <Grid>
 
-            <views:ScanIdView IsVisible="False">
-                <views:ScanIdView.Triggers>
+            <vws:ScanCuponView IsVisible="False">
+                <vws:ScanCuponView.Triggers>
                     <DataTrigger
                         Binding="{Binding PositionView}"
                         TargetType="ContentView"
                         Value="0">
                         <Setter Property="IsVisible" Value="True" />
                     </DataTrigger>
-                </views:ScanIdView.Triggers>
-            </views:ScanIdView>
+                </vws:ScanCuponView.Triggers>
+            </vws:ScanCuponView>
 
             <vws:StatusView IsVisible="False">
                 <vws:StatusView.Triggers>
