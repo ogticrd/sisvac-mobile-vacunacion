@@ -32,63 +32,60 @@
             Progress="{Binding ProgressBarIndicator}"
             ProgressColor="{StaticResource SecondaryColor}" />
 
-        <RefreshView IsEnabled="{Binding IsBusy}" IsRefreshing="{Binding IsBusy}">
+        <Grid>
 
-            <Grid>
+            <vws:ScanCuponView IsVisible="False">
+                <vws:ScanCuponView.Triggers>
+                    <DataTrigger
+                        Binding="{Binding PositionView}"
+                        TargetType="ContentView"
+                        Value="0">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </vws:ScanCuponView.Triggers>
+            </vws:ScanCuponView>
 
-                <views:ScanIdView IsVisible="False">
-                    <views:ScanIdView.Triggers>
-                        <DataTrigger
-                            Binding="{Binding PositionView}"
-                            TargetType="ContentView"
-                            Value="0">
-                            <Setter Property="IsVisible" Value="True" />
-                        </DataTrigger>
-                    </views:ScanIdView.Triggers>
-                </views:ScanIdView>
+            <vws:StatusView IsVisible="False">
+                <vws:StatusView.Triggers>
+                    <DataTrigger
+                        Binding="{Binding PositionView}"
+                        TargetType="ContentView"
+                        Value="1">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding PositionView}"
+                        TargetType="ContentView"
+                        Value="4">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </vws:StatusView.Triggers>
+            </vws:StatusView>
 
-                <vws:StatusView IsVisible="False">
-                    <vws:StatusView.Triggers>
-                        <DataTrigger
-                            Binding="{Binding PositionView}"
-                            TargetType="ContentView"
-                            Value="1">
-                            <Setter Property="IsVisible" Value="True" />
-                        </DataTrigger>
-                        <DataTrigger
-                            Binding="{Binding PositionView}"
-                            TargetType="ContentView"
-                            Value="4">
-                            <Setter Property="IsVisible" Value="True" />
-                        </DataTrigger>
-                    </vws:StatusView.Triggers>
-                </vws:StatusView>
+            <views:QuestionsReportView IsVisible="False">
+                <views:QuestionsReportView.Triggers>
+                    <DataTrigger
+                        Binding="{Binding PositionView}"
+                        TargetType="ContentView"
+                        Value="2">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </views:QuestionsReportView.Triggers>
+            </views:QuestionsReportView>
 
-                <views:QuestionsReportView IsVisible="False">
-                    <views:QuestionsReportView.Triggers>
-                        <DataTrigger
-                            Binding="{Binding PositionView}"
-                            TargetType="ContentView"
-                            Value="2">
-                            <Setter Property="IsVisible" Value="True" />
-                        </DataTrigger>
-                    </views:QuestionsReportView.Triggers>
-                </views:QuestionsReportView>
-
-                <views:VaccineView IsVisible="False">
-                    <views:VaccineView.Triggers>
-                        <DataTrigger
-                            Binding="{Binding PositionView}"
-                            TargetType="ContentView"
-                            Value="3">
-                            <Setter Property="IsVisible" Value="True" />
-                        </DataTrigger>
-                    </views:VaccineView.Triggers>
-                </views:VaccineView>
+            <views:VaccineView IsVisible="False">
+                <views:VaccineView.Triggers>
+                    <DataTrigger
+                        Binding="{Binding PositionView}"
+                        TargetType="ContentView"
+                        Value="3">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </views:VaccineView.Triggers>
+            </views:VaccineView>
 
 
-            </Grid>
-        </RefreshView>
+        </Grid>
 
         <Frame Style="{StaticResource ButtonLayout}">
             <StackLayout Orientation="Horizontal">

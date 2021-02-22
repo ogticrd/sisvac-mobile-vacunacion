@@ -85,8 +85,8 @@
 
                         <Label Text="¿Toma alguna medicación: cortisona, esteroides, tratamiento con radioterapia, tratamiento anticanceroso u otro medicamento?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n6" IsChecked="{Binding Consent.IsMedicated}"/>
-                            <RadioButton Content="No" GroupName="n6" IsChecked="True"  />
+                            <RadioButton Content="Si" GroupName="n7" IsChecked="{Binding Consent.IsMedicated}"/>
+                            <RadioButton Content="No" GroupName="n7" IsChecked="True"  />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -96,8 +96,8 @@
 
                         <Label Text="¿Ha recibido transplantes de órganos?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n6" IsChecked="{Binding Consent.HasTransplant}"/>
-                            <RadioButton Content="No" GroupName="n6" IsChecked="True"  />
+                            <RadioButton Content="Si" GroupName="n8" IsChecked="{Binding Consent.HasTransplant}"/>
+                            <RadioButton Content="No" GroupName="n8" IsChecked="True"  />
                         </StackLayout>
                     </StackLayout>
                 </Frame>

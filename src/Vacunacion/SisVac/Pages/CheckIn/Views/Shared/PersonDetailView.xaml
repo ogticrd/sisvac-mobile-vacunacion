@@ -14,19 +14,22 @@
                 </Grid.Resources>
 
                 <Image Grid.RowSpan="4" Source="logo" />
-                <Label Grid.Column="1" Text="{Binding Patient.FullName}" FontAttributes="Bold" />
+                <Label
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    Text="{Binding Patient.FullName}" />
                 <Label
                     Grid.Row="1"
                     Grid.Column="1"
-                    Text="{Binding DocumentLabel}" />
+                    Text="{Binding Patient.Document, StringFormat='Cédula: {0}'}" />
                 <Label
                     Grid.Row="2"
                     Grid.Column="1"
-                    Text="{Binding Patient.Age, StringFormat='Edad: {0} años'}"/>
+                    Text="{Binding Patient.Age, StringFormat='Edad: {0} años'}" />
                 <Label
                     Grid.Row="3"
                     Grid.Column="1"
-                    Text="HABILITADA PARA VACUNA"
+                    Text="HABILITAD@ PARA VACUNA"
                     TextColor="#2BB042" />
             </Grid>
         </Frame>

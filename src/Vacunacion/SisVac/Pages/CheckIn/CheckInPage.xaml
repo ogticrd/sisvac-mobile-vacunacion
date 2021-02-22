@@ -31,79 +31,76 @@
             Progress="{Binding ProgressBarIndicator}"
             ProgressColor="{StaticResource SecondaryColor}" />
 
-        <RefreshView IsEnabled="{Binding IsBusy}" IsRefreshing="{Binding IsBusy}">
+        <Grid>
 
-            <Grid>
+            <views:ScanCuponView IsVisible="False">
+                <views:ScanCuponView.Triggers>
+                    <DataTrigger
+                        Binding="{Binding PositionView}"
+                        TargetType="ContentView"
+                        Value="0">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </views:ScanCuponView.Triggers>
+            </views:ScanCuponView>
 
-                <views:ScanCuponView IsVisible="False">
-                    <views:ScanCuponView.Triggers>
-                        <DataTrigger
-                            Binding="{Binding PositionView}"
-                            TargetType="ContentView"
-                            Value="0">
-                            <Setter Property="IsVisible" Value="True" />
-                        </DataTrigger>
-                    </views:ScanCuponView.Triggers>
-                </views:ScanCuponView>
+            <views:StatusView IsVisible="False">
+                <views:StatusView.Triggers>
+                    <DataTrigger
+                        Binding="{Binding PositionView}"
+                        TargetType="ContentView"
+                        Value="1">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </views:StatusView.Triggers>
+            </views:StatusView>
 
-                <views:StatusView IsVisible="False">
-                    <views:StatusView.Triggers>
-                        <DataTrigger
-                            Binding="{Binding PositionView}"
-                            TargetType="ContentView"
-                            Value="1">
-                            <Setter Property="IsVisible" Value="True" />
-                        </DataTrigger>
-                    </views:StatusView.Triggers>
-                </views:StatusView>
+            <views:EmergencyContactView IsVisible="False">
+                <views:EmergencyContactView.Triggers>
+                    <DataTrigger
+                        Binding="{Binding PositionView}"
+                        TargetType="ContentView"
+                        Value="2">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </views:EmergencyContactView.Triggers>
+            </views:EmergencyContactView>
 
-                <views:EmergencyContactView IsVisible="False">
-                    <views:EmergencyContactView.Triggers>
-                        <DataTrigger
-                            Binding="{Binding PositionView}"
-                            TargetType="ContentView"
-                            Value="2">
-                            <Setter Property="IsVisible" Value="True" />
-                        </DataTrigger>
-                    </views:EmergencyContactView.Triggers>
-                </views:EmergencyContactView>
+            <views:TermView IsVisible="False">
+                <views:TermView.Triggers>
+                    <DataTrigger
+                        Binding="{Binding PositionView}"
+                        TargetType="ContentView"
+                        Value="3">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </views:TermView.Triggers>
+            </views:TermView>
 
-                <views:TermView IsVisible="False">
-                    <views:TermView.Triggers>
-                        <DataTrigger
-                            Binding="{Binding PositionView}"
-                            TargetType="ContentView"
-                            Value="3">
-                            <Setter Property="IsVisible" Value="True" />
-                        </DataTrigger>
-                    </views:TermView.Triggers>
-                </views:TermView>
+            <views:QuestionsView IsVisible="False">
+                <views:QuestionsView.Triggers>
+                    <DataTrigger
+                        Binding="{Binding PositionView}"
+                        TargetType="ContentView"
+                        Value="4">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </views:QuestionsView.Triggers>
+            </views:QuestionsView>
 
-                <views:QuestionsView IsVisible="False">
-                    <views:QuestionsView.Triggers>
-                        <DataTrigger
-                            Binding="{Binding PositionView}"
-                            TargetType="ContentView"
-                            Value="4">
-                            <Setter Property="IsVisible" Value="True" />
-                        </DataTrigger>
-                    </views:QuestionsView.Triggers>
-                </views:QuestionsView>
-
-                <views:FirmView IsVisible="False">
-                    <views:FirmView.Triggers>
-                        <DataTrigger
-                            Binding="{Binding PositionView}"
-                            TargetType="ContentView"
-                            Value="5">
-                            <Setter Property="IsVisible" Value="True" />
-                        </DataTrigger>
-                    </views:FirmView.Triggers>
-                </views:FirmView>
+            <views:FirmView IsVisible="False">
+                <views:FirmView.Triggers>
+                    <DataTrigger
+                        Binding="{Binding PositionView}"
+                        TargetType="ContentView"
+                        Value="5">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </views:FirmView.Triggers>
+            </views:FirmView>
 
 
-            </Grid>
-        </RefreshView>
+        </Grid>
 
         <Frame Style="{StaticResource ButtonLayout}">
             <StackLayout Orientation="Horizontal">
