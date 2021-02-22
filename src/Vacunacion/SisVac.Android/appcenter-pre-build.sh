@@ -11,12 +11,10 @@ sed -i.bak "s/android:versionCode="\"1\""/android:versionCode="\"${APPCENTER_BUI
 rm -f ${MANIFEST}.bak
 
 
-sed -i.bak "s/\"CitizenApiBaseUrl\": "\"\""/\"CitizenApiBaseUrl\": "\"${CITIZEN_API_BASE_URL}\""/" ${APPSETTINGS}
-rm -f ${APPSETTINGS}.bak
-
 # Print out file for reference
 cat $MANIFEST
 echo "Updated manifest!"
 
+echo "{ \"CitizenApiBaseUrl\": \"${CITIZEN_API_BASE_URL}\" }" > ${APPSETTINGS}
 cat $APPSETTINGS
 echo "Updated appsettings.json!"
