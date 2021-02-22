@@ -31,6 +31,9 @@ namespace SisVac.Framework.Domain
         [JsonProperty("isMedicated")]
         public bool IsMedicated { get; set; }
 
+        [JsonProperty("isInmunoDeficient")]
+        public bool IsInmunoDeficient { get; set; }
+
         [JsonProperty("hasTransplant")]
         public bool HasTransplant { get; set; }
     }

@@ -74,7 +74,29 @@
 
                         <Label Text="¿Padece usted alguna enfermedad actualmente tales como cáncer, leucemia, alguna enfermedad del sistema inmunitario?" />
                         <StackLayout Orientation="Horizontal">
+                            <RadioButton Content="Si" GroupName="n6" IsChecked="{Binding Consent.IsInmunoDeficient}"/>
+                            <RadioButton Content="No" GroupName="n6" IsChecked="True"  />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <Frame>
+                    <StackLayout>
+
+                        <Label Text="¿Toma alguna medicación: cortisona, esteroides, tratamiento con radioterapia, tratamiento anticanceroso u otro medicamento?" />
+                        <StackLayout Orientation="Horizontal">
                             <RadioButton Content="Si" GroupName="n6" IsChecked="{Binding Consent.IsMedicated}"/>
+                            <RadioButton Content="No" GroupName="n6" IsChecked="True"  />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <Frame>
+                    <StackLayout>
+
+                        <Label Text="¿Ha recibido transplantes de órganos?" />
+                        <StackLayout Orientation="Horizontal">
+                            <RadioButton Content="Si" GroupName="n6" IsChecked="{Binding Consent.HasTransplant}"/>
                             <RadioButton Content="No" GroupName="n6" IsChecked="True"  />
                         </StackLayout>
                     </StackLayout>
