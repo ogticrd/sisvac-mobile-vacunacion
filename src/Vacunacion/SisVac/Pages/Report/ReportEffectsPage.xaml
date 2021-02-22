@@ -56,7 +56,7 @@
 
         <Frame Style="{StaticResource ButtonLayout}">
             <mtrl:MaterialButton
-                Command="{Binding NextCommand}"
+                Command="{Binding ConfirmCommand}"
                 Style="{StaticResource ButtonPrimary}"
                 Text="Confirmar" />
         </Frame>
