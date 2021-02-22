@@ -54,6 +54,7 @@ namespace SisVac
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<ConfirmLoginPage, ConfirmLoginPageViewModel>();
+            containerRegistry.RegisterForNavigation<SearchCenterPage, SearchCenterPageViewModel>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<CheckInPage, CheckInPageViewModel>();
             containerRegistry.RegisterForNavigation<ReportEffectsPage>();
