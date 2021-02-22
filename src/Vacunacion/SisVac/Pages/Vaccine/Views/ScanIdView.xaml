@@ -13,7 +13,7 @@
                 <ctrls:TextFieldLayout>
                     <mtrl:MaterialTextField
                         HelperText="Digite su número de cédula para continuar"
-                        ReturnCommand="{Binding ScanDocumentCommand}"
+                        ReturnType="Done"
                         StyleClass="CedulaTextField" />
                 </ctrls:TextFieldLayout>
             </Frame>
