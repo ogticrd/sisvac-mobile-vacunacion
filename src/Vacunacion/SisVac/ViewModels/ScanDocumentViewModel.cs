@@ -49,7 +49,7 @@ namespace SisVac.ViewModels
 
             DocumentID.Value = result;
 
-            if(DocumentScanned != null && string.IsNullOrEmpty(result))
+            if(DocumentScanned != null && !string.IsNullOrEmpty(result))
                 DocumentScanned.Invoke(result);
         }
 
