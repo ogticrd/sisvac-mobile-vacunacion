@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
@@ -7,6 +8,7 @@ using Prism;
 using Prism.Ioc;
 using Prism.Navigation;
 using Refit;
+using SisVac.Framework.Data;
 using SisVac.Framework.Domain;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
@@ -30,6 +32,8 @@ namespace SisVac
         public static ApplicationUser Vaccinator { get; set; }
         public static string CitizenApiBaseUrl => AppSettingsManager.Settings["CitizenApiBaseUrl"];
 
+        public LocalDatabase Database { get; set; }
+
         public App() : this(null) { }
 
         public App(IPlatformInitializer initializer) : base(initializer) { }
@@ -44,6 +48,9 @@ namespace SisVac
             AppCenter.Start("android=89389cb2-d03e-4a44-a48c-d1e4ce35f9f1;" +
                             "ios=7af5f42f-0ac9-423c-a1af-d61192e0e45e;",
                   typeof(Analytics), typeof(Crashes), typeof(Distribute));
+
+            Database = new LocalDatabase();
+            await Database.Initialize();
 
             await NavigationService.NavigateAsync($"NavigationPage/{nameof(LoginPage)}");
         }
