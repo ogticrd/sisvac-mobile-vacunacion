@@ -14,12 +14,16 @@
     <None Remove="Resources\Images\logo.png" />
     <None Remove="Resources\Images\logo_cupula.png" />
     <None Remove="appsettings.json" />
+    <None Remove="Framework\Data\Scripts\ClinicLocations.sql" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Images\logo.png" />
     <EmbeddedResource Include="Resources\Images\logo_cupula.png" />
     <EmbeddedResource Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Data\Scripts\ClinicLocations.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
@@ -48,6 +52,7 @@
     <Folder Include="Framework\Http\" />
     <Folder Include="Framework\Extensions\" />
     <Folder Include="Framework\Data\" />
+    <Folder Include="Framework\Data\Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Controls\TextFieldLayout.xaml.cs">
@@ -130,6 +135,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Framework\Data\Scripts\ClinicLocations.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

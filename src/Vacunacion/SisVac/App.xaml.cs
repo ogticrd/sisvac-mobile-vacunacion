@@ -32,7 +32,7 @@ namespace SisVac
         public static ApplicationUser Vaccinator { get; set; }
         public static string CitizenApiBaseUrl => AppSettingsManager.Settings["CitizenApiBaseUrl"];
 
-        public LocalDatabase Database { get; set; }
+        public static LocalDatabase Database { get; set; }
 
         public App() : this(null) { }
 
