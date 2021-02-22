@@ -26,6 +26,7 @@ namespace SisVac.ViewModels.Login
         public List<string> Centers { get; set; }
         public IEnumerable<ClinicLocation> ClinicLocations { get; set; }
 
+        public string SearchText { get; set; }
         public int CenterIndexSelected { get; set; }
 
         public override async void OnNavigatedTo(INavigationParameters parameters)
@@ -39,7 +40,9 @@ namespace SisVac.ViewModels.Login
         private async void OnFilterTextChangedCommandExecute(string newText)
         {
             IsBusy = true;
-            ClinicLocations = await App.Database.Connection.Table<ClinicLocation>().Where(x=>x.Name.StartsWith(newText)).OrderBy(x => x.Name).Take(10).ToListAsync();
+            var lowerCaseText = newText.ToLower();
+            ClinicLocations = await App.Database.Connection.Table<ClinicLocation>().Where(x=>x.Name.ToLower().StartsWith(lowerCaseText)).OrderBy(x => x.Name).Take(10).ToListAsync();
+            Centers = ClinicLocations.Select(x => x.Name).ToList();
             IsBusy = false;
         }
 

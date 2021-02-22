@@ -1,156 +1,157 @@
-﻿Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("434_8a6fcffc", "AMEDOSA-CLINICA SAN CRISTOBAL", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("435_47fcef64", "CECANOT", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("436_6b7ddcef", "CEDIMAT", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("437_3ac20c1f", "CEMEVE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("438_2671ceaa", "CENTRO COVIB 19 ESPAILLAT UBIERA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("439_98a81e9e", "CENTRO DE AISLAMIENTO Y CUIDADOS INTENSIVO GUIZA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("440_ec609330", "CENTRO DE CIRUGIA Y ESPECILIDADES MEDICAS MAIMON", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("441_844eeb9c", "CENTRO DE ESPECIALIDADES DR. PAULINO REYES", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("442_9c1c014c", "CENTRO DE ESPECIALIDADES MEDICAS", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("443_bec3f84c", "CENTRO DE ESPECIALIDADES MEDICAS. COSTA NORTE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("444_eaa380ee", "CENTRO DE ESPECIALIDADES MEDICAS MONSEÑOR NOUEL", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("445_dbd07d3a", "CENTRO HEMMI", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("446_54cd70f5", "CENTRO MATERNO INFANTIL Y ESPECIALIDADES", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("447_26fec190", "CENTRO MEDICO BOURNIGAL", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("448_1e413f36", "CENTRO MEDICO CABARETE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("449_7cd56bc4", "CENTRO MEDICO CEMENOR, S,R,L", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("450_c6b7bd0a", "CENTRO MEDICO CENTRAL ROMANA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("451_1847602f", "CENTRO MEDICO CIBAO - UTESA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("452_a208409b", "CENTRO MEDICO DE ESPECIALIDADES UTESA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("453_1b3f7d63", "CENTRO MEDICO DE LEON", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("454_b78f784e", "CENTRO MEDICO DRA CABRERA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("455_979a6514", "CENTRO MEDICO DR. BALTAZAR Y ASOCIADOS, SRL", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("456_98c05bee", "CENTRO MEDICO DR. MATEO ROSARIO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("457_a92301e1", "CENTRO MEDICO DR. PEREZ", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("458_71707f80", "CENTRO MEDICO DR. RAFAEL GRULLON", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("459_7590fbff", "CENTRO MEDICO EL MANIEL", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("460_93a78b16", "CENTRO MEDICO ELOHIM", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("461_070f0334", "CENTRO MEDICO ESPECIALIZADO MACORIS", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("462_5382ee39", "CENTRO MEDICO GAZCUE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("463_f26086f5", "CENTRO MEDICO GUADALUPE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("464_b13f95b1", "CENTRO MEDICO IRMIE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("465_32bd2b63", "CENTRO MEDICO MATERNO INFANTIL", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("466_dddbd111", "CENTRO MEDICO NACIONAL SAN FRANCISCO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("467_6166b6a5", "CENTRO MEDICO NAGUA (CEMNA)", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("468_62c5cb0f", "CENTRO MEDICO NUÑEZ HERNANDEZ", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("469_c84698d3", "CENTRO MEDICO PADRE FANTINO, S.R.L.", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("470_85241d9e", "CENTRO MEDICO REGIONAL AGUASVIVAS", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("471_0429d4ea", "CENTRO MEDICO SIGLO 21", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("472_e5727194", "CENTRO MEDICO UCE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("473_c927dc70", "CENTRO MEDICO VISTA DEL JARDIN", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("474_2c08a35c", "CENTRO POLICLINICO NACIONAL", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("475_589d4375", "CLINICA ABREU", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("476_038f42a5", "CLINICA ALTAGRACIA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("477_806b3fc6", "CLINICA ARIAS", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("478_24c85e46", "CLINICA BAEZ SOTO SRL", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("479_5230641b", "CLINICA BRUGAL", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("480_67d2cd8c", "CLINICA CAROLINA DE JESUS", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("481_381d77d5", "CLINICA CIBAO UTESA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("482_c95a7472", "CLINICA COROMINAS, S.A.", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("483_db952989", "CLINICA CRUZ JIMINIAN", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("484_09091c66", "CLINICA DOMINICO CUBANO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("584_e4d9156f", "Clinica Dra. Suero", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("485_771696c9", "CLINICA DR. BONILLA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("486_331fcb9d", "CLINICA DR. CANELO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("487_ea588807", "CLINICA DR. FRANKLIN PEÑA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("488_14ea1857", "CLINICA DR. JACOBO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("489_aa42a866", "CLINICA DR. PEROZO SRL", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("490_ee801562", "CLINICA DR. UREÑA ARIAS", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("491_5419d3b6", "CLINICA ESPECIALIZADA INTERNACIONAL. LAS TERRENAS", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("492_bb31b52b", "CLINICA INDEPENDENCIA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("575_76feca47", "CLINICA LA CONCEPCION", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("587_b29f8a55", "CLINICA RODRIGUEZ SANTOS", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("493_1b8da817", "CLÍNICA ROSA BENITA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("494_9d758a57", "CLINICA UNION MEDICA DEL NORTE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("495_e7c526ff", "EPIDEMIOLOGO PROVINCIAL DE SALUD", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("496_8acca203", "GINECOLOGIA Y OBSTETRICIA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("583_f3f9006e", "Grupo Medico Carlos J. Finlay", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("582_b92bc22c", "Grupo Medico San Antonio", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("497_e8a72343", "HOSITAL TORIBIO BENCOSME", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("498_ba0f2093", "HOSP. DR. PEDRO EMILIO DE MARCHENA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("499_3d798955", "HOSP. DR. ROMAN BAUTISTA BRACHE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("500_87e77fa1", "HOSPITAL ARISTIDES FIALLO CABRAL", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("501_67d9ddd8", "HOSPITAL BANICA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("502_65d1106a", "HOSPITAL CAMBITA GARABITO CRUCE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("503_d4a07445", "HOSPITAL CAMBITA PUEBLO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("504_5192bcc5", "HOSPITAL CARLOS A ZAFRA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("505_b4f0ec10", "HOSPITAL DE NAVARRETE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("574_6eef2283", "HOSPITAL DR. ALBERTO GAUTREAUX", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("18_2e853d22", "HOSPITAL DR. FRANCISCO MOSCOSO PUELLO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("506_82bb7bed", "HOSPITAL DR. JAIME OLIVER PINO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("507_d4650ce2", "HOSPITAL DR. JOSE FAUSTO OVALLES", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("508_e3c895e3", "HOSPITAL DR. JOSE PEREZ", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("576_70ec144a", "Hospital Dr. Julio Alvarez Acosta", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("17_91f1eb60", "HOSPITAL DR MARCELINO VELEZ SANTANA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("509_09467b08", "HOSPITAL DR. RAFAEL CANTISANO ARIAS", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("510_2ef6afb4", "HOSPITAL EL BUEN SAMARITANO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("572_e5b12ba7", "HOSPITAL ELUPINA CORDERO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("573_be46e4e2", "HOSPITAL EL VALLE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("512_3f8eaf28", "HOSPITAL FEDERICO LAVANDIER", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("513_92c05bb1", "HOSPITAL FELIX MARIA GOICO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("514_eef3ee57", "HOSPITAL FRANCISCO A. GONZALVO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("515_c75e5724", "HOSPITAL GENERAL DE LA POLICIA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("586_6bd50263", "HOSPITAL GIL ROLDAN", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("516_71da6627", "HOSPITAL GREGORIO LUPERON", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("517_45b6102c", "HOSPITAL GUARIONEX ALCANTARA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("518_cb239ea5", "HOSPITAL IMG", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("519_96e4dc73", "HOSPITAL INFANTIL DR. ARTURO GRULLON", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("520_b702ac4f", "HOSPITAL INMACULADA CONCEPCIËN", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("521_d67d198b", "HOSPITAL JANICO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("522_b9c35394", "HOSPITAL JOSE MARIA CABRAL Y BAEZ", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("523_bdf1ed4e", "HOSPITAL JUAN PABLO PINA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("588_0f7e4742", "HOSPITAL JULIA SANTANA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("524_f4834913", "HOSPITAL LEOPOLDO MARTINEZ", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("585_2489dd33", "HOSPITAL LOS RIOS", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("526_ced7e3aa", "HOSPITAL MATERNO INFANTIL SAN LORENZO DE LOS MINA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("527_5720386d", "HOSPITAL M. DR. PEDRO HEREDIA ROJAS", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("528_becb44a7", "HOSPITAL METROPOLITANO DE SANTIAGO (HOMS)", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("529_d6a38a4c", "HOSPITAL M. HAINA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("530_6f8bd9eb", "HOSPITAL MUNICIPAL DE BOHECHIO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("578_41d13845", "Hospital Municipal de Guayubin", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("531_23136cfb", "HOSPITAL MUNICIPAL DE IMBERT", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("532_39f50a9c", "HOSPITAL MUNICIPAL DE PARTIDO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("581_47e03dda", "Hospital Municipal de Pepillo Salcedo", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("533_ac4cb813", "HOSPITAL MUNICIPAL DE VALLEJUELO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("534_70dfaee2", "HOSPITAL MUNICIPAL DE VILLA ISABELA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("579_accd0842", "Hospital Municipal de Villa Vasquez", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("535_d2a233c3", "HOSPITAL MUNICIPAL DE YAMASA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("536_f291c5cd", "HOSPITAL MUNICIPAL EL CERCADO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("537_a2194366", "HOSPITAL MUNICIPAL HATO DEL YAQUE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("538_392f69f9", "HOSPITAL MUNICIPAL HONDO VALLE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("539_230a43cd", "HOSPITAL MUNICIPAL JACINTO IGNACIO MAÑON", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("540_b8a3bb5b", "HOSPITAL MUNICIPAL LAGUNA SALADA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("577_01d9f9fa", "Hospital Municipal Las Matas de Santa Cruz", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("541_5f48a054", "HOSPITAL MUNICIPAL LICEY AL MEDIO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("542_abcbcb76", "HOSPITAL MUNICIPAL RESTAURACION", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("543_02000315", "HOSPITAL M VILLA ALTAGRACIA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("544_2f5e5d80", "HOSPITAL NUESTRA SEÑORA DE REGLA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("545_91769192", "HOSPITAL NUESTRA SRA. DE LA ALTAGRACIA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("546_f9977f4f", "HOSPITAL PABLO MORROBEL JIMENEZ", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("547_39996a0b", "HOSPITAL PROVINCIAL DOCENTE RICARDO LIMARDO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("548_12b3f0e2", "HOSPITAL PROVINCIAL DR. ANGEL CONTRERAS", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("549_dfdd00d9", "HOSPITAL PROVINCIAL GENERAL SANTIAGO RODRIGUEZ", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("580_91f871de", "Hospital Provincial Padre Fantino", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("550_27ff37e4", "HOSPITAL RAFAEL J. MANON", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("551_92a374b5", "HOSPITAL RAMON ADRIANO VILLALONA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("552_38309a12", "HOSPITAL RAMON MATIAS MELLA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("553_88872c9c", "HOSPITAL REG. ING. LUIS L. BOGAERT", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("554_0ac05129", "HOSPITAL REGIONAL DOCENTE DR. ALEJANDRO CABRAL", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("555_54973dfc", "HOSPITAL REGIONAL DR. ANTONIO MUSA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("556_22c3d83c", "HOSPITAL REGIONAL JAIME MOTA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("557_99b50f1b", "HOSPITAL REGIONAL UNIV. DR. LUIS ML. MORILLO KING", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("558_00de6c5b", "HOSPITAL RODOLFO DE LA CRUZ LORA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("559_37d20785", "HOSPITAL SAN BARTOLOME", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("560_f67c6427", "HOSPITAL SAN JOSE", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("561_ed99aa98", "HOSPITAL SANTO CRISTO DE LOS MILAGROS", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("562_bcc52e99", "HOSPITAL SIGIFREDO ALBA DOMINGUEZ", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("563_73587ec7", "HOSPITAL TAIWAN", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("564_89b114ec", "HOSPITEN", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("19_c5dd4151", "HOSP. MIL. DOCENTE DR. RAMON DE LARA", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("566_e4777654", "HOSP. PROV. GRAL. MELENCIANO", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("567_19b461dc", "INSTITUTO DE ESPECIALIDADES MEDICAS DEL NORDESTE, INEMED", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("568_4348a58d", "INSTITUTO DE ESPECIALIDADES MEDICAS GREGORIO HERNANDEZ", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("589_d98e032f", "PLAZA DE LA SALUD", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("569_34b0cadc", "POLICLINICO LA UNIËN", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("570_d92b19be", "POLICLINICO LA VEGA, S.A", "", "" );
-Insert into ClinicLocation(Id, Name, Latitude, Longitude) values ("571_d0977029", "ROBERT REID CABRAL", "", "" );
+﻿Insert into ClinicLocation(Id, Name, Latitude, Longitude) values
+("434_8a6fcffc", "AMEDOSA-CLINICA SAN CRISTOBAL", "", "" ),
+("435_47fcef64", "CECANOT", "", "" ),
+("436_6b7ddcef", "CEDIMAT", "", "" ),
+("437_3ac20c1f", "CEMEVE", "", "" ),
+("438_2671ceaa", "CENTRO COVIB 19 ESPAILLAT UBIERA", "", "" ),
+("439_98a81e9e", "CENTRO DE AISLAMIENTO Y CUIDADOS INTENSIVO GUIZA", "", "" ),
+("440_ec609330", "CENTRO DE CIRUGIA Y ESPECILIDADES MEDICAS MAIMON", "", "" ),
+("441_844eeb9c", "CENTRO DE ESPECIALIDADES DR. PAULINO REYES", "", "" ),
+("442_9c1c014c", "CENTRO DE ESPECIALIDADES MEDICAS", "", "" ),
+("443_bec3f84c", "CENTRO DE ESPECIALIDADES MEDICAS. COSTA NORTE", "", "" ),
+("444_eaa380ee", "CENTRO DE ESPECIALIDADES MEDICAS MONSEÑOR NOUEL", "", "" ),
+("445_dbd07d3a", "CENTRO HEMMI", "", "" ),
+("446_54cd70f5", "CENTRO MATERNO INFANTIL Y ESPECIALIDADES", "", "" ),
+("447_26fec190", "CENTRO MEDICO BOURNIGAL", "", "" ),
+("448_1e413f36", "CENTRO MEDICO CABARETE", "", "" ),
+("449_7cd56bc4", "CENTRO MEDICO CEMENOR, S,R,L", "", "" ),
+("450_c6b7bd0a", "CENTRO MEDICO CENTRAL ROMANA", "", "" ),
+("451_1847602f", "CENTRO MEDICO CIBAO - UTESA", "", "" ),
+("452_a208409b", "CENTRO MEDICO DE ESPECIALIDADES UTESA", "", "" ),
+("453_1b3f7d63", "CENTRO MEDICO DE LEON", "", "" ),
+("454_b78f784e", "CENTRO MEDICO DRA CABRERA", "", "" ),
+("455_979a6514", "CENTRO MEDICO DR. BALTAZAR Y ASOCIADOS, SRL", "", "" ),
+("456_98c05bee", "CENTRO MEDICO DR. MATEO ROSARIO", "", "" ),
+("457_a92301e1", "CENTRO MEDICO DR. PEREZ", "", "" ),
+("458_71707f80", "CENTRO MEDICO DR. RAFAEL GRULLON", "", "" ),
+("459_7590fbff", "CENTRO MEDICO EL MANIEL", "", "" ),
+("460_93a78b16", "CENTRO MEDICO ELOHIM", "", "" ),
+("461_070f0334", "CENTRO MEDICO ESPECIALIZADO MACORIS", "", "" ),
+("462_5382ee39", "CENTRO MEDICO GAZCUE", "", "" ),
+("463_f26086f5", "CENTRO MEDICO GUADALUPE", "", "" ),
+("464_b13f95b1", "CENTRO MEDICO IRMIE", "", "" ),
+("465_32bd2b63", "CENTRO MEDICO MATERNO INFANTIL", "", "" ),
+("466_dddbd111", "CENTRO MEDICO NACIONAL SAN FRANCISCO", "", "" ),
+("467_6166b6a5", "CENTRO MEDICO NAGUA (CEMNA)", "", "" ),
+("468_62c5cb0f", "CENTRO MEDICO NUÑEZ HERNANDEZ", "", "" ),
+("469_c84698d3", "CENTRO MEDICO PADRE FANTINO, S.R.L.", "", "" ),
+("470_85241d9e", "CENTRO MEDICO REGIONAL AGUASVIVAS", "", "" ),
+("471_0429d4ea", "CENTRO MEDICO SIGLO 21", "", "" ),
+("472_e5727194", "CENTRO MEDICO UCE", "", "" ),
+("473_c927dc70", "CENTRO MEDICO VISTA DEL JARDIN", "", "" ),
+("474_2c08a35c", "CENTRO POLICLINICO NACIONAL", "", "" ),
+("475_589d4375", "CLINICA ABREU", "", "" ),
+("476_038f42a5", "CLINICA ALTAGRACIA", "", "" ),
+("477_806b3fc6", "CLINICA ARIAS", "", "" ),
+("478_24c85e46", "CLINICA BAEZ SOTO SRL", "", "" ),
+("479_5230641b", "CLINICA BRUGAL", "", "" ),
+("480_67d2cd8c", "CLINICA CAROLINA DE JESUS", "", "" ),
+("481_381d77d5", "CLINICA CIBAO UTESA", "", "" ),
+("482_c95a7472", "CLINICA COROMINAS, S.A.", "", "" ),
+("483_db952989", "CLINICA CRUZ JIMINIAN", "", "" ),
+("484_09091c66", "CLINICA DOMINICO CUBANO", "", "" ),
+("584_e4d9156f", "Clinica Dra. Suero", "", "" ),
+("485_771696c9", "CLINICA DR. BONILLA", "", "" ),
+("486_331fcb9d", "CLINICA DR. CANELO", "", "" ),
+("487_ea588807", "CLINICA DR. FRANKLIN PEÑA", "", "" ),
+("488_14ea1857", "CLINICA DR. JACOBO", "", "" ),
+("489_aa42a866", "CLINICA DR. PEROZO SRL", "", "" ),
+("490_ee801562", "CLINICA DR. UREÑA ARIAS", "", "" ),
+("491_5419d3b6", "CLINICA ESPECIALIZADA INTERNACIONAL. LAS TERRENAS", "", "" ),
+("492_bb31b52b", "CLINICA INDEPENDENCIA", "", "" ),
+("575_76feca47", "CLINICA LA CONCEPCION", "", "" ),
+("587_b29f8a55", "CLINICA RODRIGUEZ SANTOS", "", "" ),
+("493_1b8da817", "CLÍNICA ROSA BENITA", "", "" ),
+("494_9d758a57", "CLINICA UNION MEDICA DEL NORTE", "", "" ),
+("495_e7c526ff", "EPIDEMIOLOGO PROVINCIAL DE SALUD", "", "" ),
+("496_8acca203", "GINECOLOGIA Y OBSTETRICIA", "", "" ),
+("583_f3f9006e", "Grupo Medico Carlos J. Finlay", "", "" ),
+("582_b92bc22c", "Grupo Medico San Antonio", "", "" ),
+("497_e8a72343", "HOSITAL TORIBIO BENCOSME", "", "" ),
+("498_ba0f2093", "HOSP. DR. PEDRO EMILIO DE MARCHENA", "", "" ),
+("499_3d798955", "HOSP. DR. ROMAN BAUTISTA BRACHE", "", "" ),
+("500_87e77fa1", "HOSPITAL ARISTIDES FIALLO CABRAL", "", "" ),
+("501_67d9ddd8", "HOSPITAL BANICA", "", "" ),
+("502_65d1106a", "HOSPITAL CAMBITA GARABITO CRUCE", "", "" ),
+("503_d4a07445", "HOSPITAL CAMBITA PUEBLO", "", "" ),
+("504_5192bcc5", "HOSPITAL CARLOS A ZAFRA", "", "" ),
+("505_b4f0ec10", "HOSPITAL DE NAVARRETE", "", "" ),
+("574_6eef2283", "HOSPITAL DR. ALBERTO GAUTREAUX", "", "" ),
+("18_2e853d22", "HOSPITAL DR. FRANCISCO MOSCOSO PUELLO", "", "" ),
+("506_82bb7bed", "HOSPITAL DR. JAIME OLIVER PINO", "", "" ),
+("507_d4650ce2", "HOSPITAL DR. JOSE FAUSTO OVALLES", "", "" ),
+("508_e3c895e3", "HOSPITAL DR. JOSE PEREZ", "", "" ),
+("576_70ec144a", "Hospital Dr. Julio Alvarez Acosta", "", "" ),
+("17_91f1eb60", "HOSPITAL DR MARCELINO VELEZ SANTANA", "", "" ),
+("509_09467b08", "HOSPITAL DR. RAFAEL CANTISANO ARIAS", "", "" ),
+("510_2ef6afb4", "HOSPITAL EL BUEN SAMARITANO", "", "" ),
+("572_e5b12ba7", "HOSPITAL ELUPINA CORDERO", "", "" ),
+("573_be46e4e2", "HOSPITAL EL VALLE", "", "" ),
+("512_3f8eaf28", "HOSPITAL FEDERICO LAVANDIER", "", "" ),
+("513_92c05bb1", "HOSPITAL FELIX MARIA GOICO", "", "" ),
+("514_eef3ee57", "HOSPITAL FRANCISCO A. GONZALVO", "", "" ),
+("515_c75e5724", "HOSPITAL GENERAL DE LA POLICIA", "", "" ),
+("586_6bd50263", "HOSPITAL GIL ROLDAN", "", "" ),
+("516_71da6627", "HOSPITAL GREGORIO LUPERON", "", "" ),
+("517_45b6102c", "HOSPITAL GUARIONEX ALCANTARA", "", "" ),
+("518_cb239ea5", "HOSPITAL IMG", "", "" ),
+("519_96e4dc73", "HOSPITAL INFANTIL DR. ARTURO GRULLON", "", "" ),
+("520_b702ac4f", "HOSPITAL INMACULADA CONCEPCIËN", "", "" ),
+("521_d67d198b", "HOSPITAL JANICO", "", "" ),
+("522_b9c35394", "HOSPITAL JOSE MARIA CABRAL Y BAEZ", "", "" ),
+("523_bdf1ed4e", "HOSPITAL JUAN PABLO PINA", "", "" ),
+("588_0f7e4742", "HOSPITAL JULIA SANTANA", "", "" ),
+("524_f4834913", "HOSPITAL LEOPOLDO MARTINEZ", "", "" ),
+("585_2489dd33", "HOSPITAL LOS RIOS", "", "" ),
+("526_ced7e3aa", "HOSPITAL MATERNO INFANTIL SAN LORENZO DE LOS MINA", "", "" ),
+("527_5720386d", "HOSPITAL M. DR. PEDRO HEREDIA ROJAS", "", "" ),
+("528_becb44a7", "HOSPITAL METROPOLITANO DE SANTIAGO (HOMS)", "", "" ),
+("529_d6a38a4c", "HOSPITAL M. HAINA", "", "" ),
+("530_6f8bd9eb", "HOSPITAL MUNICIPAL DE BOHECHIO", "", "" ),
+("578_41d13845", "Hospital Municipal de Guayubin", "", "" ),
+("531_23136cfb", "HOSPITAL MUNICIPAL DE IMBERT", "", "" ),
+("532_39f50a9c", "HOSPITAL MUNICIPAL DE PARTIDO", "", "" ),
+("581_47e03dda", "Hospital Municipal de Pepillo Salcedo", "", "" ),
+("533_ac4cb813", "HOSPITAL MUNICIPAL DE VALLEJUELO", "", "" ),
+("534_70dfaee2", "HOSPITAL MUNICIPAL DE VILLA ISABELA", "", "" ),
+("579_accd0842", "Hospital Municipal de Villa Vasquez", "", "" ),
+("535_d2a233c3", "HOSPITAL MUNICIPAL DE YAMASA", "", "" ),
+("536_f291c5cd", "HOSPITAL MUNICIPAL EL CERCADO", "", "" ),
+("537_a2194366", "HOSPITAL MUNICIPAL HATO DEL YAQUE", "", "" ),
+("538_392f69f9", "HOSPITAL MUNICIPAL HONDO VALLE", "", "" ),
+("539_230a43cd", "HOSPITAL MUNICIPAL JACINTO IGNACIO MAÑON", "", "" ),
+("540_b8a3bb5b", "HOSPITAL MUNICIPAL LAGUNA SALADA", "", "" ),
+("577_01d9f9fa", "Hospital Municipal Las Matas de Santa Cruz", "", "" ),
+("541_5f48a054", "HOSPITAL MUNICIPAL LICEY AL MEDIO", "", "" ),
+("542_abcbcb76", "HOSPITAL MUNICIPAL RESTAURACION", "", "" ),
+("543_02000315", "HOSPITAL M VILLA ALTAGRACIA", "", "" ),
+("544_2f5e5d80", "HOSPITAL NUESTRA SEÑORA DE REGLA", "", "" ),
+("545_91769192", "HOSPITAL NUESTRA SRA. DE LA ALTAGRACIA", "", "" ),
+("546_f9977f4f", "HOSPITAL PABLO MORROBEL JIMENEZ", "", "" ),
+("547_39996a0b", "HOSPITAL PROVINCIAL DOCENTE RICARDO LIMARDO", "", "" ),
+("548_12b3f0e2", "HOSPITAL PROVINCIAL DR. ANGEL CONTRERAS", "", "" ),
+("549_dfdd00d9", "HOSPITAL PROVINCIAL GENERAL SANTIAGO RODRIGUEZ", "", "" ),
+("580_91f871de", "Hospital Provincial Padre Fantino", "", "" ),
+("550_27ff37e4", "HOSPITAL RAFAEL J. MANON", "", "" ),
+("551_92a374b5", "HOSPITAL RAMON ADRIANO VILLALONA", "", "" ),
+("552_38309a12", "HOSPITAL RAMON MATIAS MELLA", "", "" ),
+("553_88872c9c", "HOSPITAL REG. ING. LUIS L. BOGAERT", "", "" ),
+("554_0ac05129", "HOSPITAL REGIONAL DOCENTE DR. ALEJANDRO CABRAL", "", "" ),
+("555_54973dfc", "HOSPITAL REGIONAL DR. ANTONIO MUSA", "", "" ),
+("556_22c3d83c", "HOSPITAL REGIONAL JAIME MOTA", "", "" ),
+("557_99b50f1b", "HOSPITAL REGIONAL UNIV. DR. LUIS ML. MORILLO KING", "", "" ),
+("558_00de6c5b", "HOSPITAL RODOLFO DE LA CRUZ LORA", "", "" ),
+("559_37d20785", "HOSPITAL SAN BARTOLOME", "", "" ),
+("560_f67c6427", "HOSPITAL SAN JOSE", "", "" ),
+("561_ed99aa98", "HOSPITAL SANTO CRISTO DE LOS MILAGROS", "", "" ),
+("562_bcc52e99", "HOSPITAL SIGIFREDO ALBA DOMINGUEZ", "", "" ),
+("563_73587ec7", "HOSPITAL TAIWAN", "", "" ),
+("564_89b114ec", "HOSPITEN", "", "" ),
+("19_c5dd4151", "HOSP. MIL. DOCENTE DR. RAMON DE LARA", "", "" ),
+("566_e4777654", "HOSP. PROV. GRAL. MELENCIANO", "", "" ),
+("567_19b461dc", "INSTITUTO DE ESPECIALIDADES MEDICAS DEL NORDESTE, INEMED", "", "" ),
+("568_4348a58d", "INSTITUTO DE ESPECIALIDADES MEDICAS GREGORIO HERNANDEZ", "", "" ),
+("589_d98e032f", "PLAZA DE LA SALUD", "", "" ),
+("569_34b0cadc", "POLICLINICO LA UNIËN", "", "" ),
+("570_d92b19be", "POLICLINICO LA VEGA, S.A", "", "" ),
+("571_d0977029", "ROBERT REID CABRAL", "", "" );
