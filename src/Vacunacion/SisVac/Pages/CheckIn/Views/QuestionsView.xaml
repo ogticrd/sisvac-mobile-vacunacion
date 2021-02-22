@@ -24,7 +24,7 @@
 
                         <Label Text="¿Si es mujer, está embarazada?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n1" />
+                            <RadioButton Content="Si" GroupName="n1" IsChecked="True"/>
                             <RadioButton Content="No" GroupName="n1" />
                         </StackLayout>
                         

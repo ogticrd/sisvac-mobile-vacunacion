@@ -52,6 +52,7 @@
     <Folder Include="Framework\Extensions\" />
     <Folder Include="Framework\Data\" />
     <Folder Include="Framework\Data\Scripts\" />
+    <Folder Include="Framework\Http\Loggin\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Controls\TextFieldLayout.xaml.cs">

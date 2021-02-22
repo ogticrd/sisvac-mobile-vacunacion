@@ -10,9 +10,6 @@ namespace SisVac.Framework.Domain
         [JsonProperty("cedula")]
         public long Cedula { get; set; }
 
-        [JsonProperty("signature")]
-        IEnumerable<StreamPart> Signature { get; set; }
-
         [JsonProperty("hasCovid")]
         public bool HasCovid { get; set; }
 
