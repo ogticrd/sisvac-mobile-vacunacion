@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 MANIFEST="$BUILD_REPOSITORY_LOCALPATH/src/Vacunacion/SisVac.Android/Properties/AndroidManifest.xml"
-APPSETTINGS="$BUILD_REPOSITORY_LOCALPATH/src/Vacunacion/SisVac.Android/appsettings.json"
+APPSETTINGS="$BUILD_REPOSITORY_LOCALPATH/src/Vacunacion/SisVac/appsettings.json"
 
 VERSIONNAME=`grep versionName ${MANIFEST} | sed 's/.*versionName\s*=\s*\"\([^\"]*\)\".*/\1/g'`
 
