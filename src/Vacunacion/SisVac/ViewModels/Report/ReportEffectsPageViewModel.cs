@@ -17,6 +17,7 @@ namespace SisVac.ViewModels.Report
             ICitizensApiClient citizensApiClient) : base(navigationService, dialogService, scannerService, citizensApiClient)
         {
             ConfirmCommand = new DelegateCommand(OnConfirmCommandExecute);
+            DocumentScanned = id => OnConfirmCommandExecute();
         }
 
         public ICommand ConfirmCommand { get; set; }

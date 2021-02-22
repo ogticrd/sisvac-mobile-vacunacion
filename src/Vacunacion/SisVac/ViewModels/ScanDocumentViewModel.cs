@@ -18,6 +18,8 @@ namespace SisVac.ViewModels
     {
         private IScannerService _scannerService;
         protected ICitizensApiClient _citizensApiClient;
+        public Action<string> DocumentScanned;
+
         public ScanDocumentViewModel(
             INavigationService navigationService,
             IPageDialogService dialogService,
@@ -44,7 +46,11 @@ namespace SisVac.ViewModels
             {
                 result = result.Substring(0,11);
             }
+
             DocumentID.Value = result;
+
+            if(DocumentScanned != null && string.IsNullOrEmpty(result))
+                DocumentScanned.Invoke(result);
         }
 
         protected async Task<UserResponse> GetDocumentData(string document)

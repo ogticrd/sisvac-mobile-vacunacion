@@ -25,6 +25,8 @@ namespace SisVac.ViewModels.CheckIn
             BackCommand = new DelegateCommand(OnBackCommandExecute);
             ConfirmCommand = new DelegateCommand(OnConfirmCommandExecute);
             ProgressBarIndicator = 0.0f;
+
+            DocumentScanned = id => OnNextCommandExecute();
         }
 
         public Func<Task<byte[]>> SignatureFromStream { get; set; }

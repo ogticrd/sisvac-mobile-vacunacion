@@ -21,6 +21,7 @@ namespace SisVac.ViewModels.Login
         {
             _cacheService = cacheService;
             ConfirmLoginCommand = new Command(OnConfirmLoginCommandExecute);
+            DocumentScanned = id => OnConfirmLoginCommandExecute();
         }
 
         public string LocationId { get; set; }
