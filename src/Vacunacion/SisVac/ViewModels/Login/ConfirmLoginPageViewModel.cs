@@ -55,7 +55,7 @@ namespace SisVac.ViewModels.Login
                     {
                         { "user", user }
                     };
-
+                    App.Vaccinator = user;
                     await _navigationService.NavigateAsync("/NavigationPage/HomePage", navigationParams);
                 }
                 else
