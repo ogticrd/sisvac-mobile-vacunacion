@@ -2,6 +2,7 @@
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
+using SisVac.Framework.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,18 @@ namespace SisVac.ViewModels.Login
         {
             SelectedItemCommand = new DelegateCommand(SelectedItemCommandExecute);
 
-            Centers = new List<string>();
-            Centers.Add("Centro 1");
-            Centers.Add("Centro 2");
         }
 
         public ICommand SelectedItemCommand { get; set; }
-        public List<string> Centers { get; set; }
+        public IEnumerable<string> Centers { get; set; }
+        public IEnumerable<ClinicLocation> ClinicLocations { get; set; }
         public int CenterIndexSelected { get; set; }
+
+        public override async void OnNavigatedTo(INavigationParameters parameters)
+        {
+            ClinicLocations = (await App.Database.Connection.DeferredQueryAsync<ClinicLocation>(""));
+            Centers = ClinicLocations.Select(x=>x.Name);
+        }
 
         private async void SelectedItemCommandExecute()
         {
@@ -30,10 +35,14 @@ namespace SisVac.ViewModels.Login
                 return;
 
             IsBusy = true;
+            var centerName = Centers.ElementAt(CenterIndexSelected);
+            //TODO Find a way to match the radio button to the Clinic Location object
+            var clinicId = ClinicLocations.Where(x=>x.Name == centerName);
 
             var navigationParams = new NavigationParameters
             {
-                { "selectedItem", Centers[CenterIndexSelected] }
+                { "selectedClinicLocationName", centerName },
+                { "selectedClinicLocationid", clinicId }
             };
 
             await _navigationService.GoBackAsync(navigationParams);

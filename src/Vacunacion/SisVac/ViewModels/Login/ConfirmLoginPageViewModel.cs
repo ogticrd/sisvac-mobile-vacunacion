@@ -12,8 +12,8 @@ namespace SisVac.ViewModels.Login
     public class ConfirmLoginPageViewModel : ScanDocumentViewModel
     {
         public string LocationId { get; set; }
-        public string LocationName { get; set; }
-        public string CenterName { get; set; } = "Centros";
+        public string LocationName { get; set; } = "Centros";
+
         public bool ShowLocationErrorMessage { get; set; }
 
         public ICommand LocationSelectedCommand { get; set; }
@@ -25,18 +25,13 @@ namespace SisVac.ViewModels.Login
             IScannerService scannerService,
             ICitizensApiClient citizensApiClient) : base(navigationService, dialogService, scannerService, citizensApiClient)
         {
-            LocationSelectedCommand = new Command<string>(OnLocationSelectedCommandExecute);
             ConfirmLoginCommand = new Command(OnConfirmLoginCommandExecute);
         }
 
-        void OnLocationSelectedCommandExecute(string selectedOption)
-        {
-            LocationName = selectedOption;
-        }
 
         async void OnConfirmLoginCommandExecute()
         {
-            if(String.IsNullOrEmpty(CenterName) && !DocumentID.Validate())
+            if(String.IsNullOrEmpty(LocationName) && !DocumentID.Validate())
             {
                 ShowLocationErrorMessage = true;
             }
@@ -52,6 +47,7 @@ namespace SisVac.ViewModels.Login
                         Age = userData.Age,
                         Document = DocumentID.Value,
                         FullName = userData.Name,
+                        LocationId = LocationId,
                         LocationName = LocationName
                     };
 
@@ -71,8 +67,11 @@ namespace SisVac.ViewModels.Login
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            if (parameters.ContainsKey("selectedItem"))
-                CenterName = parameters.GetValue<string>("selectedItem");
+            if (parameters.ContainsKey("selectedClinicLocationName"))
+            {
+                LocationName = parameters.GetValue<string>("selectedClinicLocationName");
+                LocationId = parameters.GetValue<string>("selectedClinicLocationName");
+            }
         }
     }
 }

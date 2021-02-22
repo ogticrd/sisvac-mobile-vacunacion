@@ -33,6 +33,7 @@
                     <Label Style="{StaticResource H3}" Text="Selecciona tu centro" />
                     <mtrl:MaterialRadioButtonGroup
                         x:Name="radioButtonGroup"
+                        
                         Choices="{Binding Centers}"
                         SelectedIndex="{Binding CenterIndexSelected}" />
                 </StackLayout>
