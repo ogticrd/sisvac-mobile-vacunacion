@@ -1,12 +1,8 @@
 ﻿using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Input;
 using XF.Material.Forms.UI.Dialogs;
 
@@ -20,7 +16,7 @@ namespace SisVac.ViewModels.Report
             IScannerService scannerService,
             ICitizensApiClient citizensApiClient) : base(navigationService, dialogService, scannerService, citizensApiClient)
         {
-
+            ConfirmCommand = new DelegateCommand(OnConfirmCommandExecute);
         }
 
         public ICommand ConfirmCommand { get; set; }
