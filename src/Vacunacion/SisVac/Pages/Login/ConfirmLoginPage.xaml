@@ -37,6 +37,11 @@
                 TranslationY="-8" />
 
             <Frame Margin="-16,16,-16,0" Padding="16,24,16,0">
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{prism:NavigateTo 'SearchCenterPage'}" />
+                </Frame.GestureRecognizers>
+
                 <StackLayout Margin="0" Spacing="4">
                     <ctrls:TextFieldLayout>
                         <mtrl:MaterialTextField
@@ -44,6 +49,7 @@
                             ErrorText="El campo es requerido"
                             HasError="{Binding ShowErrorMessage}"
                             HelperText="Por favor, confirma tu locación para el día de hoy!"
+                            IsEnabled="False"
                             Placeholder="Centro Vacunación"
                             Style="{StaticResource TextFieldChoiceStyle}">
                             <mtrl:MaterialTextField.Choices>

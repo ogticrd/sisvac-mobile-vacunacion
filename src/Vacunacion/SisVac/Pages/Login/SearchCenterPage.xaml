@@ -7,20 +7,21 @@
     xmlns:hlps="clr-namespace:SisVac.Helpers;assembly=SisVac"
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
+    Title="Buscar centro"
     prism:ViewModelLocator.AutowireViewModel="True"
     BackgroundColor="{StaticResource BackgroundColor}">
 
     <Grid
-        Padding="16"
         HorizontalOptions="FillAndExpand"
         RowDefinitions="*,Auto"
         VerticalOptions="FillAndExpand">
 
-        <StackLayout>
-            <Frame Margin="-16,0,-16,0" Padding="16,24,16,0">
+        <StackLayout Spacing="16">
+            <Frame Padding="16,24,16,0">
                 <ctrls:TextFieldLayout>
                     <mtrl:MaterialTextField
-                        HelperText="Inicia sesión para comenzar tu día"
+                        HelperText="¿Cuál es el nombre de tu centro?"
+                        Placeholder="Centro"
                         ReturnCommand="{Binding LoginCommand}"
                         StyleClass="CedulaTextField" />
                 </ctrls:TextFieldLayout>
@@ -29,7 +30,7 @@
 
             <Frame>
                 <StackLayout>
-                    <Label Text="Centros" />
+                    <Label Style="{StaticResource H3}" Text="Selecciona tu centro" />
                     <mtrl:MaterialRadioButtonGroup x:Name="radioButtonGroup">
                         <mtrl:MaterialRadioButtonGroup.Choices>
                             <x:Array Type="{x:Type x:String}">
@@ -43,9 +44,11 @@
         </StackLayout>
 
 
-        <Frame>
+        <Frame
+            Grid.Row="1"
+            Padding="16,8,16,8"
+            VerticalOptions="End">
             <mtrl:MaterialButton
-                Grid.Row="1"
                 Command="{Binding SelectCommand}"
                 Style="{StaticResource ButtonPrimary}"
                 Text="Seleccionar" />
