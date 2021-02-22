@@ -14,15 +14,18 @@
                             Style="{StaticResource Body1}"
                             Text="Consentimiento de Vacunación" />
                         <Label>
+                            <!-- Favor de NO modificar este texto debajo. Los tabs y espacios en blanco se reflejan en la vista del usuario y se ve mal identado-->
                             <Label.Text>
-                                Reconozco que la ciencia ha tenido que hacer grandes esfuerzos para poner las vacunas a disposición de todos los países del mundo a la mayor velocidad posible con la finalidad de detener la pandemia en el menor tiempo aceptable, reduciendo de manera considerable las pérdidas de vidas. Igualmente, que aunque no se ha alcanzado el 100% de efectividad y seguridad, y pueden existir riesgos aún no identificados, se han sobrepasado los niveles alcanzados para otras vacunas aplicadas por largos años, lo que ha permitido la aprobación para uso de emergencia de las vacunas que se están aplicando en República Dominicana.
-                                Entiendo que la solicitud de este consentimiento se le hace al amparo del literal FI), artículo 28 de la Ley General de Salud Pública, No. 42-01, lo que significa que reconozco que he recibido  esta información, he hecho las preguntas que he considerado pertinentes y he recibido respuestas a esas preguntas, y asimismo he contestado honestamente las preguntas hechas por el personal de salud.
-                                CON MI FIRMA EN ESTE FORMULARIO, DECLARO Y CONSIENTO LO SIGUIENTE:
-                                - Haber leído la información provista sobre la vacunación contra la COVID-19 y haber consultado cualquier duda con el personal de salud correspondiente.
-                                - Que la información que he provisto en este formulario es la correcta y que la misma podrá ser utilizada por el Ministerio de Salud Pública y Asistencia Social, el fabricante de la vacuna y/o terceros determinados por el MISPAS para fines de registro, estadística y análisis de información.
-                                - Que acepto de forma voluntaria recibir la vacuna contra este virus, conforme es suministrada por el Ministerio de Salud Pública de la República Dominicana, aceptando los riesgos, efectos y consecuencias potenciales de recibir las dosis de la vacuna contra el COVID-19, sobre los cuales he quedado informado.
-                                - Que acepto comparecer en el tiempo indicado por el personal de salud para recibir la segunda dosis de la vacuna, si aplica.
-                                Adicionalmente, respecto al tratamiento de mis datos personales, indico que acepto que los datos que he provisto sean compartidos con el fabricante de la vacuna u otros terceros relacionados.
+Reconozco que la ciencia ha tenido que hacer grandes esfuerzos para poner las vacunas a disposición de todos los países del mundo a la mayor velocidad posible con la finalidad de detener la pandemia en el menor tiempo aceptable, reduciendo de manera considerable las pérdidas de vidas. Igualmente, que aunque no se ha alcanzado el 100% de efectividad y seguridad, y pueden existir riesgos aún no identificados, se han sobrepasado los niveles alcanzados para otras vacunas aplicadas por largos años, lo que ha permitido la aprobación para uso de emergencia de las vacunas que se están aplicando en República Dominicana.
+Entiendo que la solicitud de este consentimiento se le hace al amparo del literal FI), artículo 28 de la Ley General de Salud Pública, No. 42-01, lo que significa que reconozco que he recibido  esta información, he hecho las preguntas que he considerado pertinentes y he recibido respuestas a esas preguntas, y asimismo he contestado honestamente las preguntas hechas por el personal de salud.
+
+CON MI FIRMA EN ESTE FORMULARIO, DECLARO Y CONSIENTO LO SIGUIENTE:
+
+- Haber leído la información provista sobre la vacunación contra la COVID-19 y haber consultado cualquier duda con el personal de salud correspondiente.
+- Que la información que he provisto en este formulario es la correcta y que la misma podrá ser utilizada por el Ministerio de Salud Pública y Asistencia Social, el fabricante de la vacuna y/o terceros determinados por el MISPAS para fines de registro, estadística y análisis de información.
+- Que acepto de forma voluntaria recibir la vacuna contra este virus, conforme es suministrada por el Ministerio de Salud Pública de la República Dominicana, aceptando los riesgos, efectos y consecuencias potenciales de recibir las dosis de la vacuna contra el COVID-19, sobre los cuales he quedado informado.
+- Que acepto comparecer en el tiempo indicado por el personal de salud para recibir la segunda dosis de la vacuna, si aplica.
+Adicionalmente, respecto al tratamiento de mis datos personales, indico que acepto que los datos que he provisto sean compartidos con el fabricante de la vacuna u otros terceros relacionados.
                             </Label.Text>
                         </Label>
                     </StackLayout>

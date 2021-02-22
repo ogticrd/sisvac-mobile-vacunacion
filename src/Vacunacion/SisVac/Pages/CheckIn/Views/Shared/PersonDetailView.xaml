@@ -22,7 +22,7 @@
                 <Label
                     Grid.Row="2"
                     Grid.Column="1"
-                    Text="Edad: 72 Años" />
+                    Text="{Binding Patient.Age, StringFormat='Edad: {0} años'}"/>
                 <Label
                     Grid.Row="3"
                     Grid.Column="1"

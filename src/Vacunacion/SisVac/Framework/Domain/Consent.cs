@@ -5,7 +5,7 @@ using Refit;
 
 namespace SisVac.Framework.Domain
 {
-    public class ConsentRequestBody
+    public class Consent
     {
         [JsonProperty("cedula")]
         public long Cedula { get; set; }
