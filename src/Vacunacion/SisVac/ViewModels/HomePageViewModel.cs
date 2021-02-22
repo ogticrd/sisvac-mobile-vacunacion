@@ -19,7 +19,7 @@ namespace SisVac.ViewModels
         {
 
             User = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.UserInfo);
-            Vaccionator = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorInfo);
+            Vaccinator = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorInfo);
         }
 
 

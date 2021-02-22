@@ -54,12 +54,12 @@ namespace SisVac.ViewModels.Login
             IsBusy = true;
             var centerName = Centers.ElementAt(CenterIndexSelected);
             //TODO Find a way to match the radio button to the Clinic Location object
-            var clinicId = ClinicLocations.Where(x=>x.Name == centerName);
+            var clinic = ClinicLocations.Where(x=>x.Name == centerName).FirstOrDefault();
 
             var navigationParams = new NavigationParameters
             {
                 { "selectedClinicLocationName", centerName },
-                { "selectedClinicLocationid", clinicId }
+                { "selectedClinicLocationId", clinic.Id }
             };
 
             await _navigationService.GoBackAsync(navigationParams);

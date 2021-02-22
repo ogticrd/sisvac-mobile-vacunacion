@@ -15,7 +15,7 @@ namespace SisVac.ViewModels
             get => App.User;
             set { App.User = value; }
         }
-        public ApplicationUser Vaccionator
+        public ApplicationUser Vaccinator
         {
             get => App.Vaccinator;
             set { App.Vaccinator = value; }

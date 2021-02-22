@@ -52,7 +52,7 @@ namespace SisVac.ViewModels.Login
                 var user = new ApplicationUser
                 {
                     Age = userData.Age,
-                    Document = DocumentID.Value,
+                    Document = userData.Cedula,
                     FullName = userData.Name,
                     LocationName = string.Empty
                 };
