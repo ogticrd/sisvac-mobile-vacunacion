@@ -84,7 +84,7 @@ namespace SisVac.ViewModels.CheckIn
             switch (PositionView)
             {
                 case 0:
-                    if(!string.IsNullOrWhiteSpace(DocumentID.Value) && DocumentID.Value.Replace("-","").IsValidDocument())
+                    if(DocumentID.Validate())
                     {
                         var patientData = await GetDocumentData(DocumentID.Value);
                         Patient = new Person
@@ -98,14 +98,9 @@ namespace SisVac.ViewModels.CheckIn
                     }
                     else
                     {
+
                     }
-                    // TODO: Remove this code later
-                    Patient = new Person
-                    {
-                        Age = 25,
-                        Document = "131-12333333-1",
-                        FullName = "Juan Perez"
-                    };
+                   
                     break;
                 case 1:
                     PositionView = 2;
