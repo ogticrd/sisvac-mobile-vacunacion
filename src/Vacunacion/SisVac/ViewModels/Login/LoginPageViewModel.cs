@@ -30,7 +30,7 @@ namespace SisVac.ViewModels.Login
             _cacheService = cacheService;
             LoginCommand = new DelegateCommand(OnLoginCommandExecute);
 
-            DocumentScanned = id => OnLoginCommandExecute();
+            DocumentScanned = async (id) => await GoNext(id);
         }
 
         public bool DocumentHasError { get; set; }
@@ -40,24 +40,29 @@ namespace SisVac.ViewModels.Login
         {
             if (DocumentID.Validate())
             {
-                var userData = await GetDocumentData(DocumentID.Value);
-                if (userData != null)
+                await GoNext(DocumentID.Value);
+            }
+        }
+
+        async Task GoNext(string document)
+        {
+            var userData = await GetDocumentData(document);
+            if (userData != null)
+            {
+                var user = new ApplicationUser
                 {
-                    var user = new ApplicationUser
-                    {
-                        Age = userData.Age,
-                        Document = DocumentID.Value,
-                        FullName = userData.Name,
-                        LocationName = string.Empty
-                    };
-                    App.User = user;
-                    await _cacheService.InsertLocalObject(CacheKeyDictionary.UserInfo, user);
-                    await _navigationService.NavigateAsync("ConfirmLoginPage");
-                }
-                else
-                {
-                    await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
-                }
+                    Age = userData.Age,
+                    Document = DocumentID.Value,
+                    FullName = userData.Name,
+                    LocationName = string.Empty
+                };
+                App.User = user;
+                await _cacheService.InsertLocalObject(CacheKeyDictionary.UserInfo, user);
+                await _navigationService.NavigateAsync("ConfirmLoginPage");
+            }
+            else
+            {
+                await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
             }
         }
     }

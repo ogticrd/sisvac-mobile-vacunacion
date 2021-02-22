@@ -84,7 +84,7 @@ namespace SisVac.ViewModels.Login
             if (parameters.ContainsKey("selectedClinicLocationName"))
             {
                 LocationName = parameters.GetValue<string>("selectedClinicLocationName");
-                LocationId = parameters.GetValue<string>("selectedClinicLocationName");
+                LocationId = parameters.GetValue<string>("selectedClinicLocationId");
             }
         }
     }

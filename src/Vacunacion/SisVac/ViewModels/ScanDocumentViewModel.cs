@@ -44,11 +44,12 @@ namespace SisVac.ViewModels
 
             if(result.Length > 11)
             {
-                result = result.Substring(0,11);
+                DocumentID.Value = "";
             }
-
-            DocumentID.Value = result;
-
+            else
+            { 
+                DocumentID.Value = result;
+            }
             if(DocumentScanned != null && !string.IsNullOrEmpty(result))
                 DocumentScanned.Invoke(result);
         }
@@ -65,8 +66,10 @@ namespace SisVac.ViewModels
             using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
             {
                 try
-                { 
-                    result = await _citizensApiClient.GetBasicData(document.Replace("-",""));
+                {
+                    if(document.Length == 13)
+                        document = document.Replace("-", "");
+                    result = await _citizensApiClient.GetBasicData(document);
                     IsBusy = false;
                     return result;
                 }
