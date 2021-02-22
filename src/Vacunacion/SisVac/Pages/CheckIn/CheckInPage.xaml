@@ -7,7 +7,7 @@
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     xmlns:views="clr-namespace:SisVac.Pages.CheckIn.Views"
-    Title="Verificar"
+    Title="Registrar Consentimiento"
     prism:ViewModelLocator.AutowireViewModel="True"
     BackgroundColor="{StaticResource BackgroundColor}">
 
@@ -57,12 +57,23 @@
                     </views:StatusView.Triggers>
                 </views:StatusView>
 
+                <views:EmergencyContactView IsVisible="False">
+                    <views:EmergencyContactView.Triggers>
+                        <DataTrigger
+                            Binding="{Binding PositionView}"
+                            TargetType="ContentView"
+                            Value="2">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </views:EmergencyContactView.Triggers>
+                </views:EmergencyContactView>
+
                 <views:TermView IsVisible="False">
                     <views:TermView.Triggers>
                         <DataTrigger
                             Binding="{Binding PositionView}"
                             TargetType="ContentView"
-                            Value="2">
+                            Value="3">
                             <Setter Property="IsVisible" Value="True" />
                         </DataTrigger>
                     </views:TermView.Triggers>
@@ -73,7 +84,7 @@
                         <DataTrigger
                             Binding="{Binding PositionView}"
                             TargetType="ContentView"
-                            Value="3">
+                            Value="4">
                             <Setter Property="IsVisible" Value="True" />
                         </DataTrigger>
                     </views:QuestionsView.Triggers>
@@ -84,7 +95,7 @@
                         <DataTrigger
                             Binding="{Binding PositionView}"
                             TargetType="ContentView"
-                            Value="4">
+                            Value="5">
                             <Setter Property="IsVisible" Value="True" />
                         </DataTrigger>
                     </views:FirmView.Triggers>

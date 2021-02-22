@@ -17,6 +17,7 @@ namespace SisVac.ViewModels
 
         private async Task Init()
         {
+
             User = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.UserInfo);
             Vaccionator = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorInfo);
         }

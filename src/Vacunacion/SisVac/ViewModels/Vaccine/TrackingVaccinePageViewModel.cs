@@ -25,6 +25,8 @@ namespace SisVac.ViewModels.Vaccine
             BackCommand = new DelegateCommand(OnBackCommandExecute);
             ConfirmCommand = new DelegateCommand(OnConfirmCommandExecute);
             ProgressBarIndicator = 0.0f;
+
+            DocumentScanned = id => OnNextCommandExecute();
         }
         public int PositionView { get; set; }
         public bool IsBackButtonVisible { get; set; } = false;

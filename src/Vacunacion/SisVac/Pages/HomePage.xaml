@@ -56,7 +56,7 @@
             <mtrl:MaterialButton
                 Command="{prism:NavigateTo 'CheckInPage'}"
                 Style="{StaticResource ButtonPrimary}"
-                Text="Verificar" />
+                Text="Registrar" />
 
             <mtrl:MaterialButton
                 Command="{prism:NavigateTo 'TrackingVaccinePage'}"

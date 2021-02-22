@@ -29,6 +29,8 @@ namespace SisVac.ViewModels.Login
         {
             _cacheService = cacheService;
             LoginCommand = new DelegateCommand(OnLoginCommandExecute);
+
+            DocumentScanned = id => OnLoginCommandExecute();
         }
 
         public bool DocumentHasError { get; set; }
