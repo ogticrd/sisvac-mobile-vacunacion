@@ -39,12 +39,18 @@
             <Frame Margin="-16,16,-16,0" Padding="16,24,16,0">
 
                 <StackLayout Margin="0" Spacing="4">
+
+                    <Label
+                        Margin="0,0,0,8"
+                        Style="{StaticResource H3}"
+                        Text="Registra el Centro y Vacunador asignado antes de comenzar" />
+
                     <ctrls:TextFieldLayout VerticalOptions="Start">
 
                         <ctrls:TextFieldLayout.GestureRecognizers>
                             <TapGestureRecognizer Command="{prism:NavigateTo 'SearchCenterPage'}" />
                         </ctrls:TextFieldLayout.GestureRecognizers>
-                        
+
                         <Label
                             FontSize="18"
                             Text="{Binding LocationName}"
@@ -53,15 +59,17 @@
                             VerticalOptions="Center" />
                     </ctrls:TextFieldLayout>
                     <Label
+                        Margin="0,0,0,-16"
                         FontSize="12"
                         Text="Por favor, confirma tu locación para el día de hoy"
                         TextColor="Gray"
-                        TranslationX="16" TranslationY="-32"
+                        TranslationX="16"
+                        TranslationY="-32"
                         VerticalOptions="Start" />
 
                     <ctrls:TextFieldLayout>
                         <mtrl:MaterialTextField
-                            HelperText="Registra tu vacunador asignado"
+                            HelperText="Digita la cédula de tu vacunador asignado"
                             ReturnCommand="{Binding ConfirmLoginCommand}"
                             StyleClass="CedulaTextField" />
                     </ctrls:TextFieldLayout>
