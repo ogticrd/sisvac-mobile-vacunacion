@@ -34,7 +34,7 @@ namespace SisVac.ViewModels.Login
 
         async void OnConfirmLoginCommandExecute()
         {
-            if(String.IsNullOrEmpty(LocationName) && !DocumentID.Validate())
+            if(String.IsNullOrEmpty(LocationId))
             {
                 ShowLocationErrorMessage = true;
             }
@@ -42,24 +42,35 @@ namespace SisVac.ViewModels.Login
             {
                 ShowLocationErrorMessage = false;
 
-                var userData = await GetDocumentData(DocumentID.Value);
-                if (userData != null)
+                if(DocumentID.Value == User.Document)
                 {
-                    var user = new ApplicationUser
-                    {
-                        Age = userData.Age,
-                        Document = DocumentID.Value,
-                        FullName = userData.Name,
-                        LocationId = LocationId,
-                        LocationName = LocationName
-                    };
-                    await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, user);
-                   
-                    await _navigationService.NavigateAsync("/NavigationPage/HomePage");
+                    DocumentID.IsValid = false;
+                    DocumentID.Error = "La persona encargada del registro, no puede ser vacunador";
                 }
                 else
-                {
-                    await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
+                { 
+                    if (DocumentID.Validate())
+                    { 
+                        var userData = await GetDocumentData(DocumentID.Value);
+                        if (userData != null)
+                        {
+                            var user = new ApplicationUser
+                            {
+                                Age = userData.Age,
+                                Document = DocumentID.Value,
+                                FullName = userData.Name,
+                                LocationId = LocationId,
+                                LocationName = LocationName
+                            };
+                            await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, user);
+                   
+                            await _navigationService.NavigateAsync("/NavigationPage/HomePage");
+                        }
+                        else
+                        {
+                            await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
+                        }
+                    }
                 }
             }
         }

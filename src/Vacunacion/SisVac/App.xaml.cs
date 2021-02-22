@@ -77,6 +77,7 @@ namespace SisVac
             containerRegistry.Register<ICacheService, CacheService>();
 
             var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(CitizenApiBaseUrl) };
+
             var citizensClient = RestService.For<ICitizensApiClient>(httpClient);
             containerRegistry.RegisterInstance<ICitizensApiClient>(citizensClient);
         }

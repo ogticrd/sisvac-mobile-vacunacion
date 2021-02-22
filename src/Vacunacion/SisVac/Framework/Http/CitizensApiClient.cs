@@ -9,7 +9,7 @@ namespace SisVac.Framework.Http
     public interface ICitizensApiClient
     {
         [Get("/citizens/basic-data/")]
-        Task<UserResponse> GetBasicData(string cedula);
+        Task<UserResponse> GetBasicData(string id);
 
         [Multipart]
         [Post("/api/citizens/vaccination-consent")]
