@@ -22,8 +22,14 @@
                     <mtrl:MaterialTextField
                         HelperText="¿Cuál es el nombre de tu centro?"
                         Placeholder="Nombre del Centro"
-                        TextChangeCommand="{Binding FilterTextChangedCommand}"
-                        />
+                        Text="{Binding SearchText}"
+                        >
+                        <mtrl:MaterialTextField.Behaviors>
+                            <prism:EventToCommandBehavior EventName="TextChanged"
+                                        Command="{Binding FilterTextChangedCommand}"
+                                        EventArgsParameterPath="NewTextValue"></prism:EventToCommandBehavior>
+                        </mtrl:MaterialTextField.Behaviors>
+                    </mtrl:MaterialTextField>
                 </ctrls:TextFieldLayout>
             </Frame>
 
@@ -31,11 +37,13 @@
             <Frame>
                 <StackLayout>
                     <Label Style="{StaticResource H3}" Text="Selecciona tu centro" />
-                    <mtrl:MaterialRadioButtonGroup
-                        x:Name="radioButtonGroup"
+                    <ScrollView>
+                        <mtrl:MaterialRadioButtonGroup
+                            x:Name="radioButtonGroup"
                         
-                        Choices="{Binding Centers}"
-                        SelectedIndex="{Binding CenterIndexSelected}" />
+                            Choices="{Binding Centers}"
+                            SelectedIndex="{Binding CenterIndexSelected}" />
+                    </ScrollView>
                 </StackLayout>
             </Frame>
         </StackLayout>
