@@ -7,7 +7,7 @@
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     xmlns:views="clr-namespace:SisVac.Pages.CheckIn.Views"
-    Title="Verificar"
+    Title="Registrar Consentimiento"
     prism:ViewModelLocator.AutowireViewModel="True"
     BackgroundColor="{StaticResource BackgroundColor}">
 
