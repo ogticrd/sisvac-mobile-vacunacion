@@ -52,11 +52,23 @@ namespace SisVac.ViewModels.CheckIn
 
         private async void OnConfirmCommandExecute()
         {
-            //TODO Send confirmation to the server
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
+            {
+                // TODO: Call API Here
+                // TODO: Send confirmation to the server
+            }
+            
             await _navigationService.NavigateAsync("/NavigationPage/HomePage");
             await MaterialDialog.Instance.SnackbarAsync(message: "Proceso terminado satisfactoriamente.",
                                         actionButtonText: "OK",
                                         msDuration: 8000);
+
+            IsBusy = false;
         }
 
         private async void OnNextCommandExecute()

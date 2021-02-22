@@ -45,16 +45,28 @@ namespace SisVac.ViewModels.Vaccine
 
         private async void OnConfirmCommandExecute()
         {
-            //TODO Send confirmation to the server
-            var result = await _dialogService.DisplayAlertAsync("Confirmación para la aplicación de dosis", "Primero aplica la dosis de la vacuna al paciente, después confirma la aplicación de la dosis.", "Confirmar", "Cancelar");
+            if (IsBusy)
+                return;
 
+            IsBusy = true;
+
+            var result = await _dialogService.DisplayAlertAsync("Confirmación para la aplicación de dosis", "Primero aplica la dosis de la vacuna al paciente, después confirma la aplicación de la dosis.", "Confirmar", "Cancelar");
+            
             if (result)
             {
+                using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
+                {
+                    // TODO: Call API Here
+                    // TODO: Send confirmation to the server
+                }
+
                 await _navigationService.NavigateAsync("/NavigationPage/HomePage");
-                await MaterialDialog.Instance.SnackbarAsync(message: "Proceso terminado satisfactoriamente.",
-                                            actionButtonText: "OK",
-                                            msDuration: 8000);
-            }
+                    await MaterialDialog.Instance.SnackbarAsync(message: "Proceso terminado satisfactoriamente.",
+                                                actionButtonText: "OK",
+                                                msDuration: 8000);
+             }
+            
+            IsBusy = false;
         }
 
         private void OnNextCommandExecute()

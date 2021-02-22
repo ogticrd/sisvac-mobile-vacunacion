@@ -20,6 +20,7 @@ using SisVac.Pages.Vaccine;
 using SisVac.ViewModels;
 using SisVac.ViewModels.CheckIn;
 using SisVac.ViewModels.Login;
+using SisVac.ViewModels.Report;
 using SisVac.ViewModels.Vaccine;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -64,7 +65,7 @@ namespace SisVac
             containerRegistry.RegisterForNavigation<SearchCenterPage, SearchCenterPageViewModel>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<CheckInPage, CheckInPageViewModel>();
-            containerRegistry.RegisterForNavigation<ReportEffectsPage>();
+            containerRegistry.RegisterForNavigation<ReportEffectsPage, ReportEffectsPageViewModel>();
             containerRegistry.RegisterForNavigation<TrackingVaccinePage, TrackingVaccinePageViewModel>();
             containerRegistry.RegisterForNavigation<ChangeVaccinatorPage>();
             containerRegistry.RegisterForNavigation<VaccineStatusPage>();
