@@ -47,7 +47,7 @@
                         
                         <Label
                             FontSize="18"
-                            Text="{Binding CenterName}"
+                            Text="{Binding LocationName}"
                             TextColor="Gray"
                             TranslationX="16"
                             VerticalOptions="Center" />

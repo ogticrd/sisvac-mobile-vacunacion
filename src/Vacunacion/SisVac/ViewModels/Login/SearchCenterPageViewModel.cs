@@ -14,22 +14,36 @@ namespace SisVac.ViewModels.Login
     {
         public SearchCenterPageViewModel(INavigationService navigationService, IPageDialogService dialogService) : base(navigationService, dialogService)
         {
-            SelectedItemCommand = new DelegateCommand(SelectedItemCommandExecute);
-
+            SelectedItemCommand = new DelegateCommand(OnSelectedItemCommandExecute);
+            FilterTextChangedCommand = new DelegateCommand<string>(OnFilterTextChangedCommandExecute);
+            Centers = new List<string>{
+                "Lista vacía"
+            };
         }
 
+        public ICommand FilterTextChangedCommand { get; set; }
         public ICommand SelectedItemCommand { get; set; }
-        public IEnumerable<string> Centers { get; set; }
+        public List<string> Centers { get; set; }
         public IEnumerable<ClinicLocation> ClinicLocations { get; set; }
+
         public int CenterIndexSelected { get; set; }
 
         public override async void OnNavigatedTo(INavigationParameters parameters)
         {
-            ClinicLocations = (await App.Database.Connection.DeferredQueryAsync<ClinicLocation>(""));
-            Centers = ClinicLocations.Select(x=>x.Name);
+            IsBusy = true;
+            ClinicLocations = await App.Database.Connection.Table<ClinicLocation>().OrderBy(x=>x.Name).Take(10).ToListAsync();
+            Centers = ClinicLocations.Select(x=>x.Name).ToList();
+            IsBusy = false;
         }
 
-        private async void SelectedItemCommandExecute()
+        private async void OnFilterTextChangedCommandExecute(string newText)
+        {
+            IsBusy = true;
+            ClinicLocations = await App.Database.Connection.Table<ClinicLocation>().Where(x=>x.Name.StartsWith(newText)).OrderBy(x => x.Name).Take(10).ToListAsync();
+            IsBusy = false;
+        }
+
+        private async void OnSelectedItemCommandExecute()
         {
             if (IsBusy)
                 return;

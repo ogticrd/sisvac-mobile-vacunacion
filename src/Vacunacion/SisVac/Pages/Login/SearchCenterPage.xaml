@@ -22,8 +22,8 @@
                     <mtrl:MaterialTextField
                         HelperText="¿Cuál es el nombre de tu centro?"
                         Placeholder="Nombre del Centro"
-                        ReturnCommand="{Binding LoginCommand}"
-                        StyleClass="CedulaTextField" />
+                        TextChangeCommand="{Binding FilterTextChangedCommand}"
+                        />
                 </ctrls:TextFieldLayout>
             </Frame>
 
