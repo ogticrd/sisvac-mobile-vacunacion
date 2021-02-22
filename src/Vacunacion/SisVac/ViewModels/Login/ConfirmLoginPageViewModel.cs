@@ -11,6 +11,18 @@ namespace SisVac.ViewModels.Login
 {
     public class ConfirmLoginPageViewModel : ScanDocumentViewModel
     {
+        ICacheService _cacheService;
+
+        public ConfirmLoginPageViewModel(
+            INavigationService navigationService,
+            IPageDialogService dialogService,
+            IScannerService scannerService,
+            ICitizensApiClient citizensApiClient, ICacheService cacheService) : base(navigationService, dialogService, scannerService, citizensApiClient)
+        {
+            _cacheService = cacheService;
+            ConfirmLoginCommand = new Command(OnConfirmLoginCommandExecute);
+        }
+
         public string LocationId { get; set; }
         public string LocationName { get; set; } = "Centros";
 
@@ -18,15 +30,6 @@ namespace SisVac.ViewModels.Login
 
         public ICommand LocationSelectedCommand { get; set; }
         public ICommand ConfirmLoginCommand { get; set; }
-
-        public ConfirmLoginPageViewModel(
-            INavigationService navigationService,
-            IPageDialogService dialogService,
-            IScannerService scannerService,
-            ICitizensApiClient citizensApiClient) : base(navigationService, dialogService, scannerService, citizensApiClient)
-        {
-            ConfirmLoginCommand = new Command(OnConfirmLoginCommandExecute);
-        }
 
 
         async void OnConfirmLoginCommandExecute()
@@ -50,13 +53,9 @@ namespace SisVac.ViewModels.Login
                         LocationId = LocationId,
                         LocationName = LocationName
                     };
-
-                    var navigationParams = new NavigationParameters
-                    {
-                        { "user", user }
-                    };
-
-                    await _navigationService.NavigateAsync("/NavigationPage/HomePage", navigationParams);
+                    await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, user);
+                   
+                    await _navigationService.NavigateAsync("/NavigationPage/HomePage");
                 }
                 else
                 {

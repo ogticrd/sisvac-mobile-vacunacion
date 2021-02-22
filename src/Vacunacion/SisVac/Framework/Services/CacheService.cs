@@ -65,12 +65,8 @@ namespace SisVac.Framework.Services
 
     public static class CacheKeyDictionary
     {
-        public const string UserCredentials = "userCredentials";
-
-        public const string NotificationPush = "notificationPush";
-        public const string AutomaticLogin = "automaticLogin";
-
-        public const string RecentTransactions = "recentTransactions";
+        public const string UserInfo = nameof(UserInfo);
+        public const string VaccinatorInfo = nameof(VaccinatorInfo);
     }
 
     public interface ICacheService : ILocalMachineCache, ISecureCache

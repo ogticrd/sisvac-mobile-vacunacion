@@ -19,18 +19,20 @@ namespace SisVac.ViewModels.Login
 {
     public class LoginPageViewModel : ScanDocumentViewModel
     {
-        public bool DocumentHasError { get; set; }
-        public ICommand LoginCommand { get; set; }
-
+        ICacheService _cacheService;
 
         public LoginPageViewModel(
             INavigationService navigationService,
             IPageDialogService dialogService,
             IScannerService scannerService,
-            ICitizensApiClient citizensApiClient) : base(navigationService, dialogService, scannerService, citizensApiClient)
+            ICitizensApiClient citizensApiClient, ICacheService cacheService) : base(navigationService, dialogService, scannerService, citizensApiClient)
         {
+            _cacheService = cacheService;
             LoginCommand = new DelegateCommand(OnLoginCommandExecute);
         }
+
+        public bool DocumentHasError { get; set; }
+        public ICommand LoginCommand { get; set; }
 
         async void OnLoginCommandExecute()
         {
@@ -39,13 +41,14 @@ namespace SisVac.ViewModels.Login
                 var userData = await GetDocumentData(DocumentID.Value);
                 if (userData != null)
                 {
-                    App.User = new ApplicationUser
+                    var user = new ApplicationUser
                     {
                         Age = userData.Age,
                         Document = DocumentID.Value,
                         FullName = userData.Name,
                         LocationName = string.Empty
                     };
+                    await _cacheService.InsertLocalObject(CacheKeyDictionary.UserInfo, user);
                     await _navigationService.NavigateAsync("ConfirmLoginPage");
                 }
                 else
