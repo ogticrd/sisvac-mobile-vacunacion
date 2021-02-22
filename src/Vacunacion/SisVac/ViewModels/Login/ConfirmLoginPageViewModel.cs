@@ -13,6 +13,7 @@ namespace SisVac.ViewModels.Login
     {
         public string LocationId { get; set; }
         public string LocationName { get; set; }
+        public string CenterName { get; set; } = "Centros";
         public bool ShowLocationErrorMessage { get; set; }
 
         public ICommand LocationSelectedCommand { get; set; }
@@ -35,7 +36,7 @@ namespace SisVac.ViewModels.Login
 
         async void OnConfirmLoginCommandExecute()
         {
-            if(String.IsNullOrEmpty(LocationName) && !DocumentID.Validate())
+            if(String.IsNullOrEmpty(CenterName) && !DocumentID.Validate())
             {
                 ShowLocationErrorMessage = true;
             }
@@ -46,7 +47,7 @@ namespace SisVac.ViewModels.Login
                 var userData = await GetDocumentData(DocumentID.Value);
                 if (userData != null)
                 {
-                    App.Vaccinator = new ApplicationUser
+                    var user = new ApplicationUser
                     {
                         Age = userData.Age,
                         Document = DocumentID.Value,
@@ -54,13 +55,24 @@ namespace SisVac.ViewModels.Login
                         LocationName = LocationName
                     };
 
-                    await _navigationService.NavigateAsync("/NavigationPage/HomePage");
+                    var navigationParams = new NavigationParameters
+                    {
+                        { "user", user }
+                    };
+
+                    await _navigationService.NavigateAsync("/NavigationPage/HomePage", navigationParams);
                 }
                 else
                 {
                     await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
                 }
             }
+        }
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            if (parameters.ContainsKey("selectedItem"))
+                CenterName = parameters.GetValue<string>("selectedItem");
         }
     }
 }
