@@ -176,7 +176,11 @@
         </Style>
 
         <!--#endregion-->
+        <Style TargetType="mtrlUI:MaterialTextField">
 
+            <Setter Property="TintColor" Value="{StaticResource SecondaryColor}" />
+
+        </Style>
 
         <hlps:NegateBooleanConverter x:Key="NegateBoolean" />
         <Style Class="CedulaTextField" TargetType="mtrlUI:MaterialTextField">
