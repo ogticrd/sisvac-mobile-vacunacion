@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SisVac.Pages.Login.SearchCenterPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrls="clr-namespace:SisVac.Controls"
+    xmlns:hlps="clr-namespace:SisVac.Helpers;assembly=SisVac"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:prism="http://prismlibrary.com"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource BackgroundColor}">
+
+    <Grid
+        Padding="16"
+        HorizontalOptions="FillAndExpand"
+        RowDefinitions="*,Auto"
+        VerticalOptions="FillAndExpand">
+
+        <StackLayout>
+            <Frame Margin="-16,0,-16,0" Padding="16,24,16,0">
+                <ctrls:TextFieldLayout>
+                    <mtrl:MaterialTextField
+                        HelperText="Inicia sesión para comenzar tu día"
+                        ReturnCommand="{Binding LoginCommand}"
+                        StyleClass="CedulaTextField" />
+                </ctrls:TextFieldLayout>
+            </Frame>
+
+
+            <Frame>
+                <StackLayout>
+                    <Label Text="Centros" />
+                    <mtrl:MaterialRadioButtonGroup x:Name="radioButtonGroup">
+                        <mtrl:MaterialRadioButtonGroup.Choices>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Centro 1</x:String>
+                                <x:String>Centro 2</x:String>
+                            </x:Array>
+                        </mtrl:MaterialRadioButtonGroup.Choices>
+                    </mtrl:MaterialRadioButtonGroup>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+
+
+        <Frame>
+            <mtrl:MaterialButton
+                Grid.Row="1"
+                Command="{Binding SelectCommand}"
+                Style="{StaticResource ButtonPrimary}"
+                Text="Seleccionar" />
+        </Frame>
+
+
+
+    </Grid>
+
+</ContentPage>

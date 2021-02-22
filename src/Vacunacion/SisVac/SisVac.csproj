@@ -54,6 +54,9 @@
     <Compile Update="Pages\CheckIn\Views\ScanCuponView.xaml.cs">
       <DependentUpon>ScanCuponView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\Login\SearchCenterPage.xaml.cs">
+      <DependentUpon>SearchCenterPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\Vaccine\Views\ScanIdView.xaml.cs">
       <DependentUpon>ScanIdView.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\CheckIn\Views\TermView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Login\SearchCenterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Report\ReportEffectsPage.xaml">
