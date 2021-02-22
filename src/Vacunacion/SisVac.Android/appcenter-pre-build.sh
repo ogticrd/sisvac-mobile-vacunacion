@@ -16,6 +16,7 @@ rm -f ${APPSETTINGS}.bak
 
 # Print out file for reference
 cat $MANIFEST
-cat $APPSETTINGS
-
 echo "Updated manifest!"
+
+cat $APPSETTINGS
+echo "Updated appsettings.json!"
