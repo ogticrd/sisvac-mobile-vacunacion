@@ -17,6 +17,7 @@
                 ClearText="Limpiar"
                 CaptionText="Firma encima de la línea"
 	            StrokeColor="Black"
+                
 	            BackgroundColor="White" />
             </Frame>
         </StackLayout>

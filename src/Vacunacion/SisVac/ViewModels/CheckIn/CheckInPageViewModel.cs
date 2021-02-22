@@ -6,6 +6,8 @@ using SisVac.Framework.Domain;
 using SisVac.Framework.Extensions;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
+using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using XF.Material.Forms.UI.Dialogs;
 
@@ -25,6 +27,7 @@ namespace SisVac.ViewModels.CheckIn
             ProgressBarIndicator = 0.0f;
         }
 
+        public Func<Task<byte[]>> SignatureFromStream { get; set; }
         public int PositionView { get; set; }
         public bool IsBackButtonVisible { get; set; } = false;
         public bool IsNextButtonVisible { get; set; } = true;
@@ -60,6 +63,8 @@ namespace SisVac.ViewModels.CheckIn
 
             using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
             {
+
+                var signature = await SignatureFromStream();
                 // TODO: Call API Here
                 // TODO: Send confirmation to the server
             }
