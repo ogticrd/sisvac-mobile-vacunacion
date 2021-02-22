@@ -14,10 +14,11 @@ namespace SisVac.Framework.Services
                 TopText = topText,
                 FlashButtonText = "Flash",
             };
-
             var result = await scanner.Scan(new ZXing.Mobile.MobileBarcodeScanningOptions
             {
-                DisableAutofocus = false
+                DisableAutofocus = false,
+                TryHarder = true,
+                PureBarcode = true
             });
             if (result != null)
             {

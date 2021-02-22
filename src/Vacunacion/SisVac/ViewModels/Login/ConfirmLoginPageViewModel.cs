@@ -63,6 +63,9 @@ namespace SisVac.ViewModels.Login
                                 LocationId = LocationId,
                                 LocationName = LocationName
                             };
+
+                            App.Vaccinator = user;
+
                             await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, user);
                    
                             await _navigationService.NavigateAsync("/NavigationPage/HomePage");
