@@ -8,7 +8,7 @@ namespace SisVac.Helpers
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if ((bool)value)
+            if (System.Convert.ToBoolean(value))
                 return "Sí";
             return "No";
         }

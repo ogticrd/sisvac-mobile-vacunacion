@@ -181,8 +181,9 @@
             <Setter Property="TintColor" Value="{StaticResource SecondaryColor}" />
 
         </Style>
-
+        
         <hlps:NegateBooleanConverter x:Key="NegateBoolean" />
+        <hlps:BooleanToTextConverter x:Key="BooleanToTextConverter" />
         <Style Class="CedulaTextField" TargetType="mtrlUI:MaterialTextField">
 
             <Setter Property="ErrorText" Value="{Binding DocumentID.Error}" />

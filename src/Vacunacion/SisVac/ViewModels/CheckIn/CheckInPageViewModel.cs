@@ -125,6 +125,10 @@ namespace SisVac.ViewModels.CheckIn
                 PositionView = 1;
                 ProgressBarIndicator = PositionView / 5.0f;
             }
+            else
+            {
+                await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
+            }
         }
 
         private async void OnNextCommandExecute()
