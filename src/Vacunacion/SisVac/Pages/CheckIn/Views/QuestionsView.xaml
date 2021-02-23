@@ -23,8 +23,14 @@
                     <StackLayout>
                         <Label Text="¿Si es mujer, está embarazada?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n1" IsChecked="{Binding Consent.IsPregnant}"/>
-                            <RadioButton Content="No" GroupName="n1" IsChecked="True" />
+                            <RadioButton
+                                Content="Si"
+                                GroupName="n1"
+                                IsChecked="{Binding Consent.IsPregnant}" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n1"
+                                IsChecked="{Binding InverterConsent.IsPregnant}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -33,8 +39,14 @@
                     <StackLayout>
                         <Label Text="¿Ha estado enfermo o ha tenido fiebre superior a 38.5C° en las últimas 72 horas?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n2" IsChecked="{Binding Consent.HadFever}"/>
-                            <RadioButton Content="No" GroupName="n2" IsChecked="True"  />
+                            <RadioButton
+                                Content="Si"
+                                GroupName="n2"
+                                IsChecked="{Binding Consent.HadFever}" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n2"
+                                IsChecked="{Binding InverterConsent.HadFever}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -43,8 +55,14 @@
                     <StackLayout>
                         <Label Text="¿Ha recibido alguna vacuna en los ultimos 30 dias?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n3" IsChecked="{Binding Consent.IsVaccinated}"/>
-                            <RadioButton Content="No" GroupName="n3" IsChecked="True"  />
+                            <RadioButton
+                                Content="Si"
+                                GroupName="n3"
+                                IsChecked="{Binding Consent.IsVaccinated}" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n3"
+                                IsChecked="{Binding InverterConsent.IsVaccinated}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -53,8 +71,14 @@
                     <StackLayout>
                         <Label Text="¿Ha presentado alguna reacción grave a alguna vacuna administrada anteriormente?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n4" IsChecked="{Binding Consent.HadReactions}"/>
-                            <RadioButton Content="No" GroupName="n4" IsChecked="True"  />
+                            <RadioButton
+                                Content="Si"
+                                GroupName="n4"
+                                IsChecked="{Binding Consent.HadReactions}" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n4"
+                                IsChecked="{Binding InverterConsent.HadReactions}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -63,8 +87,14 @@
                     <StackLayout>
                         <Label Text="¿Es alérgico a algún medicamento alimento u otro?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n5" IsChecked="{Binding Consent.IsAllergic}"/>
-                            <RadioButton Content="No" GroupName="n5" IsChecked="True"  />
+                            <RadioButton
+                                Content="Si"
+                                GroupName="n5"
+                                IsChecked="{Binding Consent.IsAllergic}" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n5"
+                                IsChecked="{Binding InverterConsent.IsAllergic}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -74,8 +104,14 @@
 
                         <Label Text="¿Padece usted alguna enfermedad actualmente tales como cáncer, leucemia, alguna enfermedad del sistema inmunitario?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n6" IsChecked="{Binding Consent.IsInmunoDeficient}"/>
-                            <RadioButton Content="No" GroupName="n6" IsChecked="True"  />
+                            <RadioButton
+                                Content="Si"
+                                GroupName="n6"
+                                IsChecked="{Binding Consent.IsInmunoDeficient}" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n6"
+                                IsChecked="{Binding InverterConsent.IsInmunoDeficient}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -85,8 +121,14 @@
 
                         <Label Text="¿Toma alguna medicación: cortisona, esteroides, tratamiento con radioterapia, tratamiento anticanceroso u otro medicamento?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n7" IsChecked="{Binding Consent.IsMedicated}"/>
-                            <RadioButton Content="No" GroupName="n7" IsChecked="True"  />
+                            <RadioButton
+                                Content="Si"
+                                GroupName="n7"
+                                IsChecked="{Binding Consent.IsMedicated}" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n7"
+                                IsChecked="{Binding InverterConsent.IsMedicated}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -96,8 +138,14 @@
 
                         <Label Text="¿Ha recibido transplantes de órganos?" />
                         <StackLayout Orientation="Horizontal">
-                            <RadioButton Content="Si" GroupName="n8" IsChecked="{Binding Consent.HasTransplant}"/>
-                            <RadioButton Content="No" GroupName="n8" IsChecked="True"  />
+                            <RadioButton
+                                Content="Si"
+                                GroupName="n8"
+                                IsChecked="{Binding Consent.HasTransplant}" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n8"
+                                IsChecked="{Binding InverterConsent.HasTransplant}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
