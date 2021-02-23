@@ -19,7 +19,9 @@
                         BackgroundColor="White"
                         CaptionText="Firma encima de la línea"
                         ClearText="Limpiar"
+                        ClearedCommand="{Binding ClearSignatureCommand}"
                         StrokeColor="Black"
+                        StrokeCompletedCommand="{Binding CompletedSignatureCommand}"
                         StrokeWidth="3"
                         VerticalOptions="FillAndExpand" />
                 </Frame>

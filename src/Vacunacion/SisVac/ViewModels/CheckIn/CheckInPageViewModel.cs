@@ -22,6 +22,7 @@ namespace SisVac.ViewModels.CheckIn
     public class CheckInPageViewModel : ScanDocumentViewModel
     {
         ValidationUnit _emergencyContactUnit;
+        bool _signatureIsValid;
 
         public CheckInPageViewModel(
             INavigationService navigationService,
@@ -29,9 +30,6 @@ namespace SisVac.ViewModels.CheckIn
             IScannerService scannerService,
             ICitizensApiClient citizensApiClient, ICacheService cacheService) : base(navigationService, dialogService, scannerService, cacheService, citizensApiClient)
         {
-            NextCommand = new DelegateCommand(OnNextCommandExecute);
-            BackCommand = new DelegateCommand(OnBackCommandExecute);
-            ConfirmCommand = new DelegateCommand(OnConfirmCommandExecute);
             ProgressBarIndicator = 0.0f;
 
             DocumentScanned = async (id) => await GoNextAfterDocumentRead(id);
@@ -43,8 +41,16 @@ namespace SisVac.ViewModels.CheckIn
             EmergencyPhoneNumber.Validations.Add(new IsNotNullOrEmptyRule());
 
             _emergencyContactUnit = new ValidationUnit(EmergencyContactName, EmergencyPhoneNumber);
+
+
+            NextCommand = new DelegateCommand(OnNextCommandExecute);
+            BackCommand = new DelegateCommand(OnBackCommandExecute);
+            ConfirmCommand = new DelegateCommand(OnConfirmCommandExecute);
+            ClearSignatureCommand = new DelegateCommand(() => _signatureIsValid = false);
+            CompletedSignatureCommand = new DelegateCommand(() => _signatureIsValid = true);
         }
 
+        #region Properties
         public Func<Task<byte[]>> SignatureFromStream { get; set; }
         public int PositionView { get; set; }
         public bool IsBackButtonVisible { get; set; } = false;
@@ -65,15 +71,24 @@ namespace SisVac.ViewModels.CheckIn
                 return $"Cédula: {Patient.Document}";
             }
         }
-        public ICommand NextCommand { get; }
-        public ICommand ConfirmCommand { get; set; }
-        public ICommand BackCommand { get; }
 
         public Person Patient { get; set; } = new Person();
         public Consent Consent { get; set; } = new Consent();
         public Consent InverterConsent { get; set; } = new Consent();
         public Validatable<string> EmergencyContactName { get; set; }
         public Validatable<string> EmergencyPhoneNumber { get; set; }
+        public bool SignatureIsBlank { get; set; } 
+        #endregion
+
+
+        #region Commands
+        public ICommand NextCommand { get; }
+        public ICommand ConfirmCommand { get; set; }
+        public ICommand BackCommand { get; }
+        public ICommand ClearSignatureCommand { get; }
+        public ICommand CompletedSignatureCommand { get; } 
+        #endregion
+
 
         private async void OnConfirmCommandExecute()
         {
@@ -82,27 +97,34 @@ namespace SisVac.ViewModels.CheckIn
 
             IsBusy = true;
 
-            using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
+            if (_signatureIsValid)
             {
-                try
-                { 
-                    using(var ms = new MemoryStream(await SignatureFromStream()))
-                    { 
-                        var signatureStreamPart = new StreamPart(ms, "signature.jpg");
-                        var result = await _citizensApiClient.PostConsent(Patient.Document, Consent.HasCovid, Consent.IsPregnant, Consent.HadFever, Consent.IsVaccinated, Consent.HadReactions, Consent.IsAllergic, Consent.IsMedicated, Consent.HasTransplant, signatureStreamPart);
+                using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
+                {
+                    try
+                    {
+                        using (var ms = new MemoryStream(await SignatureFromStream()))
+                        {
+                            var signatureStreamPart = new StreamPart(ms, "signature.jpg");
+                            var result = await _citizensApiClient.PostConsent(Patient.Document, Consent.HasCovid, Consent.IsPregnant, Consent.HadFever, Consent.IsVaccinated, Consent.HadReactions, Consent.IsAllergic, Consent.IsMedicated, Consent.HasTransplant, signatureStreamPart);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Crashes.TrackError(ex);
+                        IsBusy = false;
+                        await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "Ocurrió un problema de comunicación con el servidor", "OK");
+                        return;
                     }
                 }
-                catch(Exception ex)
-                {
-                    Crashes.TrackError(ex);
-                    IsBusy = false;
-                    await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "Ocurrió un problema de comunicación con el servidor", "OK");
-                    return;
-                }
-            }
 
-            await _dialogService.DisplayAlertAsync("Proceso finalizado", "Has terminado satisfactoriamente.", "Ok");
-            await _navigationService.GoBackAsync();
+                await _dialogService.DisplayAlertAsync("Proceso finalizado", "Has terminado satisfactoriamente.", "Ok");
+                await _navigationService.GoBackAsync();
+            }
+            else
+            {
+                await _dialogService.DisplayAlertAsync("Ups", "Necesitas la firma del paciente para continuar.", "Ok");
+            }
 
             IsBusy = false;
         }
@@ -122,10 +144,6 @@ namespace SisVac.ViewModels.CheckIn
                 IsBackButtonVisible = true;
                 PositionView = 1;
                 ProgressBarIndicator = PositionView / 5.0f;
-            }
-            else
-            {
-                await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
             }
         }
 
