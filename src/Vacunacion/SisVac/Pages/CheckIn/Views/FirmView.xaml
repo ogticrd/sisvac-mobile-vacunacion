@@ -7,24 +7,23 @@
     VerticalOptions="FillAndExpand"
     xmlns:vws="clr-namespace:SisVac.Pages.CheckIn.Views.Shared">
     <ContentView.Content>
-        <StackLayout Spacing="16">
-            <ScrollView>
-            <vws:PersonDetailView />
-
-            <Frame
-                VerticalOptions="FillAndExpand"
-                MinimumHeightRequest="400">
-                <sp:SignaturePadView
+        <ScrollView>
+            <StackLayout Spacing="16">
+                <vws:PersonDetailView />
+                <Frame
                     VerticalOptions="FillAndExpand"
-                    HeightRequest="400"
-	                x:Name="signatureView"
-	                StrokeWidth="3"
-                    ClearText="Limpiar"
-                    CaptionText="Firma encima de la línea"
-	                StrokeColor="Black"
-	                BackgroundColor="White" />
-            </Frame>
-            </ScrollView>
-        </StackLayout>
+                    MinimumHeightRequest="400">
+                    <sp:SignaturePadView
+                        VerticalOptions="FillAndExpand"
+                        HeightRequest="400"
+	                    x:Name="signatureView"
+	                    StrokeWidth="3"
+                        ClearText="Limpiar"
+                        CaptionText="Firma encima de la línea"
+	                    StrokeColor="Black"
+	                    BackgroundColor="White" />
+                </Frame>
+            </StackLayout>
+        </ScrollView>
     </ContentView.Content>
 </ContentView>
