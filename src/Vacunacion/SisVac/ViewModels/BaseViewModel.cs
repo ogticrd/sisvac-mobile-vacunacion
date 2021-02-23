@@ -6,6 +6,7 @@ using Prism.Services;
 using PropertyChanged;
 using SisVac.Framework.Domain;
 using SisVac.Framework.Services;
+using SisVac.Framework.Utils;
 
 namespace SisVac.ViewModels
 {
@@ -43,6 +44,8 @@ namespace SisVac.ViewModels
         {
             await _cacheService.RemoveLocalObject(CacheKeyDictionary.UserInfo);
             await _cacheService.RemoveLocalObject(CacheKeyDictionary.VaccinatorInfo);
+
+            Settings.RemoveAllSettings();
             await _navigationService.NavigateAsync("/NavigationPage/LoginPage");
         }
 
