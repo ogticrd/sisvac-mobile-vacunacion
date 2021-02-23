@@ -45,7 +45,7 @@ namespace SisVac.ViewModels.Login
                 {
                     DocumentID.IsValid = false;
                     DocumentID.Error = "La persona encargada del registro, no puede ser vacunador";
-                    await _dialogService.DisplayAlertAsync("La persona encargada del registro, no puede ser vacunador", "Contacte al vacunador para que le facilite su número de cédula.", "OK");
+                    await _dialogService.DisplayAlertAsync("Registrador no puede ser vacunador", "Contacte al vacunador para que le facilite su número de cédula.", "OK");
                 }
                 else
                 { 
@@ -69,7 +69,7 @@ namespace SisVac.ViewModels.Login
             {
                 if(userData.Cedula == User.Document)
                 {
-                    await _dialogService.DisplayAlertAsync("La persona encargada del registro, no puede ser vacunador", "Contacte al vacunador para que le facilite su número de cédula.", "OK");
+                    await _dialogService.DisplayAlertAsync("Registrador no puede ser vacunador", "Contacte al vacunador para que le facilite su número de cédula.", "OK");
                 }
                 else
                 { 
