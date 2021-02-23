@@ -88,7 +88,7 @@ namespace SisVac.ViewModels.Vaccine
                     FullName = patientData.Name
                 };
                 Consent = await _citizensApiClient.GetConsent(patientData.Cedula);
-                if(Consent.IsValid)
+                if(Consent.Citizen != null)
                 { 
                     IsBackButtonVisible = true;
                     PositionView = 1;
