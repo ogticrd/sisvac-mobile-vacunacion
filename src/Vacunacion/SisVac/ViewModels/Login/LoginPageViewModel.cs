@@ -19,15 +19,12 @@ namespace SisVac.ViewModels.Login
 {
     public class LoginPageViewModel : ScanDocumentViewModel
     {
-        ICacheService _cacheService;
-
         public LoginPageViewModel(
             INavigationService navigationService,
             IPageDialogService dialogService,
             IScannerService scannerService,
-            ICitizensApiClient citizensApiClient, ICacheService cacheService) : base(navigationService, dialogService, scannerService, citizensApiClient)
+            ICitizensApiClient citizensApiClient, ICacheService cacheService) : base(navigationService, dialogService, scannerService, cacheService, citizensApiClient)
         {
-            _cacheService = cacheService;
             LoginCommand = new DelegateCommand(OnLoginCommandExecute);
 
             DocumentScanned = async (id) => await GoNext(id);
@@ -63,6 +60,19 @@ namespace SisVac.ViewModels.Login
             else
             {
                 await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
+            }
+        }
+
+        public override async void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+
+            User = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.UserInfo);
+            Vaccinator = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorInfo);
+
+            if(User != null && Vaccinator != null)
+            {
+                await _navigationService.NavigateAsync("/NavigationPage/HomePage");
             }
         }
     }

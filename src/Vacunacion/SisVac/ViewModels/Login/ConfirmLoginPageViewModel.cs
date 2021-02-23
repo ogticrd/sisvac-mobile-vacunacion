@@ -12,15 +12,12 @@ namespace SisVac.ViewModels.Login
 {
     public class ConfirmLoginPageViewModel : ScanDocumentViewModel
     {
-        ICacheService _cacheService;
-
         public ConfirmLoginPageViewModel(
             INavigationService navigationService,
             IPageDialogService dialogService,
             IScannerService scannerService,
-            ICitizensApiClient citizensApiClient, ICacheService cacheService) : base(navigationService, dialogService, scannerService, citizensApiClient)
+            ICitizensApiClient citizensApiClient, ICacheService cacheService) : base(navigationService, dialogService, scannerService, cacheService, citizensApiClient)
         {
-            _cacheService = cacheService;
             ConfirmLoginCommand = new Command(OnConfirmLoginCommandExecute);
             DocumentScanned = async (id) => await GoNext(id);
         }

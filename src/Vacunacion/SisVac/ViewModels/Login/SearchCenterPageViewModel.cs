@@ -3,6 +3,7 @@ using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
 using SisVac.Framework.Domain;
+using SisVac.Framework.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace SisVac.ViewModels.Login
 {
     public class SearchCenterPageViewModel : BaseViewModel
     {
-        public SearchCenterPageViewModel(INavigationService navigationService, IPageDialogService dialogService) : base(navigationService, dialogService)
+        public SearchCenterPageViewModel(INavigationService navigationService, IPageDialogService dialogService, ICacheService cacheService) : base(navigationService, dialogService, cacheService)
         {
             SelectedItemCommand = new DelegateCommand(OnSelectedItemCommandExecute);
             FilterTextChangedCommand = new DelegateCommand<string>(OnFilterTextChangedCommandExecute);

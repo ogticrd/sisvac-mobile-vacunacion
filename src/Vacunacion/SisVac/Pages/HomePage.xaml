@@ -12,7 +12,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Secondary" Text="Ayuda" />
         <ToolbarItem
-            Command="{prism:NavigateTo '/NavigationPage/LoginPage'}"
+            Command="{Binding LogoutCommand}"
             Order="Secondary"
             Text="Desloguearse" />
     </ContentPage.ToolbarItems>
