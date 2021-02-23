@@ -44,6 +44,7 @@ namespace SisVac.ViewModels.Vaccine
             }
         }
         public Person Patient { get; set; } = new Person();
+        public Consent Consent { get; set; } = new Consent();
 
         public ICommand NextCommand { get; }
         public ICommand ConfirmCommand { get; set; }
@@ -86,7 +87,7 @@ namespace SisVac.ViewModels.Vaccine
                 Document = patientData.Cedula,
                 FullName = patientData.Name
             };
-
+            Consent = await _citizensApiClient.GetConsent(patientData.Cedula);
             IsBackButtonVisible = true;
             PositionView = 1;
             ProgressBarIndicator = PositionView / 3.0f;
