@@ -44,7 +44,7 @@ namespace SisVac.ViewModels.Login
         async Task GoNext(string document)
         {
             var userData = await GetDocumentData(document);
-            if (userData != null)
+            if (userData != null && userData.Age > 0)
             {
                 var user = new ApplicationUser
                 {
