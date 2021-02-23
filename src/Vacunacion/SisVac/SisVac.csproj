@@ -47,7 +47,6 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Framework\Domain\" />
     <Folder Include="Framework\Http\" />
     <Folder Include="Framework\Extensions\" />
     <Folder Include="Framework\Data\" />

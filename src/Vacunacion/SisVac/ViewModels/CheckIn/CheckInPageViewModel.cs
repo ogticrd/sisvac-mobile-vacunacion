@@ -1,4 +1,6 @@
-﻿using Prism.Commands;
+﻿using Plugin.ValidationRules;
+using Plugin.ValidationRules.Rules;
+using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
 using Prism.Services.Dialogs;
@@ -6,6 +8,7 @@ using SisVac.Framework.Domain;
 using SisVac.Framework.Extensions;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
+using SisVac.Helpers.Rules;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -15,6 +18,8 @@ namespace SisVac.ViewModels.CheckIn
 {
     public class CheckInPageViewModel : ScanDocumentViewModel
     {
+        ValidationUnit _emergencyContactUnit;
+
         public CheckInPageViewModel(
             INavigationService navigationService,
             IPageDialogService dialogService,
@@ -27,6 +32,14 @@ namespace SisVac.ViewModels.CheckIn
             ProgressBarIndicator = 0.0f;
 
             DocumentScanned = id => OnNextCommandExecute();
+
+            EmergencyContactName = new Validatable<string>();
+            EmergencyContactName.Validations.Add(new IsNotNullOrEmptyRule());
+
+            EmergencyPhoneNumber = new Validatable<string>();
+            EmergencyPhoneNumber.Validations.Add(new IsNotNullOrEmptyRule());
+
+            _emergencyContactUnit = new ValidationUnit(EmergencyContactName, EmergencyPhoneNumber);
         }
 
         public Func<Task<byte[]>> SignatureFromStream { get; set; }
@@ -48,13 +61,8 @@ namespace SisVac.ViewModels.CheckIn
 
         public Person Patient { get; set; } = new Person();
         public Consent Consent { get; set; } = new Consent();
-
-        public string DocumentLabel {
-            get
-            {
-                return $"Cedula: {Patient.Document}";
-            }
-        }
+        public Validatable<string> EmergencyContactName { get; set; }
+        public Validatable<string> EmergencyPhoneNumber { get; set; }
 
         private async void OnConfirmCommandExecute()
         {
@@ -102,7 +110,10 @@ namespace SisVac.ViewModels.CheckIn
                     PositionView = 2;
                     break;
                 case 2:
-                    PositionView = 3;
+                    if (_emergencyContactUnit.Validate())
+                    {
+                        PositionView = 3;
+                    }                    
                     break;
                 case 3:
                     PositionView = 4;
