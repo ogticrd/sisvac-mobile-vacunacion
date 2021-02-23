@@ -26,7 +26,7 @@
                 Text="¡Bienvenid@!" />
 
             <Label
-                Margin="0,0,0,32"
+                Margin="0,0,0,16"
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 Style="{StaticResource Subtitle1}"
