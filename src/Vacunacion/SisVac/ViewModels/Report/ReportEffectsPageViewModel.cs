@@ -16,17 +16,52 @@ namespace SisVac.ViewModels.Report
             INavigationService navigationService,
             IPageDialogService dialogService,
             IScannerService scannerService,
-            ICitizensApiClient citizensApiClient, ICacheService cacheService) : base(navigationService, dialogService, scannerService, cacheService, citizensApiClient)
+            ICitizensApiClient citizensApiClient, 
+            ICacheService cacheService) : base(navigationService, dialogService, scannerService, cacheService, citizensApiClient)
         {
-            ConfirmCommand = new DelegateCommand(OnConfirmCommandExecute);
+            NextCommand = new DelegateCommand(OnNextCommandExecute);
+            BackCommand = new DelegateCommand(OnBackCommandExecute);
             ValidateDocumentCommand = new DelegateCommand(OnValidateDocumentCommandExecute);
             DocumentScanned = id => OnConfirmCommandExecute();
         }
 
-        public ICommand ConfirmCommand { get; set; }
-        public ICommand ValidateDocumentCommand { get; set; }
-        public bool IsUserValid { get; set; }
+        #region Properties
         public Person Patient { get; set; } = new Person();
+        public int PositionView { get; set; }
+        public string ButtonPrimaryText { get; set; } = "Siguiente";
+        public bool IsBackButtonVisible { get; set; } = false;
+        public double ProgressBarIndicator { get; set; }
+        public string ProgressTextIndicator
+        {
+            get
+            {
+                return $"Paso {PositionView + 1} de 2";
+            }
+        } 
+        #endregion
+
+
+        #region Commands
+        public ICommand NextCommand { get; set; }
+        public ICommand ValidateDocumentCommand { get; set; }
+        public ICommand BackCommand { get; }
+        #endregion
+
+        private async void OnNextCommandExecute()
+        {
+            switch (PositionView)
+            {
+                case 0:
+                    OnValidateDocumentCommandExecute();
+                    break;
+                case 1:
+                    OnConfirmCommandExecute();
+                    break;
+                default:
+                    break;
+            }
+
+        }
 
         private async void OnValidateDocumentCommandExecute()
         {
@@ -42,11 +77,10 @@ namespace SisVac.ViewModels.Report
                         FullName = userData.Name
                     };
 
-                    IsUserValid = true;
+                    UpdateUI(true, 1, "Confirmar");
                 }
                 else
                 {
-                    IsUserValid = false;
                     await _dialogService.DisplayAlertAsync("Ups", "No pudimos validar este documento.", "OK");
                 }
             }           
@@ -59,13 +93,6 @@ namespace SisVac.ViewModels.Report
 
             IsBusy = true;
 
-            if (!IsUserValid)
-            {
-                await _dialogService.DisplayAlertAsync("Ups", "Necesitas validar el documento primero.", "OK");
-                IsBusy = false;
-                return;
-            }
-
             using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
             {
                 // TODO: Call API Here
@@ -76,6 +103,28 @@ namespace SisVac.ViewModels.Report
             await _navigationService.GoBackAsync();
 
             IsBusy = false;
+        }
+
+        private void OnBackCommandExecute()
+        {
+            switch (PositionView)
+            {
+                case 0:
+                    break;
+                case 1:
+                    UpdateUI();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        void UpdateUI(bool isBackButtonVisible = false, int position = 0, string nextButtonText = "Siguiente") 
+        {
+            IsBackButtonVisible = isBackButtonVisible;
+            PositionView = position;
+            ProgressBarIndicator = PositionView / 2.0f;
+            ButtonPrimaryText = nextButtonText;
         }
     }
 }
