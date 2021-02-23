@@ -33,7 +33,7 @@
                             Grid.ColumnSpan="2"
                             Style="{StaticResource H3}"
                             Text="¿Ha estado enfermo o ha tenido fiebre superior a 38.5C° en las últimas 72 horas?" />
-                        <mtrl:MaterialChip Grid.Row="1" Text="Si" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="{Binding Consent.HadFever, Converter={StaticResource BooleanToTextConverter}}" />
                     </Grid>
                 </Frame>
 
@@ -43,7 +43,7 @@
                             Grid.ColumnSpan="2"
                             Style="{StaticResource H3}"
                             Text="¿Ha recibido alguna vacuna en los ultimos 30 días?" />
-                        <mtrl:MaterialChip Grid.Row="1" Text="Si" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="{Binding Consent.IsVaccinated, Converter={StaticResource BooleanToTextConverter}}" />
                     </Grid>
                 </Frame>
 
@@ -53,7 +53,7 @@
                             Grid.ColumnSpan="2"
                             Style="{StaticResource H3}"
                             Text="¿Ha presentado alguna reacción grave a alguna vacuna administrada anteriormente?" />
-                        <mtrl:MaterialChip Grid.Row="1" Text="Si" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="{Binding Consent.HadReactions, Converter={StaticResource BooleanToTextConverter}}" />
                     </Grid>
                 </Frame>
 
@@ -63,7 +63,7 @@
                             Grid.ColumnSpan="2"
                             Style="{StaticResource H3}"
                             Text="¿Es alérgico a algún medicamento alimento u otro?" />
-                        <mtrl:MaterialChip Grid.Row="1" Text="Si" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="{Binding Consent.IsAllergic, Converter={StaticResource BooleanToTextConverter}}" />
                     </Grid>
                 </Frame>
 
@@ -76,7 +76,32 @@
                             Grid.ColumnSpan="2"
                             Style="{StaticResource H3}"
                             Text="¿Padece usted alguna enfermedad actualmente tales como cáncer, leucemia, alguna enfermedad del sistema inmunitario?" />
-                        <mtrl:MaterialChip Grid.Row="1" Text="Si" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="{Binding Consent.IsInmunoDeficient, Converter={StaticResource BooleanToTextConverter}}" />
+                    </Grid>
+                </Frame>
+
+                <Frame>
+                    <Grid
+                        ColumnDefinitions="Auto,*"
+                        RowDefinitions="Auto"
+                        RowSpacing="0">
+                        <Label
+                            Grid.ColumnSpan="2"
+                            Style="{StaticResource H3}"
+                            Text="¿Toma alguna medicación: cortisona, esteroides, tratamiento con radioterapia, tratamiento anticanceroso u otro medicamento?" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="{Binding Consent.IsMedicated, Converter={StaticResource BooleanToTextConverter}}" />
+                    </Grid>
+                </Frame>
+                <Frame>
+                    <Grid
+                        ColumnDefinitions="Auto,*"
+                        RowDefinitions="Auto"
+                        RowSpacing="0">
+                        <Label
+                            Grid.ColumnSpan="2"
+                            Style="{StaticResource H3}"
+                            Text="¿Ha recibido transplantes de órganos?" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="{Binding Consent.HasTransplant, Converter={StaticResource BooleanToTextConverter}}" />
                     </Grid>
                 </Frame>
             </StackLayout>

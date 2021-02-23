@@ -10,8 +10,8 @@ namespace SisVac.Framework.Domain
         [JsonProperty("citizen")]
         public Citizen Citizen { get; set; }
 
-        [JsonProperty("valid")]
-        public bool IsValid { get; set; }
+     //   [JsonProperty("valid")]
+    //    public bool IsValid { get; set; }
 
         [JsonProperty("cedula")]
         public string Cedula { get; set; }
