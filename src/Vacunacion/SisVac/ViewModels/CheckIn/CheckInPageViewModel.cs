@@ -119,9 +119,20 @@ namespace SisVac.ViewModels.CheckIn
                     Document = patientData.Cedula,
                     FullName = patientData.Name
                 };
-                IsBackButtonVisible = true;
-                PositionView = 1;
-                ProgressBarIndicator = PositionView / 5.0f;
+
+
+                var consent = await _citizensApiClient.GetConsent(patientData.Cedula);
+
+                if(consent.Citizen != null)
+                {
+                    await _dialogService.DisplayAlertAsync("Este usuario ha sido registrado", "El usuario ya ha dado su consentimiento para vacunarse", "OK");
+                }
+                else
+                { 
+                    IsBackButtonVisible = true;
+                    PositionView = 1;
+                    ProgressBarIndicator = PositionView / 5.0f;
+                }
             }
             else
             {
