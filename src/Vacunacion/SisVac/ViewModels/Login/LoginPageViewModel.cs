@@ -53,7 +53,7 @@ namespace SisVac.ViewModels.Login
                     FullName = userData.Name,
                     LocationName = string.Empty
                 };
-                App.User = user;
+
                 await _cacheService.InsertLocalObject(CacheKeyDictionary.UserInfo, user);
                 await _navigationService.NavigateAsync("ConfirmLoginPage");
             }

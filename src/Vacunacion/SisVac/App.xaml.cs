@@ -32,8 +32,6 @@ namespace SisVac
 {
     public partial class App
     {
-        public static ApplicationUser User { get; set; }
-        public static ApplicationUser Vaccinator { get; set; }
         public static string CitizenApiBaseUrl => AppSettingsManager.Settings["CitizenApiBaseUrl"];
 
         public static LocalDatabase Database { get; set; }

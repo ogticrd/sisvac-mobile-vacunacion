@@ -13,21 +13,6 @@ namespace SisVac.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class BaseViewModel : INavigationAware
     {
-        public ApplicationUser User
-        {
-            get => App.User;
-            set { App.User = value; }
-        }
-        public ApplicationUser Vaccinator
-        {
-            get => App.Vaccinator;
-            set { App.Vaccinator = value; }
-        }
-        
-        public string Title { get; set; }
-        public bool IsBusy { get; set; }
-        public ICommand LogoutCommand { get; set; }
-
         protected ICacheService _cacheService;
         protected IPageDialogService _dialogService;
         protected INavigationService _navigationService;
@@ -39,6 +24,11 @@ namespace SisVac.ViewModels
             _dialogService = dialogService;
             LogoutCommand = new DelegateCommand(OnLogoutCommandExecute);
         }
+
+        public string Title { get; set; }
+        public bool IsBusy { get; set; }
+
+        public ICommand LogoutCommand { get; set; }
 
         private async void OnLogoutCommandExecute()
         {

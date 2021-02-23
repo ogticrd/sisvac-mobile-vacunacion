@@ -23,13 +23,34 @@ namespace SisVac.ViewModels.Login
             DocumentScanned = async (id) => await GoNext(id);
         }
 
+
+        #region Commands
+        public ICommand LocationSelectedCommand { get; set; }
+        public ICommand ConfirmLoginCommand { get; set; }
+        #endregion
+
+
+        #region Properties
         public string LocationId { get; set; }
         public string LocationName { get; set; } = "Centros";
 
         public bool ShowLocationErrorMessage { get; set; }
 
-        public ICommand LocationSelectedCommand { get; set; }
-        public ICommand ConfirmLoginCommand { get; set; }
+        ApplicationUser _user;
+        public ApplicationUser User
+        {
+            get => _user;
+            set => _user = value;
+        }
+
+        ApplicationUser _vaccinator;
+        public ApplicationUser Vaccinator
+        {
+            get => _vaccinator;
+            set => _vaccinator = value;
+        } 
+        #endregion
+
 
 
         async void OnConfirmLoginCommandExecute()
@@ -83,7 +104,6 @@ namespace SisVac.ViewModels.Login
                         LocationName = LocationName
                     };
 
-                    App.Vaccinator = user;
                     Settings.IsLoggedIn = true;
 
                     await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, user);

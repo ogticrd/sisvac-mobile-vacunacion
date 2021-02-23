@@ -14,6 +14,20 @@ namespace SisVac.ViewModels
             _cacheService = cacheService;
         }
 
+        ApplicationUser _user;
+        public ApplicationUser User
+        {
+            get => _user;
+            set => _user = value; 
+        }
+
+        ApplicationUser _vaccinator;
+        public ApplicationUser Vaccinator
+        {
+            get => _vaccinator;
+            set => _vaccinator = value;
+        }
+
         private async Task Init()
         {
 
