@@ -62,18 +62,5 @@ namespace SisVac.ViewModels.Login
                 await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
             }
         }
-
-        public override async void OnNavigatedTo(INavigationParameters parameters)
-        {
-            base.OnNavigatedTo(parameters);
-
-            User = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.UserInfo);
-            Vaccinator = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorInfo);
-
-            if(User != null && Vaccinator != null)
-            {
-                await _navigationService.NavigateAsync("/NavigationPage/HomePage");
-            }
-        }
     }
 }
