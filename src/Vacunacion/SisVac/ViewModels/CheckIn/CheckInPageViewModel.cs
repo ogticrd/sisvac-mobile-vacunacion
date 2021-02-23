@@ -4,12 +4,14 @@ using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
 using Prism.Services.Dialogs;
+using Refit;
 using SisVac.Framework.Domain;
 using SisVac.Framework.Extensions;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
 using SisVac.Helpers.Rules;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using XF.Material.Forms.UI.Dialogs;
@@ -31,7 +33,7 @@ namespace SisVac.ViewModels.CheckIn
             ConfirmCommand = new DelegateCommand(OnConfirmCommandExecute);
             ProgressBarIndicator = 0.0f;
 
-            DocumentScanned = id => OnNextCommandExecute();
+            DocumentScanned = async (id) => await GoNextAfterDocumentRead(id);
 
             EmergencyContactName = new Validatable<string>();
             EmergencyContactName.Validations.Add(new IsNotNullOrEmptyRule());
@@ -55,6 +57,13 @@ namespace SisVac.ViewModels.CheckIn
                 return $"Paso {PositionView + 1} de 6";
             }
         }
+        public string DocumentLabel
+        {
+            get
+            {
+                return $"Cédula: {Patient.Document}";
+            }
+        }
         public ICommand NextCommand { get; }
         public ICommand ConfirmCommand { get; set; }
         public ICommand BackCommand { get; }
@@ -74,7 +83,11 @@ namespace SisVac.ViewModels.CheckIn
             using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
             {
 
-                var signature = await SignatureFromStream();
+                using(var ms = new MemoryStream(await SignatureFromStream()))
+                { 
+                    var signatureStreamPart = new StreamPart(ms, "signature.jpg");
+                    var result = await _citizensApiClient.PostConsent(Patient.Document, Consent.HasCovid, Consent.IsPregnant, Consent.HadFever, Consent.IsVaccinated, Consent.HadReactions, Consent.IsAllergic, Consent.IsMedicated, Consent.HasTransplant, signatureStreamPart);
+                }
                 // TODO: Call API Here
                 // TODO: Send confirmation to the server
             }
@@ -87,6 +100,24 @@ namespace SisVac.ViewModels.CheckIn
             IsBusy = false;
         }
 
+
+        private async Task GoNextAfterDocumentRead(string id)
+        {
+            var patientData = await GetDocumentData(id);
+            if(patientData != null)
+            { 
+                Patient = new Person
+                {
+                    Age = patientData.Age,
+                    Document = patientData.Cedula,
+                    FullName = patientData.Name
+                };
+                IsBackButtonVisible = true;
+                PositionView = 1;
+                ProgressBarIndicator = PositionView / 5.0f;
+            }
+        }
+
         private async void OnNextCommandExecute()
         {
             switch (PositionView)
@@ -94,17 +125,8 @@ namespace SisVac.ViewModels.CheckIn
                 case 0:
                     if(DocumentID.Validate())
                     {
-                        var patientData = await GetDocumentData(DocumentID.Value);
-                        Patient = new Person
-                        {
-                            Age = patientData.Age,
-                            Document = DocumentID.Value,
-                            FullName = patientData.Name
-                        };
-                        IsBackButtonVisible = true;
-                        PositionView = 1;
+                        await GoNextAfterDocumentRead(DocumentID.Value);
                     }
-                   
                     break;
                 case 1:
                     PositionView = 2;
