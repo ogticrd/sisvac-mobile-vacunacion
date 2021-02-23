@@ -18,7 +18,30 @@
         <ScrollView Padding="0,16,0,16">
             <StackLayout Spacing="16">
 
-                <views2:ScanIdView />
+                <Frame>
+                    <StackLayout>
+                        <ctrls:TextFieldLayout>
+                            <mtrl:MaterialTextField
+                                HelperText="Digite su número de cédula para continuar"
+                                ReturnCommand="{Binding ValidateDocumentCommand}"
+                                ReturnType="Done"
+                                StyleClass="CedulaTextField" />
+                        </ctrls:TextFieldLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <mtrl:MaterialButton
+                                Command="{Binding ScanDocumentCommand}"
+                                Style="{StaticResource ButtonOutlined}"
+                                Text="Escanear" />
+
+                            <mtrl:MaterialButton
+                                Command="{Binding ValidateDocumentCommand}"
+                                Style="{StaticResource ButtonPrimary}"
+                                Text="Validar" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
 
                 <views:PersonDetailView IsVisible="{Binding IsUserValid}" />
 
