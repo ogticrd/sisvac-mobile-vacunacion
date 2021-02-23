@@ -14,6 +14,7 @@ using SisVac.Framework.Domain;
 using SisVac.Framework.Http;
 using SisVac.Framework.Http.Loggin;
 using SisVac.Framework.Services;
+using SisVac.Framework.Utils;
 using SisVac.Pages.Base;
 using SisVac.Pages.CheckIn;
 using SisVac.Pages.Login;
@@ -55,7 +56,10 @@ namespace SisVac
             Database = new LocalDatabase();
             await Database.Initialize();
 
-            await NavigationService.NavigateAsync($"NavigationPage/{nameof(LoginPage)}");
+            if (Settings.IsLoggedIn)
+                await NavigationService.NavigateAsync($"NavigationPage/{nameof(HomePage)}");
+            else
+                await NavigationService.NavigateAsync($"NavigationPage/{nameof(LoginPage)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
