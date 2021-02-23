@@ -18,6 +18,15 @@
                 </StackLayout.Resources>
 
                 <Frame>
+                    <Frame.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Consent.IsPregnant}"
+                            TargetType="Frame"
+                            Value="False">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Frame.Triggers>
+
                     <Grid ColumnDefinitions="Auto,*" RowSpacing="0">
                         <Label
                             Grid.ColumnSpan="2"
@@ -28,6 +37,15 @@
                 </Frame>
 
                 <Frame>
+                    <Frame.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Consent.HadFever}"
+                            TargetType="Frame"
+                            Value="False">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Frame.Triggers>
+
                     <Grid ColumnDefinitions="Auto,*" RowSpacing="0">
                         <Label
                             Grid.ColumnSpan="2"
@@ -38,6 +56,15 @@
                 </Frame>
 
                 <Frame>
+                    <Frame.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Consent.IsVaccinated}"
+                            TargetType="Frame"
+                            Value="False">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Frame.Triggers>
+
                     <Grid ColumnDefinitions="Auto,*" RowSpacing="0">
                         <Label
                             Grid.ColumnSpan="2"
@@ -48,6 +75,15 @@
                 </Frame>
 
                 <Frame>
+                    <Frame.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Consent.HadReactions}"
+                            TargetType="Frame"
+                            Value="False">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Frame.Triggers>
+
                     <Grid ColumnDefinitions="Auto,*" RowSpacing="0">
                         <Label
                             Grid.ColumnSpan="2"
@@ -58,6 +94,15 @@
                 </Frame>
 
                 <Frame>
+                    <Frame.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Consent.IsAllergic}"
+                            TargetType="Frame"
+                            Value="False">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Frame.Triggers>
+
                     <Grid ColumnDefinitions="Auto,*" RowSpacing="0">
                         <Label
                             Grid.ColumnSpan="2"
@@ -68,6 +113,15 @@
                 </Frame>
 
                 <Frame>
+                    <Frame.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Consent.IsInmunoDeficient}"
+                            TargetType="Frame"
+                            Value="False">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Frame.Triggers>
+
                     <Grid
                         ColumnDefinitions="Auto,*"
                         RowDefinitions="Auto"
@@ -81,6 +135,15 @@
                 </Frame>
 
                 <Frame>
+                    <Frame.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Consent.IsMedicated}"
+                            TargetType="Frame"
+                            Value="False">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Frame.Triggers>
+
                     <Grid
                         ColumnDefinitions="Auto,*"
                         RowDefinitions="Auto"
@@ -93,6 +156,15 @@
                     </Grid>
                 </Frame>
                 <Frame>
+                    <Frame.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Consent.HasTransplant}"
+                            TargetType="Frame"
+                            Value="False">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Frame.Triggers>
+
                     <Grid
                         ColumnDefinitions="Auto,*"
                         RowDefinitions="Auto"
