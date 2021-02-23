@@ -11,12 +11,18 @@
 
             <Frame>
                 <StackLayout>
-                    <Label Text="En caso de EMERGENCIA, contactar a:" Style="{StaticResource H3}" Margin="0,0,0,8" />
+                    <Label
+                        Margin="0,0,0,8"
+                        Style="{StaticResource H3}"
+                        Text="En caso de EMERGENCIA, contactar a:" />
                     <ctrls:TextFieldLayout>
                         <mtrl:MaterialTextField
+                            ErrorText="{Binding EmergencyContactName.Error}"
+                            HasError="{Binding EmergencyContactName.IsValid, Converter={StaticResource NegateBoolean}}"
                             HelperText="Digite el nombre del contacto de emergencia"
                             Placeholder="Nombre completo"
-                            ReturnType="Next" />
+                            ReturnType="Next"
+                            Text="{Binding EmergencyContactName.Value}" />
                     </ctrls:TextFieldLayout>
 
                     <ctrls:TextFieldLayout>
@@ -28,9 +34,14 @@
 
                     <ctrls:TextFieldLayout>
                         <mtrl:MaterialTextField
+                            ErrorText="{Binding EmergencyPhoneNumber.Error}"
+                            HasError="{Binding EmergencyPhoneNumber.IsValid, Converter={StaticResource NegateBoolean}}"
                             HelperText="¿Donde podemos contactarlo?"
+                            InputType="Numeric"
+                            MaxLength="11"
                             Placeholder="Número de Contacto"
-                            ReturnType="Done" />
+                            ReturnType="Done"
+                            Text="{Binding EmergencyPhoneNumber.Value}" />
                     </ctrls:TextFieldLayout>
                 </StackLayout>
 
