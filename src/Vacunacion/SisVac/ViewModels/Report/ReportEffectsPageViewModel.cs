@@ -72,10 +72,8 @@ namespace SisVac.ViewModels.Report
                 // TODO: Send confirmation to the server
             }
 
+            await _dialogService.DisplayAlertAsync("Proceso finalizado", "Has terminado satisfactoriamente.", "Ok");
             await _navigationService.GoBackAsync();
-            await MaterialDialog.Instance.SnackbarAsync(message: "Proceso terminado satisfactoriamente.",
-                                        actionButtonText: "OK",
-                                        msDuration: 8000);
 
             IsBusy = false;
         }

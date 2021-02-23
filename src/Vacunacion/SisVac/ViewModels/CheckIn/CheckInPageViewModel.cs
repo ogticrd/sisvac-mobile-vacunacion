@@ -100,11 +100,9 @@ namespace SisVac.ViewModels.CheckIn
                     return;
                 }
             }
-            
-            await _navigationService.NavigateAsync("/NavigationPage/HomePage");
-            await MaterialDialog.Instance.SnackbarAsync(message: "Proceso terminado satisfactoriamente.",
-                                        actionButtonText: "OK",
-                                        msDuration: 8000);
+
+            await _dialogService.DisplayAlertAsync("Proceso finalizado", "Has terminado satisfactoriamente.", "Ok");
+            await _navigationService.GoBackAsync();
 
             IsBusy = false;
         }
