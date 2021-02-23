@@ -29,8 +29,19 @@
                 <Label
                     Grid.Row="3"
                     Grid.Column="1"
-                    Text="HABILITAD@ PARA VACUNA"
-                    TextColor="#2BB042" />
+                    Text="NO HABILITAD@ PARA VACUNA"
+                    TextColor="{StaticResource ErrorColor}">
+                    <Label.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Qualification.IsEnabled}"
+                            TargetType="Label"
+                            Value="True">
+                            <Setter Property="TextColor" Value="{StaticResource SuccessColor}" />
+                            <Setter Property="Text" Value="HABILITAD@ PARA VACUNA" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+
             </Grid>
         </Frame>
     </ContentView.Content>

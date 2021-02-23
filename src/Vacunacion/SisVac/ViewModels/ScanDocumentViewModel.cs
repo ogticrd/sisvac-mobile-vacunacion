@@ -39,6 +39,7 @@ namespace SisVac.ViewModels
 
         public Validatable<string> DocumentID { get; set; }
         public ICommand ScanDocumentCommand { get; set; }
+        public Qualification Qualification { get; set; }
 
         private async void OnScanDocumentCommandExecute()
         {

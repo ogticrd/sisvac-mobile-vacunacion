@@ -19,6 +19,7 @@
         <Color x:Key="SurfaceColor">#FFFFFF</Color>
         <Color x:Key="OnSurfaceColor">#9D9CA6</Color>
 
+        <Color x:Key="SuccessColor">#2BB042</Color>
         <Color x:Key="ErrorColor">#B00020</Color>
         <Color x:Key="LinkColor">#4285F4</Color>
         <!--#endregion-->
@@ -181,7 +182,7 @@
             <Setter Property="TintColor" Value="{StaticResource SecondaryColor}" />
 
         </Style>
-        
+
         <hlps:NegateBooleanConverter x:Key="NegateBoolean" />
         <hlps:BooleanToTextConverter x:Key="BooleanToTextConverter" />
         <Style Class="CedulaTextField" TargetType="mtrlUI:MaterialTextField">
