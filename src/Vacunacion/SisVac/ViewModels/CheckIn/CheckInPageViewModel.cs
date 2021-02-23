@@ -132,9 +132,17 @@ namespace SisVac.ViewModels.CheckIn
 
         private async Task GoNextAfterDocumentRead(string id)
         {
+            await GetQualificationData(id);
+
+            if (!Qualification.IsValidDocument)
+            {
+                await _dialogService.DisplayAlertAsync("Ups", "Documento no valido.", "Ok");
+                return;
+            }
+
             var patientData = await GetDocumentData(id);
-            if(patientData != null && patientData.IsValid)
-            { 
+            if (patientData != null && patientData.IsValid)
+            {
                 Patient = new Person
                 {
                     Age = patientData.Age,
@@ -142,15 +150,14 @@ namespace SisVac.ViewModels.CheckIn
                     FullName = patientData.Name
                 };
 
-
                 var consent = await _citizensApiClient.GetConsent(patientData.Cedula);
 
-                if(consent.Citizen != null)
+                if (consent.Citizen != null)
                 {
                     await _dialogService.DisplayAlertAsync("Este usuario ha sido registrado", "El usuario ya ha dado su consentimiento para vacunarse", "OK");
                 }
                 else
-                { 
+                {
                     IsBackButtonVisible = true;
                     PositionView = 1;
                     ProgressBarIndicator = PositionView / 5.0f;

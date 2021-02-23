@@ -67,6 +67,14 @@ namespace SisVac.ViewModels.Report
         {
             if (DocumentID.Validate())
             {
+                await GetQualificationData(DocumentID.Value);
+
+                if (!Qualification.IsValidDocument)
+                {
+                    await _dialogService.DisplayAlertAsync("Ups", "Documento no valido.", "Ok");
+                    return;
+                }
+
                 var userData = await GetDocumentData(DocumentID.Value);
                 if (userData != null)
                 {

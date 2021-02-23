@@ -78,6 +78,14 @@ namespace SisVac.ViewModels.Vaccine
 
         private async Task GoNextAfterDocumentRead(string id)
         {
+            await GetQualificationData(id);
+
+            if (!Qualification.IsValidDocument)
+            {
+                await _dialogService.DisplayAlertAsync("Ups", "Documento no valido.", "Ok");
+                return;
+            }
+
             var patientData = await GetDocumentData(id);
             if (patientData != null && patientData.IsValid)
             { 
@@ -87,7 +95,9 @@ namespace SisVac.ViewModels.Vaccine
                     Document = patientData.Cedula,
                     FullName = patientData.Name
                 };
+
                 Consent = await _citizensApiClient.GetConsent(patientData.Cedula);
+
                 if(Consent.Citizen != null)
                 { 
                     IsBackButtonVisible = true;
@@ -98,10 +108,6 @@ namespace SisVac.ViewModels.Vaccine
                 {
                     await _dialogService.DisplayAlertAsync("El usuario no ha sido registrado", "El usuario no ha dado consentimiento para vacunación", "OK");
                 }
-            }
-            else
-            {
-                await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
             }
         }
 
@@ -116,6 +122,11 @@ namespace SisVac.ViewModels.Vaccine
                     }
                     break;
                 case 1:
+                    if (!Qualification.IsEnabled)
+                    {
+                        await _dialogService.DisplayAlertAsync("Ups", "Paciente no habilitado para vacunar.", "Ok");
+                        return;
+                    }
                     PositionView = 2;
                     break;
                 case 2:

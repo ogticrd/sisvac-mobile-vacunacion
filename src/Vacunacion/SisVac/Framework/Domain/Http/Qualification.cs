@@ -5,7 +5,7 @@ namespace SisVac.Framework.Domain
     public class Qualification
     {
         [JsonProperty("valid")]
-        public bool Valid { get; set; }
+        public bool IsValidDocument { get; set; }
 
         [JsonProperty("isEnabled")]
         public bool IsEnabled { get; set; }
