@@ -150,9 +150,43 @@ namespace SisVac.ViewModels.CheckIn
                     PositionView = 4;
                     break;
                 case 4:
-                    IsNextButtonVisible = false;
-                    IsConfirmButtonVisible = true;
-                    PositionView = 5;
+                    bool formIsValid = true;
+
+                    if (!Consent.IsPregnant && !InverterConsent.IsPregnant)
+                        formIsValid = false;
+
+                    if (!Consent.HadFever && !InverterConsent.HadFever)
+                        formIsValid = false;
+
+                    if (!Consent.IsVaccinated && !InverterConsent.IsVaccinated)
+                        formIsValid = false;
+
+                    if (!Consent.HadReactions && !InverterConsent.HadReactions)
+                        formIsValid = false;
+
+                    if (!Consent.IsAllergic && !InverterConsent.IsAllergic)
+                        formIsValid = false;
+
+                    if (!Consent.IsInmunoDeficient && !InverterConsent.IsInmunoDeficient)
+                        formIsValid = false;
+
+                    if (!Consent.IsMedicated && !InverterConsent.IsMedicated)
+                        formIsValid = false;
+
+                    if (!Consent.HasTransplant && !InverterConsent.HasTransplant)
+                        formIsValid = false;
+
+                    if (formIsValid)
+                    {
+                        IsNextButtonVisible = false;
+                        IsConfirmButtonVisible = true;
+                        PositionView = 5;
+                    }
+                    else
+                    {
+                        await _dialogService.DisplayAlertAsync("Ups", "Necesitas completar el formulario para poder seguir adelante.", "OK");
+                    }
+
                     break;
                 case 5:
                     break;
