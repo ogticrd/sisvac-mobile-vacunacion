@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Prism.Navigation;
 using Prism.Services;
@@ -21,7 +22,7 @@ namespace SisVac.ViewModels.Login
         {
             _cacheService = cacheService;
             ConfirmLoginCommand = new Command(OnConfirmLoginCommandExecute);
-            DocumentScanned = id => OnConfirmLoginCommandExecute();
+            DocumentScanned = async (id) => await GoNext(id);
         }
 
         public string LocationId { get; set; }
@@ -47,35 +48,53 @@ namespace SisVac.ViewModels.Login
                 {
                     DocumentID.IsValid = false;
                     DocumentID.Error = "La persona encargada del registro, no puede ser vacunador";
+                    await _dialogService.DisplayAlertAsync("La persona encargada del registro, no puede ser vacunador", "Contacte al vacunador para que le facilite su número de cédula.", "OK");
                 }
                 else
                 { 
                     if (DocumentID.Validate())
-                    { 
-                        var userData = await GetDocumentData(DocumentID.Value);
-                        if (userData != null)
-                        {
-                            var user = new ApplicationUser
-                            {
-                                Age = userData.Age,
-                                Document = DocumentID.Value,
-                                FullName = userData.Name,
-                                LocationId = LocationId,
-                                LocationName = LocationName
-                            };
-
-                            App.Vaccinator = user;
-
-                            await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, user);
-                   
-                            await _navigationService.NavigateAsync("/NavigationPage/HomePage");
-                        }
-                        else
-                        {
-                            await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
-                        }
+                    {
+                        await GoNext(DocumentID.Value);
                     }
                 }
+            }
+        }
+
+        async Task GoNext(string document)
+        {
+            if (String.IsNullOrEmpty(LocationId))
+            {
+                ShowLocationErrorMessage = true;
+                return;
+            }
+            var userData = await GetDocumentData(document);
+            if (userData != null)
+            {
+                if(userData.Cedula == User.Document)
+                {
+                    await _dialogService.DisplayAlertAsync("La persona encargada del registro, no puede ser vacunador", "Contacte al vacunador para que le facilite su número de cédula.", "OK");
+                }
+                else
+                { 
+                    var user = new ApplicationUser
+                    {
+                        Age = userData.Age,
+                        Document = userData.Cedula,
+                        FullName = userData.Name,
+                        LocationId = LocationId,
+                        LocationName = LocationName
+                    };
+
+                    App.Vaccinator = user;
+
+                    await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, user);
+
+                    await _navigationService.NavigateAsync("/NavigationPage/HomePage");
+                }
+            }
+            else
+            {
+                await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
             }
         }
 
@@ -84,7 +103,7 @@ namespace SisVac.ViewModels.Login
             if (parameters.ContainsKey("selectedClinicLocationName"))
             {
                 LocationName = parameters.GetValue<string>("selectedClinicLocationName");
-                LocationId = parameters.GetValue<string>("selectedClinicLocationName");
+                LocationId = parameters.GetValue<string>("selectedClinicLocationId");
             }
         }
     }
