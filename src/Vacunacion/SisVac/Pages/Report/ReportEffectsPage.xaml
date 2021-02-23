@@ -13,73 +13,112 @@
     BackgroundColor="{StaticResource BackgroundColor}">
 
 
-    <StackLayout>
+    <StackLayout
+        Padding="0,32,0,0"
+        HorizontalOptions="FillAndExpand"
+        Spacing="16"
+        VerticalOptions="FillAndExpand">
 
-        <ScrollView Padding="0,16,0,16">
-            <StackLayout Spacing="16">
+        <Label
+            x:Name="stepLabel"
+            FontAttributes="Bold"
+            FontSize="13"
+            Text="{Binding ProgressTextIndicator}"
+            TextColor="{StaticResource SecondaryColor}"
+            TranslationX="16" />
 
-                <Frame>
-                    <StackLayout>
-                        <ctrls:TextFieldLayout>
-                            <mtrl:MaterialTextField
-                                HelperText="Digite su número de cédula para continuar"
-                                ReturnCommand="{Binding ValidateDocumentCommand}"
-                                ReturnType="Done"
-                                StyleClass="CedulaTextField" />
-                        </ctrls:TextFieldLayout>
+        <ProgressBar
+            x:Name="progressBar"
+            Margin="16,-16,16,0"
+            Progress="{Binding ProgressBarIndicator}"
+            ProgressColor="{StaticResource SecondaryColor}" />
 
-                        <StackLayout Orientation="Horizontal">
-                            <mtrl:MaterialButton
-                                Command="{Binding ScanDocumentCommand}"
-                                Style="{StaticResource ButtonOutlined}"
-                                Text="Escanear" />
+        <Grid>
 
-                            <mtrl:MaterialButton
-                                Command="{Binding ValidateDocumentCommand}"
-                                Style="{StaticResource ButtonPrimary}"
-                                Text="Validar" />
+
+            <Frame IsVisible="False">
+                <Frame.Triggers>
+                    <DataTrigger
+                        Binding="{Binding PositionView}"
+                        TargetType="Frame"
+                        Value="0">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </Frame.Triggers>
+
+                <StackLayout>
+                    <ctrls:TextFieldLayout>
+                        <mtrl:MaterialTextField
+                            HelperText="Digite su número de cédula para continuar"
+                            ReturnCommand="{Binding ValidateDocumentCommand}"
+                            ReturnType="Done"
+                            StyleClass="CedulaTextField" />
+                    </ctrls:TextFieldLayout>
+
+                    <mtrl:MaterialButton
+                        Command="{Binding ScanDocumentCommand}"
+                        Style="{StaticResource ButtonOutlined}"
+                        Text="Escanear" />
+                </StackLayout>
+            </Frame>
+
+            <ScrollView IsVisible="False">
+                <ScrollView.Triggers>
+                    <DataTrigger
+                        Binding="{Binding PositionView}"
+                        TargetType="ScrollView"
+                        Value="1">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </ScrollView.Triggers>
+
+                <StackLayout Spacing="16">
+
+                    <views:PersonDetailView />
+
+                    <Frame>
+                        <StackLayout>
+                            <Label Text="¿Cuales sintomas tiene el paciente?" />
+                            <mtrl:MaterialCheckboxGroup x:Name="checkBoxGroup">
+                                <mtrl:MaterialCheckboxGroup.Choices>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Fiebre</x:String>
+                                        <x:String>Escalofríos</x:String>
+                                        <x:String>Cansancio</x:String>
+                                        <x:String>Náuseas</x:String>
+                                        <x:String>Dolor de cabeza</x:String>
+                                        <x:String>Mareos</x:String>
+                                        <x:String>Otros</x:String>
+                                    </x:Array>
+                                </mtrl:MaterialCheckboxGroup.Choices>
+                            </mtrl:MaterialCheckboxGroup>
+
+                            <ctrls:TextFieldLayout>
+                                <mtrl:MaterialTextField
+                                    ErrorText="Error Text"
+                                    HelperText=""
+                                    MaxLength="14"
+                                    Placeholder="Observaciones" />
+                            </ctrls:TextFieldLayout>
                         </StackLayout>
-                    </StackLayout>
-                </Frame>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
 
-
-                <views:PersonDetailView IsVisible="{Binding IsUserValid}" />
-
-                <Frame IsVisible="{Binding IsUserValid}">
-                    <StackLayout>
-                        <Label Text="¿Cuales sintomas tiene el paciente?" />
-                        <mtrl:MaterialCheckboxGroup x:Name="checkBoxGroup">
-                            <mtrl:MaterialCheckboxGroup.Choices>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>Fiebre</x:String>
-                                    <x:String>Escalofríos</x:String>
-                                    <x:String>Cansancio</x:String>
-                                    <x:String>Náuseas</x:String>
-                                    <x:String>Dolor de cabeza</x:String>
-                                    <x:String>Mareos</x:String>
-                                    <x:String>Otros</x:String>
-                                </x:Array>
-                            </mtrl:MaterialCheckboxGroup.Choices>
-                        </mtrl:MaterialCheckboxGroup>
-
-                        <ctrls:TextFieldLayout>
-                            <mtrl:MaterialTextField
-                                ErrorText="Error Text"
-                                HelperText=""
-                                MaxLength="14"
-                                Placeholder="Observaciones" />
-                        </ctrls:TextFieldLayout>
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-
-        </ScrollView>
+        </Grid>
 
         <Frame Style="{StaticResource ButtonLayout}">
-            <mtrl:MaterialButton
-                Command="{Binding ConfirmCommand}"
-                Style="{StaticResource ButtonPrimary}"
-                Text="Confirmar" />
+            <StackLayout Orientation="Horizontal">
+                <mtrl:MaterialButton
+                    Command="{Binding BackCommand}"
+                    IsVisible="{Binding IsBackButtonVisible}"
+                    Style="{StaticResource ButtonOutlined}"
+                    Text="Atras" />
+                <mtrl:MaterialButton
+                    Command="{Binding NextCommand}"
+                    Style="{StaticResource ButtonPrimary}"
+                    Text="{Binding ButtonPrimaryText}" />
+            </StackLayout>
         </Frame>
 
     </StackLayout>
