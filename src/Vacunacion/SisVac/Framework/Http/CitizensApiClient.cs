@@ -22,5 +22,8 @@ namespace SisVac.Framework.Http
 
         [Get("/citizens/vaccination-consent")]
         Task<Consent> GetConsent(string id);
+
+        [Get("/citizens/qualification")]
+        Task<Qualification> GetQualification(string id);
     }
 }

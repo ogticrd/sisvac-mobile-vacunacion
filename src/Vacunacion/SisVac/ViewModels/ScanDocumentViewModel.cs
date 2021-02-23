@@ -85,5 +85,30 @@ namespace SisVac.ViewModels
             IsBusy = false;
             return result;
         }
+
+        protected async Task GetQualificationData(string document)
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
+            {
+                try
+                {
+                    if (document.Length == 13)
+                        document = document.Replace("-", "");
+
+                    Qualification = await _citizensApiClient.GetQualification(document);
+                }
+                catch (Exception ex)
+                {
+                    Crashes.TrackError(ex);
+                }
+            }
+
+            IsBusy = false;
+        }
     }
 }
