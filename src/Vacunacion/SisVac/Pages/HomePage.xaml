@@ -44,12 +44,16 @@
                 Text="{Binding Vaccinator.LocationName}"
                 TextColor="{StaticResource PrimaryColor}" />
 
-
+            <Label
+                HorizontalOptions="Center"
+                Style="{StaticResource H3}"
+                Text="Vacunador:"
+                TextTransform="Uppercase" />
             <Label
                 Margin="0,0,0,32"
                 FontSize="16"
                 HorizontalOptions="Center"
-                Text="{Binding Vaccinator.FullName, StringFormat='Vacunador: {0}'}"
+                Text="{Binding Vaccinator.FullName}"
                 TextColor="{StaticResource PrimaryColor}" />
 
 
