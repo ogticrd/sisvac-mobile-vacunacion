@@ -122,11 +122,12 @@ namespace SisVac.ViewModels.Vaccine
                     }
                     break;
                 case 1:
-                    if (!Qualification.IsEnabled)
-                    {
-                        await _dialogService.DisplayAlertAsync("Ups", "Paciente no habilitado para vacunar.", "Ok");
-                        return;
-                    }
+                    //TODO: This validation is not going to use it now. Its here for later.
+                    //if (!Qualification.IsEnabled)
+                    //{
+                    //    await _dialogService.DisplayAlertAsync("Ups", "Paciente no habilitado para vacunar.", "Ok");
+                    //    return;
+                    //}
                     PositionView = 2;
                     break;
                 case 2:
