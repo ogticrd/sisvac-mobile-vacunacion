@@ -8,6 +8,7 @@ using SisVac.Framework.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using XF.Material.Forms.UI.Dialogs;
 
@@ -28,7 +29,7 @@ namespace SisVac.ViewModels.Vaccine
             ConfirmCommand = new DelegateCommand(OnConfirmCommandExecute);
             ProgressBarIndicator = 0.0f;
 
-            DocumentScanned = id => OnNextCommandExecute();
+            DocumentScanned = async (id) => await GoNextAfterDocumentRead(id);
         }
         public int PositionView { get; set; }
         public bool IsBackButtonVisible { get; set; } = false;
@@ -76,6 +77,21 @@ namespace SisVac.ViewModels.Vaccine
             IsBusy = false;
         }
 
+        private async Task GoNextAfterDocumentRead(string id)
+        {
+            var patientData = await GetDocumentData(id);
+            Patient = new Person
+            {
+                Age = patientData.Age,
+                Document = patientData.Cedula,
+                FullName = patientData.Name
+            };
+
+            IsBackButtonVisible = true;
+            PositionView = 1;
+            ProgressBarIndicator = PositionView / 3.0f;
+        }
+
         private async void OnNextCommandExecute()
         {
             switch (PositionView)
@@ -83,16 +99,7 @@ namespace SisVac.ViewModels.Vaccine
                 case 0:
                     if (DocumentID.Validate())
                     {
-                        var patientData = await GetDocumentData(DocumentID.Value);
-                        Patient = new Person
-                        {
-                            Age = patientData.Age,
-                            Document = DocumentID.Value,
-                            FullName = patientData.Name
-                        };
-
-                        IsBackButtonVisible = true;
-                        PositionView = 1;
+                        await GoNextAfterDocumentRead(DocumentID.Value);
                     }
                     break;
                 case 1:

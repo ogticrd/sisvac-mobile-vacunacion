@@ -39,11 +39,6 @@
                             Style="{StaticResource H3}"
                             Text="¿Ha estado enfermo o ha tenido fiebre superior a 38.5C° en las últimas 72 horas?" />
                         <mtrl:MaterialChip Grid.Row="1" Text="Si" />
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Text="Sin observaciones"
-                            VerticalOptions="Center" />
                     </Grid>
                 </Frame>
 
@@ -52,7 +47,7 @@
                         <Label
                             Grid.ColumnSpan="2"
                             Style="{StaticResource H3}"
-                            Text="¿Ha recibido alguna vacuna en los ultimos 30 dias?" />
+                            Text="¿Ha recibido alguna vacuna en los ultimos 30 días?" />
                         <mtrl:MaterialChip Grid.Row="1" Text="Si" />
                         <Label
                             Grid.Row="1"
