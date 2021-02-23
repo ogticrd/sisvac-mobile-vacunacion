@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Microsoft.AppCenter.Crashes;
 using Plugin.ValidationRules;
 using Plugin.ValidationRules.Formatters;
 using Prism.Commands;
@@ -76,6 +77,7 @@ namespace SisVac.ViewModels
                 }
                 catch(Exception ex)
                 {
+                    Crashes.TrackError(ex);
                 }
             }
 

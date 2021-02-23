@@ -1,4 +1,5 @@
-﻿using Plugin.ValidationRules;
+﻿using Microsoft.AppCenter.Crashes;
+using Plugin.ValidationRules;
 using Plugin.ValidationRules.Rules;
 using Prism.Commands;
 using Prism.Navigation;
@@ -82,14 +83,19 @@ namespace SisVac.ViewModels.CheckIn
 
             using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
             {
-
-                using(var ms = new MemoryStream(await SignatureFromStream()))
+                try
                 { 
-                    var signatureStreamPart = new StreamPart(ms, "signature.jpg");
-                    var result = await _citizensApiClient.PostConsent(Patient.Document, Consent.HasCovid, Consent.IsPregnant, Consent.HadFever, Consent.IsVaccinated, Consent.HadReactions, Consent.IsAllergic, Consent.IsMedicated, Consent.HasTransplant, signatureStreamPart);
+                    using(var ms = new MemoryStream(await SignatureFromStream()))
+                    { 
+                        var signatureStreamPart = new StreamPart(ms, "signature.jpg");
+                        var result = await _citizensApiClient.PostConsent(Patient.Document, Consent.HasCovid, Consent.IsPregnant, Consent.HadFever, Consent.IsVaccinated, Consent.HadReactions, Consent.IsAllergic, Consent.IsMedicated, Consent.HasTransplant, signatureStreamPart);
+                    }
                 }
-                // TODO: Call API Here
-                // TODO: Send confirmation to the server
+                catch(Exception ex)
+                {
+                    Crashes.TrackError(ex);
+                    await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "Ocurrió un problema de comunicación con el servidor", "OK");
+                }
             }
             
             await _navigationService.NavigateAsync("/NavigationPage/HomePage");
