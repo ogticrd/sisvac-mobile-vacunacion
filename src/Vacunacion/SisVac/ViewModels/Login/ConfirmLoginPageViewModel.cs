@@ -6,6 +6,7 @@ using Prism.Services;
 using SisVac.Framework.Domain;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
+using SisVac.Framework.Utils;
 using Xamarin.Forms;
 
 namespace SisVac.ViewModels.Login
@@ -83,9 +84,9 @@ namespace SisVac.ViewModels.Login
                     };
 
                     App.Vaccinator = user;
+                    Settings.IsLoggedIn = true;
 
                     await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, user);
-
                     await _navigationService.NavigateAsync("/NavigationPage/HomePage");
                 }
             }
