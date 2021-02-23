@@ -71,6 +71,7 @@ namespace SisVac.ViewModels.CheckIn
 
         public Person Patient { get; set; } = new Person();
         public Consent Consent { get; set; } = new Consent();
+        public Consent InverterConsent { get; set; } = new Consent();
         public Validatable<string> EmergencyContactName { get; set; }
         public Validatable<string> EmergencyPhoneNumber { get; set; }
 

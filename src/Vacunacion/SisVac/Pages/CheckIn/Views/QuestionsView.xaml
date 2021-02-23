@@ -27,7 +27,10 @@
                                 Content="Si"
                                 GroupName="n1"
                                 IsChecked="{Binding Consent.IsPregnant}" />
-                            <RadioButton Content="No" GroupName="n1" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n1"
+                                IsChecked="{Binding InverterConsent.IsPregnant}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -40,7 +43,10 @@
                                 Content="Si"
                                 GroupName="n2"
                                 IsChecked="{Binding Consent.HadFever}" />
-                            <RadioButton Content="No" GroupName="n2" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n2"
+                                IsChecked="{Binding InverterConsent.HadFever}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -53,7 +59,10 @@
                                 Content="Si"
                                 GroupName="n3"
                                 IsChecked="{Binding Consent.IsVaccinated}" />
-                            <RadioButton Content="No" GroupName="n3" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n3"
+                                IsChecked="{Binding InverterConsent.IsVaccinated}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -66,7 +75,10 @@
                                 Content="Si"
                                 GroupName="n4"
                                 IsChecked="{Binding Consent.HadReactions}" />
-                            <RadioButton Content="No" GroupName="n4" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n4"
+                                IsChecked="{Binding InverterConsent.HadReactions}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -79,7 +91,10 @@
                                 Content="Si"
                                 GroupName="n5"
                                 IsChecked="{Binding Consent.IsAllergic}" />
-                            <RadioButton Content="No" GroupName="n5" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n5"
+                                IsChecked="{Binding InverterConsent.IsAllergic}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -93,7 +108,10 @@
                                 Content="Si"
                                 GroupName="n6"
                                 IsChecked="{Binding Consent.IsInmunoDeficient}" />
-                            <RadioButton Content="No" GroupName="n6" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n6"
+                                IsChecked="{Binding InverterConsent.IsInmunoDeficient}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -107,7 +125,10 @@
                                 Content="Si"
                                 GroupName="n7"
                                 IsChecked="{Binding Consent.IsMedicated}" />
-                            <RadioButton Content="No" GroupName="n7" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n7"
+                                IsChecked="{Binding InverterConsent.IsMedicated}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -121,7 +142,10 @@
                                 Content="Si"
                                 GroupName="n8"
                                 IsChecked="{Binding Consent.HasTransplant}" />
-                            <RadioButton Content="No" GroupName="n8" />
+                            <RadioButton
+                                Content="No"
+                                GroupName="n8"
+                                IsChecked="{Binding InverterConsent.HasTransplant}" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
