@@ -51,13 +51,16 @@ namespace SisVac
                             "ios=7af5f42f-0ac9-423c-a1af-d61192e0e45e;",
                   typeof(Analytics), typeof(Crashes), typeof(Distribute));
 
-            Database = new LocalDatabase();
-            await Database.Initialize();
-
             if (Settings.IsLoggedIn)
                 await NavigationService.NavigateAsync($"NavigationPage/{nameof(HomePage)}");
             else
+            {
                 await NavigationService.NavigateAsync($"NavigationPage/{nameof(LoginPage)}");
+
+                Database = new LocalDatabase();
+                await Database.Initialize();
+            }
+                
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
