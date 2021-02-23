@@ -12,8 +12,8 @@ namespace SisVac.Framework.Http
         Task<UserResponse> GetBasicData(string id);
 
         [Multipart]
-        [Post("/api/citizens/vaccination-consent")]
-        Task<bool> PostConsent(
+        [Post("/citizens/vaccination-consent")]
+        Task<dynamic> PostConsent(
             [AliasAs("cedula")] string cedula, [AliasAs("hasCovid")]bool hasCovid,
             [AliasAs("isPregnant")] bool isPregnant, [AliasAs("hadFever")] bool hadFever,
             [AliasAs("isVaccinated")] bool isVaccinated, [AliasAs("hadReactions")] bool hadReactions,

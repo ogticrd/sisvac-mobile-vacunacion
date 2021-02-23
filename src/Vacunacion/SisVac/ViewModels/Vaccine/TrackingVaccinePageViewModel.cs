@@ -19,7 +19,8 @@ namespace SisVac.ViewModels.Vaccine
             INavigationService navigationService,
             IPageDialogService dialogService,
             IScannerService scannerService,
-            ICitizensApiClient citizensApiClient) : base(navigationService, dialogService, scannerService, citizensApiClient)
+            ICitizensApiClient citizensApiClient,
+            ICacheService cacheService) : base(navigationService, dialogService, scannerService, cacheService, citizensApiClient)
         {
             _dialogService = dialogService;
             NextCommand = new DelegateCommand(OnNextCommandExecute);

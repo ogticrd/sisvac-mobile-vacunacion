@@ -4,22 +4,26 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sp="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+    VerticalOptions="FillAndExpand"
     xmlns:vws="clr-namespace:SisVac.Pages.CheckIn.Views.Shared">
     <ContentView.Content>
-        <StackLayout Spacing="16">
-            <vws:PersonDetailView />
-
-            <Frame VerticalOptions="FillAndExpand">
-            <sp:SignaturePadView
-                VerticalOptions="FillAndExpand"
-	            x:Name="signatureView"
-	            StrokeWidth="3"
-                ClearText="Limpiar"
-                CaptionText="Firma encima de la línea"
-	            StrokeColor="Black"
-                
-	            BackgroundColor="White" />
-            </Frame>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="16">
+                <vws:PersonDetailView />
+                <Frame
+                    VerticalOptions="FillAndExpand"
+                    MinimumHeightRequest="400">
+                    <sp:SignaturePadView
+                        VerticalOptions="FillAndExpand"
+                        HeightRequest="400"
+	                    x:Name="signatureView"
+	                    StrokeWidth="3"
+                        ClearText="Limpiar"
+                        CaptionText="Firma encima de la línea"
+	                    StrokeColor="Black"
+	                    BackgroundColor="White" />
+                </Frame>
+            </StackLayout>
+        </ScrollView>
     </ContentView.Content>
 </ContentView>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Microsoft.AppCenter.Crashes;
 using Plugin.ValidationRules;
 using Plugin.ValidationRules.Formatters;
 using Prism.Commands;
@@ -24,7 +25,8 @@ namespace SisVac.ViewModels
             INavigationService navigationService,
             IPageDialogService dialogService,
             IScannerService scannerService,
-            ICitizensApiClient citizensApiClient) : base(navigationService, dialogService)
+            ICacheService cacheService,
+            ICitizensApiClient citizensApiClient) : base(navigationService, dialogService, cacheService)
         {
             _scannerService = scannerService;
             _citizensApiClient = citizensApiClient;
@@ -75,6 +77,7 @@ namespace SisVac.ViewModels
                 }
                 catch(Exception ex)
                 {
+                    Crashes.TrackError(ex);
                 }
             }
 

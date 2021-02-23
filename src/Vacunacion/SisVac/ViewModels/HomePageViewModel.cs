@@ -9,8 +9,7 @@ namespace SisVac.ViewModels
 {
     public class HomePageViewModel : BaseViewModel
     {
-        ICacheService _cacheService;
-        public HomePageViewModel(INavigationService navigationService, IPageDialogService dialogService, ICacheService cacheService) : base(navigationService, dialogService)
+        public HomePageViewModel(INavigationService navigationService, IPageDialogService dialogService, ICacheService cacheService) : base(navigationService, dialogService, cacheService)
         {
             _cacheService = cacheService;
         }
