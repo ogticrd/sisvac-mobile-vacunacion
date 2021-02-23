@@ -113,7 +113,7 @@ namespace SisVac.ViewModels.CheckIn
         private async Task GoNextAfterDocumentRead(string id)
         {
             var patientData = await GetDocumentData(id);
-            if(patientData != null)
+            if(patientData != null && patientData.IsValid)
             { 
                 Patient = new Person
                 {

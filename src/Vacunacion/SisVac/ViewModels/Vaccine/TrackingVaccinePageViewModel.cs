@@ -81,16 +81,19 @@ namespace SisVac.ViewModels.Vaccine
         private async Task GoNextAfterDocumentRead(string id)
         {
             var patientData = await GetDocumentData(id);
-            Patient = new Person
-            {
-                Age = patientData.Age,
-                Document = patientData.Cedula,
-                FullName = patientData.Name
-            };
-            Consent = await _citizensApiClient.GetConsent(patientData.Cedula);
-            IsBackButtonVisible = true;
-            PositionView = 1;
-            ProgressBarIndicator = PositionView / 3.0f;
+            if (patientData != null && patientData.IsValid)
+            { 
+                Patient = new Person
+                {
+                    Age = patientData.Age,
+                    Document = patientData.Cedula,
+                    FullName = patientData.Name
+                };
+                Consent = await _citizensApiClient.GetConsent(patientData.Cedula);
+                IsBackButtonVisible = true;
+                PositionView = 1;
+                ProgressBarIndicator = PositionView / 3.0f;
+            }
         }
 
         private async void OnNextCommandExecute()
