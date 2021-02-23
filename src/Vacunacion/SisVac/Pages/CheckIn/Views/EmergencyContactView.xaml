@@ -29,7 +29,23 @@
                         <mtrl:MaterialTextField
                             HelperText="¿Qué relacion tiene con el paciente?"
                             Placeholder="Relación/Parentesco"
-                            ReturnType="Next" />
+                            Style="{StaticResource TextFieldChoiceStyle}">
+                            <mtrl:MaterialTextField.Choices>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Abuelo/Abuela</x:String>
+                                    <x:String>Padre/Madre</x:String>
+                                    <x:String>Tio/Tia</x:String>
+                                    <x:String>Esposo/Esposa</x:String>
+                                    <x:String>Suegro/Suegra</x:String>
+                                    <x:String>Hermano/Hermana</x:String>
+                                    <x:String>Hijo/Hija</x:String>
+                                    <x:String>Nieto/Nieta</x:String>
+                                    <x:String>Sobrino/Sobrina</x:String>
+                                    <x:String>Hijastro/Hijastra</x:String>
+                                    <x:String>Otro/Otra</x:String>
+                                </x:Array>
+                            </mtrl:MaterialTextField.Choices>
+                        </mtrl:MaterialTextField>
                     </ctrls:TextFieldLayout>
 
                     <ctrls:TextFieldLayout>
