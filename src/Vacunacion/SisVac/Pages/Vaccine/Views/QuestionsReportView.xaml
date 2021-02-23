@@ -24,11 +24,6 @@
                             Style="{StaticResource H3}"
                             Text="¿Si es mujer, está embarazada?" />
                         <mtrl:MaterialChip Grid.Row="1" Text="Si" />
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Text="Sin observaciones"
-                            VerticalOptions="Center" />
                     </Grid>
                 </Frame>
 
@@ -49,11 +44,6 @@
                             Style="{StaticResource H3}"
                             Text="¿Ha recibido alguna vacuna en los ultimos 30 días?" />
                         <mtrl:MaterialChip Grid.Row="1" Text="Si" />
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Text="Sin observaciones"
-                            VerticalOptions="Center" />
                     </Grid>
                 </Frame>
 
@@ -64,11 +54,6 @@
                             Style="{StaticResource H3}"
                             Text="¿Ha presentado alguna reacción grave a alguna vacuna administrada anteriormente?" />
                         <mtrl:MaterialChip Grid.Row="1" Text="Si" />
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Text="Sin observaciones"
-                            VerticalOptions="Center" />
                     </Grid>
                 </Frame>
 
@@ -79,11 +64,6 @@
                             Style="{StaticResource H3}"
                             Text="¿Es alérgico a algún medicamento alimento u otro?" />
                         <mtrl:MaterialChip Grid.Row="1" Text="Si" />
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Text="Sin observaciones"
-                            VerticalOptions="Center" />
                     </Grid>
                 </Frame>
 
@@ -97,11 +77,6 @@
                             Style="{StaticResource H3}"
                             Text="¿Padece usted alguna enfermedad actualmente tales como cáncer, leucemia, alguna enfermedad del sistema inmunitario?" />
                         <mtrl:MaterialChip Grid.Row="1" Text="Si" />
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Text="Sin observaciones"
-                            VerticalOptions="Center" />
                     </Grid>
                 </Frame>
             </StackLayout>

@@ -65,7 +65,7 @@ namespace SisVac.ViewModels.Login
                 return;
             }
             var userData = await GetDocumentData(document);
-            if (userData != null)
+            if (userData != null && userData.IsValid && userData.Age > 0)
             {
                 if(userData.Cedula == User.Document)
                 {

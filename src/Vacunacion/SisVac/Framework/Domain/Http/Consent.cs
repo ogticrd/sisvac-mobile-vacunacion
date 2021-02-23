@@ -7,8 +7,11 @@ namespace SisVac.Framework.Domain
 {
     public class Consent
     {
+        [JsonProperty("citizen")]
+        public Citizen Citizen { get; set; }
+
         [JsonProperty("cedula")]
-        public long Cedula { get; set; }
+        public string Cedula { get; set; }
 
         [JsonProperty("hasCovid")]
         public bool HasCovid { get; set; }
@@ -36,5 +39,13 @@ namespace SisVac.Framework.Domain
 
         [JsonProperty("hasTransplant")]
         public bool HasTransplant { get; set; }
+    }
+
+    public class Citizen
+    {
+        [JsonProperty("name")]
+        public string Name { get; set; }
+        [JsonProperty("cedula")]
+        public string Document { get; set; }
     }
 }
