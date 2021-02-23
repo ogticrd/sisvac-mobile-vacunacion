@@ -88,9 +88,20 @@ namespace SisVac.ViewModels.Vaccine
                     FullName = patientData.Name
                 };
                 Consent = await _citizensApiClient.GetConsent(patientData.Cedula);
-                IsBackButtonVisible = true;
-                PositionView = 1;
-                ProgressBarIndicator = PositionView / 3.0f;
+                if(Consent.IsValid)
+                { 
+                    IsBackButtonVisible = true;
+                    PositionView = 1;
+                    ProgressBarIndicator = PositionView / 3.0f;
+                }
+                else
+                {
+                    await _dialogService.DisplayAlertAsync("El usuario no ha sido registrado", "El usuario no ha dado consentimiento para vacunación", "OK");
+                }
+            }
+            else
+            {
+                await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "El número de cédula no existe", "OK");
             }
         }
 

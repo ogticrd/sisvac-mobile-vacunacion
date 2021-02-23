@@ -22,8 +22,8 @@
                         <Label
                             Grid.ColumnSpan="2"
                             Style="{StaticResource H3}"
-                            Text="¿Si es mujer, está embarazada?" />
-                        <mtrl:MaterialChip Grid.Row="1" Text="Si" />
+                            Text="Si es mujer, ¿está embarazada?" />
+                        <mtrl:MaterialChip Grid.Row="1" Text="{Binding Consent.IsPregnant, Converter={StaticResource BooleanToTextConverter}}" />
                     </Grid>
                 </Frame>
 
