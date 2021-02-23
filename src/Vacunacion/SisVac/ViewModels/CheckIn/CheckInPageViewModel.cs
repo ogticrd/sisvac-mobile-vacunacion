@@ -94,7 +94,9 @@ namespace SisVac.ViewModels.CheckIn
                 catch(Exception ex)
                 {
                     Crashes.TrackError(ex);
+                    IsBusy = false;
                     await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "Ocurrió un problema de comunicación con el servidor", "OK");
+                    return;
                 }
             }
             
