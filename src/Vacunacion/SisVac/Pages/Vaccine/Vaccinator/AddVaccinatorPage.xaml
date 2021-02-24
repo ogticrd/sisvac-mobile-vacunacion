@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SisVac.Pages.Vaccine.AddVaccinatorPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrls="clr-namespace:SisVac.Controls"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:prism="http://prismlibrary.com"
+    Title="Agregar vacunador"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource BackgroundColor}">
+
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+
+        <Frame>
+            <StackLayout>
+                <ctrls:TextFieldLayout>
+                    <mtrl:MaterialTextField
+                        HelperText="Digite el número de cédula para continuar"
+                        ReturnType="Done"
+                        StyleClass="CedulaTextField" />
+                </ctrls:TextFieldLayout>
+
+                <mtrl:MaterialButton
+                    Command="{Binding ScanDocumentCommand}"
+                    Style="{StaticResource ButtonOutlined}"
+                    Text="Escanear Cédula" />
+            </StackLayout>
+        </Frame>
+
+
+        <Frame Style="{StaticResource ButtonFrame}" VerticalOptions="EndAndExpand">
+            <mtrl:MaterialButton
+                Command="{Binding SelectedItemCommand}"
+                Style="{StaticResource ButtonPrimary}"
+                Text="Agregar" />
+        </Frame>
+
+    </StackLayout>
+
+</ContentPage>

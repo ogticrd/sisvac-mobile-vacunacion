@@ -19,6 +19,7 @@ using SisVac.Pages.Base;
 using SisVac.Pages.CheckIn;
 using SisVac.Pages.Login;
 using SisVac.Pages.Report;
+using SisVac.Pages.Vaccinator;
 using SisVac.Pages.Vaccine;
 using SisVac.ViewModels;
 using SisVac.ViewModels.CheckIn;
@@ -76,8 +77,9 @@ namespace SisVac
             containerRegistry.RegisterForNavigation<CheckInPage, CheckInPageViewModel>();
             containerRegistry.RegisterForNavigation<ReportEffectsPage, ReportEffectsPageViewModel>();
             containerRegistry.RegisterForNavigation<TrackingVaccinePage, TrackingVaccinePageViewModel>();
-            containerRegistry.RegisterForNavigation<ChangeVaccinatorPage>();
+            containerRegistry.RegisterForNavigation<AddVaccinatorPage>();
             containerRegistry.RegisterForNavigation<VaccineStatusPage>();
+            containerRegistry.RegisterForNavigation<VaccinatorListPage>();
 
             //Services
             containerRegistry.Register<IScannerService, ScannerService>();
