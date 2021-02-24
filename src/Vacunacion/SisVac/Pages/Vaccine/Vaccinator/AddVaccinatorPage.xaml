@@ -19,6 +19,7 @@
                 <ctrls:TextFieldLayout>
                     <mtrl:MaterialTextField
                         HelperText="Digite el número de cédula para continuar"
+                        ReturnCommand="{Binding ValidateDocumentCommand}"
                         ReturnType="Done"
                         StyleClass="CedulaTextField" />
                 </ctrls:TextFieldLayout>
@@ -33,7 +34,7 @@
 
         <Frame Style="{StaticResource ButtonFrame}" VerticalOptions="EndAndExpand">
             <mtrl:MaterialButton
-                Command="{Binding SelectedItemCommand}"
+                Command="{Binding ValidateDocumentCommand}"
                 Style="{StaticResource ButtonPrimary}"
                 Text="Agregar" />
         </Frame>
