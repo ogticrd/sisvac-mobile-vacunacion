@@ -20,8 +20,8 @@
                     <Label Style="{StaticResource H3}" Text="Selecciona un vacunador por defecto" />
                     <mtrl:MaterialRadioButtonGroup
                         x:Name="radioButtonGroup"
-                        Choices="{Binding Vaccinators}"
-                        SelectedIndex="{Binding VacinatorIndexSelected}" />
+                        Choices="{Binding VaccinatorsName, Mode=OneWay}"
+                        SelectedIndex="{Binding IndexSelected}" />
                 </StackLayout>
             </Frame>
         </ScrollView>

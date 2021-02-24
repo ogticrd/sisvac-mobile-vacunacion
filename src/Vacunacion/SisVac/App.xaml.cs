@@ -79,7 +79,7 @@ namespace SisVac
             containerRegistry.RegisterForNavigation<TrackingVaccinePage, TrackingVaccinePageViewModel>();
             containerRegistry.RegisterForNavigation<AddVaccinatorPage>();
             containerRegistry.RegisterForNavigation<VaccineStatusPage>();
-            containerRegistry.RegisterForNavigation<VaccinatorListPage>();
+            containerRegistry.RegisterForNavigation<VaccinatorListPage, VaccinatorListPageViewModel>();
 
             //Services
             containerRegistry.Register<IScannerService, ScannerService>();
