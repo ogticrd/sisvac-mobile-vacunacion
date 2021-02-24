@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SisVac.Pages.Vaccinator.VaccinatorListPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:prism="http://prismlibrary.com"
+    Title="Vacunadores"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{prism:NavigateTo 'AddVaccinatorPage'}" Text="Agregar" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Spacing="0">
+
+        <ScrollView Padding="0,0,0,16" VerticalOptions="FillAndExpand">
+            <Frame VerticalOptions="Start">
+                <StackLayout>
+                    <Label Style="{StaticResource H3}" Text="Selecciona un vacunador por defecto" />
+                    <mtrl:MaterialRadioButtonGroup
+                        x:Name="radioButtonGroup"
+                        Choices="{Binding Vaccinators}"
+                        SelectedIndex="{Binding VacinatorIndexSelected}" />
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+
+        <Frame Style="{StaticResource ButtonFrame}">
+            <mtrl:MaterialButton
+                Command="{Binding SelectedItemCommand}"
+                Style="{StaticResource ButtonPrimary}"
+                Text="Seleccionar" />
+        </Frame>
+    </StackLayout>
+
+</ContentPage>

@@ -63,6 +63,9 @@
     <Compile Update="Pages\Login\SearchCenterPage.xaml.cs">
       <DependentUpon>SearchCenterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Pages\Vaccine\Vaccinator\AddVaccinatorPage.xaml.cs">
+      <DependentUpon>AddVaccinatorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\Vaccine\Views\ScanIdView.xaml.cs">
       <DependentUpon>ScanIdView.xaml</DependentUpon>
     </Compile>
@@ -104,7 +107,10 @@
     <EmbeddedResource Update="Pages\Report\ReportEffectsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Vaccine\ChangeVaccinatorPage.xaml">
+    <EmbeddedResource Update="Pages\Vaccine\Vaccinator\VaccinatorListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Vaccine\Vaccinator\AddVaccinatorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Report\ScanIDPage.xaml">

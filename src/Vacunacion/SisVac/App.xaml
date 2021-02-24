@@ -179,6 +179,14 @@
 
         </Style>
 
+        <Style x:Key="ButtonFrame" TargetType="Frame">
+
+            <Setter Property="VerticalOptions" Value="End" />
+            <Setter Property="Padding" Value="16,4" />
+            <Setter Property="BackgroundColor" Value="White" />
+
+        </Style>
+
         <!--#endregion-->
         <Style TargetType="mtrlUI:MaterialTextField">
 
