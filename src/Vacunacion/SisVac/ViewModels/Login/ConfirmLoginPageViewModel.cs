@@ -83,12 +83,12 @@ namespace SisVac.ViewModels.Login
             var userData = await GetDocumentData(document);
             if (userData != null && userData.IsValid && userData.Age > 0)
             {
-                if(userData.Cedula == User.Document)
-                {
-                    await _dialogService.DisplayAlertAsync("Registrador no puede ser vacunador", "Contacte al vacunador para que le facilite su número de cédula.", "OK");
-                }
-                else
-                { 
+                //if(userData.Cedula == User.Document)
+                //{
+                //    await _dialogService.DisplayAlertAsync("Registrador no puede ser vacunador", "Contacte al vacunador para que le facilite su número de cédula.", "OK");
+                //}
+                //else
+                //{ 
                     var user = new ApplicationUser
                     {
                         Age = userData.Age,
@@ -107,7 +107,7 @@ namespace SisVac.ViewModels.Login
                     await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, user);
                     await _cacheService.InsertLocalObject(CacheKeyDictionary.CenterInfo, location);
                     await _navigationService.NavigateAsync("/NavigationPage/HomePage");
-                }
+                //}
             }
             else
             {
