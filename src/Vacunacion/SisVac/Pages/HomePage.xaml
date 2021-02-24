@@ -41,7 +41,7 @@
             <Label
                 FontSize="16"
                 HorizontalOptions="Center"
-                Text="{Binding Vaccinator.LocationName}"
+                Text="{Binding Location.Name}"
                 TextColor="{StaticResource PrimaryColor}" />
 
             <Label

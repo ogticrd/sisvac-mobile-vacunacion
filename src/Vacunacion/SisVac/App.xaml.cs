@@ -77,7 +77,7 @@ namespace SisVac
             containerRegistry.RegisterForNavigation<CheckInPage, CheckInPageViewModel>();
             containerRegistry.RegisterForNavigation<ReportEffectsPage, ReportEffectsPageViewModel>();
             containerRegistry.RegisterForNavigation<TrackingVaccinePage, TrackingVaccinePageViewModel>();
-            containerRegistry.RegisterForNavigation<AddVaccinatorPage>();
+            containerRegistry.RegisterForNavigation<AddVaccinatorPage, AddVaccinatorPageViewModel>();
             containerRegistry.RegisterForNavigation<VaccineStatusPage>();
             containerRegistry.RegisterForNavigation<VaccinatorListPage, VaccinatorListPageViewModel>();
 

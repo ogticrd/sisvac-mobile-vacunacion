@@ -6,7 +6,8 @@
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
     Title="Vacunadores"
-    prism:ViewModelLocator.AutowireViewModel="True">
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource BackgroundColor}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{prism:NavigateTo 'AddVaccinatorPage'}" Text="Agregar" />

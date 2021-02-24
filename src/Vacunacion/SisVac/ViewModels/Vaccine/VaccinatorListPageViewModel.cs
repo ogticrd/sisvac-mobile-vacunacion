@@ -3,6 +3,7 @@ using Prism.Navigation;
 using Prism.Services;
 using SisVac.Framework.Domain;
 using SisVac.Framework.Services;
+using SisVac.Framework.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,8 @@ namespace SisVac.ViewModels.Vaccine
 {
     public class VaccinatorListPageViewModel : BaseViewModel
     {
-        List<ApplicationUser> _vaccinators;
-        ApplicationUser _vaccinator;
+        List<ApplicationUser> _vaccinatorsList;
+        ApplicationUser _vaccinatorUser;
         static readonly string _emptyListName = "Lista vacía";
 
         public VaccinatorListPageViewModel(
@@ -27,7 +28,7 @@ namespace SisVac.ViewModels.Vaccine
         }
 
         public List<string> VaccinatorsName { get; set; } = new List<string>() { _emptyListName };
-        public int IndexSelected { get; set; }
+        public int IndexSelected { get; set; } = 0;
 
         public ICommand SelectedItemCommand { get; set; }
 
@@ -35,44 +36,43 @@ namespace SisVac.ViewModels.Vaccine
         {
             try
             {
-                if (_vaccinator == null)
-                    _vaccinator = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorInfo);
+                if (_vaccinatorUser == null)
+                    _vaccinatorUser = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorInfo);
 
-                if (_vaccinators == null)                
-                    _vaccinators = await _cacheService.GetLocalObject<List<ApplicationUser>>(CacheKeyDictionary.VaccinatorsList);
+                if (_vaccinatorsList == null)                
+                    _vaccinatorsList = await _cacheService.GetLocalObject<List<ApplicationUser>>(CacheKeyDictionary.VaccinatorsList);
                     
-                if (_vaccinators?.Count > 0)
-                {
-                    IndexSelected = _vaccinators.IndexOf(_vaccinator);
-                }
-                else
-                {
-                    _vaccinators = new List<ApplicationUser>();
-
-                    if (_vaccinator != null)
-                        _vaccinators.Add(_vaccinator);
-                }
+                if (_vaccinatorsList == null && _vaccinatorUser != null)                
+                    _vaccinatorsList = new List<ApplicationUser>() { _vaccinatorUser };
             }
             catch (Exception)
             {
             }
             finally
             {
-                UpdateUI();
+                // Update the List in UI
+                if (_vaccinatorsList?.Count > 0)
+                {
+                    VaccinatorsName = _vaccinatorsList.Select(v => v.FullName).ToList();
+                    await Task.Run(() => IndexSelected = _vaccinatorsList.FindIndex(v => v.Document == _vaccinatorUser.Document));
+                }    
             }
         }
 
         private async void OnSelectedItemCommandExecute()
         {
-            if (_vaccinators?.Count > 0 && VaccinatorsName[IndexSelected] != _emptyListName)
+            if (_vaccinatorsList?.Count > 0 && IndexSelected != -1)
             {
-                IndexSelected = _vaccinators.IndexOf(_vaccinator);
-                var vaccinatorDefault = _vaccinators[IndexSelected];
+                var vaccinatorDefault = _vaccinatorsList[IndexSelected];
 
                 if (vaccinatorDefault != null)
                 {
-                    await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, vaccinatorDefault);
-                    await _navigationService.GoBackAsync();
+                    var response = await _dialogService.DisplayAlertAsync("Confirmación", $"¿Estás seguro de seleccionar este vacunador por defecto?", "Si", "No");
+                    if (response)
+                    {
+                        await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, vaccinatorDefault);
+                        await _navigationService.GoBackAsync();
+                    }
                 }
             }
             else
@@ -81,22 +81,14 @@ namespace SisVac.ViewModels.Vaccine
             }
         }
 
-        void UpdateUI()
-        {
-            if (_vaccinators?.Count > 0)
-                VaccinatorsName = _vaccinators.Select(v => v.FullName).ToList();
-        }
-
         public override async void OnNavigatedTo(INavigationParameters parameters)
         {
-            if (parameters.ContainsKey("vaccinatorAdded"))
+            if (parameters.ContainsKey(NavigationKeys.VaccinatorAdded))
             {
-                var newVaccinator = parameters.GetValue<ApplicationUser>("vaccinatorAdded");
+                var vaccinators = parameters.GetValue<List<ApplicationUser>>(NavigationKeys.VaccinatorAdded);
 
-                if (newVaccinator != null)
-                {
-                    _vaccinators.Add(newVaccinator);
-                }                
+                if (vaccinators != null)                
+                    _vaccinatorsList = vaccinators;      
             }
 
             await Init();
