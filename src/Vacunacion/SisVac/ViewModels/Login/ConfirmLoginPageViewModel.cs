@@ -104,7 +104,7 @@ namespace SisVac.ViewModels.Login
 
                     Settings.IsLoggedIn = true;
 
-                    await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, user);
+                    await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorDefault, user);
                     await _cacheService.InsertLocalObject(CacheKeyDictionary.CenterInfo, location);
                     await _navigationService.NavigateAsync("/NavigationPage/HomePage");
                 }

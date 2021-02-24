@@ -71,7 +71,7 @@ namespace SisVac.Framework.Services
     public static class CacheKeyDictionary
     {
         public const string UserInfo = nameof(UserInfo);
-        public const string VaccinatorInfo = nameof(VaccinatorInfo);
+        public const string VaccinatorDefault = nameof(VaccinatorDefault);
         public const string VaccinatorsList = nameof(VaccinatorsList);
         public const string CenterInfo = nameof(CenterInfo);
     }

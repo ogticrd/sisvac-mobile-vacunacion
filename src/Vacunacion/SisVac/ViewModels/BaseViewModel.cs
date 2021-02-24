@@ -33,7 +33,7 @@ namespace SisVac.ViewModels
         private async void OnLogoutCommandExecute()
         {
             await _cacheService.RemoveLocalObject(CacheKeyDictionary.UserInfo);
-            await _cacheService.RemoveLocalObject(CacheKeyDictionary.VaccinatorInfo);
+            await _cacheService.RemoveLocalObject(CacheKeyDictionary.VaccinatorDefault);
 
             Settings.RemoveAllSettings();
             await _navigationService.NavigateAsync("/NavigationPage/LoginPage");
