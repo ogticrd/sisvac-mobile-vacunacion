@@ -44,16 +44,16 @@ namespace SisVac.Framework.Data
             }
             if (await _db.Table<VaccineBrand>().CountAsync() == 0)
             {
-                var vaccineBrandId = await _db.InsertAsync(new VaccineBrand { Name = "AstraZeneca" });
+                var vaccineBrandId = await _db.InsertAsync(new VaccineBrand { Id="1", LocalId=1, Name = "AstraZeneca" });
                 await _db.InsertAllAsync(new List<VaccineLot>{
-                    new VaccineLot { Name="4120Z001", VaccineBrandLocalId=vaccineBrandId },
-                    new VaccineLot { Name="4120Z023", VaccineBrandLocalId=vaccineBrandId },
+                    new VaccineLot { Name="4120Z001", VaccineBrandLocalId=1 },
+                    new VaccineLot { Name="4120Z023", VaccineBrandLocalId=1 },
                 });
-                vaccineBrandId = await _db.InsertAsync(new VaccineBrand { Name = "SINOVAC" });
+                vaccineBrandId = await _db.InsertAsync(new VaccineBrand { Id = "2", LocalId = 2, Name = "SINOVAC" });
                 await _db.InsertAllAsync(new List<VaccineLot>{
-                    new VaccineLot { Name="A2021010034", VaccineBrandLocalId=vaccineBrandId },
-                    new VaccineLot { Name="A2021010039", VaccineBrandLocalId=vaccineBrandId },
-                    new VaccineLot { Name="A2021010041", VaccineBrandLocalId=vaccineBrandId },
+                    new VaccineLot { Name="A2021010034", VaccineBrandLocalId=2 },
+                    new VaccineLot { Name="A2021010039", VaccineBrandLocalId=2 },
+                    new VaccineLot { Name="A2021010041", VaccineBrandLocalId=2 },
                 });
             }
         }
