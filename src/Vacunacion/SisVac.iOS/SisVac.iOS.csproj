@@ -168,4 +168,12 @@
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\xf_radio_button_selected.png" />
+    <BundleResource Include="Resources\xf_radio_button_selected%402x.png" />
+    <BundleResource Include="Resources\xf_radio_button_selected%403x.png" />
+    <BundleResource Include="Resources\xf_radio_button_unselected.png" />
+    <BundleResource Include="Resources\xf_radio_button_unselected%402x.png" />
+    <BundleResource Include="Resources\xf_radio_button_unselected%403x.png" />
+  </ItemGroup>
 </Project>
