@@ -94,13 +94,18 @@ namespace SisVac.ViewModels.Login
                         Age = userData.Age,
                         Document = userData.Cedula,
                         FullName = userData.Name,
-                        LocationId = LocationId,
-                        LocationName = LocationName
+                    };
+
+                    var location = new ClinicLocation
+                    {
+                        Id = LocationId,
+                        Name = LocationName
                     };
 
                     Settings.IsLoggedIn = true;
 
                     await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, user);
+                    await _cacheService.InsertLocalObject(CacheKeyDictionary.CenterInfo, location);
                     await _navigationService.NavigateAsync("/NavigationPage/HomePage");
                 }
             }

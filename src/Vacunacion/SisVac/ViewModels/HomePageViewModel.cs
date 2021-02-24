@@ -14,25 +14,16 @@ namespace SisVac.ViewModels
             _cacheService = cacheService;
         }
 
-        ApplicationUser _user;
-        public ApplicationUser User
-        {
-            get => _user;
-            set => _user = value; 
-        }
-
-        ApplicationUser _vaccinator;
-        public ApplicationUser Vaccinator
-        {
-            get => _vaccinator;
-            set => _vaccinator = value;
-        }
+        public ApplicationUser User { get; set; }
+        public ApplicationUser Vaccinator { get; set; }
+        public ClinicLocation Location { get; set; }
 
         private async Task Init()
         {
 
             User = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.UserInfo);
             Vaccinator = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorInfo);
+            Location = await _cacheService.GetLocalObject<ClinicLocation>(CacheKeyDictionary.CenterInfo);
         }
 
 
