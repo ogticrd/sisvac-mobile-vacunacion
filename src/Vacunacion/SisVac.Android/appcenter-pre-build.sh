@@ -15,6 +15,6 @@ rm -f ${MANIFEST}.bak
 cat $MANIFEST
 echo "Updated manifest!"
 
-echo "{ \"CitizenApiBaseUrl\": \"${CITIZEN_API_BASE_URL}\" }" > ${APPSETTINGS}
+echo "{ \"CitizenApiBaseUrl\": \"${CITIZEN_API_BASE_URL}\", \"CitizenApiKey\": \"${CITIZEN_API_KEY}\" }" > ${APPSETTINGS}
 cat $APPSETTINGS
 echo "Updated appsettings.json!"
