@@ -11,6 +11,8 @@
 
         <!--#region Colors-->
         <Color x:Key="PrimaryColor">#003876</Color>
+        <Color x:Key="OnPrimaryColor">#FFFFFF</Color>
+
         <Color x:Key="SecondaryColor">#022A57</Color>
 
         <Color x:Key="BackgroundColor">#F1F4F7</Color>
@@ -45,7 +47,7 @@
             Error="{StaticResource ErrorColor}"
             OnBackground="{StaticResource OnBackgroundColor}"
             OnError="#FFFFFF"
-            OnPrimary="#FFFFFF"
+            OnPrimary="{StaticResource OnPrimaryColor}"
             OnSecondary="#FFFFFF"
             OnSurface="{StaticResource OnSurfaceColor}"
             Primary="{StaticResource PrimaryColor}"
@@ -62,6 +64,7 @@
         <!--#region GENERAL-->
         <Style TargetType="NavigationPage">
             <Setter Property="BarBackgroundColor" Value="{StaticResource PrimaryColor}" />
+            <Setter Property="BarTextColor" Value="{StaticResource OnPrimaryColor}" />
         </Style>
 
         <Style TargetType="ContentPage">
