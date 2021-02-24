@@ -15,6 +15,9 @@ namespace SisVac.ViewModels.Vaccine
 {
     public class AddVaccinatorPageViewModel : ScanDocumentViewModel
     {
+        List<ApplicationUser> _vaccinatorsList;
+        ApplicationUser _vaccinatorUser = new ApplicationUser();
+
         public AddVaccinatorPageViewModel(
             INavigationService navigationService,
             IPageDialogService dialogService,
@@ -27,8 +30,6 @@ namespace SisVac.ViewModels.Vaccine
         }
 
 
-        public ApplicationUser Vaccinator { get; set; } = new ApplicationUser();
-
         #region Commands
         public ICommand AddCommand { get; set; }
         public ICommand ValidateDocumentCommand { get; set; }
@@ -38,18 +39,20 @@ namespace SisVac.ViewModels.Vaccine
         {
             if (DocumentID.Validate())
             {
-                await GetQualificationData(DocumentID.Value);
+                int duplicates = _vaccinatorsList.GroupBy(i => i.Document)
+                                                 .Where(i => i.Count() > 1)
+                                                 .Sum(i => i.Count());
 
-                if (!Qualification.IsValidDocument)
+                if (duplicates > 0)
                 {
-                    await _dialogService.DisplayAlertAsync("Ups", "Documento no valido.", "Ok");
+                    await _dialogService.DisplayAlertAsync("Ups", "Ya tienes esta persona registrada como vacunador.", "Ok");
                     return;
                 }
 
                 var userData = await GetDocumentData(DocumentID.Value);
                 if (userData != null)
                 {
-                    Vaccinator = new ApplicationUser
+                    _vaccinatorUser = new ApplicationUser
                     {
                         Age = userData.Age,
                         Document = userData.Cedula,
@@ -60,18 +63,16 @@ namespace SisVac.ViewModels.Vaccine
 
                     if (response)
                     {
-                        var vaccinators = await _cacheService.GetLocalObject<List<ApplicationUser>>(CacheKeyDictionary.VaccinatorsList);
-
-                        if (vaccinators?.Count > 0)
-                            vaccinators.Add(Vaccinator);
+                        if (_vaccinatorsList?.Count > 0)
+                            _vaccinatorsList.Add(_vaccinatorUser);
                         else
-                            vaccinators = new List<ApplicationUser>() { Vaccinator };
+                            _vaccinatorsList = new List<ApplicationUser>() { _vaccinatorUser };
 
-                        await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorsList, vaccinators);
+                        await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorsList, _vaccinatorsList);
 
                         var navigationParams = new NavigationParameters
                         {
-                            { NavigationKeys.VaccinatorAdded, vaccinators },
+                            { NavigationKeys.VaccinatorAdded, _vaccinatorsList },
                         };
                         await _navigationService.GoBackAsync(navigationParams);
                     }
@@ -83,9 +84,9 @@ namespace SisVac.ViewModels.Vaccine
             }
         }
 
-        private void OnAddCommandExecute()
+        public override async void OnNavigatedTo(INavigationParameters parameters)
         {
-            
+            _vaccinatorsList = await _cacheService.GetLocalObject<List<ApplicationUser>>(CacheKeyDictionary.VaccinatorsList);
         }
     }
 }
