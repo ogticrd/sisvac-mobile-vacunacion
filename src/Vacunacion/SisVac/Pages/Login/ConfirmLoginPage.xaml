@@ -17,79 +17,73 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout
-        Padding="16"
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand">
 
-        <StackLayout Spacing="0" VerticalOptions="CenterAndExpand">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-            <Label
-                HorizontalOptions="Center"
-                Style="{StaticResource H1}"
-                Text="¡Bievenid@ de vuelta!" />
 
-            <Label
-                HorizontalOptions="Center"
-                HorizontalTextAlignment="Center"
-                Style="{StaticResource Subtitle1}"
-                Text="{Binding User.FullName}"
-                TranslationY="-8" />
+        <Label
+            Margin="0,32,0,0"
+            HorizontalOptions="Center"
+            Style="{StaticResource H1}"
+            Text="¡Bievenid@ de vuelta!" />
 
-            <Frame Margin="-16,16,-16,0" Padding="16,24,16,0">
+        <Label
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            Style="{StaticResource Subtitle1}"
+            Text="{Binding User.FullName}"
+            TranslationY="-8" />
 
-                <StackLayout Margin="0" Spacing="4">
+        <Frame Padding="16,24,16,16">
+            <StackLayout Margin="0" Spacing="4">
+
+                <Label
+                    Margin="0,0,0,8"
+                    Style="{StaticResource H3}"
+                    Text="Registra el Centro y Vacunador asignado antes de comenzar" />
+
+                <ctrls:TextFieldLayout VerticalOptions="Start">
+
+                    <ctrls:TextFieldLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{prism:NavigateTo 'SearchCenterPage'}" />
+                    </ctrls:TextFieldLayout.GestureRecognizers>
 
                     <Label
-                        Margin="0,0,0,8"
-                        Style="{StaticResource H3}"
-                        Text="Registra el Centro y Vacunador asignado antes de comenzar" />
-
-                    <ctrls:TextFieldLayout VerticalOptions="Start">
-
-                        <ctrls:TextFieldLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{prism:NavigateTo 'SearchCenterPage'}" />
-                        </ctrls:TextFieldLayout.GestureRecognizers>
-
-                        <Label
-                            FontSize="18"
-                            Text="{Binding LocationName}"
-                            TextColor="Gray"
-                            TranslationX="16"
-                            VerticalOptions="Center" />
-                    </ctrls:TextFieldLayout>
-                    <Label
-                        Margin="0,0,0,-16"
-                        FontSize="12"
-                        Text="Por favor, confirma tu locación para el día de hoy"
+                        FontSize="18"
+                        Text="{Binding LocationName}"
                         TextColor="Gray"
                         TranslationX="16"
-                        TranslationY="-32"
-                        VerticalOptions="Start" />
+                        VerticalOptions="Center" />
+                </ctrls:TextFieldLayout>
+                <Label
+                    Margin="0,0,0,-16"
+                    FontSize="12"
+                    Text="Por favor, confirma tu locación para el día de hoy"
+                    TextColor="Gray"
+                    TranslationX="16"
+                    TranslationY="-32"
+                    VerticalOptions="Start" />
 
-                    <ctrls:TextFieldLayout>
-                        <mtrl:MaterialTextField
-                            HelperText="Digita la cédula de tu vacunador asignado"
-                            ReturnCommand="{Binding ConfirmLoginCommand}"
-                            StyleClass="CedulaTextField" />
-                    </ctrls:TextFieldLayout>
-                </StackLayout>
-            </Frame>
+                <ctrls:TextFieldLayout>
+                    <mtrl:MaterialTextField
+                        HelperText="Digita la cédula de tu vacunador asignado"
+                        ReturnCommand="{Binding ConfirmLoginCommand}"
+                        StyleClass="CedulaTextField" />
+                </ctrls:TextFieldLayout>
 
+                <mtrl:MaterialButton
+                    Command="{Binding ScanDocumentCommand}"
+                    Style="{StaticResource ButtonOutlined}"
+                    Text="Escanear Cédula" />
+            </StackLayout>
+        </Frame>
 
+        <Frame Padding="16,4" VerticalOptions="EndAndExpand">
             <mtrl:MaterialButton
-                Margin="0,16,0,0"
-                Command="{Binding ScanDocumentCommand}"
-                Style="{StaticResource ButtonOutlined}"
-                Text="Escanear Cédula" />
-
-            <mtrl:MaterialButton
-                Margin="0,8,0,0"
                 Command="{Binding ConfirmLoginCommand}"
                 Style="{StaticResource ButtonPrimary}"
                 Text="Confirmar" />
-
-        </StackLayout>
+        </Frame>
 
     </StackLayout>
 

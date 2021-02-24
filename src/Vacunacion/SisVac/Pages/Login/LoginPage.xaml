@@ -16,12 +16,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout
-        Padding="16"
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
         <Image
+            Margin="0,16,16,0"
             HeightRequest="38"
             HorizontalOptions="End"
             Source="{hlps:ImageResource logo_cupula.png}"
@@ -34,7 +32,7 @@
                 Source="{hlps:ImageResource logo.png}"
                 WidthRequest="132" />
 
-            <Frame Margin="-16,0,-16,0" Padding="16,24,16,0">
+            <Frame Padding="16,24,16,16">
                 <StackLayout>
                     <Label
                         Margin="0,0,0,8"
@@ -47,24 +45,22 @@
                             ReturnCommand="{Binding LoginCommand}"
                             StyleClass="CedulaTextField" />
                     </ctrls:TextFieldLayout>
+
+                    <mtrl:MaterialButton
+                        Command="{Binding ScanDocumentCommand}"
+                        Style="{StaticResource ButtonOutlined}"
+                        Text="Escanear Cédula" />
                 </StackLayout>
             </Frame>
 
         </StackLayout>
 
-        <StackLayout Spacing="0" VerticalOptions="Center">
-
-            <mtrl:MaterialButton
-                Command="{Binding ScanDocumentCommand}"
-                Style="{StaticResource ButtonOutlined}"
-                Text="Escanear Cédula" />
-
+        <Frame Padding="16,4">
             <mtrl:MaterialButton
                 Command="{Binding LoginCommand}"
                 Style="{StaticResource ButtonPrimary}"
                 Text="Iniciar Sesión" />
-
-        </StackLayout>
+        </Frame>
 
     </StackLayout>
 
