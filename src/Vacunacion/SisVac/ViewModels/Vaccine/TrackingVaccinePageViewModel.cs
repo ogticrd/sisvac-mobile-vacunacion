@@ -30,7 +30,12 @@ namespace SisVac.ViewModels.Vaccine
             ProgressBarIndicator = 0.0f;
 
             DocumentScanned = async (id) => await GoNextAfterDocumentRead(id);
+            VaccineBrandSelectedCommand = new DelegateCommand(OnVaccineBrandSelectedCommandExecute);
+            VaccineBrandNamesList = new List<string> { "No disponible" };
+            LotNamesList = new List<string> { "No disponible" };
         }
+
+
         public int PositionView { get; set; }
         public bool IsBackButtonVisible { get; set; } = false;
         public bool IsNextButtonVisible { get; set; } = true;
@@ -47,10 +52,23 @@ namespace SisVac.ViewModels.Vaccine
         public Consent Consent { get; set; } = new Consent();
 
         public ICommand NextCommand { get; }
-        public ICommand ConfirmCommand { get; set; }
+        public ICommand ConfirmCommand { get; }
         public ICommand BackCommand { get; }
+        public ICommand VaccineBrandSelectedCommand { get; }
+
+
+        public List<string> VaccineBrandNamesList { get; set; }
+        public List<string> LotNamesList { get; set; }
 
         public string LotName { get; set; }
+        public string VaccineBrandName { get; set; }
+
+
+        private async void OnVaccineBrandSelectedCommandExecute()
+        {
+            var brand = await App.Database.Connection.Table<VaccineBrand>().FirstOrDefaultAsync(x=>x.Name == VaccineBrandName);
+            LotNamesList = (await App.Database.Connection.Table<VaccineLot>().Where(x => x.VaccineBrandLocalId == brand.LocalId).OrderBy(x => x.Name).ToListAsync()).Select(x => x.Name).ToList();
+        }
 
         private async void OnConfirmCommandExecute()
         {
@@ -65,8 +83,18 @@ namespace SisVac.ViewModels.Vaccine
             {
                 using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
                 {
-                    // TODO: Call API Here
-                    // TODO: Send confirmation to the server
+                    var vaccinator = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorInfo);
+                    await _citizensApiClient.PostVaccineApplication(new VaccineApplication
+                    {
+                        Cedula = DocumentID.Value,
+                        //TODO Remove these fields
+                        Date = DateTime.UtcNow.ToString(),
+                        Hour = DateTime.UtcNow.Hour.ToString(),
+                        Dose = "1",
+                        Vaccine = "",
+                        Lot = LotName,
+                        Location = vaccinator.LocationId
+                    });
                 }
 
                 await _dialogService.DisplayAlertAsync("Proceso finalizado", "Has terminado satisfactoriamente.", "Ok");
@@ -74,6 +102,12 @@ namespace SisVac.ViewModels.Vaccine
              }
             
             IsBusy = false;
+        }
+
+        public override async void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+            VaccineBrandNamesList = (await App.Database.Connection.Table<VaccineBrand>().OrderBy(x=>x.Name).ToListAsync()).Select(x => x.Name).ToList();
         }
 
         private async Task GoNextAfterDocumentRead(string id)

@@ -56,7 +56,7 @@ namespace SisVac.ViewModels.Login
             else
             {
                 ShowLocationErrorMessage = false;
-
+                /*
                 if(DocumentID.Value == User.Document)
                 {
                     DocumentID.IsValid = false;
@@ -64,12 +64,12 @@ namespace SisVac.ViewModels.Login
                     await _dialogService.DisplayAlertAsync("Registrador no puede ser vacunador", "Contacte al vacunador para que le facilite su número de cédula.", "OK");
                 }
                 else
-                { 
+                { */
                     if (DocumentID.Validate())
                     {
                         await GoNext(DocumentID.Value);
                     }
-                }
+                //}
             }
         }
 

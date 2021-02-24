@@ -7,7 +7,7 @@ namespace SisVac.Framework.Domain
     public class BaseEntity
     {
         [PrimaryKey, AutoIncrement]
-        public int LocalId { get; set; }
+        public int? LocalId { get; set; }
         [JsonProperty("id")]
         public string Id { get; set; }
     }
