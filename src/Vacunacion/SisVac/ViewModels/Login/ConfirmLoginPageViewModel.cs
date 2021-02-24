@@ -17,12 +17,11 @@ namespace SisVac.ViewModels.Login
             INavigationService navigationService,
             IPageDialogService dialogService,
             IScannerService scannerService,
-            ICitizensApiClient citizensApiClient, ICacheService cacheService) : base(navigationService, dialogService, scannerService, cacheService, citizensApiClient)
+            ICitizensApiClient citizensApiClient, 
+            ICacheService cacheService) : base(navigationService, dialogService, scannerService, cacheService, citizensApiClient)
         {
-            ConfirmLoginCommand = new Command(OnConfirmLoginCommandExecute);
-            DocumentScanned = async (id) => await GoNext(id);
+            Init();
         }
-
 
         #region Commands
         public ICommand LocationSelectedCommand { get; set; }
@@ -36,22 +35,17 @@ namespace SisVac.ViewModels.Login
 
         public bool ShowLocationErrorMessage { get; set; }
 
-        ApplicationUser _user;
-        public ApplicationUser User
-        {
-            get => _user;
-            set => _user = value;
-        }
-
-        ApplicationUser _vaccinator;
-        public ApplicationUser Vaccinator
-        {
-            get => _vaccinator;
-            set => _vaccinator = value;
-        } 
+        public ApplicationUser User { get; set; }
+        public ApplicationUser Vaccinator { get; set; }
         #endregion
 
+        async void Init()
+        {
+            ConfirmLoginCommand = new Command(OnConfirmLoginCommandExecute);
+            DocumentScanned = async (id) => await GoNext(id);
 
+            User = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.UserInfo);
+        }
 
         async void OnConfirmLoginCommandExecute()
         {
@@ -116,7 +110,7 @@ namespace SisVac.ViewModels.Login
             }
         }
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
+        public override async void OnNavigatedTo(INavigationParameters parameters)
         {
             if (parameters.ContainsKey("selectedClinicLocationName"))
             {
