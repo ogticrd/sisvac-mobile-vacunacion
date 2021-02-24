@@ -47,20 +47,22 @@ namespace SisVac
             XF.Material.Forms.Material.Use("Material.Configuration");
             Application.Current.UserAppTheme = OSAppTheme.Light;
 
-            AppCenter.Start("android=89389cb2-d03e-4a44-a48c-d1e4ce35f9f1;" +
-                            "ios=7af5f42f-0ac9-423c-a1af-d61192e0e45e;",
-                  typeof(Analytics), typeof(Crashes), typeof(Distribute));
-
             if (Settings.IsLoggedIn)
                 await NavigationService.NavigateAsync($"NavigationPage/{nameof(HomePage)}");
             else
-            {
                 await NavigationService.NavigateAsync($"NavigationPage/{nameof(LoginPage)}");
+        }
 
-                Database = new LocalDatabase();
-                await Database.Initialize();
-            }
-                
+        protected override async void OnStart()
+        {
+            base.OnStart();
+
+            Database = new LocalDatabase();
+            await Database.Initialize();
+
+            AppCenter.Start("android=89389cb2-d03e-4a44-a48c-d1e4ce35f9f1;" +
+                            "ios=7af5f42f-0ac9-423c-a1af-d61192e0e45e;",
+                            typeof(Analytics), typeof(Crashes), typeof(Distribute));
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
