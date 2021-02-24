@@ -1,5 +1,7 @@
 ﻿using Akavache;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 
@@ -21,7 +23,7 @@ namespace SisVac.Framework.Services
             {
                 return await BlobCache.LocalMachine.GetObject<T>(key);
             }
-            catch (KeyNotFoundException)
+            catch (Exception)
             {
                 return default(T);
             }
@@ -34,7 +36,10 @@ namespace SisVac.Framework.Services
 
         public async Task RemoveLocalObject(string key)
         {
-            await BlobCache.LocalMachine.Invalidate(key);
+            var keys = await BlobCache.LocalMachine.GetAllKeys();
+
+            if (keys.Contains(key))
+                await BlobCache.LocalMachine.Invalidate(key);
         }
         #endregion
 
@@ -67,9 +72,10 @@ namespace SisVac.Framework.Services
     {
         public const string UserInfo = nameof(UserInfo);
         public const string VaccinatorInfo = nameof(VaccinatorInfo);
+        public const string VaccinatorsList = nameof(VaccinatorsList);
     }
 
-    public interface ICacheService : ILocalMachineCache, ISecureCache
+    public interface ICacheService : ILocalMachineCache//, ISecureCache
     {
 
     }
