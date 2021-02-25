@@ -41,7 +41,7 @@
 
                     <ctrls:TextFieldLayout>
                         <mtrl:MaterialTextField
-                            HelperText="Digita la cédula para continuar"
+                            HelperText="Digita o escanea tu cédula para continuar"
                             ReturnCommand="{Binding LoginCommand}"
                             StyleClass="CedulaTextField" />
                     </ctrls:TextFieldLayout>
