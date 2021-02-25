@@ -18,11 +18,11 @@
                     BackgroundColor="#F2F2F2"
                     Text="1RA DOSIS"
                     TextColor="#DE000000" />
-                <Label Grid.Row="1" Text="Estatus: NO APLICADA" />
-                <Label Grid.Row="2" Text="Fecha: --" />
-                <Label Grid.Row="3" Text="Hora: --" />
-                <Label Grid.Row="4" Text="Vacunador: --" />
-                <Label Grid.Row="5" Text="Centro: --" />
+                <Label Grid.Row="1" Text="{Binding FirstVaccineApplication.Status}" />
+                <Label Grid.Row="2" Text="{Binding FirstVaccineApplication.Date}" />
+                <Label Grid.Row="3" Text="{Binding FirstVaccineApplication.Hour}" />
+                <Label Grid.Row="4" Text="{Binding FirstVaccineApplication.Vaccinator}" />
+                <Label Grid.Row="5" Text="{Binding FirstVaccineApplication.Center}" />
 
                 <mtrl:MaterialChip
                     Grid.Column="1"

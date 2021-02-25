@@ -6,7 +6,9 @@ namespace SisVac.Framework.Domain
     public class VaccineApplication : BaseEntity
     {
         [JsonProperty("cedula")]
-        public string Cedula { get; set; }
+        public string Cedula{ get; set; }
+        [JsonProperty("citizen")]
+        public Citizen Citizen { get; set; }
         [JsonProperty("vaccine")]
         public string Vaccine { get; set; }
         [JsonProperty("lot")]

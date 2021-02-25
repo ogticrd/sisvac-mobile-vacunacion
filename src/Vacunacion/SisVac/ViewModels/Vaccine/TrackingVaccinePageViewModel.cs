@@ -6,6 +6,7 @@ using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
 using SisVac.Framework.Domain;
+using SisVac.Framework.Domain.Dto;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
 using SisVac.Helpers.Rules;
@@ -45,6 +46,9 @@ namespace SisVac.ViewModels.Vaccine
             VaccinationBatch = new Validatable<string>();
             VaccinationBatch.Validations.Add(new IsNotNullOrEmptyRule() { ValidationMessage = "Necesitas seleccionar un lote" });
 
+            VaccinationBrand = new Validatable<string>();
+            VaccinationBrand.Validations.Add(new IsNotNullOrEmptyRule() { ValidationMessage = "Necesitas seleccionar una marca" });
+
             LotNamesList = new List<string> { "No disponible" };
 
             Init();
@@ -65,8 +69,17 @@ namespace SisVac.ViewModels.Vaccine
         }
         public Person Patient { get; set; } = new Person();
         public Consent Consent { get; set; } = new Consent();
+        public VaccineTableColumnValues FirstVaccineApplication { get; set; } = new VaccineTableColumnValues
+        {
+            Estatus = "Estatus: NO APLICADA",
+            Date = "Fecha: --",
+            Hour = "Hora: --",
+            Vaccinator = "Vacunador: --",
+            Center = "Centro: --"
+        };
         public Validatable<string> VaccinatorSelected { get; set; }
         public Validatable<string> VaccinationBatch { get; set; }
+        public Validatable<string> VaccinationBrand { get; set; }
         public List<string> VaccinatorsName { get; set; }
         public int IndexSelected { get; set; }
 
@@ -75,17 +88,13 @@ namespace SisVac.ViewModels.Vaccine
         public ICommand BackCommand { get; }
         public ICommand VaccineBrandSelectedCommand { get; }
 
-
         public List<string> VaccineBrandNamesList { get; set; }
         public List<string> LotNamesList { get; set; }
-
-        public string LotName { get; set; }
-        public string VaccineBrandName { get; set; }
 
 
         private async void OnVaccineBrandSelectedCommandExecute()
         {
-            var brand = await App.Database.Connection.Table<VaccineBrand>().FirstOrDefaultAsync(x=>x.Name == VaccineBrandName);
+            var brand = await App.Database.Connection.Table<VaccineBrand>().FirstOrDefaultAsync(x=>x.Name == VaccinationBrand.Value);
             VaccinationBatch.Value = "";
             LotNamesList = (await App.Database.Connection.Table<VaccineLot>().Where(x => x.VaccineBrandLocalId == brand.LocalId).OrderBy(x => x.Name).ToListAsync()).Select(x => x.Name).ToList();
         }
@@ -129,7 +138,7 @@ namespace SisVac.ViewModels.Vaccine
                         var vaccinator = vaccinatorsList.Where(x=>x.FullName == VaccinatorSelected.Value).FirstOrDefault();
                         var manager = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.UserInfo);
                         var location = await _cacheService.GetLocalObject<ClinicLocation>(CacheKeyDictionary.CenterInfo);
-                        var vaccineBrand = await App.Database.Connection.Table<VaccineBrand>().FirstOrDefaultAsync(x => x.Name == VaccineBrandName);
+                        var vaccineBrand = await App.Database.Connection.Table<VaccineBrand>().FirstOrDefaultAsync(x => x.Name == VaccinationBrand.Value);
                         var lot = await App.Database.Connection.Table<VaccineLot>().FirstOrDefaultAsync(x => x.Name == VaccinationBatch.Value);
                         await _citizensApiClient.PostVaccineApplication(new VaccineApplication
                         {
@@ -190,10 +199,17 @@ namespace SisVac.ViewModels.Vaccine
                 };
 
                 var vaccineApplication = await _citizensApiClient.GetVaccineApplication(patientData.Cedula);
-                if (vaccineApplication.Cedula != null)
+                if (vaccineApplication.Citizen != null)
                 {
-                    await _dialogService.DisplayAlertAsync("El usuario no ha sido registrado", "El usuario no ha dado consentimiento para vacunación", "OK");
-                    return;
+                    var vaccinator = await GetDocumentData(vaccineApplication.Citizen.Document);
+                    FirstVaccineApplication = new VaccineTableColumnValues
+                    {
+                        Estatus = "Estatus: APLICADA",
+                        Date = $"Fecha: {vaccineApplication.Date}",
+                        Hour = $"Hora: {vaccineApplication.Hour}",
+                        Center = $"Centro: {vaccineApplication.Location}",
+                        Vaccinator = $"Vacunador: {vaccinator.Name}"
+                    };
                 }
 
                 Consent = await _citizensApiClient.GetConsent(patientData.Cedula);
