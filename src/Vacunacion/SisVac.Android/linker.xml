@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<linker>
+
+  <assembly fullname="SisVac">
+    <type fullname="*" />
+  </assembly>
+
+  <assembly fullname="SQLite-net">
+    <type fullname="*" />
+  </assembly>
+
+  <assembly fullname="SQLitePCLRaw.core">
+    <type fullname="*" />
+  </assembly>
+
+  <assembly fullname="DryIoc">
+    <type fullname="*" />
+  </assembly>
+
+  <assembly fullname="System">
+    <type fullname="*" />
+  </assembly>
+
+  <assembly fullname="mscorlib">
+    <type fullname="*" />
+  </assembly>
+
+  <assembly fullname="Prism">
+    <type fullname="*" />
+  </assembly>
+
+  <assembly fullname="Prism.DryIoc.Forms">
+    <type fullname="*" />
+  </assembly>
+
+  <assembly fullname="Prism.Forms">
+    <type fullname="*" />
+  </assembly>
+
+  <assembly fullname="Akavache.Sqlite3">
+    <type fullname="Akavache.Sqlite3.Registrations" preserve="all">
+      <method name=".ctor" />
+    </type>
+  </assembly>
+  
+</linker>
