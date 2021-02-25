@@ -1,4 +1,5 @@
-﻿using Plugin.ValidationRules;
+﻿using Microsoft.AppCenter.Crashes;
+using Plugin.ValidationRules;
 using Plugin.ValidationRules.Rules;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -122,28 +123,37 @@ namespace SisVac.ViewModels.Vaccine
             {
                 using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
                 {
-                    var vaccinatorsList = await _cacheService.GetLocalObject<List<ApplicationUser>>(CacheKeyDictionary.VaccinatorsList); ;
-                    var vaccinator = vaccinatorsList.Where(x=>x.FullName == VaccinatorSelected.Value).FirstOrDefault();
-                    var manager = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.UserInfo);
-                    var location = await _cacheService.GetLocalObject<ClinicLocation>(CacheKeyDictionary.CenterInfo);
-                    var vaccineBrand = await App.Database.Connection.Table<VaccineBrand>().FirstOrDefaultAsync(x => x.Name == VaccineBrandName);
-                    var lot = await App.Database.Connection.Table<VaccineLot>().FirstOrDefaultAsync(x => x.Name == VaccinationBatch.Value);
-
-                    await _citizensApiClient.PostVaccineApplication(new VaccineApplication
+                    try
                     {
-                        Cedula = DocumentID.Value,
-                        Date = DateTime.UtcNow.ToString(),
-                        Hour = DateTime.UtcNow.Hour.ToString(),
-                        Dose = "1",
-                        Vaccine = vaccineBrand.Name,
-                        VaccineId = vaccineBrand.Id,
-                        Lot = VaccinationBatch.Value,
-                        LotId = lot.Id,
-                        VaccinatorCedula = vaccinator.Document,
-                        VaccinatorManagerCedula = manager.Document,
-                        Location = location.Name,
-                        LocationId = location.Id,
-                    });
+                        var vaccinatorsList = await _cacheService.GetLocalObject<List<ApplicationUser>>(CacheKeyDictionary.VaccinatorsList); ;
+                        var vaccinator = vaccinatorsList.Where(x=>x.FullName == VaccinatorSelected.Value).FirstOrDefault();
+                        var manager = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.UserInfo);
+                        var location = await _cacheService.GetLocalObject<ClinicLocation>(CacheKeyDictionary.CenterInfo);
+                        var vaccineBrand = await App.Database.Connection.Table<VaccineBrand>().FirstOrDefaultAsync(x => x.Name == VaccineBrandName);
+                        var lot = await App.Database.Connection.Table<VaccineLot>().FirstOrDefaultAsync(x => x.Name == VaccinationBatch.Value);
+                        await _citizensApiClient.PostVaccineApplication(new VaccineApplication
+                        {
+                            Cedula = Patient.Document,
+                            Date = DateTime.UtcNow.ToString(),
+                            Hour = DateTime.UtcNow.Hour.ToString(),
+                            Dose = "1",
+                            Vaccine = vaccineBrand.Name,
+                            VaccineId = vaccineBrand.Id,
+                            Lot = VaccinationBatch.Value,
+                            LotId = lot.Id,
+                            VaccinatorCedula = vaccinator.Document,
+                            VaccinatorManagerCedula = manager.Document,
+                            Location = location.Name,
+                            LocationId = location.Id,
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        Crashes.TrackError(ex);
+                        IsBusy = false;
+                        await _dialogService.DisplayAlertAsync("Ocurrió algo inesperado", "Ocurrió un problema de comunicación con el servidor", "OK");
+                        return;
+                    }
                 }
 
                 await _dialogService.DisplayAlertAsync("Proceso finalizado", "Has terminado satisfactoriamente.", "Ok");

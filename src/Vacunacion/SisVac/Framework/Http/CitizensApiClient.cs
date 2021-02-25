@@ -29,10 +29,10 @@ namespace SisVac.Framework.Http
         [Get("/citizens/vaccination-consent")]
         Task<Consent> GetConsent(string id);
 
-        [Post("/citizens/vaccination-data")]
+        [Post("/citizens/vaccination-application")]
         Task<dynamic> PostVaccineApplication([Body] VaccineApplication vaccination);
 
-        [Get("/citizens/vaccination-data")]
+        [Get("/citizens/vaccination-application")]
         Task<VaccineApplication> GetVaccineApplication(string id);
 
         [Get("/citizens/qualification")]
