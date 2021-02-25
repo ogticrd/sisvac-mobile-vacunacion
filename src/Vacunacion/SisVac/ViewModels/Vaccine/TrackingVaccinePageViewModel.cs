@@ -181,13 +181,20 @@ namespace SisVac.ViewModels.Vaccine
 
             var patientData = await GetDocumentData(id);
             if (patientData != null && patientData.IsValid)
-            { 
+            {
                 Patient = new Person
                 {
                     Age = patientData.Age,
                     Document = patientData.Cedula,
                     FullName = patientData.Name
                 };
+
+                var vaccineApplication = await _citizensApiClient.GetVaccineApplication(patientData.Cedula);
+                if (vaccineApplication.Cedula != null)
+                {
+                    await _dialogService.DisplayAlertAsync("El usuario no ha sido registrado", "El usuario no ha dado consentimiento para vacunación", "OK");
+                    return;
+                }
 
                 Consent = await _citizensApiClient.GetConsent(patientData.Cedula);
 
@@ -200,7 +207,9 @@ namespace SisVac.ViewModels.Vaccine
                 else
                 {
                     await _dialogService.DisplayAlertAsync("El usuario no ha sido registrado", "El usuario no ha dado consentimiento para vacunación", "OK");
+                    return;
                 }
+
             }
         }
 

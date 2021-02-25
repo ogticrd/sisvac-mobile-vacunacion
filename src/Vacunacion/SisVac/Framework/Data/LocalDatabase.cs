@@ -46,14 +46,14 @@ namespace SisVac.Framework.Data
             {
                 var vaccineBrandId = await _db.InsertAsync(new VaccineBrand { Id="1", LocalId=1, Name = "AstraZeneca" });
                 await _db.InsertAllAsync(new List<VaccineLot>{
-                    new VaccineLot { Name="4120Z001", VaccineBrandLocalId=1 },
-                    new VaccineLot { Name="4120Z023", VaccineBrandLocalId=1 },
+                    new VaccineLot { Id="3", LocalId=3, Name="4120Z001", VaccineBrandLocalId=1 },
+                    new VaccineLot { Id="4", LocalId=4, Name="4120Z023", VaccineBrandLocalId=1 },
                 });
                 vaccineBrandId = await _db.InsertAsync(new VaccineBrand { Id = "2", LocalId = 2, Name = "SINOVAC" });
                 await _db.InsertAllAsync(new List<VaccineLot>{
-                    new VaccineLot { Name="A2021010034", VaccineBrandLocalId=2 },
-                    new VaccineLot { Name="A2021010039", VaccineBrandLocalId=2 },
-                    new VaccineLot { Name="A2021010041", VaccineBrandLocalId=2 },
+                    new VaccineLot { Id="3", LocalId=3, Name="A2021010034", VaccineBrandLocalId=2 },
+                    new VaccineLot { Id="4", LocalId=4, Name="A2021010039", VaccineBrandLocalId=2 },
+                    new VaccineLot { Id="5", LocalId=5, Name="A2021010041", VaccineBrandLocalId=2 },
                 });
             }
         }
