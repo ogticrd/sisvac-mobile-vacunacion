@@ -204,7 +204,7 @@ namespace SisVac.ViewModels.Vaccine
                     var vaccinator = await GetDocumentData(vaccineApplication.Citizen.Document);
                     FirstVaccineApplication = new VaccineTableColumnValues
                     {
-                        Estatus = "Estatus: APLICADA",
+                        Status = "Estatus: APLICADA",
                         Date = $"Fecha: {vaccineApplication.Date}",
                         Hour = $"Hora: {vaccineApplication.Hour}",
                         Center = $"Centro: {vaccineApplication.Location}",
