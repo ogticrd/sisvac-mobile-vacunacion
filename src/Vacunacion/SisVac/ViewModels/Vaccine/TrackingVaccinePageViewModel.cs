@@ -118,7 +118,7 @@ namespace SisVac.ViewModels.Vaccine
             {
                 using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
                 {
-                    var vaccinator = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorInfo);
+                    var vaccinator = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorDefault);
                     await _citizensApiClient.PostVaccineApplication(new VaccineApplication
                     {
                         Cedula = DocumentID.Value,
