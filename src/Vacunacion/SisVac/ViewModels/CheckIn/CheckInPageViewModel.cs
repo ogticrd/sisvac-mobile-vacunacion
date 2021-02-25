@@ -118,7 +118,7 @@ namespace SisVac.ViewModels.CheckIn
                     }
                 }
 
-                await _dialogService.DisplayAlertAsync("Proceso finalizado", "Has terminado satisfactoriamente.", "Ok");
+                await _dialogService.DisplayAlertAsync("Registro completado", "Has terminado la tarea satisfactoriamente.", "Ok");
                 await _navigationService.GoBackAsync();
             }
             else
@@ -154,7 +154,7 @@ namespace SisVac.ViewModels.CheckIn
 
                 if (consent.Citizen != null)
                 {
-                    await _dialogService.DisplayAlertAsync("Este usuario ha sido registrado", "El usuario ya ha dado su consentimiento para vacunarse", "OK");
+                    await _dialogService.DisplayAlertAsync("Registro Exitoso", "Este cuidadano ya ha dado su consentimiento para vacunarse.", "OK");
                 }
                 else
                 {

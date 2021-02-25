@@ -35,7 +35,7 @@
             <Label
                 HorizontalOptions="Center"
                 Style="{StaticResource H3}"
-                Text="Localización"
+                Text="Centro de Vacunación         "
                 TextTransform="Uppercase" />
 
             <Label
