@@ -22,22 +22,32 @@
                             SelectedChoice="{Binding VaccinatorSelected.Value}"
                             Style="{StaticResource TextFieldChoiceStyle}" />
                     </ctrls:TextFieldLayout>
+                    
+                <ctrls:TextFieldLayout>
+                    <mtrl:MaterialTextField
+                        ChoiceSelectedCommand="{Binding VaccineBrandSelectedCommand}"
+                        ErrorText="El campo es requerido"
+                        HasError="{Binding ShowErrorMessage}"
+                        HelperText=""
+                        Placeholder="Marca de vacuna"
+                        SelectedChoice="{Binding VaccineBrandName}"
+                        Style="{StaticResource TextFieldChoiceStyle}"
+                        Choices="{Binding VaccineBrandNamesList}">
+                    </mtrl:MaterialTextField>
+                </ctrls:TextFieldLayout>
 
-                    <ctrls:TextFieldLayout>
-                        <mtrl:MaterialTextField
-                            ErrorText="{Binding VaccinationBatch.Error}"
-                            HasError="{Binding VaccinationBatch.IsValid, Converter={StaticResource NegateBoolean}}"
-                            Placeholder="Lote de vacuna"
-                            SelectedChoice="{Binding VaccinationBatch.Value}"
-                            Style="{StaticResource TextFieldChoiceStyle}">
-                            <mtrl:MaterialTextField.Choices>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>4120Z001</x:String>
-                                    <x:String>4120Z023</x:String>
-                                </x:Array>
-                            </mtrl:MaterialTextField.Choices>
-                        </mtrl:MaterialTextField>
-                    </ctrls:TextFieldLayout>
+                <ctrls:TextFieldLayout>
+                    <mtrl:MaterialTextField
+                        ChoiceSelectedCommand="{Binding LocationSelectedCommand}"
+                        ErrorText="El campo es requerido"
+                        HasError="{Binding ShowErrorMessage}"
+                        HelperText=""
+                        Placeholder="Lote de vacuna"
+                        SelectedChoice="{Binding LotName}"
+                        Style="{StaticResource TextFieldChoiceStyle}"
+                        Choices="{Binding LotNamesList}">
+                    </mtrl:MaterialTextField>
+                </ctrls:TextFieldLayout>
                 </StackLayout>
             </Frame>
 
