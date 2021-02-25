@@ -37,7 +37,7 @@ namespace SisVac.ViewModels.Vaccine
             try
             {
                 if (_vaccinatorUser == null)
-                    _vaccinatorUser = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorInfo);
+                    _vaccinatorUser = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorDefault);
 
                 if (_vaccinatorsList == null)                
                     _vaccinatorsList = await _cacheService.GetLocalObject<List<ApplicationUser>>(CacheKeyDictionary.VaccinatorsList);
@@ -70,7 +70,7 @@ namespace SisVac.ViewModels.Vaccine
                     var response = await _dialogService.DisplayAlertAsync("Confirmación", $"¿Estás seguro de seleccionar este vacunador por defecto?", "Si", "No");
                     if (response)
                     {
-                        await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorInfo, vaccinatorDefault);
+                        await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorDefault, vaccinatorDefault);
                         await _navigationService.GoBackAsync();
                     }
                 }
