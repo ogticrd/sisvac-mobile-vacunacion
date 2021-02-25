@@ -20,7 +20,6 @@ namespace SisVac.ViewModels
 
         private async Task Init()
         {
-
             User = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.UserInfo);
             Vaccinator = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorDefault);
             Location = await _cacheService.GetLocalObject<ClinicLocation>(CacheKeyDictionary.CenterInfo);
@@ -29,10 +28,7 @@ namespace SisVac.ViewModels
 
         public override async void OnNavigatedTo(INavigationParameters parameters)
         {
-
             await Init();
-            //if (parameters.ContainsKey("user"))
-            //    User = parameters.GetValue<ApplicationUser>("user");
         }
     }
 }

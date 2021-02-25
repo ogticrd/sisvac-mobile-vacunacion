@@ -29,6 +29,8 @@ namespace SisVac.Framework.Data
                 _db = new SQLiteAsyncConnection(databasePath);
 
                 await _db.CreateTableAsync<ClinicLocation>();
+                await _db.CreateTableAsync<VaccineBrand>();
+                await _db.CreateTableAsync<VaccineLot>();
                 await LoadSeeds();
             }
         }
@@ -39,6 +41,20 @@ namespace SisVac.Framework.Data
             {
                 var locationsScript = ReadResourceFile("SisVac.Framework.Data.Scripts.ClinicLocations.sql");
                 await _db.ExecuteAsync(locationsScript);
+            }
+            if (await _db.Table<VaccineBrand>().CountAsync() == 0)
+            {
+                var vaccineBrandId = await _db.InsertAsync(new VaccineBrand { Id="1", LocalId=1, Name = "AstraZeneca" });
+                await _db.InsertAllAsync(new List<VaccineLot>{
+                    new VaccineLot { Name="4120Z001", VaccineBrandLocalId=1 },
+                    new VaccineLot { Name="4120Z023", VaccineBrandLocalId=1 },
+                });
+                vaccineBrandId = await _db.InsertAsync(new VaccineBrand { Id = "2", LocalId = 2, Name = "SINOVAC" });
+                await _db.InsertAllAsync(new List<VaccineLot>{
+                    new VaccineLot { Name="A2021010034", VaccineBrandLocalId=2 },
+                    new VaccineLot { Name="A2021010039", VaccineBrandLocalId=2 },
+                    new VaccineLot { Name="A2021010041", VaccineBrandLocalId=2 },
+                });
             }
         }
 
