@@ -1,5 +1,6 @@
 ﻿using Microsoft.AppCenter.Crashes;
 using Plugin.ValidationRules;
+using Plugin.ValidationRules.Formatters;
 using Plugin.ValidationRules.Rules;
 using Prism.Commands;
 using Prism.Navigation;
@@ -39,6 +40,7 @@ namespace SisVac.ViewModels.CheckIn
 
             EmergencyPhoneNumber = new Validatable<string>();
             EmergencyPhoneNumber.Validations.Add(new IsNotNullOrEmptyRule());
+            EmergencyPhoneNumber.ValueFormatter = new MaskFormatter("(XXX)XXX-XXXX");
 
             _emergencyContactUnit = new ValidationUnit(EmergencyContactName, EmergencyPhoneNumber);
 

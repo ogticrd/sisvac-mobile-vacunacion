@@ -54,7 +54,7 @@
                             HasError="{Binding EmergencyPhoneNumber.IsValid, Converter={StaticResource NegateBoolean}}"
                             HelperText="¿Donde podemos contactarlo?"
                             InputType="Numeric"
-                            MaxLength="11"
+                            MaxLength="13"
                             Placeholder="Número de Contacto"
                             ReturnType="Done"
                             Text="{Binding EmergencyPhoneNumber.Value}" />
