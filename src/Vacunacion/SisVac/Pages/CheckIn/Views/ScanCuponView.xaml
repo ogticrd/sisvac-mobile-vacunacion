@@ -12,7 +12,7 @@
             <StackLayout>
                 <ctrls:TextFieldLayout>
                     <mtrl:MaterialTextField
-                        HelperText="Digite o escane la cédula del cuidadano"
+                        HelperText="Digite o escanee la cédula del cuidadano"
                         ReturnCommand="{Binding NextCommand}"
                         StyleClass="CedulaTextField" />
                 </ctrls:TextFieldLayout>
