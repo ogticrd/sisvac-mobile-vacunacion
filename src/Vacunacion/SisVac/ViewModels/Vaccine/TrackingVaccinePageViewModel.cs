@@ -118,17 +118,24 @@ namespace SisVac.ViewModels.Vaccine
             {
                 using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
                 {
-                    var vaccinator = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.VaccinatorDefault);
+                    var vaccinatorsList = await _cacheService.GetLocalObject<List<ApplicationUser>>(CacheKeyDictionary.VaccinatorsList); ;
+                    var vaccinator = vaccinatorsList.Where(x=>x.FullName == VaccinatorSelected.Value).FirstOrDefault();
+                    var manager = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.UserInfo);
+                    var location = await _cacheService.GetLocalObject<ClinicLocation>(CacheKeyDictionary.CenterInfo);
                     await _citizensApiClient.PostVaccineApplication(new VaccineApplication
                     {
                         Cedula = DocumentID.Value,
-                        //TODO Remove these fields
                         Date = DateTime.UtcNow.ToString(),
                         Hour = DateTime.UtcNow.Hour.ToString(),
                         Dose = "1",
                         Vaccine = "",
+                        VaccineId = "",
                         Lot = LotName,
-                        Location = vaccinator.LocationId
+                        LotId = "",
+                        VaccinatorCedula = vaccinator.Document,
+                        VaccinatorManagerCedula = manager.Document,
+                        Location = location.Name,
+                        LocationId = location.Id,
                     });
                 }
 
