@@ -52,7 +52,7 @@
                         <mtrl:MaterialTextField
                             ErrorText="{Binding EmergencyPhoneNumber.Error}"
                             HasError="{Binding EmergencyPhoneNumber.IsValid, Converter={StaticResource NegateBoolean}}"
-                            HelperText="¿Donde podemos contactarlo?"
+                            HelperText="¿Dónde podemos contactarlo?"
                             InputType="Numeric"
                             MaxLength="11"
                             Placeholder="Número de Contacto"
