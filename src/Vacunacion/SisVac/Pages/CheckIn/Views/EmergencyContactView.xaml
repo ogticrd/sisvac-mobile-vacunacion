@@ -29,6 +29,7 @@
                         <mtrl:MaterialTextField
                             HelperText="¿Qué relacion tiene con el paciente?"
                             Placeholder="Relación/Parentesco"
+                            SelectedChoice="{Binding Consent.EmergencyContactRelationship}"
                             Style="{StaticResource TextFieldChoiceStyle}">
                             <mtrl:MaterialTextField.Choices>
                                 <x:Array Type="{x:Type x:String}">

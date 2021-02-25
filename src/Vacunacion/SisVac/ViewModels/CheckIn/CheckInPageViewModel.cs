@@ -113,8 +113,8 @@ namespace SisVac.ViewModels.CheckIn
                                 Patient.Document, Consent.HasCovid, Consent.IsPregnant,
                                 Consent.HadFever, Consent.IsVaccinated, Consent.HadReactions,
                                 Consent.IsAllergic, Consent.IsMedicated, Consent.HasTransplant,
-                                Consent.IsInmunoDeficient, userInfo.Document, Consent.EmergencyContactName,
-                                Consent.EmergencyContactPhone, Consent.EmergencyContactRelationship,
+                                Consent.IsInmunoDeficient, userInfo.Document, EmergencyContactName.Value,
+                                EmergencyPhoneNumber.Value, Consent.EmergencyContactRelationship,
                                 signatureStreamPart);
                         }
                     }

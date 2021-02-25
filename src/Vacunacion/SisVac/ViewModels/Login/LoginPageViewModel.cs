@@ -50,8 +50,7 @@ namespace SisVac.ViewModels.Login
                 {
                     Age = userData.Age,
                     Document = userData.Cedula,
-                    FullName = userData.Name,
-                    LocationName = string.Empty
+                    FullName = userData.Name
                 };
 
                 await _cacheService.InsertLocalObject(CacheKeyDictionary.UserInfo, user);
