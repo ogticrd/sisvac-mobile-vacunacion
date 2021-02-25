@@ -33,6 +33,7 @@ namespace SisVac.ViewModels.Vaccine
             NextCommand = new DelegateCommand(OnNextCommandExecute);
             BackCommand = new DelegateCommand(OnBackCommandExecute);
             ConfirmCommand = new DelegateCommand(OnConfirmCommandExecute);
+            VaccineBrandSelectedCommand = new DelegateCommand(OnVaccineBrandSelectedCommandExecute);
             ProgressBarIndicator = 0.0f;
 
             DocumentScanned = async (id) => await GoNextAfterDocumentRead(id);
@@ -42,6 +43,8 @@ namespace SisVac.ViewModels.Vaccine
 
             VaccinationBatch = new Validatable<string>();
             VaccinationBatch.Validations.Add(new IsNotNullOrEmptyRule() { ValidationMessage = "Necesitas seleccionar un lote" });
+
+            LotNamesList = new List<string> { "No disponible" };
 
             Init();
         }
@@ -82,6 +85,7 @@ namespace SisVac.ViewModels.Vaccine
         private async void OnVaccineBrandSelectedCommandExecute()
         {
             var brand = await App.Database.Connection.Table<VaccineBrand>().FirstOrDefaultAsync(x=>x.Name == VaccineBrandName);
+            VaccinationBatch.Value = "";
             LotNamesList = (await App.Database.Connection.Table<VaccineLot>().Where(x => x.VaccineBrandLocalId == brand.LocalId).OrderBy(x => x.Name).ToListAsync()).Select(x => x.Name).ToList();
         }
 
@@ -122,16 +126,19 @@ namespace SisVac.ViewModels.Vaccine
                     var vaccinator = vaccinatorsList.Where(x=>x.FullName == VaccinatorSelected.Value).FirstOrDefault();
                     var manager = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.UserInfo);
                     var location = await _cacheService.GetLocalObject<ClinicLocation>(CacheKeyDictionary.CenterInfo);
+                    var vaccineBrand = await App.Database.Connection.Table<VaccineBrand>().FirstOrDefaultAsync(x => x.Name == VaccineBrandName);
+                    var lot = await App.Database.Connection.Table<VaccineLot>().FirstOrDefaultAsync(x => x.Name == VaccinationBatch.Value);
+
                     await _citizensApiClient.PostVaccineApplication(new VaccineApplication
                     {
                         Cedula = DocumentID.Value,
                         Date = DateTime.UtcNow.ToString(),
                         Hour = DateTime.UtcNow.Hour.ToString(),
                         Dose = "1",
-                        Vaccine = "",
-                        VaccineId = "",
-                        Lot = LotName,
-                        LotId = "",
+                        Vaccine = vaccineBrand.Name,
+                        VaccineId = vaccineBrand.Id,
+                        Lot = VaccinationBatch.Value,
+                        LotId = lot.Id,
                         VaccinatorCedula = vaccinator.Document,
                         VaccinatorManagerCedula = manager.Document,
                         Location = location.Name,

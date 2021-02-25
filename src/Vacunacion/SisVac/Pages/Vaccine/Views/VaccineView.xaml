@@ -38,12 +38,11 @@
 
                 <ctrls:TextFieldLayout>
                     <mtrl:MaterialTextField
-                        ChoiceSelectedCommand="{Binding LocationSelectedCommand}"
                         ErrorText="El campo es requerido"
                         HasError="{Binding ShowErrorMessage}"
                         HelperText=""
                         Placeholder="Lote de vacuna"
-                        SelectedChoice="{Binding LotName}"
+                        SelectedChoice="{Binding VaccinationBatch.Value}"
                         Style="{StaticResource TextFieldChoiceStyle}"
                         Choices="{Binding LotNamesList}">
                     </mtrl:MaterialTextField>
