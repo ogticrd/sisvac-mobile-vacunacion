@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Prism.Navigation;
@@ -105,6 +106,7 @@ namespace SisVac.ViewModels.Login
                     Settings.IsLoggedIn = true;
 
                     await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorDefault, user);
+                    await _cacheService.InsertLocalObject(CacheKeyDictionary.VaccinatorsList, new List<ApplicationUser>() { user });
                     await _cacheService.InsertLocalObject(CacheKeyDictionary.CenterInfo, location);
                     await _navigationService.NavigateAsync("/NavigationPage/HomePage");
                 }
