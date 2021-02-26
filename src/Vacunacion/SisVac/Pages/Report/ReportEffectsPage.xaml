@@ -94,7 +94,7 @@
                             </mtrl:MaterialCheckboxGroup>
 
                             <ctrls:TextFieldLayout>
-                                <mtrl:MaterialTextField Placeholder="Observaciones" />
+                                <mtrl:MaterialTextField MaxLength="280" Placeholder="Observaciones" />
                             </ctrls:TextFieldLayout>
                         </StackLayout>
                     </Frame>
