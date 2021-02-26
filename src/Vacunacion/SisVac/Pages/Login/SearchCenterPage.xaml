@@ -20,10 +20,9 @@
             <Frame Padding="16,24,16,0">
                 <ctrls:TextFieldLayout>
                     <mtrl:MaterialTextField
-                        HelperText="¿Cuál es el nombre de tu centro?"
+                        HelperText="Digite el nombre del centro a buscar"
                         Placeholder="Nombre del Centro"
-                        Text="{Binding SearchText}"
-                        >
+                        Text="{Binding SearchText}">
                         <mtrl:MaterialTextField.Behaviors>
                             <prism:EventToCommandBehavior EventName="TextChanged"
                                         Command="{Binding FilterTextChangedCommand}"

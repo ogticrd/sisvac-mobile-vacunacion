@@ -32,7 +32,7 @@ namespace SisVac.ViewModels.Login
 
         #region Properties
         public string LocationId { get; set; }
-        public string LocationName { get; set; } = "Centros";
+        public string LocationName { get; set; } = "Centro";
 
         public bool ShowLocationErrorMessage { get; set; }
 

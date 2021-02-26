@@ -202,7 +202,7 @@
             <Setter Property="HasError" Value="{Binding DocumentID.IsValid, Converter={StaticResource NegateBoolean}}" />
             <Setter Property="InputType" Value="Numeric" />
             <Setter Property="MaxLength" Value="13" />
-            <Setter Property="Placeholder" Value="Número de Cédula" />
+            <Setter Property="Placeholder" Value="Número de cédula" />
             <Setter Property="Text" Value="{Binding DocumentID.Value}" />
             <Setter Property="TintColor" Value="{StaticResource SecondaryColor}" />
 

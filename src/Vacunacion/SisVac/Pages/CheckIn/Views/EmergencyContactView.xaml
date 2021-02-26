@@ -20,6 +20,7 @@
                             ErrorText="{Binding EmergencyContactName.Error}"
                             HasError="{Binding EmergencyContactName.IsValid, Converter={StaticResource NegateBoolean}}"
                             HelperText="Digite el nombre del contacto de emergencia"
+                            MaxLength="26"
                             Placeholder="Nombre completo"
                             ReturnType="Next"
                             Text="{Binding EmergencyContactName.Value}" />
@@ -27,7 +28,7 @@
 
                     <ctrls:TextFieldLayout>
                         <mtrl:MaterialTextField
-                            HelperText="¿Qué relacion tiene con el paciente?"
+                            HelperText="¿Qué relación tiene con el paciente?"
                             Placeholder="Relación/Parentesco"
                             Style="{StaticResource TextFieldChoiceStyle}">
                             <mtrl:MaterialTextField.Choices>
@@ -52,7 +53,7 @@
                         <mtrl:MaterialTextField
                             ErrorText="{Binding EmergencyPhoneNumber.Error}"
                             HasError="{Binding EmergencyPhoneNumber.IsValid, Converter={StaticResource NegateBoolean}}"
-                            HelperText="¿Dónde podemos contactarlo?"
+                            HelperText="Teléfono del contacto de emergencia"
                             InputType="Numeric"
                             MaxLength="13"
                             Placeholder="Número de Contacto"

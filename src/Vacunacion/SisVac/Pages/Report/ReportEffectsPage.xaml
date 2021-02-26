@@ -94,11 +94,7 @@
                             </mtrl:MaterialCheckboxGroup>
 
                             <ctrls:TextFieldLayout>
-                                <mtrl:MaterialTextField
-                                    ErrorText="Error Text"
-                                    HelperText=""
-                                    MaxLength="14"
-                                    Placeholder="Observaciones" />
+                                <mtrl:MaterialTextField Placeholder="Observaciones" />
                             </ctrls:TextFieldLayout>
                         </StackLayout>
                     </Frame>

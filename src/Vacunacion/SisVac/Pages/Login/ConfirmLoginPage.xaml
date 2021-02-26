@@ -7,7 +7,7 @@
     xmlns:hlps="clr-namespace:SisVac.Helpers"
     xmlns:mtrl="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     xmlns:prism="http://prismlibrary.com"
-    Title="Confirmando Ingreso"
+    Title="Confirmando ingreso"
     prism:ViewModelLocator.AutowireViewModel="True"
     BackgroundColor="{StaticResource BackgroundColor}">
 
@@ -25,7 +25,7 @@
             Margin="0,32,0,0"
             HorizontalOptions="Center"
             Style="{StaticResource H1}"
-            Text="¡Bievenid@ de vuelta!" />
+            Text="¡Hola!" />
 
         <Label
             HorizontalOptions="Center"
@@ -40,7 +40,7 @@
                 <Label
                     Margin="0,0,0,8"
                     Style="{StaticResource H3}"
-                    Text="Registra el Centro y Vacunador asignado antes de comenzar" />
+                    Text="Registra el centro y vacunador/a asignado antes de comenzar" />
 
                 <ctrls:TextFieldLayout VerticalOptions="Start">
 
@@ -66,7 +66,8 @@
 
                 <ctrls:TextFieldLayout>
                     <mtrl:MaterialTextField
-                        HelperText="Digite o escanee la cédula del vacunador asignado"
+                        HelperText="Digite o escanee la cédula del vacunador/a"
+                        Placeholder="Vacunador"
                         ReturnCommand="{Binding ConfirmLoginCommand}"
                         StyleClass="CedulaTextField" />
                 </ctrls:TextFieldLayout>
