@@ -105,10 +105,17 @@ namespace SisVac.ViewModels.CheckIn
                 {
                     try
                     {
+                        var userInfo = await _cacheService.GetLocalObject<ApplicationUser>(CacheKeyDictionary.UserInfo);
                         using (var ms = new MemoryStream(await SignatureFromStream()))
                         {
                             var signatureStreamPart = new StreamPart(ms, "signature.jpg");
-                            var result = await _citizensApiClient.PostConsent(Patient.Document, Consent.HasCovid, Consent.IsPregnant, Consent.HadFever, Consent.IsVaccinated, Consent.HadReactions, Consent.IsAllergic, Consent.IsMedicated, Consent.HasTransplant, signatureStreamPart);
+                            var result = await _citizensApiClient.PostConsent(
+                                Patient.Document, Consent.HasCovid, Consent.IsPregnant,
+                                Consent.HadFever, Consent.IsVaccinated, Consent.HadReactions,
+                                Consent.IsAllergic, Consent.IsMedicated, Consent.HasTransplant,
+                                Consent.IsInmunoDeficient, userInfo.Document, EmergencyContactName.Value,
+                                EmergencyPhoneNumber.Value, Consent.EmergencyContactRelationship,
+                                signatureStreamPart);
                         }
                     }
                     catch (Exception ex)

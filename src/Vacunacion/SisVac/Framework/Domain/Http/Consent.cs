@@ -37,11 +37,20 @@ namespace SisVac.Framework.Domain
         [JsonProperty("isMedicated")]
         public bool IsMedicated { get; set; }
 
-        [JsonProperty("isInmunoDeficient")]
+        [JsonProperty("is_inmuno_deficient")]
         public bool IsInmunoDeficient { get; set; }
 
         [JsonProperty("hasTransplant")]
         public bool HasTransplant { get; set; }
+
+        [JsonProperty("vaccinator_manager_cedula")]
+        public string VaccinatorManagerCedula { get; set; }
+        [JsonProperty("emergency_contact_name")]
+        public string EmergencyContactName { get; set; }
+        [JsonProperty("emergency_contac_phone")]
+        public string EmergencyContactPhone { get; set; }
+        [JsonProperty("emergency_contact_relationship")]
+        public string EmergencyContactRelationship { get; set; }
     }
 
     public class Citizen

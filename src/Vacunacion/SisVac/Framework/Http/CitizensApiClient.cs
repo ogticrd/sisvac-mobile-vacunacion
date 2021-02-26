@@ -18,15 +18,21 @@ namespace SisVac.Framework.Http
             [AliasAs("isPregnant")] bool isPregnant, [AliasAs("hadFever")] bool hadFever,
             [AliasAs("isVaccinated")] bool isVaccinated, [AliasAs("hadReactions")] bool hadReactions,
             [AliasAs("isAllergic")] bool isAllergic, [AliasAs("isMedicated")] bool isMedicated,
-            [AliasAs("hasTransplant")] bool hasTransplant, [AliasAs("signature")] StreamPart Signature);
+            [AliasAs("hasTransplant")] bool hasTransplant,
+            [AliasAs("is_inmuno_deficient")] bool isInmunoDeficient,
+            [AliasAs("vaccinator_manager_cedula")] string vaccinatorManagerCedula,
+            [AliasAs("emergency_contact_name")] string emergencyContactName,
+            [AliasAs("emergency_contac_phone")] string emergencyContactPhone,
+            [AliasAs("emergency_contact_relationship")] string emergencyContactRelationship,
+            [AliasAs("signature")] StreamPart Signature);
 
         [Get("/citizens/vaccination-consent")]
         Task<Consent> GetConsent(string id);
 
-        [Post("/citizens/vaccination-data")]
+        [Post("/citizens/vaccination-application")]
         Task<dynamic> PostVaccineApplication([Body] VaccineApplication vaccination);
 
-        [Get("/citizens/vaccination-data")]
+        [Get("/citizens/vaccination-application")]
         Task<VaccineApplication> GetVaccineApplication(string id);
 
         [Get("/citizens/qualification")]

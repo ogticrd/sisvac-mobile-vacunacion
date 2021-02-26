@@ -53,6 +53,7 @@
     <Folder Include="Framework\Data\Scripts\" />
     <Folder Include="Framework\Http\Loggin\" />
     <Folder Include="Framework\Converters\" />
+    <Folder Include="Framework\Domain\Dto\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Controls\TextFieldLayout.xaml.cs">
