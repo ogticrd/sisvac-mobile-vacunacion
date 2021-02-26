@@ -43,7 +43,7 @@ namespace SisVac.Framework.Http.Loggin
             //    request.Headers.Remove("Authorization");
             //}
 
-            if (request?.RequestUri?.Query != null)            
+            if (!string.IsNullOrWhiteSpace(request?.RequestUri?.Query))            
                 request.RequestUri = new Uri(request.RequestUri.AbsoluteUri + "&key=" + App.ApiKey);
             else
                 request.RequestUri = new Uri(request.RequestUri.AbsoluteUri + "?key=" + App.ApiKey);

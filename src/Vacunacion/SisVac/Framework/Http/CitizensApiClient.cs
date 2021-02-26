@@ -8,7 +8,7 @@ namespace SisVac.Framework.Http
 {
     public interface ICitizensApiClient
     {
-        [Get("/citizens/basic-data/")]
+        [Get("/citizens/basic-data")]
         Task<UserResponse> GetBasicData(string id);
 
         [Multipart]
