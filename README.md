@@ -2,11 +2,12 @@
 
 Development
 
-Android Build Status
+Android Build Status Development
 
 [![Build status](https://build.appcenter.ms/v0.1/apps/f54b4af2-31ff-463f-8987-af757d376f3f/branches/development/badge)](https://appcenter.ms)
 
-Production
+Android Build Status Production
+
 
 [![Build status](https://build.appcenter.ms/v0.1/apps/f54b4af2-31ff-463f-8987-af757d376f3f/branches/main/badge)](https://appcenter.ms)
 

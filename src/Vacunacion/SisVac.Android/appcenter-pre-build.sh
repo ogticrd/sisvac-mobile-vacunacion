@@ -17,7 +17,7 @@ rm -f ${MANIFEST}.bak
 cat $MANIFEST
 echo "Updated manifest!"
 
-sed -i.bak "s/Label = "\"SisVacRD\""/Label = "\"${APP_NAME}\""/" ${SPLASH_ACTIVITY}
+sed -i.bak "s/Label="\"SisVacRD\""/Label="\"${APP_NAME}\""/" ${SPLASH_ACTIVITY}
 rm -f ${SPLASH_ACTIVITY}.bak
 
 cat $SPLASH_ACTIVITY
