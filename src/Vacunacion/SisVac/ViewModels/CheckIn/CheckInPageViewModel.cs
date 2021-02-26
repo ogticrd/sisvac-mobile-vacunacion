@@ -8,6 +8,7 @@ using Prism.Services;
 using Prism.Services.Dialogs;
 using Refit;
 using SisVac.Framework.Domain;
+using SisVac.Framework.Domain.Dto;
 using SisVac.Framework.Extensions;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
@@ -73,6 +74,14 @@ namespace SisVac.ViewModels.CheckIn
                 return $"Cédula: {Patient.Document}";
             }
         }
+        public VaccineTableColumnValues FirstVaccineApplication { get; set; } = new VaccineTableColumnValues
+        {
+            Status = "Estatus: NO APLICADA",
+            Date = "Fecha: --",
+            Hour = "Hora: --",
+            Vaccinator = "Vacunador: --",
+            Center = "Centro: --"
+        };
 
         public Person Patient { get; set; } = new Person();
         public Consent Consent { get; set; } = new Consent();
@@ -158,6 +167,20 @@ namespace SisVac.ViewModels.CheckIn
                     Document = patientData.Cedula,
                     FullName = patientData.Name
                 };
+
+                var vaccineApplication = await _citizensApiClient.GetVaccineApplication(patientData.Cedula);
+                if (vaccineApplication.Citizen != null)
+                {
+                    var vaccinator = await GetDocumentData(vaccineApplication.Citizen.Document);
+                    FirstVaccineApplication = new VaccineTableColumnValues
+                    {
+                        Status = "Estatus: APLICADA",
+                        Date = $"Fecha: {vaccineApplication.Date}",
+                        Hour = $"Hora: {vaccineApplication.Hour}",
+                        Center = $"Centro: {vaccineApplication.Location}",
+                        Vaccinator = $"Vacunador: {vaccinator.Name}"
+                    };
+                }
 
                 var consent = await _citizensApiClient.GetConsent(patientData.Cedula);
 
