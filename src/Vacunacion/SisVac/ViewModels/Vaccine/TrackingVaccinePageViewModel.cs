@@ -71,7 +71,7 @@ namespace SisVac.ViewModels.Vaccine
         public Consent Consent { get; set; } = new Consent();
         public VaccineTableColumnValues FirstVaccineApplication { get; set; } = new VaccineTableColumnValues
         {
-            Estatus = "Estatus: NO APLICADA",
+            Status = "Estatus: NO APLICADA",
             Date = "Fecha: --",
             Hour = "Hora: --",
             Vaccinator = "Vacunador: --",
