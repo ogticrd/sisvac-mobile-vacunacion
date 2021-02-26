@@ -56,10 +56,17 @@ namespace SisVac.Framework.Domain.UseCases
 
         public async Task<VaccineTableColumnValues> GetVaccineApplicationData(string document)
         {
+            var response = ProcessDocument(document);
+
+            if (!response.isValid)
+                return null;
+
             var vaccineApplication = await _citizensApiClient.GetVaccineApplication(document);
             if (vaccineApplication.Citizen != null)
             {
                 var vaccinator = await GetDocumentData(vaccineApplication.Citizen.Document);
+
+                //TODO: Remove this bad practice. Having can do this in the UI layer
                 return new VaccineTableColumnValues
                 {
                     Status = "Estatus: APLICADA",
