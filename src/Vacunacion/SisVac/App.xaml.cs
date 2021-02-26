@@ -34,6 +34,7 @@ namespace SisVac
     public partial class App
     {
         public static string CitizenApiBaseUrl => AppSettingsManager.Settings["CitizenApiBaseUrl"];
+        public static string ApiKey => AppSettingsManager.Settings["ApiKey"];
 
         public static LocalDatabase Database { get; set; }
 
