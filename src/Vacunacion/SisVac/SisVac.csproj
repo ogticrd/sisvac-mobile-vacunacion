@@ -11,6 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Framework\Domain\UseCases\CitizenUseCase.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\Images\logo.png" />
     <None Remove="Resources\Images\logo_cupula.png" />
     <None Remove="appsettings.json" />
