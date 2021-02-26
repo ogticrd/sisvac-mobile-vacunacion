@@ -1,8 +1,14 @@
 # SISVAC - Módulo de vacunación
 
+Development
+
 Android Build Status
 
 [![Build status](https://build.appcenter.ms/v0.1/apps/f54b4af2-31ff-463f-8987-af757d376f3f/branches/development/badge)](https://appcenter.ms)
+
+Production
+
+[![Build status](https://build.appcenter.ms/v0.1/apps/f54b4af2-31ff-463f-8987-af757d376f3f/branches/main/badge)](https://appcenter.ms)
 
 iOS Build Status
 
