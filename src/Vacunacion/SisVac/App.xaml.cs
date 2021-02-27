@@ -11,6 +11,7 @@ using Prism.Navigation;
 using Refit;
 using SisVac.Framework.Data;
 using SisVac.Framework.Domain;
+using SisVac.Framework.Domain.UseCases;
 using SisVac.Framework.Http;
 using SisVac.Framework.Http.Loggin;
 using SisVac.Framework.Services;
@@ -90,6 +91,8 @@ namespace SisVac
 
             var citizensClient = RestService.For<ICitizensApiClient>(httpClient);
             containerRegistry.RegisterInstance<ICitizensApiClient>(citizensClient);
+
+            containerRegistry.RegisterSingleton<IVaccineUseCase, VaccineUseCase>();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace SisVac.Framework.Domain.UseCases
         Task<Qualification> GetQualificationData(string document);
         Task<UserResponse> GetDocumentData(string document);
         Task<Consent> GetConsentData(string document);
-        Task<VaccineTableColumnValues> GetVaccineApplicationData(string document);
+        Task<VaccineApplication> GetVaccineApplicationData(string document);
     }
 
     public class VaccineUseCase : IVaccineUseCase
@@ -54,30 +54,14 @@ namespace SisVac.Framework.Domain.UseCases
             return _citizensApiClient.GetQualification(response.document);
         }
 
-        public async Task<VaccineTableColumnValues> GetVaccineApplicationData(string document)
+        public Task<VaccineApplication> GetVaccineApplicationData(string document)
         {
             var response = ProcessDocument(document);
 
             if (!response.isValid)
                 return null;
 
-            var vaccineApplication = await _citizensApiClient.GetVaccineApplication(document);
-            if (vaccineApplication.Citizen != null)
-            {
-                var vaccinator = await GetDocumentData(vaccineApplication.Citizen.Document);
-
-                //TODO: Remove this bad practice. Having can do this in the UI layer
-                return new VaccineTableColumnValues
-                {
-                    Status = "Estatus: APLICADA",
-                    Date = $"Fecha: {vaccineApplication.Date}",
-                    Hour = $"Hora: {vaccineApplication.Hour}",
-                    Center = $"Centro: {vaccineApplication.Location}",
-                    Vaccinator = $"Vacunador: {vaccinator.Name}"
-                };
-            }
-
-            return null;
+            return _citizensApiClient.GetVaccineApplication(response.document);
         }
 
         private (string document, bool isValid) ProcessDocument(string document)
