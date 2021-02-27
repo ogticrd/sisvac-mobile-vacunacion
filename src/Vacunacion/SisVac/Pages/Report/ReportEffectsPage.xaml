@@ -74,7 +74,35 @@
 
                 <StackLayout Spacing="16">
 
-                    <views:PersonDetailView />
+                    <Frame>
+                        <Grid ColumnDefinitions="*,3*" RowDefinitions="Auto, Auto, Auto">
+
+                            <Grid.Resources>
+                                <ResourceDictionary>
+                                    <Style BasedOn="{StaticResource Body2}" TargetType="Label" />
+                                </ResourceDictionary>
+                            </Grid.Resources>
+
+                            <Image Grid.RowSpan="4" Source="logo" />
+                            <Label
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                Text="{Binding VaccineApplication.Citizen.Name}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="{Binding VaccineApplication.Citizen.Document, StringFormat='Cédula: {0}'}" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="{Binding VaccineApplication.Date, StringFormat='Fecha: {0}'}" />
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Text="{Binding Vaccinator.FullName, StringFormat='Vacunador: {0}'}" />
+
+                        </Grid>
+                    </Frame>
 
                     <Frame>
                         <StackLayout>

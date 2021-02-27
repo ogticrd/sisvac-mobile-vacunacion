@@ -2,6 +2,7 @@
 using Prism.Navigation;
 using Prism.Services;
 using SisVac.Framework.Domain;
+using SisVac.Framework.Domain.UseCases;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
 using System;
@@ -12,13 +13,17 @@ namespace SisVac.ViewModels.Report
 {
     public class ReportEffectsPageViewModel : ScanDocumentViewModel
     {
+        IVaccineUseCase _vaccineUseCase;
+
         public ReportEffectsPageViewModel(
             INavigationService navigationService,
             IPageDialogService dialogService,
             IScannerService scannerService,
             ICitizensApiClient citizensApiClient, 
-            ICacheService cacheService) : base(navigationService, dialogService, scannerService, cacheService, citizensApiClient)
+            ICacheService cacheService,
+            IVaccineUseCase vaccineUseCase) : base(navigationService, dialogService, scannerService, cacheService, citizensApiClient)
         {
+            _vaccineUseCase = vaccineUseCase;
             NextCommand = new DelegateCommand(OnNextCommandExecute);
             BackCommand = new DelegateCommand(OnBackCommandExecute);
             ValidateDocumentCommand = new DelegateCommand(OnValidateDocumentCommandExecute);
@@ -26,7 +31,8 @@ namespace SisVac.ViewModels.Report
         }
 
         #region Properties
-        public Person Patient { get; set; } = new Person();
+        public Person Vaccinator { get; set; } = new Person();
+        public VaccineApplication VaccineApplication { get; set; }
         public int PositionView { get; set; }
         public string ButtonPrimaryText { get; set; } = "Siguiente";
         public bool IsBackButtonVisible { get; set; } = false;
@@ -65,33 +71,32 @@ namespace SisVac.ViewModels.Report
 
         private async void OnValidateDocumentCommandExecute()
         {
+          
             if (DocumentID.Validate())
             {
-                await GetQualificationData(DocumentID.Value);
-
-                if (!Qualification.IsValidDocument)
+                using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
                 {
-                    await _dialogService.DisplayAlertAsync("Ups", "Documento no valido.", "Ok");
-                    return;
-                }
-
-                var userData = await GetDocumentData(DocumentID.Value);
-                if (userData != null)
-                {
-                    Patient = new ApplicationUser
+                    VaccineApplication = await _vaccineUseCase.GetVaccineApplicationData(DocumentID.Value);
+                    if (VaccineApplication.Citizen != null)
                     {
-                        Age = userData.Age,
-                        Document = userData.Cedula,
-                        FullName = userData.Name
-                    };
+                        var userData = await GetDocumentData(VaccineApplication.VaccinatorCedula);
+                        if (userData != null)
+                        {
+                            Vaccinator = new Person
+                            {
+                                Document = userData.Cedula,
+                                FullName = userData.Name
+                            };
 
-                    UpdateUI(true, 1, "Confirmar");
+                            UpdateUI(true, 1, "Confirmar");
+                        }
+                    }
+                    else
+                    {
+                        await _dialogService.DisplayAlertAsync("Ups", "Este cuidadano no se ha vacunado.", "Ok");
+                    }
                 }
-                else
-                {
-                    await _dialogService.DisplayAlertAsync("Ups", "No pudimos validar este documento.", "OK");
-                }
-            }           
+            }
         }
 
         private async void OnConfirmCommandExecute()
