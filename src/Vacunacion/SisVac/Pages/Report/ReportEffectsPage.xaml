@@ -107,22 +107,16 @@
                     <Frame>
                         <StackLayout>
                             <Label Text="¿Cuales sintomas tiene el paciente?" />
-                            <mtrl:MaterialCheckboxGroup x:Name="checkBoxGroup">
-                                <mtrl:MaterialCheckboxGroup.Choices>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Fiebre</x:String>
-                                        <x:String>Escalofríos</x:String>
-                                        <x:String>Cansancio</x:String>
-                                        <x:String>Náuseas</x:String>
-                                        <x:String>Dolor de cabeza</x:String>
-                                        <x:String>Mareos</x:String>
-                                        <x:String>Otros</x:String>
-                                    </x:Array>
-                                </mtrl:MaterialCheckboxGroup.Choices>
-                            </mtrl:MaterialCheckboxGroup>
+                            <mtrl:MaterialCheckboxGroup
+                                x:Name="checkBoxGroup"
+                                Choices="{Binding Effects}"
+                                SelectedIndices="{Binding SelectedIndicesEffect}" />
 
                             <ctrls:TextFieldLayout>
-                                <mtrl:MaterialTextField MaxLength="280" Placeholder="Observaciones" />
+                                <mtrl:MaterialTextField
+                                    MaxLength="280"
+                                    Placeholder="Observaciones"
+                                    Text="{Binding Notes}" />
                             </ctrls:TextFieldLayout>
                         </StackLayout>
                     </Frame>

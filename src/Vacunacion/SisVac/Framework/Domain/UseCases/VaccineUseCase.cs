@@ -1,4 +1,5 @@
 ﻿using SisVac.Framework.Domain.Dto;
+using SisVac.Framework.Domain.Http;
 using SisVac.Framework.Http;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace SisVac.Framework.Domain.UseCases
         Task<UserResponse> GetDocumentData(string document);
         Task<Consent> GetConsentData(string document);
         Task<VaccineApplication> GetVaccineApplicationData(string document);
+        Task<bool> PostVaccinationEffects(EffectsReport report);
     }
 
     public class VaccineUseCase : IVaccineUseCase
@@ -62,6 +64,22 @@ namespace SisVac.Framework.Domain.UseCases
                 return null;
 
             return _citizensApiClient.GetVaccineApplication(response.document);
+        }
+
+        public async Task<bool> PostVaccinationEffects(EffectsReport report)
+        {
+            try
+            {
+                var response = await _citizensApiClient.PostVaccinationSimptoms(report);
+                if (response.Cedula != null)
+                    return true;
+
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private (string document, bool isValid) ProcessDocument(string document)
