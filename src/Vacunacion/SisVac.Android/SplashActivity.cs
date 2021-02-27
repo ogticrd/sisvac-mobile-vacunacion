@@ -8,8 +8,11 @@ using Android.Content;
 
 namespace SisVac.Droid
 {
-
+#if RELEASE
     [Activity(Label="SisVacRD", Icon = "@mipmap/icon", Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
+#else
+    [Activity(Label = "SisVacRD", Icon = "@mipmap/icon_test", Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
+#endif
     public class SplashActivity : AppCompatActivity
     {
         static readonly string TAG = "X:" + typeof(SplashActivity).Name;
