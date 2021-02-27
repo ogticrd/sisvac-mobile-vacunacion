@@ -95,7 +95,7 @@
                             <Label
                                 Grid.Row="2"
                                 Grid.Column="1"
-                                Text="{Binding VaccineApplication.Date, StringFormat='Fecha: {0}'}" />
+                                Text="{Binding VaccineApplication.Date, StringFormat='Vacunación: {0}'}" />
                             <Label
                                 Grid.Row="3"
                                 Grid.Column="1"
