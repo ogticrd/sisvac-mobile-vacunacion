@@ -17,6 +17,27 @@
                     </ResourceDictionary>
                 </StackLayout.Resources>
 
+                <Frame IsVisible="False">
+                    <Frame.Triggers>
+                        <MultiTrigger TargetType="Frame">
+                            <MultiTrigger.Conditions>
+                                <BindingCondition Binding="{Binding Consent.IsPregnant}" Value="False" />
+                                <BindingCondition Binding="{Binding Consent.HadFever}" Value="False" />
+                                <BindingCondition Binding="{Binding Consent.IsVaccinated}" Value="False" />
+                                <BindingCondition Binding="{Binding Consent.HadReactions}" Value="False" />
+                                <BindingCondition Binding="{Binding Consent.IsAllergic}" Value="False" />
+                                <BindingCondition Binding="{Binding Consent.IsInmunoDeficient}" Value="False" />
+                                <BindingCondition Binding="{Binding Consent.IsMedicated}" Value="False" />
+                                <BindingCondition Binding="{Binding Consent.HasTransplant}" Value="False" />
+                            </MultiTrigger.Conditions>
+
+                            <Setter Property="IsVisible" Value="True" />
+                        </MultiTrigger>
+                    </Frame.Triggers>
+
+                    <Label Style="{StaticResource H3}" Text="Sin observaciones." />
+                </Frame>
+
                 <Frame>
                     <Frame.Triggers>
                         <DataTrigger
@@ -155,6 +176,7 @@
                         <mtrl:MaterialChip Grid.Row="1" Text="{Binding Consent.IsMedicated, Converter={StaticResource BooleanToTextConverter}}" />
                     </Grid>
                 </Frame>
+
                 <Frame>
                     <Frame.Triggers>
                         <DataTrigger
