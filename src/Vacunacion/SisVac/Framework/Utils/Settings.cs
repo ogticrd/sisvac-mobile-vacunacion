@@ -20,6 +20,7 @@ namespace SisVac.Framework.Utils
                     return Preferences.Get(IsLoggedInKey, IsLoggedInDefault);
                 }
 
+                RemoveAllSettings();
                 return false;
             }
             set 
