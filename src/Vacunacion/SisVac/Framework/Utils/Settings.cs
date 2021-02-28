@@ -1,4 +1,5 @@
-﻿using Xamarin.Essentials;
+﻿using System;
+using Xamarin.Essentials;
 
 namespace SisVac.Framework.Utils
 {
@@ -9,12 +10,30 @@ namespace SisVac.Framework.Utils
         /// </summary>
         public static bool IsLoggedIn
         {
-            get => Preferences.Get(IsLoggedInKey, IsLoggedInDefault);
-            set => Preferences.Set(IsLoggedInKey, value);
+            get
+            {
+                var loggedInDate = Preferences.Get(IsLoggedInDateKey, IsLoggedInDateDefault);
+                var expirationDate = loggedInDate.AddHours(12);
+
+                if (expirationDate > DateTime.Now)
+                {
+                    return Preferences.Get(IsLoggedInKey, IsLoggedInDefault);
+                }
+
+                return false;
+            }
+            set 
+            { 
+                Preferences.Set(IsLoggedInKey, value);
+                Preferences.Set(IsLoggedInDateKey, DateTime.Now);
+            }
         }
 
         private const string IsLoggedInKey = "isLoggedIn_key";
         private static readonly bool IsLoggedInDefault = false;
+
+        private const string IsLoggedInDateKey = "isLoggedInDate_key";
+        private static readonly DateTime IsLoggedInDateDefault = new DateTime();
 
         /// <summary>
         /// Get/Set if the it is the first time in the app
