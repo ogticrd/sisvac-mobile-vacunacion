@@ -109,8 +109,13 @@ namespace SisVac.ViewModels.Vaccine
 
             if (_vaccinatorsList?.Count > 0)
             {
-                VaccinatorsName = _vaccinatorsList.Select(v => v.FullName).ToList();
-                await Task.Run(() => IndexSelected = _vaccinatorsList.FindIndex(v => v.Document == _vaccinatorUser.Document));
+                await Task.Run(() =>
+                {
+                    VaccinatorsName = _vaccinatorsList.Select(v => v.FullName).ToList();
+
+                    var index = VaccinatorsName.FindIndex(v => v == _vaccinatorUser.FullName);
+                    VaccinatorSelected.Value = VaccinatorsName[index];
+                });
             }
         }
         private async void OnConfirmCommandExecute()
