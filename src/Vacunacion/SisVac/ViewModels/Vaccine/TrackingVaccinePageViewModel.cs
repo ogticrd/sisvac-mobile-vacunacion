@@ -69,7 +69,7 @@ namespace SisVac.ViewModels.Vaccine
         }
         public Person Patient { get; set; } = new Person();
         public Consent Consent { get; set; } = new Consent();
-        public VaccineTableColumnValues FirstVaccineApplication { get; set; } = new VaccineTableColumnValues
+        public VaccineStatus FirstVaccineApplication { get; set; } = new VaccineStatus
         {
             Status = "Estatus: NO APLICADA",
             Date = "Fecha: --",
@@ -207,7 +207,7 @@ namespace SisVac.ViewModels.Vaccine
                 if (vaccineApplication.Citizen != null)
                 {
                     var vaccinator = await GetDocumentData(vaccineApplication.Citizen.Document);
-                    FirstVaccineApplication = new VaccineTableColumnValues
+                    FirstVaccineApplication = new VaccineStatus
                     {
                         Status = "Estatus: APLICADA",
                         Date = $"Fecha: {vaccineApplication.Date}",

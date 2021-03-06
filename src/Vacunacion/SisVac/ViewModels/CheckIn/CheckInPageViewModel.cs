@@ -74,7 +74,7 @@ namespace SisVac.ViewModels.CheckIn
                 return $"Cédula: {Patient.Document}";
             }
         }
-        public VaccineTableColumnValues FirstVaccineApplication { get; set; } = new VaccineTableColumnValues
+        public VaccineStatus FirstVaccineApplication { get; set; } = new VaccineStatus
         {
             Status = "Estatus: NO APLICADA",
             Date = "Fecha: --",
@@ -172,7 +172,7 @@ namespace SisVac.ViewModels.CheckIn
                 if (vaccineApplication.Citizen != null)
                 {
                     var vaccinator = await GetDocumentData(vaccineApplication.Citizen.Document);
-                    FirstVaccineApplication = new VaccineTableColumnValues
+                    FirstVaccineApplication = new VaccineStatus
                     {
                         Status = "Estatus: APLICADA",
                         Date = $"Fecha: {vaccineApplication.Date}",
