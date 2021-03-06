@@ -52,11 +52,10 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Framework\Http\" />
+    <Folder Include="Framework\Api\" />
     <Folder Include="Framework\Extensions\" />
     <Folder Include="Framework\Data\" />
     <Folder Include="Framework\Data\Scripts\" />
-    <Folder Include="Framework\Http\Loggin\" />
     <Folder Include="Framework\Converters\" />
   </ItemGroup>
   <ItemGroup>
