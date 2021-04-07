@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <Configurations>Debug;Release;Testing</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -51,13 +52,11 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Framework\Http\" />
+    <Folder Include="Framework\Api\" />
     <Folder Include="Framework\Extensions\" />
     <Folder Include="Framework\Data\" />
     <Folder Include="Framework\Data\Scripts\" />
-    <Folder Include="Framework\Http\Loggin\" />
     <Folder Include="Framework\Converters\" />
-    <Folder Include="Framework\Domain\Dto\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Controls\TextFieldLayout.xaml.cs">

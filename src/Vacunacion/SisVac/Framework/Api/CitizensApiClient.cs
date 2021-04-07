@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Refit;
 using SisVac.Framework.Domain;
+using SisVac.Framework.Domain.Http;
 
 namespace SisVac.Framework.Http
 {
@@ -37,5 +38,8 @@ namespace SisVac.Framework.Http
 
         [Get("/citizens/qualification")]
         Task<Qualification> GetQualification(string id);
+
+        [Post("/citizens/vaccination-simptoms")]
+        Task<EffectsReport> PostVaccinationSimptoms([Body] EffectsReport report);
     }
 }

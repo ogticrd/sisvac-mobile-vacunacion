@@ -1,7 +1,7 @@
 ﻿using System;
 namespace SisVac.Framework.Domain.Dto
 {
-    public class VaccineTableColumnValues
+    public class VaccineStatus
     {
         /**/
         public string Status { get; set; }

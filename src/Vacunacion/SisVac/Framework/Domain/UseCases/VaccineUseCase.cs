@@ -1,4 +1,5 @@
 ﻿using SisVac.Framework.Domain.Dto;
+using SisVac.Framework.Domain.Http;
 using SisVac.Framework.Http;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,8 @@ namespace SisVac.Framework.Domain.UseCases
         Task<Qualification> GetQualificationData(string document);
         Task<UserResponse> GetDocumentData(string document);
         Task<Consent> GetConsentData(string document);
-        Task<VaccineTableColumnValues> GetVaccineApplicationData(string document);
+        Task<VaccineApplication> GetVaccineApplicationData(string document);
+        Task<bool> PostVaccinationEffects(EffectsReport report);
     }
 
     public class VaccineUseCase : IVaccineUseCase
@@ -54,30 +56,30 @@ namespace SisVac.Framework.Domain.UseCases
             return _citizensApiClient.GetQualification(response.document);
         }
 
-        public async Task<VaccineTableColumnValues> GetVaccineApplicationData(string document)
+        public Task<VaccineApplication> GetVaccineApplicationData(string document)
         {
             var response = ProcessDocument(document);
 
             if (!response.isValid)
                 return null;
 
-            var vaccineApplication = await _citizensApiClient.GetVaccineApplication(document);
-            if (vaccineApplication.Citizen != null)
+            return _citizensApiClient.GetVaccineApplication(response.document);
+        }
+
+        public async Task<bool> PostVaccinationEffects(EffectsReport report)
+        {
+            try
             {
-                var vaccinator = await GetDocumentData(vaccineApplication.Citizen.Document);
+                var response = await _citizensApiClient.PostVaccinationSimptoms(report);
+                if (response.Cedula != null)
+                    return true;
 
-                //TODO: Remove this bad practice. Having can do this in the UI layer
-                return new VaccineTableColumnValues
-                {
-                    Status = "Estatus: APLICADA",
-                    Date = $"Fecha: {vaccineApplication.Date}",
-                    Hour = $"Hora: {vaccineApplication.Hour}",
-                    Center = $"Centro: {vaccineApplication.Location}",
-                    Vaccinator = $"Vacunador: {vaccinator.Name}"
-                };
+                return false;
             }
-
-            return null;
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private (string document, bool isValid) ProcessDocument(string document)

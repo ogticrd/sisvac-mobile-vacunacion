@@ -2,9 +2,12 @@
 using Prism.Navigation;
 using Prism.Services;
 using SisVac.Framework.Domain;
+using SisVac.Framework.Domain.Http;
+using SisVac.Framework.Domain.UseCases;
 using SisVac.Framework.Http;
 using SisVac.Framework.Services;
 using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 using XF.Material.Forms.UI.Dialogs;
 
@@ -12,21 +15,31 @@ namespace SisVac.ViewModels.Report
 {
     public class ReportEffectsPageViewModel : ScanDocumentViewModel
     {
+        IVaccineUseCase _vaccineUseCase;
+
         public ReportEffectsPageViewModel(
             INavigationService navigationService,
             IPageDialogService dialogService,
             IScannerService scannerService,
             ICitizensApiClient citizensApiClient, 
-            ICacheService cacheService) : base(navigationService, dialogService, scannerService, cacheService, citizensApiClient)
+            ICacheService cacheService,
+            IVaccineUseCase vaccineUseCase) : base(navigationService, dialogService, scannerService, cacheService, citizensApiClient)
         {
+            _vaccineUseCase = vaccineUseCase;
             NextCommand = new DelegateCommand(OnNextCommandExecute);
             BackCommand = new DelegateCommand(OnBackCommandExecute);
             ValidateDocumentCommand = new DelegateCommand(OnValidateDocumentCommandExecute);
             DocumentScanned = id => OnConfirmCommandExecute();
+
+            Effects = new List<string>()
+            {
+                "Fiebre", "Escalofríos", "Cansancio", "Náuseas", "Dolor de cabeza", "Mareos", "Otros"
+            };
         }
 
         #region Properties
-        public Person Patient { get; set; } = new Person();
+        public Person Vaccinator { get; set; } = new Person();
+        public VaccineApplication VaccineApplication { get; set; }
         public int PositionView { get; set; }
         public string ButtonPrimaryText { get; set; } = "Siguiente";
         public bool IsBackButtonVisible { get; set; } = false;
@@ -37,7 +50,10 @@ namespace SisVac.ViewModels.Report
             {
                 return $"Paso {PositionView + 1} de 2";
             }
-        } 
+        }
+        public List<string> Effects { get; set; }
+        public List<int> SelectedIndicesEffect { get; set; } = new List<int>();
+        public string Notes { get; set; } = "";
         #endregion
 
 
@@ -65,33 +81,32 @@ namespace SisVac.ViewModels.Report
 
         private async void OnValidateDocumentCommandExecute()
         {
+          
             if (DocumentID.Validate())
             {
-                await GetQualificationData(DocumentID.Value);
-
-                if (!Qualification.IsValidDocument)
+                using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
                 {
-                    await _dialogService.DisplayAlertAsync("Ups", "Documento no valido.", "Ok");
-                    return;
-                }
-
-                var userData = await GetDocumentData(DocumentID.Value);
-                if (userData != null)
-                {
-                    Patient = new ApplicationUser
+                    VaccineApplication = await _vaccineUseCase.GetVaccineApplicationData(DocumentID.Value);
+                    if (VaccineApplication.Citizen != null)
                     {
-                        Age = userData.Age,
-                        Document = userData.Cedula,
-                        FullName = userData.Name
-                    };
+                        var userData = await GetDocumentData(VaccineApplication.VaccinatorCedula);
+                        if (userData != null)
+                        {
+                            Vaccinator = new Person
+                            {
+                                Document = userData.Cedula,
+                                FullName = userData.Name
+                            };
 
-                    UpdateUI(true, 1, "Confirmar");
+                            UpdateUI(true, 1, "Confirmar");
+                        }
+                    }
+                    else
+                    {
+                        await _dialogService.DisplayAlertAsync("Ups", "Este cuidadano no se ha vacunado.", "Ok");
+                    }
                 }
-                else
-                {
-                    await _dialogService.DisplayAlertAsync("Ups", "No pudimos validar este documento.", "OK");
-                }
-            }           
+            }
         }
 
         private async void OnConfirmCommandExecute()
@@ -101,15 +116,63 @@ namespace SisVac.ViewModels.Report
 
             IsBusy = true;
 
-            using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
+            if (SelectedIndicesEffect.Count <= 0)
             {
-                // TODO: Call API Here
-                // TODO: Send confirmation to the server
+                await _dialogService.DisplayAlertAsync("Ups", "Necesitas seleccionar algunos efectos para continuar.", "Ok");
+                IsBusy = false;
+                return;
             }
 
-            await _dialogService.DisplayAlertAsync("Proceso finalizado", "Has terminado satisfactoriamente.", "Ok");
-            await _navigationService.GoBackAsync();
+            using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Validando..."))
+            {
+                var report = new EffectsReport()
+                {
+                    Cedula = VaccineApplication.Citizen.Document,
+                    Notes = Notes
+                };
 
+                foreach (var item in SelectedIndicesEffect)
+                {
+                    switch (Effects[item])
+                    {
+                        case "Fiebre":
+                            report.HadFever = true;
+                            break;
+                        case "Escalofríos":
+                            report.HadChills = true;
+                            break;
+                        case "Cansancio":
+                            report.HadTiredness = true;
+                            break;
+                        case "Náuseas":
+                            report.HadNausea = true;
+                            break;
+                        case "Dolor de cabeza":
+                            report.HadHeadache = true;
+                            break;
+                        case "Mareos":
+                            report.HadDizziness = true;
+                            break;
+                        case "Otros":
+                            report.HadOther = true;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                var response = await _vaccineUseCase.PostVaccinationEffects(report);
+                if (response)
+                {
+                    await _dialogService.DisplayAlertAsync("Proceso finalizado", "Has terminado satisfactoriamente.", "Ok");
+                    await _navigationService.GoBackAsync();
+                }
+                else
+                {
+                    await _dialogService.DisplayAlertAsync("Ups", "No pudimos procesar su solicitud. Inténtelo de nuevo más tarde.", "Ok");
+                }
+            }
+            
             IsBusy = false;
         }
 
